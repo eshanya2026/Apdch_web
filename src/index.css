@@ -1,0 +1,334 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   APDCH theme — edit only the four palette values below.
+   All colors, gradients, and shadows derive from these.
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --apdch-100: #F5F5F5;
+  --apdch-300: #A3485A;
+  --apdch-500: #842A3B;
+  --apdch-700: #662222;
+
+  /* Semantic tokens (derived from palette above) */
+  --color-primary: var(--apdch-500);
+  --color-primary-dark: var(--apdch-700);
+  --color-secondary: var(--apdch-300);
+  --color-accent: #C96B7A;
+  --color-background: var(--apdch-100);
+  --color-foreground: #1A1214;
+  --color-muted: #6B5A5E;
+  --color-border: #E8DDE0;
+  --color-surface: #ffffff;
+  --color-surface-soft: #F8F0F2;
+  --color-footer: #2A1218;
+
+  /* Hero & CTA overlays */
+  --hero-overlay-from: #1A0A0E;
+  --hero-overlay-via: #000000;
+  --hero-overlay-to: color-mix(in srgb, var(--apdch-500) 45%, transparent);
+  --cta-gradient-end: var(--apdch-700);
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --color-surface: var(--color-surface);
+  --color-surface-soft: var(--color-surface-soft);
+  --color-footer: var(--color-footer);
+
+  --font-sans: "Lato", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Google Sans", "Lato", ui-sans-serif, system-ui, sans-serif;
+  --font-hero: "Google Sans", "Lato", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-float-delayed: float 10s ease-in-out 1.5s infinite;
+  --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
+  --animate-accordion-down: accordion-down 0.28s ease-out;
+  --animate-accordion-up: accordion-up 0.22s ease-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  p {
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-primary) 28%, transparent);
+    color: var(--color-foreground);
+  }
+}
+
+/* Custom circle cursor — desktop only (class toggled by JS) */
+@media (hover: hover) and (pointer: fine) {
+  html.cursor-none-site,
+  html.cursor-none-site * {
+    cursor: none !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      var(--apdch-500) 0%,
+      var(--apdch-700) 55%,
+      var(--apdch-300) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-heading-gradient {
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      #ffffff 35%,
+      var(--apdch-300) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .mesh-bg {
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, color-mix(in srgb, var(--apdch-500) 12%, transparent), transparent),
+      radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in srgb, var(--apdch-700) 10%, transparent), transparent),
+      radial-gradient(ellipse 50% 30% at 50% 100%, color-mix(in srgb, var(--apdch-300) 22%, transparent), transparent);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--hero-overlay-from) 88%, transparent) 0%,
+      color-mix(in srgb, var(--hero-overlay-via) 55%, transparent) 45%,
+      color-mix(in srgb, var(--apdch-700) 70%, transparent) 100%
+    );
+  }
+
+  .cta-gradient {
+    background: linear-gradient(
+      to bottom right,
+      var(--color-primary),
+      var(--color-secondary),
+      var(--cta-gradient-end)
+    );
+  }
+
+  .glow-radial-tr {
+    background: radial-gradient(
+      ellipse at top right,
+      color-mix(in srgb, var(--apdch-500) 30%, transparent),
+      transparent 45%
+    );
+  }
+
+  .glow-radial-t {
+    background: radial-gradient(
+      ellipse at top,
+      color-mix(in srgb, var(--apdch-500) 25%, transparent),
+      transparent 50%
+    );
+  }
+
+  .glow-radial-accent {
+    background: radial-gradient(
+      ellipse at top right,
+      color-mix(in srgb, var(--apdch-300) 25%, transparent),
+      transparent 50%
+    );
+  }
+
+  .glow-radial-center {
+    background: radial-gradient(
+      ellipse at center,
+      color-mix(in srgb, var(--apdch-500) 35%, transparent),
+      transparent 55%
+    );
+  }
+
+  .shadow-brand-xs {
+    box-shadow: 0 16px 40px -28px color-mix(in srgb, var(--apdch-500) 35%, transparent);
+  }
+
+  .shadow-brand-sm {
+    box-shadow: 0 20px 50px -30px color-mix(in srgb, var(--apdch-500) 40%, transparent);
+  }
+
+  .shadow-brand {
+    box-shadow: 0 28px 60px -36px color-mix(in srgb, var(--apdch-500) 45%, transparent);
+  }
+
+  .shadow-brand-lg {
+    box-shadow: 0 30px 70px -40px color-mix(in srgb, var(--apdch-500) 45%, transparent);
+  }
+
+  .shadow-brand-xl {
+    box-shadow: 0 40px 90px -48px color-mix(in srgb, var(--apdch-500) 55%, transparent);
+  }
+
+  .shadow-brand-card {
+    box-shadow: 0 24px 60px -40px color-mix(in srgb, var(--apdch-500) 30%, transparent);
+  }
+
+  .shadow-brand-toolbar {
+    box-shadow: 0 24px 60px -36px color-mix(in srgb, var(--apdch-500) 40%, transparent);
+  }
+
+  .shadow-brand-icon {
+    box-shadow: 0 12px 30px -12px color-mix(in srgb, var(--apdch-500) 65%, transparent);
+  }
+
+  .shadow-brand-btn {
+    box-shadow: 0 10px 28px -12px color-mix(in srgb, var(--apdch-500) 70%, transparent);
+  }
+
+  .shadow-brand-pill {
+    box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--apdch-500) 80%, transparent);
+  }
+
+  .hover\:shadow-brand:hover {
+    box-shadow: 0 28px 60px -36px color-mix(in srgb, var(--apdch-500) 45%, transparent);
+  }
+
+  .hover\:shadow-brand-sm:hover {
+    box-shadow: 0 20px 50px -30px color-mix(in srgb, var(--apdch-500) 40%, transparent);
+  }
+
+  .hover\:shadow-brand-lg:hover {
+    box-shadow: 0 28px 60px -36px color-mix(in srgb, var(--apdch-500) 55%, transparent);
+  }
+
+  .hover\:shadow-brand-xl:hover {
+    box-shadow: 0 32px 70px -40px color-mix(in srgb, var(--apdch-500) 45%, transparent);
+  }
+
+  .hover\:shadow-brand-xs:hover {
+    box-shadow: 0 18px 40px -28px color-mix(in srgb, var(--apdch-500) 35%, transparent);
+  }
+
+  .glow-cta-overlay {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 35%),
+      radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--apdch-300) 25%, transparent), transparent 40%);
+  }
+
+  .shadow-brand-button {
+    box-shadow: 0 8px 30px -10px color-mix(in srgb, var(--apdch-500) 65%, transparent);
+  }
+
+  .shadow-brand-secondary {
+    box-shadow: 0 8px 30px -12px color-mix(in srgb, var(--apdch-700) 55%, transparent);
+  }
+
+  .shadow-brand-accordion {
+    box-shadow: 0 12px 40px -24px color-mix(in srgb, var(--apdch-500) 35%, transparent);
+  }
+
+  .glow-radial-tl {
+    background: radial-gradient(
+      ellipse at top left,
+      color-mix(in srgb, var(--apdch-500) 35%, transparent),
+      transparent 45%
+    );
+  }
+
+  .glow-radial-bl {
+    background: radial-gradient(
+      ellipse at bottom left,
+      color-mix(in srgb, var(--apdch-700) 28%, transparent),
+      transparent 45%
+    );
+  }
+
+  .glow-radial-br {
+    background: radial-gradient(
+      ellipse at bottom right,
+      color-mix(in srgb, var(--apdch-700) 25%, transparent),
+      transparent 45%
+    );
+  }
+
+  .glow-radial-dual {
+    background:
+      radial-gradient(ellipse at top left, color-mix(in srgb, var(--apdch-500) 35%, transparent), transparent 45%),
+      radial-gradient(ellipse at bottom right, color-mix(in srgb, var(--apdch-700) 20%, transparent), transparent 40%);
+  }
+
+  .hover\:shadow-brand-strong:hover {
+    box-shadow: 0 28px 60px -30px color-mix(in srgb, var(--apdch-500) 65%, transparent);
+  }
+
+  .hover\:shadow-brand-intense:hover {
+    box-shadow: 0 28px 60px -36px color-mix(in srgb, var(--apdch-500) 50%, transparent);
+  }
+
+  .hover\:shadow-brand-cta:hover {
+    box-shadow: 0 30px 70px -40px color-mix(in srgb, var(--apdch-500) 55%, transparent);
+  }
+
+  .hover\:shadow-brand-card:hover {
+    box-shadow: 0 16px 40px -32px color-mix(in srgb, var(--apdch-500) 25%, transparent);
+  }
+}
