@@ -12,13 +12,21 @@ function LeadershipMessage({ person, reverse = false }) {
           reverse && 'lg:grid-cols-[1.2fr_0.9fr]'
         )}
       >
-        <div className={cn('relative h-72 overflow-hidden lg:h-full lg:min-h-[420px]', reverse && 'lg:order-2')}>
+        <div
+          className={cn(
+            'relative h-72 overflow-hidden bg-[#DCDCDC] lg:h-full lg:min-h-[420px]',
+            reverse && 'lg:order-2'
+          )}
+        >
           <img
             src={person.image}
             alt={person.name}
-            className="h-full w-full object-cover"
+            className={cn(
+              'h-full w-full object-cover object-top',
+              person.blendWhiteBg && 'mix-blend-multiply'
+            )}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-foreground/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/45 via-transparent to-transparent lg:hidden" />
           <div className="absolute bottom-5 left-5 right-5 lg:hidden">
             <p className="font-display text-2xl text-white">{person.name}</p>
             <p className="text-sm text-accent">{person.role}</p>
@@ -72,12 +80,12 @@ export function ChairmanMessage() {
 
 export function PrincipalMessage() {
   return (
-    <section className="bg-background px-5 pt-20 pb-24 md:px-8 md:pt-28 md:pb-32">
+    <section className="bg-background px-5 py-24 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading
             eyebrow="Academic leadership"
-            title="A Message from the Principal"
+            title="Principal's Message"
             description="Insights from the academic helm on learning, clinics, and student growth."
           />
         </Reveal>

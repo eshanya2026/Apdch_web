@@ -100,15 +100,16 @@ export const CLINICAL_HOME = {
 }
 
 export const DEPARTMENTS_HOME = [
-  'Conservative Dentistry & Endodontics',
-  'Orthodontics',
-  'Prosthodontics',
-  'Periodontics',
-  'Oral & Maxillofacial Surgery',
-  'Pedodontics & Preventive Dentistry',
   'Oral Medicine & Radiology',
-  'Oral Pathology & Microbiology',
+  'Conservative Dentistry & Endodontics',
+  'Oral & Maxillofacial Surgery',
+  'Orthodontics & Dentofacial Orthopaedics',
+  'Prosthodontics & Crown & Bridge',
+  'Periodontics & Implantology',
+  'Pedodontics & Preventive Dentistry',
   'Public Health Dentistry',
+  'Oral & Maxillofacial Pathology',
+  'Department of Implantology',
 ]
 
 export const FACILITIES_HOME = [

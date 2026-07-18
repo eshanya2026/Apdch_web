@@ -11,13 +11,19 @@ export const ACADEMIC_PROGRAMS = [
   {
     title: 'Bachelor of Dental Surgery',
     short: 'BDS',
-    duration: '4 Years + 1 Year CRRI',
-    highlights: ['DCI Curriculum', 'Eligibility through NEET', 'Undergraduate Programme'],
     icon: 'GraduationCap',
+    facts: [
+      { label: 'Duration', value: '5 Years' },
+      { label: 'Seats', value: '100' },
+      { label: 'Internship', value: '1 Year' },
+      { label: 'Eligibility', value: 'NEET' },
+    ],
   },
   {
     title: 'Master of Dental Surgery',
     short: 'MDS',
+    icon: 'Award',
+    facts: [{ label: 'Duration', value: '3 Years' }],
     specialtiesLabel: 'Available Specialties',
     specialties: [
       'Orthodontics & Dentofacial Orthopedics',
@@ -28,7 +34,6 @@ export const ACADEMIC_PROGRAMS = [
       'Oral Pathology & Microbiology',
       'Pedodontics & Preventive Dentistry',
     ],
-    icon: 'Award',
   },
 ]
 
@@ -115,15 +120,15 @@ export const CLINICAL_TRAINING_SECTION = {
 }
 
 export const CLINICAL_TRAINING = [
+  { title: 'Oral Medicine & Radiology', icon: 'ScanSearch' },
   { title: 'Conservative Dentistry & Endodontics', icon: 'Target' },
   { title: 'Oral & Maxillofacial Surgery', icon: 'Bone' },
-  { title: 'Prosthodontics', icon: 'Sparkles' },
-  { title: 'Orthodontics', icon: 'Smile' },
-  { title: 'Periodontology', icon: 'Leaf' },
-  { title: 'Pedodontics', icon: 'Baby' },
-  { title: 'Oral Medicine & Radiology', icon: 'ScanSearch' },
+  { title: 'Orthodontics & Dentofacial Orthopaedics', icon: 'Smile' },
+  { title: 'Prosthodontics & Crown & Bridge', icon: 'Sparkles' },
+  { title: 'Periodontics & Implantology', icon: 'Leaf' },
+  { title: 'Pedodontics & Preventive Dentistry', icon: 'Baby' },
   { title: 'Public Health Dentistry', icon: 'UsersRound' },
-  { title: 'Oral Pathology & Microbiology', icon: 'FlaskConical' },
+  { title: 'Oral & Maxillofacial Pathology', icon: 'FlaskConical' },
 ]
 
 export const RESEARCH_ACADEMICS_SECTION = {

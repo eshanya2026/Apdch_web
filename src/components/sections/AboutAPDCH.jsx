@@ -10,11 +10,11 @@ export default function AboutAPDCH() {
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <div className="overflow-hidden rounded-[1.75rem] shadow-brand-lg">
+            <div className="group overflow-hidden rounded-[1.75rem] shadow-brand-lg">
               <img
                 src={ABOUT_HOME.image}
                 alt="About Adhiparasakthi Dental College and Hospital"
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-4/3 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
             </div>
           </Reveal>

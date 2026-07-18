@@ -26,30 +26,27 @@ export default function AcademicPrograms() {
                     <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-brand-icon transition-transform group-hover:scale-110">
                       <Icon className="h-5 w-5" />
                     </span>
-                    {program.duration && (
-                      <span className="rounded-full bg-surface-soft px-3 py-1 text-xs font-semibold text-primary">
-                        {program.duration}
-                      </span>
-                    )}
+                    <span className="rounded-full bg-surface-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                      {program.short}
+                    </span>
                   </div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
-                    {program.short}
-                  </p>
-                  <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
+
+                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">
                     {program.title}
                   </h3>
 
-                  {program.highlights && (
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {program.highlights.map((item) => (
-                        <span
-                          key={item}
-                          className="rounded-full bg-background px-3 py-1.5 text-xs font-medium text-foreground/70"
+                  {program.facts && (
+                    <dl className="mt-6 space-y-0 divide-y divide-border/70 overflow-hidden rounded-2xl border border-border/70 bg-background/50">
+                      {program.facts.map((fact) => (
+                        <div
+                          key={fact.label}
+                          className="flex items-center justify-between gap-4 px-4 py-3"
                         >
-                          {item}
-                        </span>
+                          <dt className="text-sm text-muted">{fact.label}</dt>
+                          <dd className="text-sm font-semibold text-foreground">{fact.value}</dd>
+                        </div>
                       ))}
-                    </div>
+                    </dl>
                   )}
 
                   {program.specialties && (

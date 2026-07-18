@@ -16,12 +16,17 @@ function hasDarkHero(pathname) {
   )
 }
 
+function isNavGroupActive(pathname, href) {
+  if (href === '/') return pathname === '/'
+  return pathname === href || pathname.startsWith(`${href}/`)
+}
+
 export default function Navbar() {
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
+  const [mobileOpenHref, setMobileOpenHref] = useState(null)
   const lastY = useRef(0)
 
   const darkHero = hasDarkHero(pathname)
@@ -39,14 +44,11 @@ export default function Navbar() {
 
       setScrolled(y > 40)
 
-      // Always show near the top / over the hero
       if (y < 80) {
         setHidden(false)
       } else if (pastHero && delta > 6) {
-        // Scrolling down past hero → hide
         setHidden(true)
       } else if (delta < -6) {
-        // Scrolling up → show
         setHidden(false)
       }
 
@@ -59,7 +61,10 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false)
-    setMobileAboutOpen(pathname.startsWith('/about'))
+    const activeGroup = NAV_LINKS.find(
+      (link) => link.children && isNavGroupActive(pathname, link.href)
+    )
+    setMobileOpenHref(activeGroup?.href ?? null)
     setHidden(false)
   }, [pathname])
 
@@ -70,10 +75,7 @@ export default function Navbar() {
     }
   }, [open])
 
-  // Keep header visible while the mobile menu is open
   const visible = open || !hidden
-
-  const isAboutActive = pathname.startsWith('/about')
 
   const linkClass = (active = false) =>
     cn(
@@ -140,19 +142,35 @@ export default function Navbar() {
                 <div key={link.href} className="group relative">
                   <NavLink
                     to={link.href}
-                    className={({ isActive }) =>
-                      cn(linkClass(isActive || isAboutActive), 'inline-flex items-center gap-0.5')
+                    className={() =>
+                      cn(
+                        linkClass(isNavGroupActive(pathname, link.href)),
+                        'inline-flex items-center gap-0.5'
+                      )
                     }
                   >
                     {link.label}
                     <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:rotate-180" />
                   </NavLink>
-                  <div className="pointer-events-none absolute left-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                    <div className="min-w-[11rem] overflow-hidden rounded-2xl border border-border/60 bg-white/95 p-1.5 shadow-[0_16px_40px_-20px_rgba(17,24,39,0.35)] backdrop-blur-xl">
+                  <div
+                    className={cn(
+                      'pointer-events-none absolute top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100',
+                      link.children.length > 4 ? 'right-0' : 'left-0'
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        'overflow-hidden rounded-2xl border border-border/60 bg-white/95 shadow-[0_16px_40px_-20px_rgba(17,24,39,0.35)] backdrop-blur-xl',
+                        link.children.length > 4
+                          ? 'grid w-[42rem] grid-cols-2 gap-1 p-2.5'
+                          : 'min-w-[11rem] p-1.5'
+                      )}
+                    >
                       {link.children.map((child) => (
                         <NavLink
                           key={child.href}
                           to={child.href}
+                          end={child.href === link.href}
                           className={({ isActive }) =>
                             cn(
                               'block rounded-xl px-3 py-2 text-[13px] font-medium transition-colors',
@@ -221,7 +239,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.98 }}
               transition={{ duration: 0.22 }}
-              className="mt-2 overflow-hidden rounded-[1.75rem] border border-border/50 bg-white/95 shadow-[0_20px_50px_-24px_rgba(17,24,39,0.35)] backdrop-blur-xl lg:hidden"
+              className="mt-2 max-h-[min(80vh,36rem)] overflow-y-auto rounded-[1.75rem] border border-border/50 bg-white/95 shadow-[0_20px_50px_-24px_rgba(17,24,39,0.35)] backdrop-blur-xl lg:hidden"
             >
               <div className="flex flex-col gap-1 px-4 py-4">
                 {NAV_LINKS.map((link) =>
@@ -229,25 +247,29 @@ export default function Navbar() {
                     <div key={link.href} className="flex flex-col">
                       <button
                         type="button"
-                        onClick={() => setMobileAboutOpen((v) => !v)}
+                        onClick={() =>
+                          setMobileOpenHref((current) =>
+                            current === link.href ? null : link.href
+                          )
+                        }
                         className={cn(
                           'flex w-full items-center justify-between rounded-xl px-3 py-3 text-base font-medium transition-colors',
-                          isAboutActive
+                          isNavGroupActive(pathname, link.href)
                             ? 'bg-primary/10 text-primary'
                             : 'text-foreground hover:bg-surface-soft'
                         )}
-                        aria-expanded={mobileAboutOpen}
+                        aria-expanded={mobileOpenHref === link.href}
                       >
                         {link.label}
                         <ChevronDown
                           className={cn(
                             'h-4 w-4 shrink-0 opacity-60 transition-transform duration-200',
-                            mobileAboutOpen && 'rotate-180'
+                            mobileOpenHref === link.href && 'rotate-180'
                           )}
                         />
                       </button>
                       <AnimatePresence initial={false}>
-                        {mobileAboutOpen && (
+                        {mobileOpenHref === link.href && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
@@ -260,6 +282,7 @@ export default function Navbar() {
                                 <NavLink
                                   key={child.href}
                                   to={child.href}
+                                  end={child.href === link.href}
                                   onClick={() => setOpen(false)}
                                   className={({ isActive }) =>
                                     cn(

@@ -1,14 +1,15 @@
 export const FACULTY_FILTERS = [
   { id: 'all', label: 'All' },
-  { id: 'oral-medicine', label: 'Oral Medicine' },
-  { id: 'oral-surgery', label: 'Oral Surgery' },
+  { id: 'oral-medicine', label: 'Oral Medicine & Radiology' },
+  { id: 'conservative-dentistry', label: 'Conservative Dentistry' },
+  { id: 'oral-surgery', label: 'Oral & Maxillofacial Surgery' },
   { id: 'orthodontics', label: 'Orthodontics' },
-  { id: 'periodontics', label: 'Periodontics' },
-  { id: 'pedodontics', label: 'Pedodontics' },
   { id: 'prosthodontics', label: 'Prosthodontics' },
-  { id: 'conservative-dentistry', label: 'Conservative' },
-  { id: 'oral-pathology', label: 'Oral Pathology' },
-  { id: 'public-health-dentistry', label: 'Public Health' },
+  { id: 'periodontics', label: 'Periodontics & Implantology' },
+  { id: 'pedodontics', label: 'Pedodontics' },
+  { id: 'public-health-dentistry', label: 'Public Health Dentistry' },
+  { id: 'oral-pathology', label: 'Oral & Maxillofacial Pathology' },
+  { id: 'implantology', label: 'Implantology' },
 ]
 
 export const FACULTY = [

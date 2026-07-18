@@ -1,6 +1,12 @@
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 
 export default function DetailOverview({ department }) {
+  const title = department.aboutTitle ?? `About ${department.name}`
+  const paragraphs =
+    department.aboutParagraphs?.length > 0
+      ? department.aboutParagraphs
+      : [department.details, department.overviewExtra].filter(Boolean)
+
   return (
     <section className="mesh-bg px-5 py-24 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
@@ -9,13 +15,17 @@ export default function DetailOverview({ department }) {
             <SectionHeading
               align="left"
               eyebrow="Overview"
-              title={`About ${department.name}`}
-              description={department.details}
+              title={title}
+              description={paragraphs[0]}
             />
-            <p className="mt-6 text-base leading-relaxed text-muted">{department.overviewExtra}</p>
+            {paragraphs.slice(1).map((para) => (
+              <p key={para.slice(0, 48)} className="mt-5 text-base leading-relaxed text-muted">
+                {para}
+              </p>
+            ))}
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="grid gap-4 sm:grid-cols-2">
               {department.stats.map((stat) => (
                 <div
                   key={stat.label}

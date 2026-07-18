@@ -51,8 +51,7 @@ export const MISSION = {
 export const CHAIRMAN = {
   name: 'Dr. T. Ramesh, M.D.',
   role: 'Correspondent',
-  image:
-    'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80&auto=format&fit=crop',
+  image: '/17704cf8-fa0a-4a80-8a34-def76ca97f34.png',
   message: [
     'At Adhiparasakthi Dental College & Hospital, we are committed to nurturing skilled, ethical, and compassionate dental professionals. Through quality education, advanced clinical training, experienced faculty, and a culture of innovation, we prepare students to excel in an ever-evolving healthcare landscape. We warmly welcome every aspiring student to be part of our journey towards excellence in dental education and patient care.',
   ],
@@ -62,8 +61,8 @@ export const CHAIRMAN = {
 export const PRINCIPAL = {
   name: 'Dr. S. Shamala',
   role: 'Principal & HOD, Department of Oral & Maxillofacial Pathology',
-  image:
-    'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80&auto=format&fit=crop',
+  image: '/71cb32bc-6336-4802-bf07-dedfcd2efd72.png',
+  blendWhiteBg: true,
   message: [
     'Welcome to Adhiparasakthi Dental College & Hospital, where academic excellence meets compassionate patient care. We are committed to providing quality dental education through experienced faculty, advanced clinical training, and modern infrastructure. Our goal is to empower every student with the knowledge, skills, and confidence to build a successful career in dentistry and make a meaningful contribution to society.',
   ],

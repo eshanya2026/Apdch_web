@@ -17,12 +17,26 @@ export const ABOUT_NAV_LINKS = [
   { label: 'Campus Life', href: '/about/campus-life' },
 ]
 
+export const DEPARTMENTS_NAV_LINKS = [
+  { label: 'All Departments', href: '/departments' },
+  { label: 'Oral Medicine & Radiology', href: '/departments/oral-medicine' },
+  { label: 'Conservative Dentistry & Endodontics', href: '/departments/conservative-dentistry' },
+  { label: 'Oral & Maxillofacial Surgery', href: '/departments/oral-surgery' },
+  { label: 'Orthodontics & Dentofacial Orthopaedics', href: '/departments/orthodontics' },
+  { label: 'Prosthodontics & Crown & Bridge', href: '/departments/prosthodontics' },
+  { label: 'Periodontics & Implantology', href: '/departments/periodontics' },
+  { label: 'Pedodontics & Preventive Dentistry', href: '/departments/pedodontics' },
+  { label: 'Public Health Dentistry', href: '/departments/public-health-dentistry' },
+  { label: 'Oral & Maxillofacial Pathology', href: '/departments/oral-pathology' },
+  { label: 'Department of Implantology', href: '/departments/implantology' },
+]
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
   { label: 'About', href: '/about', type: 'route', children: ABOUT_NAV_LINKS },
   { label: 'Admissions', href: '/admissions', type: 'route' },
   { label: 'Academics', href: '/academics', type: 'route' },
-  { label: 'Departments', href: '/departments', type: 'route' },
+  { label: 'Departments', href: '/departments', type: 'route', children: DEPARTMENTS_NAV_LINKS },
   { label: 'Faculty', href: '/faculty', type: 'route' },
   { label: 'Research', href: '/research', type: 'route' },
   { label: 'Hospital', href: '/hospital', type: 'route' },
@@ -192,15 +206,15 @@ export const HOSPITAL_PILLARS = [
 ]
 
 export const SPECIALITIES = [
-  { title: 'Oral & Maxillofacial Surgery', description: 'Complex craniofacial reconstruction and trauma care.', icon: 'Bone' },
-  { title: 'Orthodontics', description: 'Aligned smiles shaped by evidence and aesthetics.', icon: 'Smile' },
-  { title: 'Periodontology', description: 'Foundational gum health for lifelong dentitions.', icon: 'Leaf' },
-  { title: 'Prosthodontics', description: 'Restoring form and function with digital precision.', icon: 'Sparkles' },
-  { title: 'Endodontics', description: 'Microscopic root canal therapy preserving natural teeth.', icon: 'Target' },
-  { title: 'Pediatric Dentistry', description: 'Gentle, specialist care for growing smiles.', icon: 'Baby' },
   { title: 'Oral Medicine & Radiology', description: 'Diagnostic clarity for systemic oral disease.', icon: 'ScanSearch' },
+  { title: 'Conservative Dentistry & Endodontics', description: 'Tooth-preserving restorative and endodontic care.', icon: 'Target' },
+  { title: 'Oral & Maxillofacial Surgery', description: 'Complex craniofacial reconstruction and trauma care.', icon: 'Bone' },
+  { title: 'Orthodontics & Dentofacial Orthopaedics', description: 'Aligned smiles shaped by evidence and aesthetics.', icon: 'Smile' },
+  { title: 'Prosthodontics & Crown & Bridge', description: 'Restoring form and function with digital precision.', icon: 'Sparkles' },
+  { title: 'Periodontics & Implantology', description: 'Foundational gum health for lifelong dentitions.', icon: 'Leaf' },
+  { title: 'Pedodontics & Preventive Dentistry', description: 'Gentle, specialist care for growing smiles.', icon: 'Baby' },
   { title: 'Public Health Dentistry', description: 'Population strategies that expand access to care.', icon: 'UsersRound' },
-  { title: 'Oral Pathology', description: 'Laboratory excellence informing every biopsy.', icon: 'FlaskConical' },
+  { title: 'Oral & Maxillofacial Pathology', description: 'Laboratory excellence informing every biopsy.', icon: 'FlaskConical' },
 ]
 
 export const RESEARCH = [

@@ -58,19 +58,20 @@ export const HOSPITAL_SPECIALTIES_SECTION = {
   eyebrow: 'Specialities',
   title: 'Specialty Care Across Every Discipline',
   description:
-    'Nine clinical departments working together to deliver accurate diagnosis, specialist treatment, and continuity of care.',
+    'Nine clinical departments and a dedicated Implantology unit working together to deliver accurate diagnosis, specialist treatment, and continuity of care.',
 }
 
 export const HOSPITAL_SPECIALTIES = [
   { title: 'Oral Medicine & Radiology', description: 'Diagnosis of oral diseases, orofacial pain, and advanced imaging.', href: '/departments/oral-medicine', icon: 'Scan' },
-  { title: 'Oral & Maxillofacial Surgery', description: 'Surgical care for facial trauma, impactions, and complex procedures.', href: '/departments/oral-surgery', icon: 'Activity' },
-  { title: 'Orthodontics', description: 'Braces and alignment treatment guided by facial aesthetics and function.', href: '/departments/orthodontics', icon: 'AlignCenter' },
-  { title: 'Periodontology', description: 'Gum therapy and periodontal care that protects natural teeth and implants.', href: '/departments/periodontics', icon: 'Leaf' },
-  { title: 'Pedodontics', description: 'Specialist care for children with behaviour guidance and preventive focus.', href: '/departments/pedodontics', icon: 'Heart' },
-  { title: 'Prosthodontics', description: 'Crowns, bridges, dentures, and implant-supported rehabilitation.', href: '/departments/prosthodontics', icon: 'Gem' },
   { title: 'Conservative Dentistry & Endodontics', description: 'Root canal therapy and restorative excellence that preserves teeth.', href: '/departments/conservative-dentistry', icon: 'Plus' },
-  { title: 'Oral Pathology', description: 'Laboratory diagnosis supporting biopsy and disease confirmation.', href: '/departments/oral-pathology', icon: 'Microscope' },
+  { title: 'Oral & Maxillofacial Surgery', description: 'Surgical care for facial trauma, impactions, and complex procedures.', href: '/departments/oral-surgery', icon: 'Activity' },
+  { title: 'Orthodontics & Dentofacial Orthopaedics', description: 'Braces and alignment treatment guided by facial aesthetics and function.', href: '/departments/orthodontics', icon: 'AlignCenter' },
+  { title: 'Prosthodontics & Crown & Bridge', description: 'Crowns, bridges, dentures, and implant-supported rehabilitation.', href: '/departments/prosthodontics', icon: 'Gem' },
+  { title: 'Periodontics & Implantology', description: 'Gum therapy and periodontal care that protects natural teeth and implants.', href: '/departments/periodontics', icon: 'Leaf' },
+  { title: 'Pedodontics & Preventive Dentistry', description: 'Specialist care for children with behaviour guidance and preventive focus.', href: '/departments/pedodontics', icon: 'Heart' },
   { title: 'Public Health Dentistry', description: 'Community outreach and preventive oral healthcare programmes.', href: '/departments/public-health-dentistry', icon: 'Users' },
+  { title: 'Oral & Maxillofacial Pathology', description: 'Laboratory diagnosis supporting biopsy and disease confirmation.', href: '/departments/oral-pathology', icon: 'Microscope' },
+  { title: 'Department of Implantology', description: 'Dedicated implant planning, placement, and prosthetic rehabilitation.', href: '/departments/implantology', icon: 'Gem' },
 ]
 
 export const OP_TIMINGS_SECTION = {

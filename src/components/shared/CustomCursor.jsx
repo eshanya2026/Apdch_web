@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
-import { motion, useMotionValue } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 export default function CustomCursor() {
   const [enabled, setEnabled] = useState(false)
-  const [visible, setVisible] = useState(false)
-  const [hovering, setHovering] = useState(false)
-
-  const x = useMotionValue(-100)
-  const y = useMotionValue(-100)
+  const dotRef = useRef(null)
+  const ringRef = useRef(null)
+  const pos = useRef({ x: -100, y: -100 })
+  const visibleRef = useRef(false)
+  const hoveringRef = useRef(false)
+  const rafRef = useRef(0)
 
   useEffect(() => {
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)')
@@ -22,14 +22,35 @@ export default function CustomCursor() {
 
     document.documentElement.classList.add('cursor-none-site')
 
-    const onMove = (e) => {
-      x.set(e.clientX)
-      y.set(e.clientY)
-      setVisible(true)
+    const apply = () => {
+      rafRef.current = 0
+      const el = dotRef.current
+      if (!el) return
+      const { x, y } = pos.current
+      el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`
     }
 
-    const onLeave = () => setVisible(false)
-    const onEnter = () => setVisible(true)
+    const schedule = () => {
+      if (rafRef.current) return
+      rafRef.current = requestAnimationFrame(apply)
+    }
+
+    const setDotVisible = (visible) => {
+      if (visibleRef.current === visible) return
+      visibleRef.current = visible
+      if (ringRef.current) {
+        ringRef.current.style.opacity = visible ? '1' : '0'
+      }
+    }
+
+    const setHovering = (hovering) => {
+      if (hoveringRef.current === hovering) return
+      hoveringRef.current = hovering
+      if (ringRef.current) {
+        ringRef.current.style.width = hovering ? '36px' : '16px'
+        ringRef.current.style.height = hovering ? '36px' : '16px'
+      }
+    }
 
     const isInteractive = (el) =>
       Boolean(
@@ -38,6 +59,15 @@ export default function CustomCursor() {
         )
       )
 
+    const onMove = (e) => {
+      pos.current.x = e.clientX
+      pos.current.y = e.clientY
+      setDotVisible(true)
+      schedule()
+    }
+
+    const onLeave = () => setDotVisible(false)
+    const onEnter = () => setDotVisible(true)
     const onOver = (e) => setHovering(isInteractive(e.target))
     const onOut = (e) => {
       if (!isInteractive(e.relatedTarget)) setHovering(false)
@@ -51,31 +81,33 @@ export default function CustomCursor() {
 
     return () => {
       document.documentElement.classList.remove('cursor-none-site')
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
       window.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseleave', onLeave)
       document.removeEventListener('mouseenter', onEnter)
       document.removeEventListener('mouseover', onOver)
       document.removeEventListener('mouseout', onOut)
     }
-  }, [enabled, x, y])
+  }, [enabled])
 
   if (!enabled) return null
 
   return (
-    <motion.div
+    <div
+      ref={dotRef}
       aria-hidden
-      className="pointer-events-none fixed top-0 left-0 z-[9999] mix-blend-difference"
-      style={{ x, y, translateX: '-50%', translateY: '-50%' }}
+      className="pointer-events-none fixed top-0 left-0 z-[9999] will-change-transform mix-blend-difference"
+      style={{ transform: 'translate3d(-100px, -100px, 0) translate(-50%, -50%)' }}
     >
-      <motion.div
-        className="rounded-full border-2 border-white bg-white/20"
-        animate={{
-          width: hovering ? 36 : 16,
-          height: hovering ? 36 : 16,
-          opacity: visible ? 1 : 0,
+      <div
+        ref={ringRef}
+        className="rounded-full border-2 border-white bg-white/20 opacity-0"
+        style={{
+          width: 16,
+          height: 16,
+          transition: 'width 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out',
         }}
-        transition={{ duration: 0.15, ease: 'easeOut' }}
       />
-    </motion.div>
+    </div>
   )
 }

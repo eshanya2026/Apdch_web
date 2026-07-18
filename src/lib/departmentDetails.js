@@ -18,48 +18,186 @@ const FACULTY_IMAGES = [
 /** Department-specific detail content keyed by id */
 export const DEPARTMENT_DETAILS = {
   'oral-medicine': {
-    tagline: 'Clarity at the intersection of medicine and the mouth',
-    overviewExtra:
-      'Our clinics welcome referrals for chronic oral ulcers, burning mouth, TMJ-related pain, and unexplained radiographic findings. Every consultation balances clinical reasoning with empathetic communication.',
+    tagline:
+      'Department dedicated to the diagnosis, prevention, and non-surgical management of oral diseases using advanced clinical and radiological techniques.',
+    aboutTitle: 'About Oral Medicine',
+    aboutParagraphs: [
+      'Oral Medicine is a specialty in dentistry focused on the diagnosis and management of oral and dentofacial disorders. Every patient undergoes comprehensive medical history assessment, clinical examination, and radiographic evaluation before receiving an appropriate diagnosis and referral for treatment.',
+      'The department also focuses on oral cancer screening, potentially malignant disorders, TMJ disorders, oral manifestations of systemic diseases, forensic dentistry, and the care of medically compromised and geriatric patients.',
+    ],
+    overviewExtra: '',
     stats: [
-      { label: 'Specialist clinics / week', value: '12+' },
-      { label: 'Diagnostic pathways', value: '20+' },
-      { label: 'UG clinical hours', value: 'High' },
+      { value: '20+', label: 'Years of Academic Excellence' },
+      { value: 'Advanced', label: 'CBCT Imaging' },
+      { value: 'Specialized', label: 'Diagnostic Care' },
+      { value: 'Evidence-Based', label: 'Treatment' },
     ],
+    servicesSection: {
+      eyebrow: 'Services Offered',
+      title: 'Our Specialized Services',
+      description:
+        'Comprehensive diagnostic, screening, pain management, and imaging services covering everything offered by the department — presented in a cleaner clinical overview.',
+    },
     services: [
-      { title: 'Mucosal disease clinic', description: 'Evaluation of ulcers, white and red patches, and potentially malignant disorders.' },
-      { title: 'Orofacial pain service', description: 'Structured assessment of TMJ disorders, neuropathic pain, and headache overlap.' },
-      { title: 'Medically complex care', description: 'Pre-treatment oral clearance and risk stratification for systemic disease.' },
-      { title: 'Imaging correlation', description: 'Interpretation support linking clinical signs with radiographic findings.' },
+      {
+        title: 'Oral Disease Diagnosis',
+        description:
+          'Diagnosis of oral lesions, infections, red & white lesions, and potentially malignant disorders.',
+      },
+      {
+        title: 'Oral Cancer Screening',
+        description:
+          'Early detection, vital staining, investigations, and comprehensive management of oral cancer.',
+      },
+      {
+        title: 'Orofacial Pain & TMJ Clinic',
+        description:
+          'Management of neuralgias, neuropathies, burning mouth syndrome, TMJ disorders, and TENS therapy.',
+      },
+      {
+        title: 'Biopsy & Diagnostic Procedures',
+        description:
+          'Incisional biopsy, punch biopsy, and other diagnostic procedures for oral diseases.',
+      },
+      {
+        title: 'Medical Management',
+        description:
+          'Treatment of oral ulcers, mucocutaneous disorders, autoimmune conditions, OSMF, and medically compromised patients.',
+      },
+      {
+        title: 'Advanced Oral Imaging',
+        description:
+          'Conventional radiography, RVG, panoramic imaging, cephalometric imaging, CBCT, and sialography.',
+      },
     ],
+    technologySection: {
+      eyebrow: 'Lab & Equipment',
+      title: 'Technology & Equipment',
+      description:
+        'Advanced diagnostic and imaging facilities supporting accurate diagnosis, pain management, and high-quality radiographic care.',
+    },
     technology: [
-      { title: 'Digital imaging suite', description: 'High-resolution intraoral and extraoral imaging for diagnostic precision.' },
-      { title: 'Soft-tissue photography', description: 'Standardised lesion documentation for monitoring and teaching.' },
-      { title: 'Chairside chair lights & optics', description: 'Optimised illumination for subtle mucosal change detection.' },
+      {
+        title: 'CBCT Imaging System',
+        description:
+          'High-resolution CBCT imaging with large field-of-view for advanced diagnosis.',
+      },
+      {
+        title: 'Digital Radiography',
+        description:
+          'Intraoral radiography, RVG, panoramic imaging, and cephalometric imaging.',
+      },
+      {
+        title: 'Pain Management Clinic',
+        description: 'TENS therapy for neuromuscular pain and TMJ disorders.',
+      },
+      {
+        title: 'Diagnostic Equipment',
+        description:
+          'Pulp tester, sialography kit, aspiration equipment, histological smear facilities, and emergency care kit.',
+      },
+      {
+        title: 'Digital Film Processing',
+        description:
+          'Fujifilm digital dry film printer for high-quality diagnostic imaging.',
+      },
     ],
     faculty: [
-      { name: 'Dr. Meera Krishnan', role: 'Professor & HOD', focus: 'Oral mucosal oncology pathways' },
-      { name: 'Dr. Arjun Desai', role: 'Associate Professor', focus: 'Orofacial pain & TMD' },
-      { name: 'Dr. Lakshmi Rao', role: 'Reader', focus: 'Oral manifestations of systemic disease' },
+      { name: 'Dr. M. Deivanayagi', role: 'Associate Professor & HOD', focus: '', isHod: true },
+      { name: 'Dr. Monisha R', role: 'Senior Lecturer', focus: '' },
+      { name: 'Dr. Elamparithi', role: 'Lecturer', focus: '' },
+      { name: 'Dr. Narmadha Chandran', role: 'Lecturer', focus: '' },
     ],
-    infrastructure: [
-      { title: 'Consultation suites', description: 'Private rooms designed for unhurried history taking and examination.' },
-      { title: 'Seminar bay', description: 'Case discussion space adjoining the teaching clinic.' },
-      { title: 'Referral coordination desk', description: 'Seamless handoff to pathology, surgery, and medical services.' },
-    ],
+    infrastructure: [],
+    researchSection: {
+      eyebrow: 'Research & Innovation',
+      title: 'Advancing Knowledge Through Research',
+      description:
+        'The Department of Oral Medicine & Radiology actively contributes to academic research through scientific publications, conference presentations, books, and evidence-based clinical studies that enhance patient care and dental education.',
+      ctaLabel: 'View Research Activities',
+      ctaHref: '/research',
+    },
     research: [
-      { title: 'Early detection protocols', description: 'Studies on screening tools for potentially malignant disorders.' },
-      { title: 'Pain outcome metrics', description: 'Patient-reported outcomes in chronic orofacial pain care.' },
+      {
+        title: 'Publications',
+        description:
+          'Faculty research published in national and international journals.',
+      },
+      {
+        title: 'Books & Chapters',
+        description:
+          'Academic contributions to textbooks and reference materials.',
+      },
+      {
+        title: 'Scientific Presentations',
+        description:
+          'Conference papers, keynote lectures and invited talks.',
+      },
+      {
+        title: 'Research Activities',
+        description:
+          'Evidence-based clinical studies and academic research initiatives.',
+      },
     ],
+    patientCareTitle: 'Patient-Centred Diagnostic Care',
     patientCare:
-      'Patients receive clear explanations, staged investigations, and collaborative plans that never rush diagnosis. Follow-up pathways ensure nothing suspicious is lost to time.',
+      'The department provides comprehensive diagnostic services, oral disease screening, radiographic investigations, non-surgical management of oral lesions, TMJ disorders, medically compromised patients, and AI-assisted dental screening through the Scan-O-Robot system.',
+    patientCareItems: [
+      'Oral lesion diagnosis',
+      'Oral cancer screening',
+      'Orofacial pain management',
+      'TMJ disorder treatment',
+      'CBCT & Digital Imaging',
+      'Medical management of oral diseases',
+    ],
+    achievementsSection: {
+      eyebrow: 'Achievements',
+      title: 'Awards & Professional Recognition',
+      description:
+        'Faculty members have been recognized for excellence in academics, research, leadership, and contributions to the dental profession through prestigious national and international awards.',
+      ctaLabel: 'View All Achievements',
+      ctaHref: '/about',
+    },
     achievements: [
-      { title: 'Integrated referral network', description: 'Established multi-specialty oral medicine–pathology–oncology corridor.' },
-      { title: 'Teaching excellence', description: 'Recognised for structured UG diagnostic clinics and viva readiness.' },
+      { title: 'Outstanding Academician', icon: 'Trophy' },
+      { title: 'Emerging Researcher', icon: 'Medal' },
+      { title: 'Academic Excellence', icon: 'GraduationCap' },
+      { title: 'National & International Recognition', icon: 'Globe' },
+    ],
+    gallery: [
+      {
+        caption: 'CBCT Unit',
+        image: 'https://apdch.in/wp-content/uploads/2025/04/1.png',
+      },
+      {
+        caption: 'Oral Medicine Clinic',
+        image: 'https://apdch.in/wp-content/uploads/2025/04/2.png',
+      },
+      {
+        caption: 'Radiology Room',
+        image: 'https://apdch.in/wp-content/uploads/2025/04/3.png',
+      },
+      {
+        caption: 'Patient Examination',
+        image: 'https://apdch.in/wp-content/uploads/2025/04/4.png',
+      },
     ],
     faqs: [
-      { question: 'Do I need a referral for oral medicine?', answer: 'Self-referrals for persistent lesions or unexplained pain are welcome; referred patients receive priority coordination with the referring clinician.' },
-      { question: 'How long is a typical first visit?', answer: 'Allow 30–45 minutes for history, examination, and counselling. Investigations may be scheduled separately.' },
+      {
+        question: 'What services are offered by the department?',
+        answer:
+          'Diagnosis of oral diseases, oral cancer screening, radiographic investigations, TMJ management, pain management, CBCT imaging, and non-surgical treatment of oral conditions.',
+      },
+      {
+        question: 'Is CBCT imaging available?',
+        answer:
+          'Yes. The department is equipped with a dedicated CBCT imaging unit for advanced three-dimensional radiographic evaluation.',
+      },
+      {
+        question: 'Do you provide oral cancer screening?',
+        answer:
+          'Yes. Oral cancer screening, investigations, and management of potentially malignant disorders are among the department\'s core services.',
+      },
     ],
   },
   'oral-surgery': {
@@ -422,6 +560,141 @@ export const DEPARTMENT_DETAILS = {
       { question: 'Do students get field credit?', answer: 'Community postings are part of the curriculum and assessed through participation and reports.' },
     ],
   },
+  implantology: {
+    tagline: 'Precision implant care from planning to lifelong maintenance',
+    overviewExtra:
+      'A dedicated unit for implant diagnosis, guided surgery, prosthetic rehabilitation, and long-term maintenance — working closely with periodontics, oral surgery, and prosthodontics.',
+    stats: [
+      { label: 'Guided planning', value: 'CBCT-led' },
+      { label: 'Surgical & prosthetic', value: 'Integrated' },
+      { label: 'Maintenance clinic', value: 'Ongoing' },
+    ],
+    services: [
+      {
+        title: 'Implant consultation & planning',
+        description: 'Comprehensive clinical and radiographic assessment with CBCT-based treatment planning.',
+      },
+      {
+        title: 'Surgical implant placement',
+        description: 'Evidence-based placement protocols including guided and conventional approaches.',
+      },
+      {
+        title: 'Bone & soft-tissue management',
+        description: 'Ridge preservation, augmentation, and soft-tissue conditioning for stable aesthetics.',
+      },
+      {
+        title: 'Prosthetic rehabilitation',
+        description: 'Single crowns, bridges, and implant-supported dentures restored for function and appearance.',
+      },
+      {
+        title: 'Implant maintenance',
+        description: 'Recall programmes focused on peri-implant health and long-term success.',
+      },
+    ],
+    technology: [
+      {
+        title: 'CBCT-guided planning',
+        description: 'Three-dimensional imaging for precise implant positioning and risk assessment.',
+      },
+      {
+        title: 'Surgical guides',
+        description: 'Guided surgery workflows that improve accuracy and patient comfort.',
+      },
+      {
+        title: 'Digital prosthetic workflows',
+        description: 'CAD/CAM and digital impressions supporting predictable restorations.',
+      },
+    ],
+    faculty: [
+      { name: 'Dr. Karthik Raman', role: 'Professor & HOD', focus: 'Surgical & prosthetic implantology', isHod: true },
+      { name: 'Dr. Divya Natarajan', role: 'Associate Professor', focus: 'Guided implant surgery' },
+      { name: 'Dr. Arun Prakash', role: 'Senior Lecturer', focus: 'Implant prosthetics' },
+    ],
+    infrastructure: [
+      {
+        title: 'Implant clinic',
+        description: 'Dedicated chairs configured for surgical and restorative implant workflows.',
+      },
+      {
+        title: 'Sterile surgical setup',
+        description: 'Protocol-driven sterile fields and instrument trays for implant procedures.',
+      },
+      {
+        title: 'Digital planning station',
+        description: 'CBCT review and guide design supporting case presentation and consent.',
+      },
+    ],
+    research: [
+      {
+        title: 'Osseointegration outcomes',
+        description: 'Clinical audits on implant survival, loading protocols, and patient-reported outcomes.',
+      },
+      {
+        title: 'Peri-implant health',
+        description: 'Studies on maintenance intervals and soft-tissue stability around implants.',
+      },
+    ],
+    patientCareTitle: 'Patient-Centred Implant Care',
+    patientCare:
+      'Every implant journey begins with clear diagnosis, shared decision-making, and a plan that balances biology, aesthetics, and long-term maintenance.',
+    patientCareItems: [
+      'Comprehensive implant assessment',
+      'CBCT-based treatment planning',
+      'Surgical implant placement',
+      'Prosthetic rehabilitation',
+      'Soft-tissue and bone management',
+      'Long-term implant maintenance',
+    ],
+    achievements: [
+      { title: 'Guided Surgery Excellence', icon: 'Trophy' },
+      { title: 'Interdisciplinary Care', icon: 'Medal' },
+      { title: 'Prosthetic Precision', icon: 'GraduationCap' },
+      { title: 'National Recognition', icon: 'Globe' },
+    ],
+    achievementsSection: {
+      eyebrow: 'Achievements',
+      title: 'Awards & Professional Recognition',
+      description:
+        'Recognition for implant education, clinical outcomes, and interdisciplinary collaboration.',
+      ctaLabel: 'View All Achievements',
+      ctaHref: '/about',
+    },
+    gallery: [
+      {
+        caption: 'Implant Planning',
+        image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=900&q=80&auto=format&fit=crop',
+      },
+      {
+        caption: 'Surgical Suite',
+        image: 'https://images.unsplash.com/photo-1551076805-e1869033fa8e?w=900&q=80&auto=format&fit=crop',
+      },
+      {
+        caption: 'Prosthetic Lab',
+        image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=900&q=80&auto=format&fit=crop',
+      },
+      {
+        caption: 'Patient Care',
+        image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=900&q=80&auto=format&fit=crop',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Who is a candidate for dental implants?',
+        answer:
+          'Suitable candidates typically have adequate bone and soft tissue, good oral hygiene, and controlled medical conditions. A clinical and CBCT assessment confirms suitability.',
+      },
+      {
+        question: 'How long does implant treatment take?',
+        answer:
+          'Timelines vary by case. Some restorations can be completed sooner; others require healing after placement or grafting before the final prosthesis.',
+      },
+      {
+        question: 'Do you provide implant maintenance?',
+        answer:
+          'Yes. Regular maintenance visits help protect peri-implant health and support long-term success of the restoration.',
+      },
+    ],
+  },
 }
 
 export function getDepartmentById(id) {
@@ -437,22 +710,32 @@ export function getDepartmentDetail(id) {
   return {
     ...base,
     tagline: extra.tagline,
+    aboutTitle: extra.aboutTitle,
+    aboutParagraphs: extra.aboutParagraphs,
     overviewExtra: extra.overviewExtra,
     stats: extra.stats,
     services: extra.services,
+    servicesSection: extra.servicesSection,
     technology: extra.technology,
+    technologySection: extra.technologySection,
     faculty: extra.faculty.map((f, i) => ({
       ...f,
       image: FACULTY_IMAGES[i % FACULTY_IMAGES.length],
     })),
     infrastructure: extra.infrastructure,
     research: extra.research,
+    researchSection: extra.researchSection,
     patientCare: extra.patientCare,
+    patientCareTitle: extra.patientCareTitle,
+    patientCareItems: extra.patientCareItems,
     achievements: extra.achievements,
-    gallery: GALLERY_POOL.map((image, i) => ({
-      image,
-      caption: `${base.name} — clinical & academic spaces ${i + 1}`,
-    })),
+    achievementsSection: extra.achievementsSection,
+    gallery:
+      extra.gallery ??
+      GALLERY_POOL.map((image, i) => ({
+        image,
+        caption: `${base.name} — clinical & academic spaces ${i + 1}`,
+      })),
     faqs: extra.faqs,
   }
 }

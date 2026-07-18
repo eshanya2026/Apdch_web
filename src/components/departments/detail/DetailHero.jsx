@@ -35,9 +35,9 @@ export default function DetailHero({ department }) {
           All departments
         </Link>
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-accent">
-          {department.shortName} · Department
+          Department
         </p>
-        <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
+        <h1 className="hero-heading-gradient max-w-4xl font-display text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
           {department.name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-white/75 md:text-xl">{department.tagline}</p>
