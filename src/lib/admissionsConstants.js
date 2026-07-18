@@ -1,244 +1,426 @@
 export const ADMISSIONS_HERO = {
   eyebrow: 'Admissions 2026–27',
-  title: 'Begin your journey in dental excellence',
+  title: 'Begin Your Journey at APDCH',
   description:
-    'Join Adhiparasakthi Dental College and Hospital — a structured pathway from application to enrolment, guided by clarity, merit, and care.',
+    'Build a rewarding career in dentistry at Adhiparasakthi Dental College & Hospital. With nationally recognized academic programs, experienced faculty, advanced clinical facilities, and a strong commitment to patient-centered learning, APDCH prepares future dental professionals to excel in every stage of their careers.',
   image:
     'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=2000&q=80&auto=format&fit=crop',
+}
+
+export const ADMISSION_PROCESS_SECTION = {
+  eyebrow: 'Admission Process',
+  title: 'Your Admission Journey',
+  description:
+    'Our admission process is designed to be transparent and straightforward, guiding students from eligibility to enrollment.',
 }
 
 export const ADMISSION_PROCESS = [
   {
     step: '01',
-    title: 'Check eligibility',
-    description: 'Confirm academic qualifications and NEET requirements for BDS or MDS.',
+    title: 'Check Eligibility',
+    description:
+      'Review the eligibility requirements for your chosen BDS or MDS program.',
   },
   {
     step: '02',
-    title: 'Appear for NEET',
-    description: 'Qualify NEET-UG for BDS or NEET-MDS for postgraduate programmes.',
+    title: 'Qualify NEET',
+    description:
+      'Admission to BDS requires NEET-UG qualification, while MDS admission requires NEET-MDS qualification.',
   },
   {
     step: '03',
-    title: 'Register for counselling',
-    description: 'Complete state / All-India counselling registration within published windows.',
+    title: 'Register for Counselling',
+    description:
+      'Participate in the centralized counselling process conducted by the competent authority.',
   },
   {
     step: '04',
-    title: 'Choice filling',
-    description: 'Select APDCH as your preferred institution during online counselling.',
+    title: 'Document Verification',
+    description:
+      'Submit and verify all required academic and personal documents.',
   },
   {
     step: '05',
-    title: 'Seat allotment',
-    description: 'Receive provisional allotment and download the allotment order.',
+    title: 'Seat Allotment',
+    description:
+      'Seats are allotted based on merit, counselling guidelines, reservation norms, and regulatory policies.',
   },
   {
     step: '06',
-    title: 'Report & enrol',
-    description: 'Submit documents, complete fee remittance, and begin orientation.',
+    title: 'Confirm Admission',
+    description:
+      'Complete fee payment and enrollment to officially become part of the APDCH community.',
   },
 ]
 
+export const ELIGIBILITY_SECTION = {
+  eyebrow: 'Eligibility',
+  title: 'Admission Eligibility',
+  description:
+    'Admission to APDCH follows the norms prescribed by the Dental Council of India, The Tamil Nadu Dr. M.G.R. Medical University, and the Government of Tamil Nadu.',
+}
+
 export const ELIGIBILITY = {
   bds: [
-    'Passed Higher Secondary (10+2) or equivalent with Physics, Chemistry, Biology / Biotechnology, and English.',
-    'Minimum aggregate as prescribed by the Dental Council of India and affiliating university.',
-    'Qualified NEET-UG in the relevant academic year.',
-    'Age criteria as notified by counselling authorities.',
+    'Qualified in NEET-UG.',
+    'Passed Higher Secondary (10+2) with Physics, Chemistry, Biology/Biotechnology, and English.',
+    'Minimum qualifying marks as prescribed by the regulatory authorities.',
+    'Admission through the counselling process conducted by the competent authority.',
   ],
   mds: [
-    'Recognised BDS degree from a DCI-approved institution.',
-    'Completed compulsory rotating internship on or before the date notified.',
-    'Qualified NEET-MDS in the relevant academic year.',
-    'Valid registration with the State Dental Council / DCI as applicable.',
+    'Qualified in NEET-MDS.',
+    'Bachelor of Dental Surgery (BDS) degree from a recognized institution.',
+    'Completed compulsory rotatory internship within the prescribed period.',
+    'Valid registration with the Dental Council.',
   ],
 }
 
-export const BDS_ADMISSION = {
-  title: 'BDS Admission',
-  duration: '5 Years',
-  seats: 'As per sanctioned intake',
+export const ADMISSION_CATEGORIES_SECTION = {
+  eyebrow: 'Admission Categories',
+  title: 'Admission Quotas',
   description:
-    'The Bachelor of Dental Surgery programme at APDCH combines biomedical foundations, early clinical exposure, and supervised chairside practice in our teaching hospital.',
+    'Admissions to APDCH are conducted in accordance with the regulations of the Government of Tamil Nadu, the Dental Council of India (DCI), and The Tamil Nadu Dr. M.G.R. Medical University. Eligible candidates are admitted through the prescribed counselling process based on NEET merit.',
+}
+
+export const ADMISSION_CATEGORIES = [
+  {
+    title: 'Government Quota',
+    description:
+      'Admissions are allotted through the centralized counselling process conducted by the competent authority, following government reservation policies and merit rankings.',
+    icon: 'Landmark',
+  },
+  {
+    title: 'Management Quota',
+    description:
+      'Eligible candidates may apply under the management quota as per the admission guidelines and counselling procedures applicable to self-financing institutions.',
+    icon: 'Building2',
+  },
+]
+
+export const BDS_ADMISSION_SECTION = {
+  eyebrow: 'BDS Admission',
+  title: 'Bachelor of Dental Surgery (BDS)',
+  description:
+    'The Bachelor of Dental Surgery (BDS) program provides comprehensive education in oral healthcare through classroom learning, pre-clinical simulation, laboratory training, and supervised clinical practice. Students develop strong scientific knowledge, practical skills, and professional ethics required for successful dental practice.',
+}
+
+export const BDS_ADMISSION = {
+  title: 'Bachelor of Dental Surgery (BDS)',
+  duration: '5 Years',
+  seats: '100 Students',
+  highlightsTitle: 'Program Highlights',
   highlights: [
-    'DCI-recognised undergraduate pathway',
-    'Integrated preclinical & clinical training',
-    'Mentorship from specialty faculty',
-    'Campus housing for first-year students',
+    'Duration: 5 Years (Including 1-Year Compulsory Rotatory Internship)',
+    'Annual Intake: 100 Students',
+    'Admission through NEET-UG',
+    'Clinical exposure from the early stages of training',
+    'Experienced faculty and modern laboratories',
+    'Patient-centered learning environment',
   ],
   image:
     'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1000&q=80&auto=format&fit=crop',
 }
 
+export const MDS_ADMISSION_SECTION = {
+  eyebrow: 'MDS Admission',
+  title: 'Master of Dental Surgery (MDS)',
+  description:
+    'The Master of Dental Surgery (MDS) program offers advanced specialty education with intensive clinical training, research opportunities, and academic excellence. Students gain specialized expertise while working alongside experienced faculty and treating a wide range of clinical cases.',
+}
+
 export const MDS_ADMISSION = {
-  title: 'MDS Admission',
+  title: 'Master of Dental Surgery (MDS)',
   duration: '3 Years',
   seats: 'Specialty-wise intake',
-  description:
-    'Master of Dental Surgery residencies prepare clinicians for advanced practice, research, and academic leadership across key dental specialities.',
+  highlightsTitle: 'Program Highlights',
+  specialitiesTitle: 'Available MDS Specialties',
   highlights: [
-    'Specialty training with high case volume',
-    'Thesis mentorship & research support',
-    'Operating theatre & clinical privilege pathways',
-    'Seminar culture and journal clubs',
+    'Duration: 3 Years',
+    'Admission through NEET-MDS',
+    'Specialty-based postgraduate education',
+    'Advanced clinical exposure',
+    'Research-oriented curriculum',
+    'Individual mentorship by experienced faculty',
   ],
   specialities: [
+    'Conservative Dentistry & Endodontics',
     'Oral & Maxillofacial Surgery',
-    'Orthodontics',
+    'Orthodontics & Dentofacial Orthopaedics',
+    'Prosthodontics & Crown & Bridge',
     'Periodontology',
-    'Prosthodontics',
-    'Endodontics',
-    'Pedodontics',
     'Oral Medicine & Radiology',
-    'Oral Pathology',
+    'Oral Pathology & Microbiology',
     'Public Health Dentistry',
+    'Pedodontics & Preventive Dentistry',
   ],
   image:
     'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1000&q=80&auto=format&fit=crop',
 }
 
+export const NEET_INFO_SECTION = {
+  eyebrow: 'NEET Information',
+  title: 'NEET Qualification',
+  description:
+    'Admission to all dental programmes is based on NEET qualification and counselling conducted by the competent authority.',
+}
+
 export const NEET_INFO = [
   {
     title: 'NEET-UG',
-    subtitle: 'For BDS aspirants',
-    points: [
-      'Conducted by the National Testing Agency (NTA).',
-      'Mandatory for admission to the BDS programme.',
-      'Counselling handled through designated state / AIQ authorities.',
-      'Keep admit card, scorecard, and rank letter ready for verification.',
-    ],
+    description:
+      'Required for admission to the Bachelor of Dental Surgery (BDS) program.',
   },
   {
     title: 'NEET-MDS',
-    subtitle: 'For MDS aspirants',
-    points: [
-      'National entrance examination for postgraduate dental seats.',
-      'Qualify within the percentile cut-off applicable to your category.',
-      'Participate in counselling rounds as notified each year.',
-      'Allotment is subject to document verification at reporting.',
+    description:
+      'Required for admission to all Master of Dental Surgery (MDS) specialty programs.',
+  },
+]
+
+export const REQUIRED_DOCUMENTS_SECTION = {
+  eyebrow: 'Required Documents',
+  title: 'Documents Required for Admission',
+}
+
+export const REQUIRED_DOCUMENTS = [
+  {
+    title: 'Academic',
+    icon: 'FileText',
+    items: [
+      '10th Mark Sheet',
+      '12th Mark Sheet',
+      'Transfer Certificate',
+      'Conduct Certificate',
+      'Migration Certificate (If Applicable)',
+    ],
+  },
+  {
+    title: 'Identity',
+    icon: 'IdCard',
+    items: [
+      'Aadhaar Card',
+      'Passport Size Photographs',
+      'Community Certificate (If Applicable)',
+      'Nativity Certificate (If Required)',
+    ],
+  },
+  {
+    title: 'Entrance',
+    icon: 'ClipboardList',
+    items: [
+      'NEET Score Card',
+      'NEET Admit Card',
+      'Counselling Allotment Order',
+    ],
+  },
+  {
+    title: 'Medical',
+    icon: 'HeartPulse',
+    items: [
+      'Medical Fitness Certificate',
+      'Internship Completion Certificate (For MDS)',
+      'Dental Council Registration Certificate (For MDS)',
     ],
   },
 ]
 
-export const REQUIRED_DOCUMENTS = {
-  bds: [
-    'NEET-UG admit card & scorecard',
-    'Allotment order / counselling letter',
-    'Class 10 & 12 mark sheets and certificates',
-    'Transfer / Migration certificate',
-    'Community / Income certificate (if applicable)',
-    'Aadhaar / Passport / Government ID',
-    'Passport-size photographs',
-    'Medical fitness certificate',
-  ],
-  mds: [
-    'NEET-MDS admit card & scorecard',
-    'BDS degree & consolidated mark sheets',
-    'Internship completion certificate',
-    'Dental Council registration certificate',
-    'Allotment order / counselling letter',
-    'Transfer / Migration certificate',
-    'Aadhaar / Passport / Government ID',
-    'Passport-size photographs',
-  ],
+export const FEE_STRUCTURE_SECTION = {
+  eyebrow: 'Fee Structure',
+  title: 'Fee Structure',
+  description:
+    'The fee structure is prescribed according to the regulations of the Government of Tamil Nadu, the Fee Fixation Committee, and the competent authorities.',
+  note:
+    'Tuition fees and other charges are subject to revision in accordance with government and regulatory authority guidelines.',
 }
 
 export const FEE_STRUCTURE = [
   {
     programme: 'BDS',
-    category: 'Tuition (indicative)',
-    amount: 'As per Govt. / Management norms',
-    note: 'Fee components notified annually before counselling.',
-  },
-  {
-    programme: 'BDS',
-    category: 'Hostel & mess',
-    amount: 'Separate schedule',
-    note: 'Optional boarding charged per academic year.',
+    duration: '5 Years',
+    admission: 'NEET-UG',
+    intake: '100 Seats',
   },
   {
     programme: 'MDS',
-    category: 'Tuition (indicative)',
-    amount: 'Specialty-wise schedule',
-    note: 'Varies by speciality and admission category.',
-  },
-  {
-    programme: 'MDS',
-    category: 'Clinical / lab charges',
-    amount: 'As applicable',
-    note: 'Published in the postgraduate fee circular.',
+    duration: '3 Years',
+    admission: 'NEET-MDS',
+    intake: 'As Per DCI Norms',
   },
 ]
 
-export const SCHOLARSHIPS = [
+export const WHY_CHOOSE_ADMISSIONS_SECTION = {
+  eyebrow: 'Why Choose APDCH',
+  title: 'Why Choose APDCH?',
+  description:
+    'Discover an institution where academic excellence, clinical expertise, and compassionate healthcare come together to prepare future leaders in dentistry.',
+}
+
+export const WHY_CHOOSE_ADMISSIONS = [
   {
-    title: 'Merit Scholarships',
-    description: 'Awards for outstanding NEET ranks and consistent academic excellence.',
+    title: 'Experienced Faculty',
+    description:
+      'Learn from dedicated professors and clinicians with extensive academic and practical experience.',
+    icon: 'Users',
+  },
+  {
+    title: 'Advanced Clinical Training',
+    description:
+      'Gain real-world experience through comprehensive patient care across multiple dental specialties.',
+    icon: 'Stethoscope',
+  },
+  {
+    title: 'Modern Infrastructure',
+    description:
+      'Study in well-equipped laboratories, digital classrooms, simulation centres, and advanced clinical departments.',
+    icon: 'Building2',
+  },
+  {
+    title: 'Research & Innovation',
+    description:
+      'Participate in scientific research, conferences, workshops, and evidence-based learning initiatives.',
+    icon: 'FlaskConical',
+  },
+  {
+    title: 'Holistic Student Development',
+    description:
+      'Develop leadership, communication, ethics, and professional values through extracurricular and community engagement.',
+    icon: 'GraduationCap',
+  },
+  {
+    title: 'Community Outreach',
+    description:
+      'Serve society through dental health awareness camps and preventive oral healthcare programmes.',
+    icon: 'HeartHandshake',
+  },
+]
+
+export const CAMPUS_FACILITIES_SECTION = {
+  eyebrow: 'Campus Experience',
+  title: 'A Campus Built for Learning, Living & Growth',
+  description:
+    'APDCH offers a safe, vibrant, and student-friendly environment with facilities that support both academic success and personal well-being.',
+}
+
+export const CAMPUS_FACILITIES = [
+  {
+    title: 'Comfortable Hostel Accommodation',
+    description:
+      'Separate hostels for boys and girls with a secure and supportive residential environment.',
+    icon: 'Home',
+  },
+  {
+    title: 'Central Library',
+    description:
+      'Access a rich collection of books, journals, digital resources, and online learning materials.',
+    icon: 'BookOpen',
+  },
+  {
+    title: 'Modern Laboratories',
+    description:
+      'Advanced pre-clinical, simulation, and research laboratories for practical learning.',
+    icon: 'FlaskConical',
+  },
+  {
+    title: 'Comprehensive Dental Hospital',
+    description:
+      'Extensive clinical exposure through a multi-specialty teaching hospital serving a diverse patient population.',
+    icon: 'Hospital',
+  },
+  {
+    title: 'Sports & Recreation',
+    description:
+      'Facilities that encourage physical fitness, teamwork, and student well-being.',
     icon: 'Trophy',
   },
   {
-    title: 'Need-based Support',
-    description: 'Assistance for deserving students meeting income and documentation criteria.',
-    icon: 'HeartHandshake',
-  },
-  {
-    title: 'Government Schemes',
-    description: 'Guidance for state and central scholarship portals applicable to dental students.',
-    icon: 'Landmark',
-  },
-  {
-    title: 'Research Assistantships',
-    description: 'Select postgraduate opportunities to support scholarly and lab work.',
-    icon: 'FlaskConical',
+    title: 'Transport Facilities',
+    description:
+      'Convenient transportation connecting the campus with nearby towns and cities.',
+    icon: 'Bus',
   },
 ]
 
-export const ADMISSION_TIMELINE = [
-  { month: 'Jan–Feb', title: 'NEET application window', detail: 'Register and prepare documentation early.' },
-  { month: 'May', title: 'NEET examination', detail: 'Appear for NEET-UG / NEET-MDS as applicable.' },
-  { month: 'Jun–Jul', title: 'Results & rank lists', detail: 'Download scorecards and check eligibility.' },
-  { month: 'Jul–Aug', title: 'Counselling rounds', detail: 'Choice filling, allotment, and verification.' },
-  { month: 'Aug–Sep', title: 'Reporting at APDCH', detail: 'Fee payment, enrolment, and orientation.' },
-  { month: 'Sep', title: 'Academic session begins', detail: 'Classes and clinical induction commence.' },
+export const PROFESSIONAL_DEVELOPMENT_SECTION = {
+  eyebrow: 'Professional Development',
+  title: 'Beyond the Curriculum',
+  description:
+    'At APDCH, learning extends beyond the classroom. Students have opportunities to participate in continuing dental education (CDE) programs, workshops, clinical training, research activities, and advanced skill-development initiatives that enhance professional competence and lifelong learning.',
+}
+
+export const PROFESSIONAL_DEVELOPMENT = [
+  { title: 'Continuing Dental Education (CDE)', icon: 'BookOpen' },
+  { title: 'Clinical Workshops', icon: 'Stethoscope' },
+  { title: 'Advanced Skill Development', icon: 'Sparkles' },
+  { title: 'Research Opportunities', icon: 'FlaskConical' },
+  { title: 'Fellowship & Competency Programs', icon: 'Award' },
+  { title: 'Community Outreach', icon: 'HeartHandshake' },
 ]
+
+export const ADMISSION_TIMELINE_SECTION = {
+  eyebrow: 'Admission Timeline',
+  title: 'Admission Timeline',
+}
+
+export const ADMISSION_TIMELINE = [
+  'NEET Registration',
+  'NEET Examination',
+  'Result Declaration',
+  'Counselling Registration',
+  'Choice Filling & Seat Allotment',
+  'Document Verification',
+  'Fee Payment',
+  'Admission Confirmation',
+]
+
+export const ADMISSION_FAQS_SECTION = {
+  eyebrow: 'FAQ',
+  title: 'Frequently Asked Questions',
+}
 
 export const ADMISSION_FAQS = [
   {
-    question: 'Is NEET mandatory for admission to APDCH?',
+    question: 'Is NEET mandatory for BDS admission?',
     answer:
-      'Yes. Admission to BDS requires a valid NEET-UG score, and MDS requires NEET-MDS qualification, followed by counselling allotment as per applicable rules.',
+      'Yes. A valid NEET-UG qualification is mandatory for admission to the BDS program.',
   },
   {
-    question: 'How do I apply directly to the college?',
+    question: 'Is NEET-MDS compulsory for postgraduate admission?',
     answer:
-      'Seats are filled through authorised counselling processes. After allotment, report to APDCH with the required documents within the stipulated time. You may also contact admissions for guidance.',
+      'Yes. Admission to MDS programs requires qualification in NEET-MDS.',
   },
   {
-    question: 'When will the exact fee structure be published?',
+    question: 'How is admission conducted?',
     answer:
-      'Detailed fee circulars are released for each academic year before reporting. The table on this page provides an indicative overview; always refer to the latest official notification.',
+      'Admissions are carried out through the counselling process as per the regulations of the competent authority.',
   },
   {
-    question: 'Is hostel accommodation available for first-year students?',
+    question: 'What is the duration of the BDS course?',
     answer:
-      'Yes. On-campus hostel facilities are available and generally prioritised for first-year students who apply within the published housing deadlines.',
+      'Five years, including one year of compulsory rotatory internship.',
   },
   {
-    question: 'Can NRI / management category candidates apply?',
+    question: 'Does APDCH provide hostel facilities?',
     answer:
-      'Category-wise seat availability follows regulatory and university norms for the year. Candidates should follow the counselling notices relevant to their category.',
+      'Yes. Separate hostel facilities are available for boys and girls within the campus.',
   },
   {
-    question: 'Who can I contact for admissions help?',
+    question: 'Are scholarships available?',
     answer:
-      'Reach the Admissions Office via admissions@apdch.edu.in or the phone numbers listed on this page. Visit the campus during working hours for in-person counselling support.',
+      'Eligible students may avail scholarships and financial assistance as per Government and institutional guidelines.',
   },
 ]
 
 export const BROCHURE = {
-  title: 'Download Brochure',
+  eyebrow: 'Download Brochure',
+  title: 'Admission Brochure',
   description:
-    'Get programme overviews, campus highlights, and a step-by-step admissions checklist in one elegant PDF.',
-  fileLabel: 'APDCH Admissions Brochure 2026',
+    'Download the latest admission brochure to explore detailed information about programs, eligibility criteria, facilities, fee structure, campus life, and the admission process.',
+  cta: 'Download Brochure',
+}
+
+export const APPLY_NOW_SECTION = {
+  eyebrow: 'Join APDCH',
+  title: 'Ready to Join APDCH?',
+  description:
+    'Take the first step toward a successful career in dentistry. Join a community dedicated to academic excellence, clinical expertise, research, and compassionate patient care.',
 }

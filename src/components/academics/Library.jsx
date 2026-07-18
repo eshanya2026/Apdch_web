@@ -1,6 +1,16 @@
-import { BookOpen } from 'lucide-react'
+import {
+  BookOpen,
+  Newspaper,
+  Monitor,
+  MonitorPlay,
+  Armchair,
+  FlaskConical,
+  Compass,
+} from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { LIBRARY } from '@/lib/academicsConstants'
+
+const ICONS = { BookOpen, Newspaper, Monitor, MonitorPlay, Armchair, FlaskConical, Compass }
 
 export default function Library() {
   return (
@@ -12,7 +22,7 @@ export default function Library() {
               <img
                 src={LIBRARY.image}
                 alt="Central library at APDCH"
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-4/3 w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-secondary/20" />
             </div>
@@ -25,19 +35,23 @@ export default function Library() {
               title={LIBRARY.title}
               description={LIBRARY.description}
             />
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {LIBRARY.features.map((f) => (
-                <div
-                  key={f.title}
-                  className="rounded-2xl border border-border/80 bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-brand-xs"
-                >
-                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-surface-soft text-primary">
-                    <BookOpen className="h-4 w-4" />
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {LIBRARY.features.map((f) => {
+                const Icon = ICONS[f.icon]
+                return (
+                  <div
+                    key={f.title}
+                    className="group flex items-center gap-3 rounded-2xl border border-border/80 bg-white px-4 py-4 transition-all hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-brand-xs"
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <h3 className="text-sm font-semibold leading-snug text-foreground md:text-base">
+                      {f.title}
+                    </h3>
                   </div>
-                  <h3 className="font-semibold text-foreground">{f.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted">{f.detail}</p>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </Reveal>
         </div>

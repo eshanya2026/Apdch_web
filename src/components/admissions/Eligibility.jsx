@@ -1,6 +1,6 @@
 import { CheckCircle2, GraduationCap, Stethoscope } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
-import { ELIGIBILITY } from '@/lib/admissionsConstants'
+import { ELIGIBILITY, ELIGIBILITY_SECTION } from '@/lib/admissionsConstants'
 
 export default function Eligibility() {
   return (
@@ -8,9 +8,9 @@ export default function Eligibility() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading
-            eyebrow="Who can apply"
-            title="Eligibility"
-            description="Academic and entrance requirements for undergraduate and postgraduate dental programmes."
+            eyebrow={ELIGIBILITY_SECTION.eyebrow}
+            title={ELIGIBILITY_SECTION.title}
+            description={ELIGIBILITY_SECTION.description}
           />
         </Reveal>
 

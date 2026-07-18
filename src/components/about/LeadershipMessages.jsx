@@ -72,7 +72,7 @@ export function ChairmanMessage() {
 
 export function PrincipalMessage() {
   return (
-    <section className="bg-background px-5 pb-24 md:px-8 md:pb-32">
+    <section className="bg-background px-5 pt-20 pb-24 md:px-8 md:pt-28 md:pb-32">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading

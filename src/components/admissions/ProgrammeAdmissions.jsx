@@ -1,7 +1,7 @@
 import { Clock, Users, ArrowRight } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
-import { BDS_ADMISSION, MDS_ADMISSION } from '@/lib/admissionsConstants'
+import { BDS_ADMISSION, BDS_ADMISSION_SECTION, MDS_ADMISSION, MDS_ADMISSION_SECTION } from '@/lib/admissionsConstants'
 import { cn } from '@/lib/utils'
 
 function ProgrammeCard({ data, dark = false }) {
@@ -51,10 +51,22 @@ function ProgrammeCard({ data, dark = false }) {
         <h3 className={cn('font-display text-3xl md:text-4xl', dark ? 'text-white' : 'text-foreground')}>
           {data.title}
         </h3>
-        <p className={cn('mt-4 text-sm leading-relaxed md:text-base', dark ? 'text-white/65' : 'text-muted')}>
-          {data.description}
-        </p>
-        <ul className="mt-6 space-y-2.5">
+        {data.description && (
+          <p className={cn('mt-4 text-sm leading-relaxed md:text-base', dark ? 'text-white/65' : 'text-muted')}>
+            {data.description}
+          </p>
+        )}
+        {data.highlightsTitle && (
+          <p
+            className={cn(
+              'mt-6 text-xs font-semibold uppercase tracking-[0.18em]',
+              dark ? 'text-accent' : 'text-primary'
+            )}
+          >
+            {data.highlightsTitle}
+          </p>
+        )}
+        <ul className={cn('space-y-2.5', data.highlightsTitle ? 'mt-4' : 'mt-6')}>
           {data.highlights.map((h) => (
             <li
               key={h}
@@ -66,15 +78,22 @@ function ProgrammeCard({ data, dark = false }) {
           ))}
         </ul>
         {data.specialities && (
-          <div className="mt-6 flex flex-wrap gap-2">
-            {data.specialities.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/70"
-              >
-                {s}
-              </span>
-            ))}
+          <div className="mt-6">
+            {data.specialitiesTitle && (
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                {data.specialitiesTitle}
+              </p>
+            )}
+            <div className="flex flex-wrap gap-2">
+              {data.specialities.map((s) => (
+                <span
+                  key={s}
+                  className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/70"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
           </div>
         )}
         <div className="mt-auto pt-8">
@@ -96,9 +115,9 @@ export function BdsAdmission() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading
-            eyebrow="Undergraduate"
-            title="BDS Admission"
-            description="A five-year journey into clinical dentistry at a teaching hospital campus."
+            eyebrow={BDS_ADMISSION_SECTION.eyebrow}
+            title={BDS_ADMISSION_SECTION.title}
+            description={BDS_ADMISSION_SECTION.description}
           />
         </Reveal>
         <div className="mt-12">
@@ -113,13 +132,13 @@ export function BdsAdmission() {
 
 export function MdsAdmission() {
   return (
-    <section id="mds" className="bg-background px-5 pb-24 md:px-8 md:pb-32">
+    <section id="mds" className="bg-background px-5 pt-20 pb-24 md:px-8 md:pt-28 md:pb-32">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading
-            eyebrow="Postgraduate"
-            title="MDS Admission"
-            description="Specialty residencies designed for clinicians ready to lead advanced practice."
+            eyebrow={MDS_ADMISSION_SECTION.eyebrow}
+            title={MDS_ADMISSION_SECTION.title}
+            description={MDS_ADMISSION_SECTION.description}
           />
         </Reveal>
         <div className="mt-12">

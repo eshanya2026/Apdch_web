@@ -1,8 +1,28 @@
-import { Hospital, Cpu, MessagesSquare, MapPinned } from 'lucide-react'
+import {
+  Target,
+  Bone,
+  Sparkles,
+  Smile,
+  Leaf,
+  Baby,
+  ScanSearch,
+  UsersRound,
+  FlaskConical,
+} from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
-import { CLINICAL_TRAINING } from '@/lib/academicsConstants'
+import { CLINICAL_TRAINING, CLINICAL_TRAINING_SECTION } from '@/lib/academicsConstants'
 
-const ICONS = { Hospital, Cpu, MessagesSquare, MapPinned }
+const ICONS = {
+  Target,
+  Bone,
+  Sparkles,
+  Smile,
+  Leaf,
+  Baby,
+  ScanSearch,
+  UsersRound,
+  FlaskConical,
+}
 
 export default function ClinicalTraining() {
   return (
@@ -12,21 +32,24 @@ export default function ClinicalTraining() {
         <Reveal>
           <SectionHeading
             light
-            eyebrow="Chairside mastery"
-            title="Clinical Training"
-            description="Learning happens where patients are — across specialty clinics, labs, conferences, and outreach."
+            eyebrow={CLINICAL_TRAINING_SECTION.eyebrow}
+            title={CLINICAL_TRAINING_SECTION.title}
+            description={CLINICAL_TRAINING_SECTION.description}
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CLINICAL_TRAINING.map((item, i) => {
             const Icon = ICONS[item.icon]
             return (
-              <Reveal key={item.title} delay={i * 0.07}>
-                <article className="group h-full rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-400 hover:-translate-y-1 hover:bg-white/10">
-                  <Icon className="mb-4 h-6 w-6 text-accent transition-transform group-hover:scale-110" />
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">{item.description}</p>
+              <Reveal key={item.title} delay={i * 0.05}>
+                <article className="group flex h-full items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-all duration-400 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-accent transition-colors group-hover:bg-accent group-hover:text-foreground">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="text-sm font-semibold leading-snug text-white md:text-base">
+                    {item.title}
+                  </h3>
                 </article>
               </Reveal>
             )

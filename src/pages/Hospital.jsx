@@ -1,15 +1,16 @@
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import HospitalHero from '@/components/hospital/HospitalHero'
-import PatientCare from '@/components/hospital/PatientCare'
 import DentalServices from '@/components/hospital/DentalServices'
 import HospitalSpecialties from '@/components/hospital/HospitalSpecialties'
+import OPTimings from '@/components/hospital/OPTimings'
+import HospitalAppointmentCTA from '@/components/hospital/HospitalAppointmentCTA'
 import AdvancedTechnology from '@/components/hospital/AdvancedTechnology'
 import HospitalFacilities from '@/components/hospital/HospitalFacilities'
-import HospitalAppointmentCTA from '@/components/hospital/HospitalAppointmentCTA'
+import EmergencyContact from '@/components/hospital/EmergencyContact'
+import HospitalGallery from '@/components/hospital/HospitalGallery'
 import HospitalDoctors from '@/components/hospital/HospitalDoctors'
 import HospitalTestimonials from '@/components/hospital/HospitalTestimonials'
-import EmergencyContact from '@/components/hospital/EmergencyContact'
 
 export default function Hospital() {
   return (
@@ -17,15 +18,16 @@ export default function Hospital() {
       <Navbar />
       <main>
         <HospitalHero />
-        <PatientCare />
         <DentalServices />
         <HospitalSpecialties />
+        <OPTimings />
+        <HospitalAppointmentCTA />
         <AdvancedTechnology />
         <HospitalFacilities />
-        <HospitalAppointmentCTA />
+        <EmergencyContact />
+        <HospitalGallery />
         <HospitalDoctors />
         <HospitalTestimonials />
-        <EmergencyContact />
       </main>
       <Footer />
     </>

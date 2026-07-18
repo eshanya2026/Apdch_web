@@ -3,6 +3,7 @@ import { motion, useTransform } from 'framer-motion'
 import { ArrowRight, GraduationCap } from 'lucide-react'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { Button } from '@/components/ui/button'
+import AboutHeroNav from '@/components/about/AboutHeroNav'
 import { ABOUT_HERO } from '@/lib/aboutConstants'
 
 export default function AboutHero() {
@@ -34,6 +35,7 @@ export default function AboutHero() {
       </div>
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
+        <AboutHeroNav />
         <motion.p
           initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}

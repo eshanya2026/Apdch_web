@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
+import { Button } from '@/components/ui/button'
 import { CAMPUS_OVERVIEW } from '@/lib/aboutConstants'
 
 export default function CampusOverview() {
@@ -35,6 +38,17 @@ export default function CampusOverview() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.15}>
+          <div className="mt-12 flex justify-center">
+            <Button asChild size="lg" variant="soft">
+              <Link to="/about/campus-life">
+                Explore Campus Life
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

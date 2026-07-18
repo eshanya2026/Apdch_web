@@ -74,6 +74,14 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
+                    to="/about/campus-life"
+                    className="text-sm text-white/50 transition-colors hover:text-accent"
+                  >
+                    Campus Life
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/admissions"
                     className="text-sm text-white/50 transition-colors hover:text-accent"
                   >

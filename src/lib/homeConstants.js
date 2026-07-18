@@ -225,10 +225,49 @@ export const TESTIMONIALS_HOME = {
 
 export const NEWS_HOME = {
   eyebrow: 'News & Events',
-  title: 'Stay Connected with Campus Life',
+  title: 'Latest News & Events',
   description:
-    'Discover the latest academic achievements, conferences, workshops, community outreach programs, and institutional milestones.',
+    'Stay updated with the latest workshops, celebrations, academic activities, conferences, and achievements at APDCH.',
 }
+
+export const HOME_LATEST_EVENTS = [
+  {
+    title: '🎓 Graduation Ceremony 2026',
+    excerpt:
+      'A proud milestone as our graduating batch takes the next step into professional dental practice.',
+    date: 'August 2026',
+    category: 'Ceremony',
+    image:
+      'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    title: '🦷 Free Dental Health Camp',
+    excerpt:
+      'Faculty and students deliver preventive care, screening, and oral health guidance to the community.',
+    date: 'July 2026',
+    category: 'Outreach',
+    image:
+      'https://images.unsplash.com/photo-1606811971618-448e147cc86b?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    title: "🎉 Fresher's Day Celebration",
+    excerpt:
+      'A lively welcome event for first-year students featuring cultural performances and campus orientation.',
+    date: 'June 2026',
+    category: 'Campus Life',
+    image:
+      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    title: '📚 CDE Workshop on Digital Dentistry',
+    excerpt:
+      'An expert-led workshop on modern digital workflows, CAD/CAM, and technology-enabled clinical practice.',
+    date: 'May 2026',
+    category: 'Workshop',
+    image:
+      'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80&auto=format&fit=crop',
+  },
+]
 
 export const CTA_HOME = {
   title: 'Begin Your Journey Toward a Rewarding Career in Dentistry',

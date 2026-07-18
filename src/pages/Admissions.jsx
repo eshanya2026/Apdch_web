@@ -3,11 +3,14 @@ import Footer from '@/components/layout/Footer'
 import AdmissionsHero from '@/components/admissions/AdmissionsHero'
 import AdmissionProcess from '@/components/admissions/AdmissionProcess'
 import Eligibility from '@/components/admissions/Eligibility'
+import AdmissionCategories from '@/components/admissions/AdmissionCategories'
 import { BdsAdmission, MdsAdmission } from '@/components/admissions/ProgrammeAdmissions'
 import NeetInformation from '@/components/admissions/NeetInformation'
 import RequiredDocuments from '@/components/admissions/RequiredDocuments'
 import FeeStructure from '@/components/admissions/FeeStructure'
-import Scholarships from '@/components/admissions/Scholarships'
+import WhyChooseAPDCH from '@/components/admissions/WhyChooseAPDCH'
+import CampusFacilities from '@/components/admissions/CampusFacilities'
+import ProfessionalDevelopment from '@/components/admissions/ProfessionalDevelopment'
 import AdmissionTimeline from '@/components/admissions/AdmissionTimeline'
 import AdmissionsFAQ from '@/components/admissions/AdmissionsFAQ'
 import DownloadBrochure from '@/components/admissions/DownloadBrochure'
@@ -21,12 +24,15 @@ export default function Admissions() {
         <AdmissionsHero />
         <AdmissionProcess />
         <Eligibility />
+        <AdmissionCategories />
         <BdsAdmission />
         <MdsAdmission />
         <NeetInformation />
         <RequiredDocuments />
         <FeeStructure />
-        <Scholarships />
+        <WhyChooseAPDCH />
+        <CampusFacilities />
+        <ProfessionalDevelopment />
         <AdmissionTimeline />
         <AdmissionsFAQ />
         <DownloadBrochure />

@@ -12,9 +12,14 @@ export const INSTITUTION = {
   address: 'Melmaruvathur, Tamil Nadu 603319',
 }
 
+export const ABOUT_NAV_LINKS = [
+  { label: 'About APDCH', href: '/about' },
+  { label: 'Campus Life', href: '/about/campus-life' },
+]
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
-  { label: 'About', href: '/about', type: 'route' },
+  { label: 'About', href: '/about', type: 'route', children: ABOUT_NAV_LINKS },
   { label: 'Admissions', href: '/admissions', type: 'route' },
   { label: 'Academics', href: '/academics', type: 'route' },
   { label: 'Departments', href: '/departments', type: 'route' },

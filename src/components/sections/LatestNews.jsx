@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
-import { NEWS } from '@/lib/constants'
-import { NEWS_HOME } from '@/lib/homeConstants'
+import { HOME_LATEST_EVENTS, NEWS_HOME } from '@/lib/homeConstants'
 
 export default function LatestNews() {
   return (
@@ -17,11 +16,11 @@ export default function LatestNews() {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {NEWS.map((item, i) => (
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {HOME_LATEST_EVENTS.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.08}>
               <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/80 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-brand">
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-16/10 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -51,7 +50,7 @@ export default function LatestNews() {
           <div className="mt-10 flex justify-center">
             <Button asChild variant="soft">
               <Link to="/#news">
-                View All News
+                View All Events
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

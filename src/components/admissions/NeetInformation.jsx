@@ -1,6 +1,6 @@
 import { BookOpen, Check } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
-import { NEET_INFO } from '@/lib/admissionsConstants'
+import { NEET_INFO, NEET_INFO_SECTION } from '@/lib/admissionsConstants'
 
 export default function NeetInformation() {
   return (
@@ -10,9 +10,9 @@ export default function NeetInformation() {
         <Reveal>
           <SectionHeading
             light
-            eyebrow="Entrance exams"
-            title="NEET Information"
-            description="What BDS and MDS aspirants need to know about NEET-UG and NEET-MDS."
+            eyebrow={NEET_INFO_SECTION.eyebrow}
+            title={NEET_INFO_SECTION.title}
+            description={NEET_INFO_SECTION.description}
           />
         </Reveal>
 
@@ -24,19 +24,22 @@ export default function NeetInformation() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-white">
                     <BookOpen className="h-5 w-5" />
                   </span>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-white">{block.title}</h3>
-                    <p className="text-sm text-accent">{block.subtitle}</p>
-                  </div>
+                  <h3 className="text-2xl font-semibold text-white">{block.title}</h3>
                 </div>
-                <ul className="space-y-3">
-                  {block.points.map((point) => (
-                    <li key={point} className="flex gap-3 text-sm leading-relaxed text-white/70">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+                {block.description ? (
+                  <p className="text-sm leading-relaxed text-white/70 md:text-base">
+                    {block.description}
+                  </p>
+                ) : (
+                  <ul className="space-y-3">
+                    {block.points?.map((point) => (
+                      <li key={point} className="flex gap-3 text-sm leading-relaxed text-white/70">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </article>
             </Reveal>
           ))}

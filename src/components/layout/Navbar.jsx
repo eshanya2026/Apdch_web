@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { INSTITUTION, NAV_LINKS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
@@ -10,7 +10,8 @@ import { cn } from '@/lib/utils'
 function hasDarkHero(pathname) {
   if (pathname === '/') return true
   if (pathname.startsWith('/departments/')) return true
-  return ['/about', '/admissions', '/academics', '/departments', '/hospital', '/research'].includes(
+  if (pathname.startsWith('/about')) return true
+  return ['/admissions', '/academics', '/departments', '/hospital', '/research'].includes(
     pathname
   )
 }
@@ -20,6 +21,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
   const lastY = useRef(0)
 
   const darkHero = hasDarkHero(pathname)
@@ -57,6 +59,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false)
+    setMobileAboutOpen(pathname.startsWith('/about'))
     setHidden(false)
   }, [pathname])
 
@@ -69,6 +72,8 @@ export default function Navbar() {
 
   // Keep header visible while the mobile menu is open
   const visible = open || !hidden
+
+  const isAboutActive = pathname.startsWith('/about')
 
   const linkClass = (active = false) =>
     cn(
@@ -131,7 +136,39 @@ export default function Navbar() {
 
           <nav className="hidden items-center lg:flex">
             {NAV_LINKS.map((link) =>
-              link.type === 'route' ? (
+              link.children ? (
+                <div key={link.href} className="group relative">
+                  <NavLink
+                    to={link.href}
+                    className={({ isActive }) =>
+                      cn(linkClass(isActive || isAboutActive), 'inline-flex items-center gap-0.5')
+                    }
+                  >
+                    {link.label}
+                    <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:rotate-180" />
+                  </NavLink>
+                  <div className="pointer-events-none absolute left-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                    <div className="min-w-[11rem] overflow-hidden rounded-2xl border border-border/60 bg-white/95 p-1.5 shadow-[0_16px_40px_-20px_rgba(17,24,39,0.35)] backdrop-blur-xl">
+                      {link.children.map((child) => (
+                        <NavLink
+                          key={child.href}
+                          to={child.href}
+                          className={({ isActive }) =>
+                            cn(
+                              'block rounded-xl px-3 py-2 text-[13px] font-medium transition-colors',
+                              isActive
+                                ? 'bg-primary/10 text-primary'
+                                : 'text-foreground/75 hover:bg-black/5 hover:text-primary'
+                            )
+                          }
+                        >
+                          {child.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : link.type === 'route' ? (
                 <NavLink
                   key={link.href}
                   to={link.href}
@@ -188,7 +225,60 @@ export default function Navbar() {
             >
               <div className="flex flex-col gap-1 px-4 py-4">
                 {NAV_LINKS.map((link) =>
-                  link.type === 'route' ? (
+                  link.children ? (
+                    <div key={link.href} className="flex flex-col">
+                      <button
+                        type="button"
+                        onClick={() => setMobileAboutOpen((v) => !v)}
+                        className={cn(
+                          'flex w-full items-center justify-between rounded-xl px-3 py-3 text-base font-medium transition-colors',
+                          isAboutActive
+                            ? 'bg-primary/10 text-primary'
+                            : 'text-foreground hover:bg-surface-soft'
+                        )}
+                        aria-expanded={mobileAboutOpen}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          className={cn(
+                            'h-4 w-4 shrink-0 opacity-60 transition-transform duration-200',
+                            mobileAboutOpen && 'rotate-180'
+                          )}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {mobileAboutOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="flex flex-col gap-0.5 pb-1 pl-3 pt-1">
+                              {link.children.map((child) => (
+                                <NavLink
+                                  key={child.href}
+                                  to={child.href}
+                                  onClick={() => setOpen(false)}
+                                  className={({ isActive }) =>
+                                    cn(
+                                      'rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
+                                      isActive
+                                        ? 'bg-primary/10 text-primary'
+                                        : 'text-muted hover:bg-surface-soft hover:text-foreground'
+                                    )
+                                  }
+                                >
+                                  {child.label}
+                                </NavLink>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : link.type === 'route' ? (
                     <NavLink
                       key={link.href}
                       to={link.href}

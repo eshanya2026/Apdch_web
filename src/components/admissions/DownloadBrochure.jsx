@@ -15,14 +15,14 @@ export default function DownloadBrochure() {
                 <FileText className="h-6 w-6" />
               </span>
               <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                  {BROCHURE.eyebrow}
+                </p>
                 <h2 className="font-display text-3xl text-foreground md:text-4xl">
                   {BROCHURE.title}
                 </h2>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted md:text-base">
                   {BROCHURE.description}
-                </p>
-                <p className="mt-3 text-xs font-medium uppercase tracking-wider text-primary">
-                  {BROCHURE.fileLabel}
                 </p>
               </div>
             </div>
@@ -30,7 +30,7 @@ export default function DownloadBrochure() {
               <Button asChild size="lg">
                 <a href={`mailto:admissions@apdch.edu.in?subject=Request%20Admissions%20Brochure`}>
                   <Download className="h-4 w-4" />
-                  Request Brochure
+                  {BROCHURE.cta}
                 </a>
               </Button>
             </div>

@@ -1,8 +1,8 @@
-import { GraduationCap, Award, ScrollText, BookOpenCheck, ArrowUpRight } from 'lucide-react'
+import { GraduationCap, Award, ArrowUpRight } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { ACADEMIC_PROGRAMS } from '@/lib/academicsConstants'
 
-const ICONS = { GraduationCap, Award, ScrollText, BookOpenCheck }
+const ICONS = { GraduationCap, Award }
 
 export default function AcademicPrograms() {
   return (
@@ -12,11 +12,11 @@ export default function AcademicPrograms() {
           <SectionHeading
             eyebrow="Programmes"
             title="Academic Programs"
-            description="Pathways from foundational dentistry to specialty mastery and lifelong learning."
+            description="Undergraduate and postgraduate pathways shaped by DCI standards, NEET eligibility, and specialty clinical training."
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        <div className="mt-14 grid gap-5 lg:grid-cols-2">
           {ACADEMIC_PROGRAMS.map((program, i) => {
             const Icon = ICONS[program.icon]
             return (
@@ -26,9 +26,11 @@ export default function AcademicPrograms() {
                     <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-brand-icon transition-transform group-hover:scale-110">
                       <Icon className="h-5 w-5" />
                     </span>
-                    <span className="rounded-full bg-surface-soft px-3 py-1 text-xs font-semibold text-primary">
-                      {program.duration}
-                    </span>
+                    {program.duration && (
+                      <span className="rounded-full bg-surface-soft px-3 py-1 text-xs font-semibold text-primary">
+                        {program.duration}
+                      </span>
+                    )}
                   </div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
                     {program.short}
@@ -36,19 +38,39 @@ export default function AcademicPrograms() {
                   <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
                     {program.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                    {program.description}
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {program.topics.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-background px-3 py-1 text-xs font-medium text-foreground/70"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+
+                  {program.highlights && (
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {program.highlights.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full bg-background px-3 py-1.5 text-xs font-medium text-foreground/70"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {program.specialties && (
+                    <div className="mt-6">
+                      <p className="text-sm font-semibold text-foreground">
+                        {program.specialtiesLabel}
+                      </p>
+                      <ul className="mt-3 space-y-2">
+                        {program.specialties.map((specialty) => (
+                          <li
+                            key={specialty}
+                            className="flex items-start gap-2 text-sm leading-relaxed text-muted"
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                            {specialty}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   <a
                     href="#curriculum"
                     className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary"

@@ -1,5 +1,5 @@
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
-import { FEE_STRUCTURE } from '@/lib/admissionsConstants'
+import { FEE_STRUCTURE, FEE_STRUCTURE_SECTION } from '@/lib/admissionsConstants'
 
 export default function FeeStructure() {
   return (
@@ -7,9 +7,9 @@ export default function FeeStructure() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading
-            eyebrow="Investment"
-            title="Fee Structure"
-            description="Indicative fee components for the academic year. Final schedules are released in official circulars."
+            eyebrow={FEE_STRUCTURE_SECTION.eyebrow}
+            title={FEE_STRUCTURE_SECTION.title}
+            description={FEE_STRUCTURE_SECTION.description}
           />
         </Reveal>
 
@@ -20,39 +20,40 @@ export default function FeeStructure() {
                 <thead>
                   <tr className="border-b border-border/80 bg-surface-soft/80">
                     <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-primary">
-                      Programme
+                      Program
                     </th>
                     <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-primary">
-                      Category
+                      Duration
                     </th>
                     <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-primary">
-                      Amount
+                      Admission
                     </th>
                     <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-primary">
-                      Note
+                      Intake
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {FEE_STRUCTURE.map((row) => (
                     <tr
-                      key={`${row.programme}-${row.category}`}
+                      key={row.programme}
                       className="border-b border-border/60 transition-colors last:border-0 hover:bg-background/80"
                     >
                       <td className="px-6 py-5 text-sm font-semibold text-foreground">
                         {row.programme}
                       </td>
-                      <td className="px-6 py-5 text-sm text-foreground/80">{row.category}</td>
-                      <td className="px-6 py-5 text-sm font-medium text-primary">{row.amount}</td>
-                      <td className="px-6 py-5 text-sm text-muted">{row.note}</td>
+                      <td className="px-6 py-5 text-sm text-foreground/80">{row.duration}</td>
+                      <td className="px-6 py-5 text-sm font-medium text-primary">
+                        {row.admission}
+                      </td>
+                      <td className="px-6 py-5 text-sm text-muted">{row.intake}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="border-t border-border/70 bg-background/50 px-6 py-4 text-xs text-muted">
-              Fees are subject to regulatory revisions. Contact the Admissions Office for the latest
-              official circular.
+            <p className="border-t border-border/70 bg-background/50 px-6 py-4 text-xs leading-relaxed text-muted">
+              {FEE_STRUCTURE_SECTION.note}
             </p>
           </div>
         </Reveal>

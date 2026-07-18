@@ -1,8 +1,8 @@
-import { UserCheck, Compass, HeartPulse, BookMarked } from 'lucide-react'
+import { UserCheck, Users, Home, BookOpen } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { STUDENT_SUPPORT } from '@/lib/academicsConstants'
 
-const ICONS = { UserCheck, Compass, HeartPulse, BookMarked }
+const ICONS = { UserCheck, Users, Home, BookOpen }
 
 export default function StudentSupport() {
   return (
@@ -12,7 +12,7 @@ export default function StudentSupport() {
           <SectionHeading
             eyebrow="We're with you"
             title="Student Support"
-            description="Mentorship, wellness, and academic help so every learner can reach their potential."
+            description="Mentorship, guidance, and campus facilities that help every learner thrive."
           />
         </Reveal>
 
@@ -21,12 +21,13 @@ export default function StudentSupport() {
             const Icon = ICONS[item.icon]
             return (
               <Reveal key={item.title} delay={i * 0.07}>
-                <article className="group h-full rounded-[1.5rem] border border-border/80 bg-white p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-brand">
-                  <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-surface-soft text-primary transition-all group-hover:bg-primary group-hover:text-white group-hover:scale-110">
+                <article className="group flex h-full flex-col items-center rounded-[1.5rem] border border-border/80 bg-white p-7 text-center transition-all duration-500 hover:-translate-y-2 hover:border-primary/20 hover:shadow-brand">
+                  <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-surface-soft text-primary transition-all group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                    {item.title}
+                  </h3>
                 </article>
               </Reveal>
             )

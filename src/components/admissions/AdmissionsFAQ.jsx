@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { ADMISSION_FAQS } from '@/lib/admissionsConstants'
+import { ADMISSION_FAQS, ADMISSION_FAQS_SECTION } from '@/lib/admissionsConstants'
 
 export default function AdmissionsFAQ() {
   return (
@@ -13,9 +13,8 @@ export default function AdmissionsFAQ() {
       <div className="mx-auto max-w-3xl">
         <Reveal>
           <SectionHeading
-            eyebrow="Questions"
-            title="Admissions FAQ"
-            description="Straight answers on NEET, counselling, fees, housing, and reporting."
+            eyebrow={ADMISSION_FAQS_SECTION.eyebrow}
+            title={ADMISSION_FAQS_SECTION.title}
           />
         </Reveal>
 

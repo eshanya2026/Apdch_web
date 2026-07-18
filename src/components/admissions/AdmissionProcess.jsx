@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
-import { ADMISSION_PROCESS } from '@/lib/admissionsConstants'
+import { ADMISSION_PROCESS, ADMISSION_PROCESS_SECTION } from '@/lib/admissionsConstants'
 
 function ProcessCard({ item, index }) {
   const ref = useRef(null)
@@ -30,9 +30,9 @@ export default function AdmissionProcess() {
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading
-            eyebrow="How to join"
-            title="Admission Process"
-            description="A clear six-step pathway from eligibility to enrolment at APDCH."
+            eyebrow={ADMISSION_PROCESS_SECTION.eyebrow}
+            title={ADMISSION_PROCESS_SECTION.title}
+            description={ADMISSION_PROCESS_SECTION.description}
           />
         </Reveal>
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

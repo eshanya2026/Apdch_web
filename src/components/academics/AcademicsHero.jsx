@@ -1,6 +1,6 @@
 import { motion, useTransform } from 'framer-motion'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
-import { ArrowRight, CalendarDays } from 'lucide-react'
+import { ArrowRight, BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ACADEMICS_HERO } from '@/lib/academicsConstants'
 
@@ -45,8 +45,7 @@ export default function AcademicsHero() {
           transition={{ duration: 0.85, delay: 0.08 }}
           className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.35rem]"
         >
-          Where science meets the{' '}
-          <span className="italic text-accent">chairside</span>
+          {ACADEMICS_HERO.title}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -69,9 +68,9 @@ export default function AcademicsHero() {
             </a>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <a href="#calendar">
-              <CalendarDays className="h-4 w-4" />
-              Academic Calendar
+            <a href="#curriculum">
+              <BookOpen className="h-4 w-4" />
+              View Curriculum
             </a>
           </Button>
         </motion.div>
