@@ -10,7 +10,44 @@ export const INSTITUTION = {
   phone: '04427528082',
   emergency: '+1 (888) 555-0911',
   address: 'Melmaruvathur, Tamil Nadu 603319',
+  hoursLabel: 'Working Hours',
+  hoursDays: 'Monday – Saturday',
+  hoursTime: '8:00 AM – 5:00 PM',
+  hours: 'Monday – Saturday · 8:00 AM – 5:00 PM',
+  mapEmbedUrl:
+    'https://maps.google.com/maps?q=Adhiparasakthi+Dental+College+and+Hospital,+Melmaruvathur&z=15&output=embed',
+  mapDirectionsUrl:
+    'https://www.google.com/maps/dir/?api=1&destination=Adhiparasakthi+Dental+College+and+Hospital,+Melmaruvathur,+Tamil+Nadu+603319',
+  mapViewUrl:
+    'https://www.google.com/maps/search/?api=1&query=Adhiparasakthi+Dental+College+and+Hospital,+Melmaruvathur,+Tamil+Nadu+603319',
 }
+
+export const SOCIAL_LINKS = [
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/apdentals/',
+    icon: 'facebook',
+    hoverClass: 'hover:bg-[#1877F2] hover:text-white',
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/ap.dentals/',
+    icon: 'instagram',
+    hoverClass: 'hover:bg-[#E4405F] hover:text-white',
+  },
+  {
+    label: 'YouTube',
+    href: 'https://www.youtube.com/c/apdentals',
+    icon: 'youtube',
+    hoverClass: 'hover:bg-[#FF0000] hover:text-white',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/adhiparasakthi-dental-college/',
+    icon: 'linkedin',
+    hoverClass: 'hover:bg-[#0A66C2] hover:text-white',
+  },
+]
 
 export const ABOUT_NAV_LINKS = [
   { label: 'About APDCH', href: '/about' },

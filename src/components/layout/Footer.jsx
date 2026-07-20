@@ -1,15 +1,65 @@
 import { Link } from 'react-router-dom'
-import { Mail, MapPin, Phone, Siren } from 'lucide-react'
-import { INSTITUTION, FOOTER_COLUMNS } from '@/lib/constants'
+import { Mail, MapPin, Phone, Clock, ArrowUpRight } from 'lucide-react'
+import { INSTITUTION, SOCIAL_LINKS } from '@/lib/constants'
+
+const QUICK_LINKS = [
+  { label: 'Academics', href: '/academics' },
+  { label: 'Admissions', href: '/admissions' },
+  { label: 'Hospital', href: '/hospital' },
+  { label: 'Departments', href: '/departments' },
+  { label: 'Faculty', href: '/faculty' },
+  { label: 'Campus Life', href: '/about/campus-life' },
+]
+
+function SocialIcon({ name, className }) {
+  const props = {
+    viewBox: '0 0 24 24',
+    fill: 'currentColor',
+    className,
+    'aria-hidden': true,
+  }
+
+  switch (name) {
+    case 'facebook':
+      return (
+        <svg {...props}>
+          <path d="M14 13.5h2.5l.5-3H14v-2c0-.8.2-1.3 1.4-1.3H17V4.1C16.7 4.1 15.7 4 14.5 4 11.9 4 10 5.6 10 8.4V10.5H7.5v3H10V20h4v-6.5z" />
+        </svg>
+      )
+    case 'instagram':
+      return (
+        <svg {...props}>
+          <path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2z" />
+          <path d="M16.9 6.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z" />
+          <path d="M12 2.2c-2.7 0-3 0-4.1.1-2.8.1-4.1 1.5-4.2 4.2C3.6 7.5 3.6 7.8 3.6 12s0 4.5.1 5.5c.1 2.8 1.5 4.1 4.2 4.2 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c2.8-.1 4.1-1.5 4.2-4.2.1-1 .1-1.4.1-5.5s0-4.5-.1-5.5c-.1-2.8-1.5-4.1-4.2-4.2-1.1-.1-1.4-.1-4.1-.1zm0 1.6c2.6 0 2.9 0 4 .1 1.9.1 2.8 1 2.9 2.9.1 1 .1 1.3.1 3.9s0 2.9-.1 4c-.1 1.9-1 2.8-2.9 2.9-1 .1-1.3.1-4 .1s-2.9 0-4-.1c-1.9-.1-2.8-1-2.9-2.9-.1-1-.1-1.3-.1-4s0-2.9.1-4c.1-1.9 1-2.8 2.9-2.9 1.1-.1 1.4-.1 4-.1z" />
+        </svg>
+      )
+    case 'youtube':
+      return (
+        <svg {...props}>
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.8 15.5v-7l6.2 3.5-6.2 3.5z" />
+        </svg>
+      )
+    case 'linkedin':
+      return (
+        <svg {...props}>
+          <path d="M6.9 8.7H3.6V20h3.3V8.7zM5.3 4A1.9 1.9 0 1 0 5.3 7.8 1.9 1.9 0 0 0 5.3 4zM20.4 13.2c0-3-1.6-4.9-4.4-4.9-2 0-2.9 1.1-3.4 1.9V8.7H9.4c0 .8 0 11.3 0 11.3h3.3v-6.3c0-.3 0-.7.1-1 .3-.7.9-1.5 2-1.5 1.4 0 2 1.1 2 2.6V20h3.3v-6.8z" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/80 bg-footer text-white">
+    <footer className="border-t border-white/10 bg-footer text-white">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.7fr_1.1fr] lg:gap-10">
+          {/* Logo & Contact */}
           <div>
             <Link to="/" className="inline-flex items-center gap-3">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-1.5 shadow-sm">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[3.6px] bg-white p-1.5">
                 <img
                   src="/f0229f1b-ddbb-46f5-ad40-c13d2676e8b2.png"
                   alt="Adhiparasakthi Dental College and Hospital"
@@ -23,130 +73,110 @@ export default function Footer() {
                 </span>
               </span>
             </Link>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/55">
-              {INSTITUTION.description}
-            </p>
-            <p className="mt-4 max-w-sm text-sm font-medium leading-relaxed text-accent/90">
-              {INSTITUTION.tagline}
-            </p>
+
             <ul className="mt-8 space-y-3 text-sm text-white/70">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 {INSTITUTION.address}
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-4 w-4 shrink-0 text-accent" />
-                <a href={`tel:${INSTITUTION.phone}`} className="hover:text-white">
+                <Phone className="h-4 w-4 shrink-0 text-primary" />
+                <a href={`tel:${INSTITUTION.phone}`} className="transition-opacity hover:opacity-70">
                   {INSTITUTION.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Siren className="h-4 w-4 shrink-0 text-accent" />
-                <a href={`tel:${INSTITUTION.emergency}`} className="hover:text-white">
-                  Emergency {INSTITUTION.emergency}
-                </a>
+              <li className="flex items-start gap-3">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span>
+                  <span className="block font-medium text-white/90">{INSTITUTION.hoursLabel}</span>
+                  <span className="block text-white/70">{INSTITUTION.hoursDays}</span>
+                  <span className="block text-white/70">{INSTITUTION.hoursTime}</span>
+                </span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-4 w-4 shrink-0 text-accent" />
-                <a href={`mailto:${INSTITUTION.email}`} className="hover:text-white">
+                <Mail className="h-4 w-4 shrink-0 text-primary" />
+                <a
+                  href={`mailto:${INSTITUTION.email}`}
+                  className="transition-opacity hover:opacity-70"
+                >
                   {INSTITUTION.email}
                 </a>
               </li>
             </ul>
+
+            <div className="mt-8 flex items-center gap-3">
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className={`inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-10px_rgba(0,0,0,0.6)] ${social.hoverClass}`}
+                >
+                  <SocialIcon name={social.icon} className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <h4 className="text-sm font-semibold tracking-wide text-white">Explore</h4>
-              <ul className="mt-4 space-y-2.5">
-                <li>
-                  <Link to="/" className="text-sm text-white/50 transition-colors hover:text-accent">
-                    Home
-                  </Link>
-                </li>
-                <li>
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-sm font-semibold tracking-wide text-white">Quick Links</h4>
+            <ul className="mt-4 space-y-2.5">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.href}>
                   <Link
-                    to="/about"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
+                    to={link.href}
+                    className="text-sm text-white/50 transition-opacity hover:opacity-100 hover:text-white"
                   >
-                    About APDCH
+                    {link.label}
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/about/campus-life"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    Campus Life
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/admissions"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    Admissions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/academics"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    Academics
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/departments"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    Departments
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/faculty"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    Faculty
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/research"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    Research
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/hospital"
-                    className="text-sm text-white/50 transition-colors hover:text-accent"
-                  >
-                    Hospital
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            {FOOTER_COLUMNS.slice(0, 3).map((col) => (
-              <div key={col.title}>
-                <h4 className="text-sm font-semibold tracking-wide text-white">{col.title}</h4>
-                <ul className="mt-4 space-y-2.5">
-                  {col.links.map((link) => (
-                    <li key={link}>
-                      <a
-                        href="/#cta"
-                        className="text-sm text-white/50 transition-colors hover:text-accent"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+              ))}
+            </ul>
+          </div>
+
+          {/* Google Map */}
+          <div>
+            <h4 className="text-sm font-semibold tracking-wide text-white">Location</h4>
+            <p className="mt-4 text-sm font-medium leading-snug text-white">
+              Adhiparasakthi Dental College &amp; Hospital
+            </p>
+            <p className="mt-1 text-sm text-white/60">Melmaruvathur, Tamil Nadu 603319</p>
+            <div className="mt-4 w-full max-w-[380px] overflow-hidden rounded-2xl border border-white/15">
+              <iframe
+                title="APDCH campus location map"
+                src={INSTITUTION.mapEmbedUrl}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[220px] w-full min-w-[340px] border-0"
+                allowFullScreen
+              />
+              <div className="flex border-t border-white/15">
+                <a
+                  href={INSTITUTION.mapDirectionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-1 items-center justify-between gap-2 border-r border-white/15 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-white/[0.08]"
+                >
+                  <span className="inline-flex items-center gap-2">
+                    <MapPin className="h-4 w-4 shrink-0 text-primary" />
+                    Get Directions
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-white/50 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                </a>
+                <a
+                  href={INSTITUTION.mapViewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-1 items-center justify-between gap-2 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-white/[0.08]"
+                >
+                  <span>View on Google Maps</span>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-white/50 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                </a>
               </div>
-            ))}
+            </div>
           </div>
         </div>
 
@@ -165,7 +195,7 @@ export default function Footer() {
               Accessibility
             </a>
             <Link to="/about" className="hover:text-white">
-              About
+              Sitemap
             </Link>
           </div>
         </div>

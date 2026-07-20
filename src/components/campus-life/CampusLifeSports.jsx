@@ -51,17 +51,13 @@ export default function CampusLifeSports() {
                     onMouseLeave={() => setHovered(null)}
                     onFocus={() => setHovered(i)}
                     onBlur={() => setHovered(null)}
-                    className={`group flex h-full flex-col items-center justify-center rounded-2xl border p-5 text-center transition-all duration-400 ${
+                    className={`group flex h-full flex-col items-center justify-center rounded-[3.6px] border p-5 text-center transition-[transform,background-color,border-color,color] duration-300 ${
                       isActive
-                        ? 'scale-[1.03] border-accent/50 bg-white text-foreground shadow-brand-lg'
-                        : 'border-white/10 bg-white/[0.04] text-white hover:bg-white/[0.08]'
+                        ? 'scale-[1.03] border-white/25 bg-white/[0.08] text-white'
+                        : 'border-white/10 bg-white/[0.04] text-white hover:border-white/20 hover:bg-white/[0.08]'
                     }`}
                   >
-                    <span
-                      className={`mb-3 flex h-12 w-12 items-center justify-center rounded-xl transition-colors ${
-                        isActive ? 'bg-primary text-white' : 'bg-white/10 text-accent'
-                      }`}
-                    >
+                    <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-[3.6px] bg-white/10 text-primary">
                       <Icon className="h-5 w-5" />
                     </span>
                     <span className="text-sm font-semibold">{sport.title}</span>
