@@ -1,68 +1,72 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Quote, Star } from 'lucide-react'
+import { Quote, Star, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { TESTIMONIALS } from '@/lib/constants'
 import { TESTIMONIALS_HOME } from '@/lib/homeConstants'
 
-const AUTO_MS = 5000
+const AUTO_SCROLL_MS = 10000
 
 function StarRating({ rating }) {
   return (
-    <div className="flex items-center gap-0.5" aria-label={`${rating} out of 5 stars`}>
-      {Array.from({ length: 5 }, (_, i) => {
-        const filled = rating >= i + 1
-        const half = !filled && rating >= i + 0.5
-
-        if (half) {
+    <div className="flex items-center gap-1.5" aria-label={`${rating} out of 5 stars`}>
+      <div className="flex items-center gap-0.5">
+        {Array.from({ length: 5 }, (_, i) => {
+          const fillPercent = Math.max(0, Math.min(1, rating - i)) * 100
           return (
-            <span key={i} className="relative inline-flex h-4 w-4">
-              <Star className="absolute inset-0 h-4 w-4 text-amber-300/40" />
-              <span className="absolute inset-0 w-1/2 overflow-hidden">
-                <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              </span>
+            <span key={i} className="relative inline-flex h-4 w-4 shrink-0">
+              <Star className="h-4 w-4 fill-amber-100 text-amber-200" />
+              {fillPercent > 0 && (
+                <span
+                  className="absolute inset-0 overflow-hidden"
+                  style={{ width: `${fillPercent}%` }}
+                >
+                  <Star className="h-4 w-4 min-w-[16px] fill-amber-400 text-amber-400" />
+                </span>
+              )}
             </span>
           )
-        }
-
-        return (
-          <Star
-            key={i}
-            className={`h-4 w-4 ${
-              filled ? 'fill-amber-400 text-amber-400' : 'text-amber-300/40'
-            }`}
-          />
-        )
-      })}
+        })}
+      </div>
+      <span className="ml-1 rounded-md bg-amber-50 px-2 py-0.5 text-xs font-bold text-amber-900 border border-amber-200/60">
+        {rating.toFixed(1)} / 5.0
+      </span>
     </div>
   )
 }
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const [direction, setDirection] = useState(1)
-
+  const [isPaused, setIsPaused] = useState(false)
   const count = TESTIMONIALS.length
-  const item = TESTIMONIALS[index]
+  const safeIndex = index % count
+  const current = TESTIMONIALS[safeIndex] || TESTIMONIALS[0]
 
-  const goTo = (next, dir = 1) => {
-    setDirection(dir)
-    setIndex(((next % count) + count) % count)
+  const handleNext = () => {
+    setIndex((prev) => (prev + 1) % count)
+  }
+
+  const handlePrev = () => {
+    setIndex((prev) => (prev - 1 + count) % count)
   }
 
   useEffect(() => {
-    if (paused || count <= 1) return undefined
-    const id = setInterval(() => {
-      setDirection(1)
-      setIndex((i) => (i + 1) % count)
-    }, AUTO_MS)
-    return () => clearInterval(id)
-  }, [paused, count, index])
+    if (isPaused || count <= 1) return undefined
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % count)
+    }, AUTO_SCROLL_MS)
+
+    return () => clearInterval(timer)
+  }, [isPaused, count])
 
   return (
-    <section className="mesh-bg px-5 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background via-surface-soft/40 to-background px-5 py-20 md:px-8 md:py-28">
+      {/* Decorative ambient background glows */}
+      <div className="pointer-events-none absolute -left-20 top-1/3 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 bottom-1/4 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-6xl">
+        {/* Header */}
         <Reveal>
           <SectionHeading
             eyebrow={TESTIMONIALS_HOME.eyebrow}
@@ -71,68 +75,125 @@ export default function Testimonials() {
           />
         </Reveal>
 
-        <Reveal delay={0.1}>
+        {/* Main Testimonial Spotlight Showcase */}
+        <Reveal delay={0.08}>
           <div
-            className="relative mx-auto mt-14 max-w-3xl"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            onFocusCapture={() => setPaused(true)}
-            onBlurCapture={() => setPaused(false)}
+            className="relative mx-auto mt-12 max-w-4xl"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="relative min-h-[320px] overflow-hidden rounded-[1.75rem] border border-border/80 bg-white p-8 shadow-brand-card md:min-h-[300px] md:p-10">
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.blockquote
-                  key={item.name}
-                  custom={direction}
-                  initial={{ opacity: 0, x: direction * 48 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: direction * -48 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex h-full flex-col"
+            {/* Main Showcase Card */}
+            <div className="relative overflow-hidden rounded-[2.2rem] border border-border/90 bg-white/95 p-8 shadow-xl backdrop-blur-md md:p-12">
+              {/* Giant background quote icon watermark */}
+              <Quote className="pointer-events-none absolute -right-4 -top-4 h-44 w-44 text-primary/[0.04] rotate-180" />
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  className="relative z-10 flex flex-col justify-between"
                 >
-                  <div className="mb-4 flex flex-wrap items-center gap-3">
-                    <span className="inline-flex w-fit rounded-full bg-surface-soft px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
-                      {item.type}
-                    </span>
-                    <StarRating rating={item.rating} />
-                  </div>
-                  <Quote className="mb-4 h-8 w-8 text-accent" />
-                  <p className="flex-1 font-display text-xl leading-snug text-foreground md:text-[1.45rem]">
-                    “{item.quote}”
-                  </p>
-                  <footer className="mt-8 flex items-center gap-3 border-t border-border/70 pt-5">
-                    <span
-                      aria-hidden
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-semibold text-white ring-2 ring-accent/40"
-                    >
-                      {(item.name.replace(/^Dr\.\s*/i, '').trim()[0] || '?').toUpperCase()}
-                    </span>
-                    <div>
-                      <cite className="not-italic text-sm font-semibold text-foreground">
-                        {item.name}
-                      </cite>
-                      <p className="text-xs text-muted">{item.role}</p>
+                  {/* Top Bar: Rating & Category Badge */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/60 pb-6">
+                    <div className="flex items-center gap-3">
+                      <span className="rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                        {current.type}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+                        Verified {current.type}
+                      </span>
                     </div>
-                  </footer>
-                </motion.blockquote>
+                    <StarRating rating={current.rating} />
+                  </div>
+
+                  {/* Testimonial Quote */}
+                  <div className="my-8">
+                    <Quote className="mb-3 h-8 w-8 text-primary/30" />
+                    <p className="font-display text-lg leading-relaxed text-foreground md:text-2xl font-medium">
+                      “{current.quote}”
+                    </p>
+                  </div>
+
+                  {/* Author Meta */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4">
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary font-display text-xl font-bold text-white shadow-brand-icon">
+                        {(current.name.replace(/^Dr\.\s*/i, '').trim()[0] || '?').toUpperCase()}
+                      </div>
+                      <div>
+                        <h4 className="font-display text-base font-bold text-foreground md:text-lg">
+                          {current.name}
+                        </h4>
+                        <p className="text-xs font-medium text-muted md:text-sm">{current.role}</p>
+                      </div>
+                    </div>
+
+                    {/* Controls & Slide Counter */}
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-semibold tracking-wider text-muted">
+                        <span className="text-primary font-bold">{safeIndex + 1}</span> / {count}
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={handlePrev}
+                          aria-label="Previous testimonial"
+                          className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-surface-soft text-foreground transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary active:scale-95"
+                        >
+                          <ChevronLeft className="h-5 w-5" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleNext}
+                          aria-label="Next testimonial"
+                          className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 bg-surface-soft text-foreground transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary active:scale-95"
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </AnimatePresence>
             </div>
 
-            <div className="mt-6 flex items-center justify-center gap-2">
-              {TESTIMONIALS.map((t, i) => (
-                <button
-                  key={t.name}
-                  type="button"
-                  aria-label={`Show testimonial ${i + 1}`}
-                  aria-current={i === index}
-                  onClick={() => goTo(i, i > index ? 1 : -1)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    i === index
-                      ? 'w-7 bg-primary'
-                      : 'w-2.5 bg-primary/25 hover:bg-primary/45'
-                  }`}
-                />
-              ))}
+            {/* Quick Author Selector Bar below showcase */}
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {TESTIMONIALS.map((t, idx) => {
+                const isSelected = idx === safeIndex
+                return (
+                  <button
+                    key={t.name}
+                    type="button"
+                    onClick={() => setIndex(idx)}
+                    className={`group flex items-center gap-3 rounded-2xl border p-3 text-left transition-all duration-300 ${
+                      isSelected
+                        ? 'border-primary/40 bg-white shadow-brand-sm ring-1 ring-primary/20 scale-[1.02]'
+                        : 'border-border/60 bg-white/60 hover:border-primary/25 hover:bg-white'
+                    }`}
+                  >
+                    <div
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-sm transition-colors ${
+                        isSelected
+                          ? 'bg-primary text-white'
+                          : 'bg-surface-soft text-foreground group-hover:bg-primary/10 group-hover:text-primary'
+                      }`}
+                    >
+                      {(t.name.replace(/^Dr\.\s*/i, '').trim()[0] || '?').toUpperCase()}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className={`truncate text-xs font-bold ${isSelected ? 'text-primary' : 'text-foreground'}`}>
+                        {t.name}
+                      </p>
+                      <p className="truncate text-[11px] text-muted">{t.type}</p>
+                    </div>
+                  </button>
+                )
+              })}
             </div>
           </div>
         </Reveal>

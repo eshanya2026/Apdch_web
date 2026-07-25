@@ -208,10 +208,10 @@ export const HOME_SPECIALISTS = [
 export const TRUSTED_RECOGNIZED = {
   title: 'Trusted & Recognized',
   items: [
-    { mark: 'DCI', line: 'DCI Approved' },
-    { mark: 'NAAC', line: 'NAAC Accredited' },
+    { mark: 'DCI', line: 'DCI Approved', image: '/dci.png', imageAlt: 'Dental Council of India logo' },
+    { mark: 'NAAC', line: 'NAAC Accredited', image: '/naac.png', imageAlt: 'NAAC logo' },
     { mark: 'MGR', line: 'MGR University', image: '/mgr logo.png', imageAlt: 'MGR University logo' },
-    { mark: 'ISO', line: 'ISO 9001:2015' },
+    { mark: 'ISO', line: 'ISO 9001:2015', image: '/iso.png', imageAlt: 'ISO 9001:2015 logo' },
   ],
   cta: 'Learn More',
   ctaHref: '/about',

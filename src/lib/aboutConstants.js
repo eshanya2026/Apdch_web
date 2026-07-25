@@ -111,12 +111,11 @@ export const RECOGNITIONS = {
   eyebrow: 'Recognition',
   title: 'Recognitions & Accreditations',
   items: [
-    { label: 'NAAC', sub: 'Accreditation' },
-    { label: 'ISO', sub: 'Quality Standards' },
-    { label: 'DCI', sub: 'Dental Council of India' },
-    { label: 'University', sub: 'Affiliated Degree Programmes' },
-    { label: 'Clinical', sub: 'Teaching Hospital Standards' },
-    { label: 'Research', sub: 'Scientific Excellence' },
+    { label: 'NAAC', sub: 'Accreditation', image: '/naac.png' },
+    { label: 'ISO', sub: 'Quality Standards', image: '/iso.png' },
+    { label: 'DCI', sub: 'Dental Council of India', image: '/dci.png' },
+    { label: 'University', sub: 'Affiliated Degree Programmes', image: '/mgr logo.png' },
+    { label: 'NABH', sub: 'Hospital Accreditation', image: '/NABH.png' },
   ],
 }
 
@@ -172,11 +171,31 @@ export const APPROVALS = [
     title: 'Dental Council of India',
     short: 'DCI',
     description: 'Recognised dental education programmes aligned with national standards.',
+    image: '/dci.png',
+  },
+  {
+    title: 'NAAC Accreditation',
+    short: 'NAAC',
+    description: 'Accredited for academic quality, institutional performance, and healthcare excellence.',
+    image: '/naac.png',
+  },
+  {
+    title: 'NABH Accreditation',
+    short: 'NABH',
+    description: 'Accredited for patient safety, healthcare quality, and clinical standards.',
+    image: '/NABH.png',
   },
   {
     title: 'The Tamil Nadu Dr. M.G.R. Medical University',
     short: 'MGR',
     description: 'Degree programmes affiliated with the university’s academic framework.',
+    image: '/mgr logo.png',
+  },
+  {
+    title: 'ISO 9001:2015 Certification',
+    short: 'ISO',
+    description: 'Certified for quality management systems in dental education and healthcare delivery.',
+    image: '/iso.png',
   },
 ]
 

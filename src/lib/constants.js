@@ -366,7 +366,7 @@ export const TESTIMONIALS = [
     name: 'Lakshmi Venkatesan',
     role: 'Parent of BDS Student',
     type: 'Parent',
-    rating: 5,
+    rating: 4.8,
   },
   {
     quote:
@@ -382,7 +382,7 @@ export const TESTIMONIALS = [
     name: 'Dr. Arjun Sekar',
     role: 'MDS Orthodontics · Alumni',
     type: 'Alumni',
-    rating: 4,
+    rating: 4.2,
   },
   {
     quote:
@@ -390,7 +390,7 @@ export const TESTIMONIALS = [
     name: 'Anjana',
     role: 'Final Year Student',
     type: 'Student',
-    rating: 5,
+    rating: 5.0,
   },
 ]
 

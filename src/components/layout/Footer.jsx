@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, MapPin, Phone, Clock, ArrowUpRight } from 'lucide-react'
+import { Mail, MapPin, Phone, Clock, ArrowUpRight, Navigation } from 'lucide-react'
 import { INSTITUTION, SOCIAL_LINKS } from '@/lib/constants'
 
 const QUICK_LINKS = [
@@ -144,36 +144,42 @@ export default function Footer() {
               Adhiparasakthi Dental College &amp; Hospital
             </p>
             <p className="mt-1 text-sm text-white/60">Melmaruvathur, Tamil Nadu 603319</p>
-            <div className="mt-4 w-full max-w-[380px] overflow-hidden rounded-2xl border border-white/15">
+            <div className="relative mt-4 w-full overflow-hidden rounded-2xl border border-white/15 bg-white/[0.03] shadow-lg">
+              <div className="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-white/20 bg-footer/90 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-md shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                </span>
+                APDCH Campus
+              </div>
               <iframe
                 title="APDCH campus location map"
                 src={INSTITUTION.mapEmbedUrl}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="h-[220px] w-full min-w-[340px] border-0"
+                className="h-[230px] w-full border-0 transition-opacity duration-300 hover:opacity-95"
                 allowFullScreen
               />
-              <div className="flex border-t border-white/15">
+              <div className="grid grid-cols-2 border-t border-white/15">
                 <a
                   href={INSTITUTION.mapDirectionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-1 items-center justify-between gap-2 border-r border-white/15 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-white/[0.08]"
+                  className="group flex items-center justify-center gap-1.5 border-r border-white/15 bg-white/[0.04] px-2.5 py-3 text-xs font-semibold text-white transition-all duration-300 hover:bg-primary hover:text-white"
                 >
-                  <span className="inline-flex items-center gap-2">
-                    <MapPin className="h-4 w-4 shrink-0 text-primary" />
-                    Get Directions
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-white/50 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                  <Navigation className="h-3.5 w-3.5 shrink-0 text-white/80 transition-transform group-hover:scale-110 group-hover:text-white" />
+                  <span>Get Directions</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
                 </a>
                 <a
                   href={INSTITUTION.mapViewUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-1 items-center justify-between gap-2 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-white/[0.08]"
+                  className="group flex items-center justify-center gap-1.5 bg-white/[0.04] px-2.5 py-3 text-xs font-semibold text-white transition-all duration-300 hover:bg-white/[0.12]"
                 >
-                  <span>View on Google Maps</span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-white/50 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                  <MapPin className="h-3.5 w-3.5 shrink-0 text-white/80 transition-transform group-hover:scale-110 group-hover:text-white" />
+                  <span>Google Maps</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
                 </a>
               </div>
             </div>
