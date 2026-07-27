@@ -6,7 +6,7 @@ const QUICK_LINKS = [
   { label: 'Academics', href: '/academics' },
   { label: 'Admissions', href: '/admissions' },
   { label: 'Hospital', href: '/hospital' },
-  { label: 'Departments', href: '/departments' },
+  { label: 'Departments', href: '/departments/oral-medicine' },
   { label: 'Faculty', href: '/faculty' },
   { label: 'Campus Life', href: '/about/campus-life' },
 ]

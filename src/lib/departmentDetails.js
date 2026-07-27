@@ -74,32 +74,33 @@ export const DEPARTMENT_DETAILS = {
       eyebrow: 'Lab & Equipment',
       title: 'Technology & Equipment',
       description:
-        'Advanced diagnostic and imaging facilities supporting accurate diagnosis, pain management, and high-quality radiographic care.',
+        'The department is equipped with modern diagnostic and radiographic facilities to support comprehensive oral diagnosis, advanced imaging, pain management, and patient care.',
     },
     technology: [
       {
-        title: 'CBCT Imaging System',
+        title: 'CBCT Imaging Unit',
         description:
-          'High-resolution CBCT imaging with large field-of-view for advanced diagnosis.',
+          'Large Field-of-View (FOV) Cone Beam Computed Tomography (CBCT) for advanced oral and maxillofacial imaging and interpretation.',
       },
       {
         title: 'Digital Radiography',
         description:
-          'Intraoral radiography, RVG, panoramic imaging, and cephalometric imaging.',
+          'Conventional and digital radiography, RVG, panoramic imaging, cephalometric imaging, and extraoral skull projections.',
       },
       {
         title: 'Pain Management Clinic',
-        description: 'TENS therapy for neuromuscular pain and TMJ disorders.',
+        description:
+          'Transcutaneous Electrical Nerve Stimulation (TENS) therapy for neuromuscular pain disorders and TMJ management.',
       },
       {
-        title: 'Diagnostic Equipment',
+        title: 'Diagnostic Facilities',
         description:
-          'Pulp tester, sialography kit, aspiration equipment, histological smear facilities, and emergency care kit.',
+          'Pulp tester, sialography kit, aspiration equipment, histological smear facilities, and medical emergency kit.',
       },
       {
         title: 'Digital Film Processing',
         description:
-          'Fujifilm digital dry film printer for high-quality diagnostic imaging.',
+          'Fujifilm Digital Dry Film Printer for high-quality radiographic image processing.',
       },
     ],
     faculty: [

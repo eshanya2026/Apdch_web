@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
 import { motion, useTransform } from 'framer-motion'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
-import { ArrowLeft, CalendarDays } from 'lucide-react'
+import { CalendarDays } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function DetailHero({ department }) {
@@ -27,13 +26,6 @@ export default function DetailHero({ department }) {
       </motion.div>
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
-        <Link
-          to="/departments"
-          className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          All departments
-        </Link>
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-accent">
           Department
         </p>

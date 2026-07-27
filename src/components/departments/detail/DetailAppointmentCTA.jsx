@@ -40,8 +40,8 @@ export default function DetailAppointmentCTA({ department }) {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/departments">
-                Browse departments
+              <Link to="/academics">
+                Explore academics
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

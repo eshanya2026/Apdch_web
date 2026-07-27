@@ -11,7 +11,7 @@ function hasDarkHero(pathname) {
   if (pathname === '/') return true
   if (pathname.startsWith('/departments/')) return true
   if (pathname.startsWith('/about')) return true
-  return ['/admissions', '/academics', '/departments', '/hospital', '/research'].includes(
+  return ['/admissions', '/academics', '/hospital', '/research'].includes(
     pathname
   )
 }
@@ -141,7 +141,7 @@ export default function Navbar() {
               link.children ? (
                 <div key={link.href} className="group relative">
                   <NavLink
-                    to={link.href}
+                    to={link.children?.[0]?.href || link.href}
                     className={() =>
                       cn(
                         linkClass(isNavGroupActive(pathname, link.href)),

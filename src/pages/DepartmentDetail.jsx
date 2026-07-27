@@ -8,10 +8,10 @@ import {
   DetailTechnology,
   DetailInfrastructure,
   DetailResearch,
-  DetailAchievements,
 } from '@/components/departments/detail/FeatureCardGrid'
 import DetailFaculty from '@/components/departments/detail/DetailFaculty'
 import DetailPatientCare from '@/components/departments/detail/DetailPatientCare'
+import DetailEvents from '@/components/departments/detail/DetailEvents'
 import DetailGallery from '@/components/departments/detail/DetailGallery'
 import DetailFAQs from '@/components/departments/detail/DetailFAQs'
 import DetailAppointmentCTA from '@/components/departments/detail/DetailAppointmentCTA'
@@ -33,7 +33,7 @@ export default function DepartmentDetail() {
             The department you requested does not exist or the link may be outdated.
           </p>
           <Button asChild className="mt-8">
-            <Link to="/departments">Back to departments</Link>
+            <Link to="/departments/oral-medicine">Explore departments</Link>
           </Button>
         </main>
         <Footer />
@@ -52,8 +52,8 @@ export default function DepartmentDetail() {
         <DetailFaculty department={department} />
         <DetailInfrastructure department={department} />
         <DetailResearch department={department} />
+        <DetailEvents department={department} />
         <DetailPatientCare department={department} />
-        <DetailAchievements department={department} />
         <DetailGallery department={department} />
         <DetailFAQs department={department} />
         <DetailAppointmentCTA department={department} />

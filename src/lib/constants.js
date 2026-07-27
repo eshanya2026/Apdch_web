@@ -55,7 +55,6 @@ export const ABOUT_NAV_LINKS = [
 ]
 
 export const DEPARTMENTS_NAV_LINKS = [
-  { label: 'All Departments', href: '/departments' },
   { label: 'Oral Medicine & Radiology', href: '/departments/oral-medicine' },
   { label: 'Conservative Dentistry & Endodontics', href: '/departments/conservative-dentistry' },
   { label: 'Oral & Maxillofacial Surgery', href: '/departments/oral-surgery' },

@@ -39,28 +39,28 @@ export default function CampusLifeSports() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {SPORTS.map((sport, i) => {
               const Icon = ICONS[sport.icon]
               const isActive = hovered === i
               return (
-                <Reveal key={sport.title} delay={i * 0.05}>
+                <Reveal key={sport.title} delay={i * 0.05} className="h-full w-full">
                   <button
                     type="button"
                     onMouseEnter={() => setHovered(i)}
                     onMouseLeave={() => setHovered(null)}
                     onFocus={() => setHovered(i)}
                     onBlur={() => setHovered(null)}
-                    className={`group flex h-full flex-col items-center justify-center rounded-[3.6px] border p-5 text-center transition-[transform,background-color,border-color,color] duration-300 ${
+                    className={`group flex h-full w-full flex-col items-center justify-center rounded-2xl border p-6 text-center transition-all duration-300 ${
                       isActive
-                        ? 'scale-[1.03] border-white/25 bg-white/[0.08] text-white'
+                        ? 'scale-[1.03] border-accent/40 bg-white/[0.12] text-white shadow-xl'
                         : 'border-white/10 bg-white/[0.04] text-white hover:border-white/20 hover:bg-white/[0.08]'
                     }`}
                   >
-                    <span className="mb-3 flex h-12 w-12 items-center justify-center rounded-[3.6px] bg-white/10 text-primary">
-                      <Icon className="h-5 w-5" />
+                    <span className="mb-4 flex h-13 w-13 items-center justify-center rounded-xl bg-white/10 text-accent transition-transform duration-300 group-hover:scale-110">
+                      <Icon className="h-6 w-6" />
                     </span>
-                    <span className="text-sm font-semibold">{sport.title}</span>
+                    <span className="text-sm font-bold tracking-tight md:text-base">{sport.title}</span>
                   </button>
                 </Reveal>
               )

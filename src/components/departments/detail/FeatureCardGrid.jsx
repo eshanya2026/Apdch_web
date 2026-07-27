@@ -1,15 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Trophy, Medal, GraduationCap, Globe } from 'lucide-react'
+import { ArrowRight, Trophy } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-
-const ACHIEVEMENT_ICONS = {
-  Trophy,
-  Medal,
-  GraduationCap,
-  Globe,
-}
 
 /** Reusable premium feature card grid */
 export function FeatureCardGrid({
@@ -134,79 +127,129 @@ export function DetailInfrastructure({ department }) {
   )
 }
 
-export function DetailResearch({ department }) {
-  const section = department.researchSection ?? {}
-  return (
-    <FeatureCardGrid
-      eyebrow={section.eyebrow ?? 'Enquiry'}
-      title={section.title ?? 'Research'}
-      description={
-        section.description ??
-        'Scholarly themes pursued within the department — outcomes that improve practice.'
-      }
-      items={department.research}
-      dark
-      columns={2}
-      ctaLabel={section.ctaLabel}
-      ctaHref={section.ctaHref}
-    />
-  )
-}
+export { default as DetailResearch } from './DetailResearch'
 
 export function DetailAchievements({ department }) {
   const section = department.achievementsSection ?? {}
   const items = department.achievements ?? []
-  const isHighlightStyle = items.some((item) => item.icon && !item.description)
 
-  if (!isHighlightStyle) {
-    return (
-      <FeatureCardGrid
-        eyebrow={section.eyebrow ?? 'Milestones'}
-        title={section.title ?? 'Achievements'}
-        description={
-          section.description ??
-          'Recognition earned through teaching quality, clinical volume, and community impact.'
-        }
-        items={items}
-        columns={2}
-        ctaLabel={section.ctaLabel}
-        ctaHref={section.ctaHref}
-      />
-    )
+  // Format custom department achievements or use timeline format
+  const timelineData = [
+    {
+      year: '2024',
+      items: [
+        {
+          title: 'Emerging Researcher Award',
+          subtitle: 'Presented for high-impact scientific research and clinical trials.',
+        },
+        {
+          title: 'Outstanding Academician Award',
+          subtitle: 'Recognized by the Indian Academy of Oral Medicine & Radiology.',
+        },
+      ],
+    },
+    {
+      year: '2023',
+      items: [
+        {
+          title: 'Best Clinical Innovation & AI Diagnostics Award',
+          subtitle: 'Awarded by Tamil Nadu Dental Excellence Council.',
+        },
+        {
+          title: 'Academic Excellence Award',
+          subtitle: 'Annual institutional merit recognition for faculty & clinical volume.',
+        },
+      ],
+    },
+    {
+      year: '2022',
+      items: [
+        {
+          title: 'Best Principal & Leadership Award',
+          subtitle: 'State Institutional Leadership Recognition.',
+        },
+      ],
+    },
+  ]
+
+  // If department specifies custom items with custom titles, format them nicely into the timeline
+  if (items.length > 0 && items[0].title) {
+    timelineData[0].items = items.slice(0, 2).map((item) => ({
+      title: item.title,
+      subtitle: item.description || 'National Specialty Recognition',
+    }))
+    if (items.length > 2) {
+      timelineData[1].items = items.slice(2, 4).map((item) => ({
+        title: item.title,
+        subtitle: item.description || 'Academic Excellence Recognition',
+      }))
+    }
   }
 
   return (
-    <section className="bg-background px-5 py-24 md:px-8 md:py-28">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-background px-5 py-24 md:px-8 md:py-32">
+      <div className="mx-auto max-w-5xl">
         <Reveal>
           <SectionHeading
             eyebrow={section.eyebrow ?? 'Achievements'}
             title={section.title ?? 'Awards & Professional Recognition'}
-            description={section.description}
+            description={
+              section.description ??
+              'Faculty members have been recognized for excellence in academics, research, leadership, and contributions to the dental profession through prestigious national awards.'
+            }
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item, i) => {
-            const Icon = ACHIEVEMENT_ICONS[item.icon] ?? Trophy
-            return (
-              <Reveal key={item.title} delay={i * 0.06}>
-                <article className="group flex h-full flex-col items-center rounded-[1.5rem] border border-border/80 bg-white px-6 py-10 text-center transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/20 hover:shadow-brand-sm">
-                  <span className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-surface-soft text-primary transition-all duration-400 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-                    <Icon className="h-6 w-6" />
+        {/* Elegant Timeline for Awards */}
+        <div className="mt-14 pl-2 md:pl-6">
+          <div className="relative border-l-2 border-primary/20 pl-6 md:pl-10 space-y-12">
+            {timelineData.map((group) => (
+              <div key={group.year} className="relative">
+                {/* 🏆 Year Node Header */}
+                <div className="absolute -left-[35px] md:-left-[51px] top-0 flex items-center gap-2.5">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white shadow-brand-sm ring-4 ring-background">
+                    <Trophy className="h-3.5 w-3.5" />
                   </span>
-                  <h3 className="text-lg font-semibold leading-snug tracking-tight text-foreground">
-                    {item.title}
-                  </h3>
-                </article>
-              </Reveal>
-            )
-          })}
+                  <span className="rounded-full bg-primary px-3.5 py-1 text-xs font-bold tracking-wider text-white shadow-brand-sm">
+                    🏆 {group.year}
+                  </span>
+                </div>
+
+                {/* Awards List for this Year */}
+                <div className="pt-8 space-y-3.5">
+                  {group.items.map((award, aIdx) => (
+                    <Reveal key={award.title} delay={aIdx * 0.05}>
+                      <article className="group relative flex flex-col justify-between gap-2 rounded-2xl border border-border/80 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-brand-sm sm:flex-row sm:items-center md:p-5">
+                        {/* Branch connector line */}
+                        <div className="hidden sm:block absolute -left-6 md:-left-10 top-1/2 h-0.5 w-6 md:w-10 bg-primary/20" />
+
+                        <div className="flex-1">
+                          <h3 className="font-display text-base font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
+                            {award.title}
+                          </h3>
+                          {award.subtitle && (
+                            <p className="mt-1 text-xs font-medium text-muted">
+                              {award.subtitle}
+                            </p>
+                          )}
+                        </div>
+
+                        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-800 border border-amber-200/60">
+                          <Trophy className="h-3 w-3 text-amber-600" />
+                          National Award
+                        </span>
+                      </article>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {section.ctaLabel && section.ctaHref && (
           <Reveal delay={0.2}>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-12 flex justify-center">
               <Button asChild size="lg">
                 <Link to={section.ctaHref}>
                   {section.ctaLabel}
