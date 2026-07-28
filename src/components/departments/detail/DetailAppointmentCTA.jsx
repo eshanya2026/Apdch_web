@@ -6,9 +6,8 @@ import { INSTITUTION } from '@/lib/constants'
 
 export default function DetailAppointmentCTA({ department }) {
   return (
-    <section id="appointment" className="relative overflow-hidden px-5 py-24 md:px-8 md:py-28">
-      <div className="absolute inset-0 cta-gradient" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_40%)]" />
+    <section id="appointment" className="relative overflow-hidden bg-foreground px-5 py-28 text-white md:px-8 md:py-36">
+      <div className="pointer-events-none absolute inset-0 glow-cta-radial" />
 
       <div className="relative mx-auto max-w-4xl text-center">
         <Reveal>

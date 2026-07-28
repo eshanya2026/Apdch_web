@@ -43,7 +43,7 @@ export default function DetailEvents({ department }) {
   const events = department?.events?.length ? department.events : getDefaultEvents(department)
 
   return (
-    <section id="department-events" className="relative overflow-hidden bg-foreground py-24 text-white md:py-32">
+    <section id="department-events" className="relative overflow-hidden bg-foreground py-28 text-white md:py-36">
       {/* Ambient background glows */}
       <div className="pointer-events-none absolute inset-0 glow-radial-t opacity-60" />
       <div className="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
@@ -61,7 +61,7 @@ export default function DetailEvents({ department }) {
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {events.map((event, i) => (
-            <Reveal key={event.id || i} delay={i * 0.06}>
+            <Reveal key={event.id || i} delay={i * 0.06} className="h-full w-full">
               <article className="group flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/10 hover:shadow-2xl md:p-7">
                 <div>
                   {/* Top Bar: Event Type & Date */}

@@ -204,6 +204,11 @@
     );
   }
 
+  .glow-cta-radial {
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 35%),
+      radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--apdch-300) 25%, transparent), transparent 40%);
+  }
+
   .glow-radial-t {
     background: radial-gradient(
       ellipse at top,

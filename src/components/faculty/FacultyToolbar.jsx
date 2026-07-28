@@ -10,7 +10,7 @@ export default function FacultyToolbar({
   resultCount,
 }) {
   return (
-    <div className="mx-auto w-full max-w-4xl">
+    <div className="mx-auto w-full max-w-5xl">
       <div className="relative">
         <Search className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted md:left-6 md:h-6 md:w-6" />
         <input
@@ -33,17 +33,17 @@ export default function FacultyToolbar({
         )}
       </div>
 
-      <div className="mt-6 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
         {FACULTY_FILTERS.map((filter) => (
           <button
             key={filter.id}
             type="button"
             onClick={() => onFilterChange(filter.id)}
             className={cn(
-              'shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300',
+              'rounded-full px-4 py-2 text-xs md:text-sm font-semibold transition-all duration-300',
               activeFilter === filter.id
-                ? 'bg-primary text-white shadow-brand-btn'
-                : 'bg-white text-foreground/65 ring-1 ring-border/80 hover:text-primary'
+                ? 'bg-primary text-white shadow-brand-btn scale-105'
+                : 'bg-white text-foreground/75 ring-1 ring-border/80 hover:text-primary hover:ring-primary/30'
             )}
           >
             {filter.label}

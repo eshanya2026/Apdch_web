@@ -3,6 +3,7 @@ import { motion, useTransform } from 'framer-motion'
 import { ArrowRight, GraduationCap } from 'lucide-react'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { Button } from '@/components/ui/button'
+import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
 import AboutHeroNav from '@/components/about/AboutHeroNav'
 import { ABOUT_HERO } from '@/lib/aboutConstants'
 
@@ -29,10 +30,8 @@ export default function AboutHero() {
         <div className="absolute inset-0 glow-radial-accent" />
       </motion.div>
 
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute -left-10 top-24 h-48 w-48 rounded-full bg-secondary/25 blur-3xl animate-[float_8s_ease-in-out_infinite]" />
-        <div className="absolute bottom-24 right-16 h-32 w-32 rounded-full border border-accent/30 bg-accent/10 animate-[float_10s_ease-in-out_1s_infinite]" />
-      </div>
+      {/* Newton's 3rd Law Interactive Floating Line Icons */}
+      <FloatingHeroIcons />
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <AboutHeroNav />

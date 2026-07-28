@@ -1,8 +1,68 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Trophy } from 'lucide-react'
+import {
+  ArrowRight,
+  Trophy,
+  Scan,
+  Cpu,
+  Microscope,
+  Activity,
+  Zap,
+  ShieldCheck,
+  Camera,
+  Radio,
+  Layers,
+  Sliders,
+  Truck,
+} from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+
+// Helper function to match technology/equipment items with line icons
+function getEquipmentIcon(item, index) {
+  if (item.icon && typeof item.icon === 'function') {
+    return item.icon
+  }
+
+  const text = `${item.title || ''} ${item.description || ''}`.toLowerCase()
+
+  if (text.includes('microscope') || text.includes('histopath') || text.includes('slide') || text.includes('tissue') || text.includes('pathology') || text.includes('pentahead')) {
+    return Microscope
+  }
+  if (text.includes('laser') || text.includes('piezo') || text.includes('electric') || text.includes('obturation') || text.includes('curing') || text.includes('diode')) {
+    return Zap
+  }
+  if (text.includes('cbct') || text.includes('rvg') || text.includes('opg') || text.includes('radiograph') || text.includes('x-ray') || text.includes('imaging') || text.includes('scan') || text.includes('intraoral camera')) {
+    return Scan
+  }
+  if (text.includes('cad/cam') || text.includes('digital') || text.includes('software') || text.includes('computer') || text.includes('tablet') || text.includes('processor')) {
+    return Cpu
+  }
+  if (text.includes('sedation') || text.includes('monitor') || text.includes('vital') || text.includes('sialendoscopy') || text.includes('ultrasound') || text.includes('survey')) {
+    return Activity
+  }
+  if (text.includes('3d') || text.includes('printer') || text.includes('milling') || text.includes('aligner') || text.includes('furnace') || text.includes('model') || text.includes('facebow')) {
+    return Layers
+  }
+  if (text.includes('camera') || text.includes('photo') || text.includes('slide')) {
+    return Camera
+  }
+  if (text.includes('fluoroscopy') || text.includes('c-arm') || text.includes('carm') || text.includes('radio')) {
+    return Radio
+  }
+  if (text.includes('steriliz') || text.includes('autoclave') || text.includes('disinfect') || text.includes('safety') || text.includes('infection') || text.includes('clean')) {
+    return ShieldCheck
+  }
+  if (text.includes('mobile') || text.includes('portable') || text.includes('unit') || text.includes('van') || text.includes('transport')) {
+    return Truck
+  }
+  if (text.includes('scaler') || text.includes('motor') || text.includes('locator') || text.includes('centrifuge') || text.includes('tester') || text.includes('kit') || text.includes('apex')) {
+    return Sliders
+  }
+
+  const fallbacks = [Scan, Cpu, Zap, Microscope, Activity, Layers, Sliders, ShieldCheck]
+  return fallbacks[index % fallbacks.length]
+}
 
 /** Reusable premium feature card grid */
 export function FeatureCardGrid({
@@ -18,7 +78,7 @@ export function FeatureCardGrid({
   return (
     <section
       className={cn(
-        'px-5 py-24 md:px-8 md:py-28',
+        'px-5 py-28 md:px-8 md:py-36',
         dark ? 'relative overflow-hidden bg-foreground' : 'bg-background'
       )}
     >
@@ -36,33 +96,53 @@ export function FeatureCardGrid({
             columns === 4 && 'lg:grid-cols-4'
           )}
         >
-          {items.map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.06}>
-              <article
-                className={cn(
-                  'group h-full rounded-[1.5rem] border p-6 transition-all duration-400 hover:-translate-y-1.5',
-                  dark
-                    ? 'border-white/10 bg-white/5 hover:bg-white/10'
-                    : 'border-border/80 bg-white hover:border-primary/20 hover:shadow-brand-sm'
-                )}
-              >
-                <span
+          {items.map((item, i) => {
+            const IconComponent = getEquipmentIcon(item, i)
+
+            return (
+              <Reveal key={item.title} delay={i * 0.06} className="h-full w-full">
+                <article
                   className={cn(
-                    'mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold',
-                    dark ? 'bg-white/10 text-accent' : 'bg-surface-soft text-primary'
+                    'group h-full rounded-[1.5rem] border p-6 transition-all duration-400 hover:-translate-y-1.5',
+                    dark
+                      ? 'border-white/10 bg-white/5 hover:border-accent/40 hover:bg-white/10 hover:shadow-lg hover:shadow-primary/10'
+                      : 'border-border/80 bg-white hover:border-primary/25 hover:shadow-brand-sm'
                   )}
                 >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className={cn('text-lg font-semibold', dark ? 'text-white' : 'text-foreground')}>
-                  {item.title}
-                </h3>
-                <p className={cn('mt-2 text-sm leading-relaxed', dark ? 'text-white/60' : 'text-muted')}>
-                  {item.description}
-                </p>
-              </article>
-            </Reveal>
-          ))}
+                  <div className="flex items-center justify-between mb-4">
+                    {/* Equipment Line Icon Badge */}
+                    <div
+                      className={cn(
+                        'flex h-11 w-11 items-center justify-center rounded-2xl border transition-all duration-300 group-hover:scale-110',
+                        dark
+                          ? 'border-accent/30 bg-accent/10 text-accent group-hover:border-accent group-hover:bg-accent group-hover:text-white'
+                          : 'border-primary/20 bg-primary/5 text-primary group-hover:border-primary group-hover:bg-primary group-hover:text-white'
+                      )}
+                    >
+                      <IconComponent className="h-5.5 w-5.5 stroke-[1.75]" />
+                    </div>
+
+                    {/* Number Badge */}
+                    <span
+                      className={cn(
+                        'text-xs font-bold tracking-wider opacity-60',
+                        dark ? 'text-white/50' : 'text-muted'
+                      )}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  <h3 className={cn('text-lg font-bold tracking-tight', dark ? 'text-white' : 'text-foreground')}>
+                    {item.title}
+                  </h3>
+                  <p className={cn('mt-2 text-sm leading-relaxed', dark ? 'text-white/70' : 'text-muted')}>
+                    {item.description}
+                  </p>
+                </article>
+              </Reveal>
+            )
+          })}
         </div>
         {ctaLabel && ctaHref && (
           <Reveal delay={0.2}>

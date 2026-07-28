@@ -8,7 +8,7 @@ export default function DetailOverview({ department }) {
       : [department.details, department.overviewExtra].filter(Boolean)
 
   return (
-    <section className="mesh-bg px-5 py-24 md:px-8 md:py-28">
+    <section className="mesh-bg px-5 py-28 md:px-8 md:py-36">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <Reveal>

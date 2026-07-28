@@ -34,7 +34,7 @@ export default function CampusLifeClubs() {
           {STUDENT_CLUBS.map((club, i) => {
             const Icon = ICONS[club.icon]
             return (
-              <Reveal key={club.title} delay={i * 0.06}>
+              <Reveal key={club.title} delay={i * 0.06} className="h-full w-full">
                 <article className="group relative h-52 overflow-hidden rounded-[1.75rem] [perspective:1000px]">
                   <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     {/* Front */}

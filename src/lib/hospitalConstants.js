@@ -203,28 +203,58 @@ export const HOSPITAL_DOCTORS_SECTION = {
 
 export const HOSPITAL_DOCTORS = [
   {
-    name: 'Dr. Suresh Natarajan',
+    name: 'Dr. S. Shamala',
+    specialty: 'Oral & Maxillofacial Pathology',
+    role: 'Principal & HOD',
+    image: '/shamala.png',
+  },
+  {
+    name: 'Dr. M. Deivanayagi',
+    specialty: 'Oral Medicine & Radiology',
+    role: 'Vice Principal & HOD',
+    image: '/Dr.-M-DeivanayagiMdsPh.d.png',
+  },
+  {
+    name: 'Dr. S. Magesh Kumar',
+    specialty: 'Periodontics',
+    role: 'Professor & HOD',
+    image: '/Magesh-home.jpg',
+  },
+  {
+    name: 'Dr. N. Bharath',
+    specialty: 'Conservative Dentistry & Endodontics',
+    role: 'HOD In-charge',
+    image: '/bharath .jpg',
+  },
+  {
+    name: 'Dr. GVV. Giri',
     specialty: 'Oral & Maxillofacial Surgery',
     role: 'Professor & HOD',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80&auto=format&fit=crop',
+    image: '/HOD-Giri.jpg',
   },
   {
-    name: 'Dr. Anitha Selvan',
+    name: 'Dr. Sakshi Madhok',
+    specialty: 'Prosthodontics and Crown & Bridge',
+    role: 'HOD In-charge',
+    image: '/sakshi .jpg',
+  },
+  {
+    name: 'Dr. A. Vasanthakumari',
+    specialty: 'Pedodontics & Preventive Dentistry',
+    role: 'Professor & HOD',
+    image: '/Dr.A.Vasanthakumari-Proff-HOD-Dept-of-Pedodontics.png',
+  },
+  {
+    name: 'Dr. S. Kalaivani',
+    specialty: 'Public Health Dentistry',
+    role: 'Associate Professor & HOD',
+    image: '/Dr.-S-Kalaivani.jpg',
+  },
+  {
+    name: 'Dr. Mora Sathi Rami Reddy',
     specialty: 'Orthodontics',
     role: 'Professor & HOD',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=80&auto=format&fit=crop',
-  },
-  {
-    name: 'Dr. Gayathri Mohan',
-    specialty: 'Conservative Dentistry & Endodontics',
-    role: 'Professor & HOD',
-    image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=500&q=80&auto=format&fit=crop',
-  },
-  {
-    name: 'Dr. Divya Banerjee',
-    specialty: 'Pedodontics',
-    role: 'Professor & HOD',
-    image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&q=80&auto=format&fit=crop',
+    image: '/mora-apdch.jpg',
   },
 ]
 

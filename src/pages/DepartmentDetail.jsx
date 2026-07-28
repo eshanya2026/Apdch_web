@@ -51,9 +51,9 @@ export default function DepartmentDetail() {
         <DetailTechnology department={department} />
         <DetailFaculty department={department} />
         <DetailInfrastructure department={department} />
+        <DetailPatientCare department={department} />
         <DetailResearch department={department} />
         <DetailEvents department={department} />
-        <DetailPatientCare department={department} />
         <DetailGallery department={department} />
         <DetailFAQs department={department} />
         <DetailAppointmentCTA department={department} />

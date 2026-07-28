@@ -12,11 +12,11 @@ export default function FacultyCard({ member, index, onOpen }) {
       className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/15 hover:shadow-brand-sm"
     >
       <button type="button" onClick={() => onOpen(member)} className="text-left">
-        <div className="relative aspect-[4/3] overflow-hidden bg-surface-soft">
+        <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200/60">
           <img
             src={member.image}
             alt={member.name}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105 [image-rendering:-webkit-optimize-contrast]"
           />
         </div>
         <div className="flex flex-1 flex-col p-5">

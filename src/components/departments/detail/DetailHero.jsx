@@ -1,6 +1,6 @@
 import { motion, useTransform } from 'framer-motion'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
-import { CalendarDays } from 'lucide-react'
+import { CalendarDays, BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function DetailHero({ department }) {
@@ -33,11 +33,22 @@ export default function DetailHero({ department }) {
           {department.name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-white/75 md:text-xl">{department.tagline}</p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button asChild size="lg">
             <a href="#appointment">
               <CalendarDays className="h-4 w-4" />
               Book Appointment
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-white/25 bg-white/10 text-white hover:bg-white/20 hover:text-white backdrop-blur-md transition-all"
+          >
+            <a href="#research-academic-excellence">
+              <BookOpen className="h-4 w-4" />
+              Publications
             </a>
           </Button>
         </div>

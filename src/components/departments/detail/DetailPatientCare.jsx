@@ -5,7 +5,7 @@ export default function DetailPatientCare({ department }) {
   const careItems = department.patientCareItems
 
   return (
-    <section className="bg-background px-5 py-24 md:px-8 md:py-28">
+    <section className="bg-background px-5 py-28 md:px-8 md:py-36">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="overflow-hidden rounded-[1.75rem] border border-border/80 bg-white shadow-brand-card lg:grid lg:grid-cols-2">
