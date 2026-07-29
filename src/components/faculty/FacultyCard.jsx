@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, MapPin } from 'lucide-react'
+import { Mail } from 'lucide-react'
 
 export default function FacultyCard({ member, index, onOpen }) {
   return (
@@ -11,7 +11,7 @@ export default function FacultyCard({ member, index, onOpen }) {
       transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.24) }}
       className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/15 hover:shadow-brand-sm"
     >
-      <button type="button" onClick={() => onOpen(member)} className="text-left">
+      <button type="button" onClick={() => onOpen(member)} className="flex h-full flex-col text-left">
         <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200/60">
           <img
             src={member.image}
@@ -30,19 +30,14 @@ export default function FacultyCard({ member, index, onOpen }) {
           <p className="mt-4 line-clamp-2 text-sm leading-relaxed text-foreground/70">
             {member.qualification}
           </p>
-          <div className="mt-5 space-y-2 border-t border-border/60 pt-4 text-xs text-muted">
-            <p className="flex items-center gap-2">
-              <Mail className="h-3.5 w-3.5 text-primary/70" />
-              <span className="truncate">{member.email}</span>
-            </p>
-            <p className="flex items-center gap-2">
-              <MapPin className="h-3.5 w-3.5 text-primary/70" />
-              {member.office}
-            </p>
-          </div>
-          <span className="mt-5 text-sm font-semibold text-primary transition-colors group-hover:text-primary-dark">
-            View profile →
-          </span>
+          {member.email && (
+            <div className="mt-auto pt-4 text-xs text-muted">
+              <p className="flex items-center gap-2 border-t border-border/60 pt-3">
+                <Mail className="h-3.5 w-3.5 shrink-0 text-primary/70" />
+                <span className="truncate">{member.email}</span>
+              </p>
+            </div>
+          )}
         </div>
       </button>
     </motion.article>

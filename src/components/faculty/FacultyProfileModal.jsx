@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { X, Mail, MapPin, FlaskConical, GraduationCap, Briefcase } from 'lucide-react'
+import { X, Mail, FlaskConical, GraduationCap, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function FacultyProfileModal({ member, onClose }) {
@@ -111,15 +111,6 @@ export default function FacultyProfileModal({ member, onClose }) {
                         {member.email}
                       </a>
                     </dd>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
-                      Office
-                    </dt>
-                    <dd className="mt-1 text-sm text-foreground">{member.office}</dd>
                   </div>
                 </div>
               </dl>
