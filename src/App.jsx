@@ -28,7 +28,8 @@ export default function App() {
         <Route path="/departments" element={<Navigate to="/departments/oral-medicine" replace />} />
         <Route path="/departments/:departmentId" element={<DepartmentDetail />} />
         <Route path="/hospital" element={<Hospital />} />
-        <Route path="/faculty" element={<Faculty />} />
+        <Route path="/faculty" element={<Faculty activeTab="faculty" />} />
+        <Route path="/faculty/pg-students" element={<Faculty activeTab="pg-students" />} />
         <Route path="/research" element={<Research />} />
       </Routes>
     </BrowserRouter>

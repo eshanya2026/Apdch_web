@@ -141,18 +141,16 @@ export default function Navbar() {
             {NAV_LINKS.map((link) =>
               link.children ? (
                 <div key={link.href} className="group relative">
-                  <NavLink
-                    to={link.children?.[0]?.href || link.href}
-                    className={() =>
-                      cn(
-                        linkClass(isNavGroupActive(pathname, link.href)),
-                        'inline-flex items-center gap-0.5'
-                      )
-                    }
+                  <button
+                    type="button"
+                    className={cn(
+                      linkClass(isNavGroupActive(pathname, link.href)),
+                      'inline-flex items-center gap-0.5 cursor-pointer'
+                    )}
                   >
                     {link.label}
                     <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:rotate-180" />
-                  </NavLink>
+                  </button>
                   <div
                     className={cn(
                       'pointer-events-none absolute top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100',

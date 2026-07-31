@@ -68,13 +68,18 @@ export const DEPARTMENTS_NAV_LINKS = [
   { label: 'Department of Implantology', href: '/departments/implantology' },
 ]
 
+export const FACULTY_NAV_LINKS = [
+  { label: 'Faculty Details', href: '/faculty' },
+  { label: 'PG Students Details', href: '/faculty/pg-students' },
+]
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
   { label: 'About', href: '/about', type: 'route', children: ABOUT_NAV_LINKS },
   { label: 'Admissions', href: '/admissions', type: 'route' },
   { label: 'Academics', href: '/academics', type: 'route' },
   { label: 'Departments', href: '/departments', type: 'route', children: DEPARTMENTS_NAV_LINKS },
-  { label: 'Faculty', href: '/faculty', type: 'route' },
+  { label: 'Faculty', href: '/faculty', type: 'route', children: FACULTY_NAV_LINKS },
   { label: 'Research', href: '/research', type: 'route' },
   { label: 'Hospital', href: '/hospital', type: 'route' },
 ]

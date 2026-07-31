@@ -1,39 +1,29 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FacultyToolbar from '@/components/faculty/FacultyToolbar'
 import FacultyGrid from '@/components/faculty/FacultyGrid'
 import FacultyProfileModal from '@/components/faculty/FacultyProfileModal'
+import PgStudentGrid from '@/components/faculty/PgStudentGrid'
 import { FACULTY } from '@/lib/facultyConstants'
+import { PG_STUDENTS, PG_STUDENTS_FILTERS } from '@/lib/pgStudentConstants'
+import { cn } from '@/lib/utils'
 
-export default function Faculty() {
-  const [query, setQuery] = useState('')
-  const [activeFilter, setActiveFilter] = useState('all')
+export default function Faculty({ activeTab = 'faculty' }) {
+  const [activeFilter, setActiveFilter] = useState('oral-medicine')
+  const [pgFilter, setPgFilter] = useState('all')
   const [selected, setSelected] = useState(null)
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    return FACULTY.filter((member) => {
-      const matchesDept =
-        activeFilter === 'all' || member.departmentId === activeFilter
-      if (!matchesDept) return false
-      if (!q) return true
-      const haystack = [
-        member.name,
-        member.role,
-        member.department,
-        member.qualification,
-        member.research,
-        member.email,
-        member.office,
-        member.bio,
-      ]
-        .join(' ')
-        .toLowerCase()
-      return haystack.includes(q)
-    })
-  }, [query, activeFilter])
+  const filteredFaculty = useMemo(() => {
+    return FACULTY.filter((member) => member.departmentId === activeFilter)
+  }, [activeFilter])
+
+  const filteredPgStudents = useMemo(() => {
+    if (pgFilter === 'all') return PG_STUDENTS
+    return PG_STUDENTS.filter((student) => student.departmentId === pgFilter)
+  }, [pgFilter])
 
   useEffect(() => {
     document.body.style.overflow = selected ? 'hidden' : ''
@@ -42,11 +32,13 @@ export default function Faculty() {
     }
   }, [selected])
 
+  const isPgTab = activeTab === 'pg-students'
+
   return (
     <>
       <Navbar />
       <main className="min-h-svh bg-background">
-        <section className="border-b border-border/60 bg-white px-5 pb-12 pt-28 md:px-8 md:pb-16 md:pt-32">
+        <section className="border-b border-border/60 bg-white px-5 pb-16 pt-36 md:px-8 md:pb-20 md:pt-44">
           <div className="mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -58,29 +50,96 @@ export default function Faculty() {
                 People
               </p>
               <h1 className="mt-3 font-display text-4xl tracking-tight text-foreground md:text-5xl lg:text-[3.5rem]">
-                Faculty
+                {isPgTab ? 'PG Students Details' : 'Faculty Details'}
               </h1>
               <p className="mt-4 text-base text-muted md:text-lg">
-                Clinicians and teachers shaping dental education at Adhiparasakthi Dental College
-                and Hospital.
+                {isPgTab
+                  ? 'Postgraduate scholars and MDS research residents pursuing specialized clinical training at Adhiparasakthi Dental College & Hospital.'
+                  : 'Clinicians and teachers shaping dental education at Adhiparasakthi Dental College and Hospital.'}
               </p>
+
+              {/* Sub Category Tabs */}
+              <div className="mt-8 flex justify-center">
+                <div className="inline-flex rounded-full bg-surface-soft p-1.5 ring-1 ring-border/60">
+                  <Link
+                    to="/faculty"
+                    className={cn(
+                      'rounded-full px-5 py-2 text-xs md:text-sm font-bold transition-all duration-300',
+                      !isPgTab
+                        ? 'bg-[#521822] text-white shadow-brand-sm'
+                        : 'text-foreground/70 hover:text-foreground'
+                    )}
+                  >
+                    Faculty Details
+                  </Link>
+                  <Link
+                    to="/faculty/pg-students"
+                    className={cn(
+                      'rounded-full px-5 py-2 text-xs md:text-sm font-bold transition-all duration-300',
+                      isPgTab
+                        ? 'bg-[#521822] text-white shadow-brand-sm'
+                        : 'text-foreground/70 hover:text-foreground'
+                    )}
+                  >
+                    PG Students Details
+                  </Link>
+                </div>
+              </div>
             </motion.div>
 
-            <div className="mt-10 md:mt-12">
-              <FacultyToolbar
-                query={query}
-                onQueryChange={setQuery}
-                activeFilter={activeFilter}
-                onFilterChange={setActiveFilter}
-                resultCount={filtered.length}
-              />
+            <div className="mt-12 md:mt-14">
+              {!isPgTab ? (
+                <FacultyToolbar
+                  activeFilter={activeFilter}
+                  onFilterChange={setActiveFilter}
+                  resultCount={filteredFaculty.length}
+                />
+              ) : (
+                <div className="mx-auto w-full max-w-5xl">
+                  <div className="flex flex-wrap items-center justify-center gap-2 md:gap-2.5">
+                    {PG_STUDENTS_FILTERS.map((filter) => {
+                      const isActive = pgFilter === filter.id
+                      return (
+                        <button
+                          key={filter.id}
+                          type="button"
+                          onClick={() => setPgFilter(filter.id)}
+                          className={cn(
+                            'relative rounded-full px-4 py-2 text-xs md:text-sm font-semibold transition-colors duration-300 outline-none select-none',
+                            isActive
+                              ? 'text-white'
+                              : 'bg-white text-foreground/75 ring-1 ring-border/80 hover:text-primary hover:ring-primary/40 hover:bg-surface-soft'
+                          )}
+                        >
+                          {isActive && (
+                            <motion.span
+                              layoutId="activePgTab"
+                              className="absolute inset-0 z-0 rounded-full bg-[#521822] shadow-[0_4px_14px_rgba(82,24,34,0.32)]"
+                              transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                            />
+                          )}
+                          <span className="relative z-10">{filter.label}</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                  <p className="mt-7 text-center text-sm font-medium text-muted/90 md:text-base">
+                    Showing <span className="font-bold text-foreground">{filteredPgStudents.length}</span> PG{' '}
+                    {filteredPgStudents.length === 1 ? 'scholar' : 'scholars'}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </section>
 
-        <section className="px-5 py-12 md:px-8 md:py-16">
+        <section className="px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-7xl">
-            <FacultyGrid members={filtered} onOpen={setSelected} />
+            {!isPgTab ? (
+              <FacultyGrid members={filteredFaculty} activeFilter={activeFilter} onOpen={setSelected} />
+            ) : (
+              <PgStudentGrid students={filteredPgStudents} activeFilter={pgFilter} />
+            )}
           </div>
         </section>
       </main>
