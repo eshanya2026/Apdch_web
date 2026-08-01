@@ -48,6 +48,12 @@ export const MISSION = {
   ],
 }
 
+export const QUALITY_COMMITMENT = {
+  title: 'Quality Commitment',
+  description:
+    'We are committed to providing value-based dental education and innovative patient care while continuously improving our academic, clinical, research, and quality management systems. APDCH strives to create a centre of excellence by adhering to the standards of the Dental Council of India and The Tamil Nadu Dr. M.G.R. Medical University, nurturing future leaders in dentistry.',
+}
+
 export const CHAIRMAN = {
   name: 'Dr. T. Ramesh, M.D.',
   role: 'Correspondent',

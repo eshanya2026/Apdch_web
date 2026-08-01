@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom'
 import { Mail, MapPin, Phone, Clock, ArrowUpRight, Navigation } from 'lucide-react'
 import { INSTITUTION, SOCIAL_LINKS } from '@/lib/constants'
 
+// Official Footer Quick Links
 const QUICK_LINKS = [
   { label: 'Academics', href: '/academics' },
   { label: 'Admissions', href: '/admissions' },
-  { label: 'Hospital', href: '/hospital' },
-  { label: 'Departments', href: '/departments/oral-medicine' },
-  { label: 'Faculty', href: '/faculty' },
-  { label: 'Campus Life', href: '/about/campus-life' },
+  { label: 'NIRF', href: '/nirf' },
+  { label: 'Code of Conduct', href: 'https://apdch.in/wp-content/uploads/2022/10/Code-of-Conduct.pdf', external: true },
+  { label: 'IQAC', href: '/iqac' },
+  { label: 'HR Policy', href: '/governance/hr-policy' },
 ]
 
 function SocialIcon({ name, className }) {
@@ -125,13 +126,24 @@ export default function Footer() {
             <h4 className="text-sm font-semibold tracking-wide text-white">Quick Links</h4>
             <ul className="mt-4 space-y-2.5">
               {QUICK_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-white/50 transition-opacity hover:opacity-100 hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
+                <li key={link.label}>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/50 transition-opacity hover:opacity-100 hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-white/50 transition-opacity hover:opacity-100 hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

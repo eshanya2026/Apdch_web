@@ -4,6 +4,7 @@ import AboutHero from '@/components/about/AboutHero'
 import CollegeHistory from '@/components/about/CollegeHistory'
 import VisionMission from '@/components/about/VisionMission'
 import { ChairmanMessage, PrincipalMessage } from '@/components/about/LeadershipMessages'
+import OrganizationChart from '@/components/about/OrganizationChart'
 import MilestonesTimeline from '@/components/about/MilestonesTimeline'
 import Recognitions from '@/components/about/Recognitions'
 import Achievements from '@/components/about/Achievements'
@@ -23,6 +24,7 @@ export default function About() {
         <VisionMission />
         <ChairmanMessage />
         <PrincipalMessage />
+        <OrganizationChart />
         <MilestonesTimeline />
         <Recognitions />
         <Achievements />

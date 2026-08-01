@@ -51,7 +51,8 @@ export const SOCIAL_LINKS = [
 
 export const ABOUT_NAV_LINKS = [
   { label: 'About APDCH', href: '/about' },
-  { label: 'Committees & Cells', href: '/committees' },
+  { label: 'IQAC', href: '/iqac' },
+  { label: 'NIRF Ranking', href: '/nirf' },
   { label: 'Campus Life', href: '/about/campus-life' },
 ]
 
@@ -73,6 +74,11 @@ export const FACULTY_NAV_LINKS = [
   { label: 'PG Students Details', href: '/faculty/pg-students' },
 ]
 
+export const GOVERNANCE_NAV_LINKS = [
+  { label: 'Committees & Cells', href: '/governance/committees' },
+  { label: 'HR Policy', href: '/governance/hr-policy' },
+]
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
   { label: 'About', href: '/about', type: 'route', children: ABOUT_NAV_LINKS },
@@ -80,6 +86,7 @@ export const NAV_LINKS = [
   { label: 'Academics', href: '/academics', type: 'route' },
   { label: 'Departments', href: '/departments', type: 'route', children: DEPARTMENTS_NAV_LINKS },
   { label: 'Faculty', href: '/faculty', type: 'route', children: FACULTY_NAV_LINKS },
+  { label: 'Governance', href: '/governance', type: 'route', children: GOVERNANCE_NAV_LINKS },
   { label: 'Research', href: '/research', type: 'route' },
   { label: 'Hospital', href: '/hospital', type: 'route' },
 ]
