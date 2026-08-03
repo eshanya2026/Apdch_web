@@ -136,9 +136,21 @@ export function FeatureCardGrid({
                   <h3 className={cn('text-lg font-bold tracking-tight', dark ? 'text-white' : 'text-foreground')}>
                     {item.title}
                   </h3>
-                  <p className={cn('mt-2 text-sm leading-relaxed', dark ? 'text-white/70' : 'text-muted')}>
-                    {item.description}
-                  </p>
+                  {item.description && (
+                    <p className={cn('mt-2 text-sm leading-relaxed', dark ? 'text-white/70' : 'text-muted')}>
+                      {item.description}
+                    </p>
+                  )}
+                  {item.list && item.list.length > 0 && (
+                    <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                      {item.list.map((listItem) => (
+                        <li key={listItem} className={cn('flex items-start gap-2 leading-snug', dark ? 'text-white/80' : 'text-foreground/80')}>
+                          <span className={cn('mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full', dark ? 'bg-accent' : 'bg-primary')} />
+                          <span>{listItem}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </article>
               </Reveal>
             )
@@ -168,6 +180,7 @@ export function DetailServices({ department }) {
       eyebrow={department.servicesEyebrow ?? section.eyebrow ?? 'Services Offered'}
       title={department.servicesTitle ?? section.title ?? 'Services Offered'}
       description={
+        department.servicesDescription ??
         section.description ??
         `Clinical services delivered by the ${department.name} department at APDCH.`
       }

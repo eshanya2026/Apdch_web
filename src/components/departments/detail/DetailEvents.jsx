@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react'
 import { MapPin, Users, Sparkles } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 
@@ -75,7 +76,21 @@ function getDefaultEvents(department) {
 }
 
 export default function DetailEvents({ department }) {
+  const [selectedYear, setSelectedYear] = useState('All')
   const events = department?.events?.length ? department.events : getDefaultEvents(department)
+
+  // Extract available unique years
+  const availableYears = useMemo(() => {
+    const yearsSet = new Set(events.map((e) => e.year || '2024'))
+    const yearsArr = Array.from(yearsSet).sort((a, b) => Number(b) - Number(a))
+    return ['All', ...yearsArr]
+  }, [events])
+
+  // Filter events by selected year
+  const filteredEvents = useMemo(() => {
+    if (selectedYear === 'All') return events
+    return events.filter((e) => (e.year || '2024') === selectedYear)
+  }, [events, selectedYear])
 
   return (
     <section id="department-events" className="relative overflow-hidden bg-foreground py-28 text-white md:py-36">
@@ -94,8 +109,31 @@ export default function DetailEvents({ department }) {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {events.map((event, i) => (
+        {/* Year Filter Buttons */}
+        {availableYears.length > 2 && (
+          <Reveal delay={0.1}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+              <span className="mr-2 text-xs font-semibold uppercase tracking-wider text-white/50">Filter by year:</span>
+              {availableYears.map((year) => (
+                <button
+                  key={year}
+                  type="button"
+                  onClick={() => setSelectedYear(year)}
+                  className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-200 ${
+                    selectedYear === year
+                      ? 'bg-accent text-white shadow-md'
+                      : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'
+                  }`}
+                >
+                  {year}
+                </button>
+              ))}
+            </div>
+          </Reveal>
+        )}
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredEvents.map((event, i) => (
             <Reveal key={event.id || i} delay={i * 0.06} className="h-full w-full">
               <article className="group flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/10 hover:shadow-2xl md:p-7">
                 <div>
