@@ -203,56 +203,97 @@ export const DEPARTMENT_DETAILS = {
     ],
   },
   'oral-surgery': {
-    tagline: 'Precision surgery rooted in safety and education',
-    overviewExtra:
-      'From routine exodontia to complex dentoalveolar and trauma exposure, the department pairs sterile excellence with calm patient communication.',
+    tagline: 'Comprehensive Surgical Care with Excellence in Education, Research, and Clinical Practice',
+    aboutTitle: 'About Oral \u0026 Maxillofacial Surgery',
+    aboutParagraphs: [
+      'The Department of Oral \u0026 Maxillofacial Surgery provides undergraduate and postgraduate education while delivering comprehensive surgical care for diseases, injuries, and defects involving the oral and maxillofacial region. The department combines academic excellence, advanced surgical training, and patient-centred care with modern surgical techniques.',
+    ],
     stats: [
-      { label: 'Theatre sessions / week', value: '8+' },
-      { label: 'Minor OS chairs', value: '10+' },
-      { label: 'Emergency coverage', value: '24×7' },
+      { label: 'Academic Programmes', value: 'BDS & MDS' },
+      { label: 'Specialized Services', value: 'Minor Oral Surgery & Trauma Care' },
+      { label: 'Clinical Training', value: 'Undergraduate & Postgraduate' },
+      { label: 'Research', value: 'Publications & Ongoing Research' },
     ],
+    servicesTitle: 'Services Offered',
     services: [
-      { title: 'Exodontia & impactions', description: 'Surgical removal of erupted and impacted teeth with protocol-driven aftercare.' },
-      { title: 'Trauma care', description: 'Assessment and management pathways for facial soft-tissue and dentoalveolar injuries.' },
-      { title: 'Pre-prosthetic surgery', description: 'Ridge preparation and soft-tissue corrections supporting prosthodontic success.' },
-      { title: 'Biopsy procedures', description: 'Incisional and excisional biopsies with pathology follow-through.' },
+      {
+        title: 'Dentoalveolar Surgery',
+        description:
+          'Routine and complex tooth extractions, impacted teeth, retained roots, and pre-prosthetic surgical procedures.',
+      },
+      {
+        title: 'Maxillofacial Trauma',
+        description:
+          'Diagnosis and management of facial injuries, fractures, and emergency surgical care.',
+      },
+      {
+        title: 'Oral Pathology \u0026 Biopsy',
+        description:
+          'Evaluation and surgical management of cysts, benign lesions, and oral pathological conditions.',
+      },
+      {
+        title: 'Minor Oral Surgery',
+        description:
+          'Soft tissue procedures, frenectomy, apicectomy, alveoloplasty, and related surgical treatments.',
+      },
     ],
+    technologyTitle: 'Modern Surgical Infrastructure',
+    technologyDescription:
+      'The department is equipped with modern surgical facilities supporting undergraduate teaching, postgraduate training, and advanced patient care.',
     technology: [
-      { title: 'Surgical operating theatre', description: 'Dedicated OS theatre with monitoring and sterile workflows.' },
-      { title: 'Piezo & rotary systems', description: 'Bone cutting options selected for case complexity and tissue respect.' },
-      { title: 'CBCT planning access', description: 'Three-dimensional assessment for difficult extractions and implants exposure.' },
+      { title: 'Minor Operation Theatre', description: 'Dedicated minor OT for surgical lists under local and general anaesthesia.' },
+      { title: 'Surgical Instruments \u0026 Armamentarium', description: 'Comprehensive surgical instrument sets and sterilized armamentarium for all procedures.' },
+      { title: 'CBCT \u0026 Digital Radiography Support', description: 'Advanced three-dimensional imaging and digital radiography for diagnosis and surgical planning.' },
     ],
     faculty: [
-      { name: 'Dr. G V V Giri', role: 'Professor & HOD', focus: 'Oral & Maxillofacial Surgery & Trauma', image: '/HOD-Giri.jpg', isHod: true },
-      { name: 'Dr. M. James Antony Bhagat', role: 'Professor', focus: 'Maxillofacial Surgery & Trauma', image: '/james.png' },
-      { name: 'Dr. S. Vijayakumar Jain', role: 'Reader', focus: 'Maxillofacial Surgery & Trauma', image: '/Dr S Vijayakumar Jain.png' },
-      { name: 'Dr. Srinivasulu Pabbaraju', role: 'Reader', focus: 'Maxillofacial Surgery & Trauma', image: '/srini.png' },
-      { name: 'Dr. R. Hemnaath', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery & Trauma', image: '/hemanth.png' },
-      { name: 'Dr. P. Gajapriya', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery & Trauma', image: '/Dr P Gajapriya.png' },
-      { name: 'Dr. S. Sakthi', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery & Trauma', image: '/sakthi.png' },
-      { name: 'Dr. S. Nalinkumar', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery & Trauma', image: '/nalinkumar.png' },
-      { name: 'Dr. P. Velmurugan', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery & Trauma', image: '/p.velmurugan.png' },
-      { name: 'Dr. G. Satheesh', role: 'Reader', focus: 'Maxillofacial Surgery & Trauma', image: '/dr.saathesh.png' },
+      { name: 'Dr. G V V Giri', role: 'Professor \u0026 HOD', focus: 'Oral \u0026 Maxillofacial Surgery \u0026 Trauma', image: '/HOD-Giri.jpg', isHod: true },
+      { name: 'Dr. M. James Antony Bhagat', role: 'Professor', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/james.png' },
+      { name: 'Dr. S. Vijayakumar Jain', role: 'Reader', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/Dr S Vijayakumar Jain.png' },
+      { name: 'Dr. Srinivasulu Pabbaraju', role: 'Reader', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/srini.png' },
+      { name: 'Dr. G. Satheesh', role: 'Reader', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/dr.saathesh.png' },
+      { name: 'Dr. R. Hemnaath', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/hemanth.png' },
+      { name: 'Dr. P. Gajapriya', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/Dr P Gajapriya.png' },
+      { name: 'Dr. S. Sakthi', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/sakthi.png' },
+      { name: 'Dr. S. Nalinkumar', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/nalinkumar.png' },
+      { name: 'Dr. P. Velmurugan', role: 'Senior Lecturer', focus: 'Maxillofacial Surgery \u0026 Trauma', image: '/p.velmurugan.png' },
     ],
     infrastructure: [
-      { title: 'Minor OT complex', description: 'Chairs configured for local anaesthesia surgical lists.' },
-      { title: 'Recovery bay', description: 'Postoperative observation with clear discharge criteria.' },
-      { title: 'Instrument CSSD interface', description: 'Tracked sterile packs and tray sets for every procedure type.' },
+      { title: 'Minor Operation Theatre', description: 'Dedicated minor OT equipped for surgical procedures under local anaesthesia with full surgical armamentarium.' },
+      { title: 'Seminar Hall', description: 'Dedicated seminar space for academic sessions, case presentations, and department conferences.' },
+      { title: 'Sterilization Unit', description: 'Wet and dry sterilization facilities ensuring instrument safety and infection control standards.' },
+      { title: 'Clinical Demonstration Area', description: 'Structured clinical demonstration zone supporting undergraduate practical training and procedural learning.' },
+      { title: 'Surgical Instrumentation', description: 'Comprehensive set of surgical instruments and armamentarium maintained for all minor and major oral surgical procedures.' },
+      { title: 'Digital Imaging Support', description: 'Access to CBCT and digital radiography for advanced pre-surgical planning and intraoperative assessment.' },
     ],
     research: [
       { title: 'Third molar outcomes', description: 'Audits on swelling, dry socket rates, and analgesic protocols.' },
       { title: 'Student competence ladders', description: 'Research into stepwise entrustment for UG surgical skills.' },
     ],
     patientCare:
-      'Every surgical plan includes risk discussion, consent, and aftercare that patients can follow at home. Pain control and infection prevention remain non-negotiable standards.',
+      'The department provides diagnosis, consultation, surgical treatment, and postoperative care for a wide range of oral and maxillofacial conditions using evidence-based clinical protocols.',
     achievements: [
       { title: 'High-volume teaching lists', description: 'Sustained case numbers while maintaining complication audits.' },
       { title: 'Emergency readiness', description: 'Integrated acute response for maxillofacial emergencies on campus.' },
     ],
     faqs: [
-      { question: 'Is wisdom tooth removal always surgical?', answer: 'Not always. Assessment determines whether a simple extraction or surgical approach is safer based on position and root anatomy.' },
-      { question: 'What should I bring on surgery day?', answer: 'Photo ID, investigations, medication list, and an attendant if sedation or complex surgery is planned.' },
+      {
+        question: 'What treatments are available?',
+        answer:
+          'The department provides comprehensive oral and maxillofacial surgical services, including dentoalveolar surgery, trauma management, biopsies, and minor oral surgical procedures.',
+      },
+      {
+        question: 'Do you provide postgraduate training?',
+        answer:
+          'Yes. The department offers postgraduate (MDS) training with structured academic, clinical, and research activities.',
+      },
+      {
+        question: 'How can I book an appointment?',
+        answer:
+          'Appointments may be scheduled through the college hospital outpatient department.',
+      },
     ],
+    ctaDescription:
+      'Receive expert consultation and comprehensive surgical care from our experienced Oral & Maxillofacial Surgery team.',
   },
   orthodontics: {
     tagline: 'Aligned smiles shaped by evidence and aesthetics',
@@ -465,24 +506,74 @@ export const DEPARTMENT_DETAILS = {
     ],
   },
   'conservative-dentistry': {
-    tagline: 'Preserve the tooth. Perfect the restoration.',
-    overviewExtra:
-      'Operative and endodontic care here is a craft of conservation — removing only what disease demands and rebuilding with lasting adhesion.',
+    tagline: 'Preserving Natural Teeth Through Excellence in Restorative Dentistry and Endodontic Care',
+    details:
+      'The department is dedicated to the diagnosis, prevention, and treatment of diseases affecting the dental pulp and restoration of damaged teeth through evidence-based clinical practice and academic excellence.',
+    aboutTitle: 'About Conservative Dentistry & Endodontics',
+    aboutParagraphs: [
+      'The Department of Conservative Dentistry & Endodontics provides undergraduate and postgraduate education while delivering comprehensive restorative and endodontic care. The department emphasizes conservative treatment approaches that preserve natural tooth structure and restore function and aesthetics.',
+    ],
     stats: [
-      { label: 'Endo microscopes', value: 'Available' },
-      { label: 'Rubber dam culture', value: 'Standard' },
-      { label: 'Aesthetic modules', value: 'Active' },
+      { label: 'Established', value: '2005' },
+      { label: 'Programmes Offered', value: 'BDS & MDS' },
+      { label: 'Department Status', value: 'Clinical Department' },
+      { label: 'Research Activities', value: 'Faculty & Postgraduate Research' },
     ],
+    servicesTitle: 'Services Offered',
+    servicesEyebrow: 'Services Offered',
     services: [
-      { title: 'Operative dentistry', description: 'Caries management, adhesive restorations, and cusp coverage planning.' },
-      { title: 'Root canal therapy', description: 'Cleaning, shaping, and obturation with contemporary protocols.' },
-      { title: 'Aesthetic reconstructions', description: 'Composite artistry for form, colour, and incisal translucency.' },
-      { title: 'Post & core rehabilitation', description: 'Structural recovery of endodontically treated teeth.' },
+      {
+        title: 'Restorative Dentistry',
+        description: 'Tooth-coloured restorations, composite build-ups, and direct adhesive tooth restorations.',
+      },
+      {
+        title: 'Endodontic Treatment',
+        description: 'Single and multiple-visit root canal therapy, endodontic retreatment, and post & core restorations.',
+      },
+      {
+        title: 'Cosmetic Dentistry',
+        description: 'Aesthetic restorations, composite veneers, indirect ceramic restorations, and vital/non-vital bleaching procedures.',
+      },
+      {
+        title: 'Preventive Dentistry',
+        description: 'Caries risk management, preventive restorative care, and emergency stabilization of traumatic dental injuries.',
+      },
     ],
+    technologyTitle: 'Laboratory & Equipment',
+    technologyEyebrow: 'Laboratory & Equipment',
     technology: [
-      { title: 'Apex locators & rotary systems', description: 'Efficient, measured canal preparation technology.' },
-      { title: 'Isolation standards', description: 'Rubber dam as default for restorative and endodontic success.' },
-      { title: 'Curing & bonding stations', description: 'Material systems selected for predictable adhesion.' },
+      {
+        title: 'Dental Operating Microscope',
+        description: 'High-magnification visualization for complex micro-endodontic and surgical endodontic procedures.',
+      },
+      {
+        title: 'Rotary Endodontic Systems',
+        description: 'Automated nickel-titanium instrumentation for efficient and precise root canal shaping.',
+      },
+      {
+        title: 'Digital Radiography (RVG)',
+        description: 'Real-time high-resolution digital X-rays with reduced radiation exposure for instant diagnostics.',
+      },
+      {
+        title: 'Ceramic Laboratory',
+        description: 'In-house dental ceramic laboratory for shade matching, ceramic characterization, and indirect restorations.',
+      },
+      {
+        title: 'Simulation Laboratory',
+        description: 'Phantom head simulation laboratory for preclinical skill development prior to clinical practice.',
+      },
+      {
+        title: 'Department Library with Wi-Fi',
+        description: 'Dedicated departmental library stocked with specialty reference books, journals, and high-speed Wi-Fi.',
+      },
+      {
+        title: 'Continuing Dental Education Programmes',
+        description: 'Regular CDE workshops, lectures, and academic seminars hosted for faculty and postgraduate residents.',
+      },
+      {
+        title: 'Hands-on Training Programmes',
+        description: 'Specialized hands-on workshops in microscopic endodontics, composite aesthetics, and rotary systems.',
+      },
     ],
     faculty: [
       { name: 'Dr. N. Bharath', role: 'Professor & HOD', focus: 'Aesthetic operative dentistry & micro-endodontics', image: '/bharath .jpg', isHod: true },
@@ -501,23 +592,74 @@ export const DEPARTMENT_DETAILS = {
       { name: 'Dr. C. Praveen Kumar', role: 'Senior Lecturer', focus: 'Endodontics & Restorative Dentistry', image: '/Dr C Praveen Kumar.png' },
     ],
     infrastructure: [
-      { title: 'Conservative clinic', description: 'High-volume restorative chairs with isolation setups.' },
-      { title: 'Endodontic suites', description: 'Equipped bays for rotary systems and obturation.' },
-      { title: 'Preclinical transfer labs', description: 'Phantom practice bridging to first clinical cases.' },
+      { title: 'Undergraduate Clinic', description: 'Fully equipped clinical area for undergraduate dental students with restorative chairs and isolation setups.' },
+      { title: 'Postgraduate Clinic', description: 'Dedicated clinic equipped for advanced restorative procedures and complex endodontic treatments.' },
+      { title: 'Preclinical Laboratory with Phantom Heads', description: 'Simulation laboratory with phantom heads for preclinical skill training prior to patient care.' },
+      { title: 'Ceramic Laboratory', description: 'In-house dental ceramic laboratory for shade matching, ceramic characterization, and indirect restorations.' },
+      { title: 'Microsurgery Room with Dental Operating Microscope', description: 'Specialized microsurgical suite equipped with high-magnification dental operating microscopes.' },
+      { title: 'Wet & Dry Sterilization Areas', description: 'Centralized sterilization unit featuring ultrasonic cleaners, autoclaves, and sterile packaging protocols.' },
+      { title: 'Seminar Hall with LCD Projector & Visualizer', description: 'Dedicated academic hall equipped with digital LCD projection and visualizer systems for seminars and case discussions.' },
     ],
     research: [
       { title: 'Obturation quality audits', description: 'Radiographic quality and retreat rates analysis.' },
       { title: 'Bonding longevity', description: 'Clinical follow-ups of adhesive restorations.' },
     ],
+    patientCareTitle: 'Comprehensive Restorative & Endodontic Care',
     patientCare:
-      'We explain every step before the handpiece starts — numbness, isolation, and why saving your natural tooth is still the gold standard when feasible.',
+      'The department provides preventive, restorative, and endodontic treatment with emphasis on preserving natural dentition through contemporary clinical techniques.',
     achievements: [
       { title: 'Micro-endo teaching track', description: 'Postgraduate emphasis on magnification and irrigation science.' },
       { title: 'Aesthetic case galas', description: 'Student portfolios judged on form and biology, not only shine.' },
     ],
+    ctaDescription: "Book an appointment or learn more about the department's clinical and academic services.",
+    events: [
+      {
+        id: 'cons-event-1',
+        year: '2024',
+        date: 'ANNUAL CDE',
+        title: 'RACE 2024 — Rapid Academic & Clinical Enhancement Program',
+        organizers: 'Department of Conservative Dentistry & Endodontics, APDCH',
+        venue: 'APDCH Main Auditorium & Clinical Lecture Hall',
+        description: 'Annual flagship academic refresher and continuing dental education program focusing on modern operative dentistry, pulp preservation, and clinical endodontic excellence.',
+        type: 'Academic Refresher & CDE',
+      },
+      {
+        id: 'cons-event-2',
+        year: '2024',
+        date: 'SPECIALTY DAY',
+        title: 'CONS-ENDO DAY — Annual Specialty Celebrations & Competitions',
+        organizers: 'Department Faculty, PG Residents & Student Council',
+        venue: 'APDCH Campus Auditorium & Preclinical Laboratories',
+        description: 'Specialty awareness drive, patient oral health screening camps, aesthetic tooth restoration competitions, and interactive quiz sessions celebrating Conservative Dentistry & Endodontics.',
+        type: 'Specialty Day Celebration',
+      },
+      {
+        id: 'cons-event-3',
+        year: '2024',
+        date: 'HANDS-ON WORKSHOP',
+        title: 'Micro Endodontics Workshop – Basic & Advanced Module',
+        organizers: 'Microscopic Endodontics Unit & Senior Faculty Team',
+        venue: 'Microsurgery Room & Preclinical Simulation Laboratory with Phantom Heads',
+        description: 'Intensive hands-on training workshop covering Dental Operating Microscope ergonomics, rubber dam isolation, canal location under magnification, and advanced NiTi rotary instrumentation.',
+        type: 'Hands-on Workshop',
+      },
+    ],
     faqs: [
-      { question: 'Is root canal treatment painful?', answer: 'Modern anaesthesia makes most appointments comfortable; mild tenderness afterward is managed with guidance and medication when needed.' },
-      { question: 'Can a tooth be filled instead of crowned after RCT?', answer: 'It depends on remaining structure. Many posterior teeth need cuspal coverage to prevent fracture.' },
+      {
+        question: 'What treatments are offered?',
+        answer:
+          'The department offers tooth-coloured restorations, root canal treatment, endodontic retreatment, aesthetic restorations, post & core restorations, management of traumatic dental injuries, bleaching procedures, and indirect ceramic restorations.',
+      },
+      {
+        question: 'Is Root Canal Treatment available?',
+        answer:
+          'Yes, comprehensive single-visit and multiple-visit root canal treatments are available using rotary endodontic systems, apex locators, and operating microscopes.',
+      },
+      {
+        question: 'Does the department provide postgraduate training?',
+        answer:
+          'Yes, the department offers postgraduate (MDS) degree training programs accredited by the Dental Council of India and affiliated with The Tamil Nadu Dr. M.G.R. Medical University.',
+      },
     ],
   },
   'oral-pathology': {

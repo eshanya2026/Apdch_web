@@ -165,14 +165,14 @@ export function DetailServices({ department }) {
   const section = department.servicesSection ?? {}
   return (
     <FeatureCardGrid
-      eyebrow={section.eyebrow ?? 'What we offer'}
-      title={section.title ?? 'Services'}
+      eyebrow={department.servicesEyebrow ?? section.eyebrow ?? 'Services Offered'}
+      title={department.servicesTitle ?? section.title ?? 'Services Offered'}
       description={
         section.description ??
         `Clinical services delivered by the ${department.name} department at APDCH.`
       }
       items={department.services}
-      columns={department.services.length > 4 ? 3 : 2}
+      columns={department.services?.length > 4 ? 3 : 2}
     />
   )
 }
@@ -181,15 +181,16 @@ export function DetailTechnology({ department }) {
   const section = department.technologySection ?? {}
   return (
     <FeatureCardGrid
-      eyebrow={section.eyebrow ?? 'Tools & systems'}
-      title={section.title ?? 'Technology'}
+      eyebrow={department.technologyEyebrow ?? section.eyebrow ?? 'Laboratory & Equipment'}
+      title={department.technologyTitle ?? section.title ?? 'Laboratory & Equipment'}
       description={
+        department.technologyDescription ??
         section.description ??
-        'Equipment and digital workflows that sharpen diagnosis, treatment, and teaching.'
+        'Advanced equipment, digital systems, and specialized academic infrastructure.'
       }
       items={department.technology}
       dark
-      columns={3}
+      columns={department.technology?.length > 4 ? 4 : 3}
     />
   )
 }
@@ -198,8 +199,8 @@ export function DetailInfrastructure({ department }) {
   if (!department.infrastructure?.length) return null
   return (
     <FeatureCardGrid
-      eyebrow="Spaces"
-      title="Infrastructure"
+      eyebrow={department.infrastructureEyebrow ?? 'Facilities & Equipment'}
+      title={department.infrastructureTitle ?? 'Facilities & Equipment'}
       description="Purpose-built clinical and academic spaces supporting daily care and training."
       items={department.infrastructure}
       columns={3}

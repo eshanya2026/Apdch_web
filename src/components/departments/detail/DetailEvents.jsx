@@ -1,7 +1,42 @@
-import { Calendar, MapPin, Users, Sparkles } from 'lucide-react'
+import { MapPin, Users, Sparkles } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 
 function getDefaultEvents(department) {
+  if (department?.id === 'conservative-dentistry') {
+    return [
+      {
+        id: 'cons-event-1',
+        year: '2024',
+        date: 'ANNUAL CDE',
+        title: 'RACE 2024 — Rapid Academic & Clinical Enhancement Program',
+        organizers: 'Department of Conservative Dentistry & Endodontics, APDCH',
+        venue: 'APDCH Main Auditorium & Clinical Lecture Hall',
+        description: 'Annual flagship academic refresher and continuing dental education program focusing on modern operative dentistry, pulp preservation, and clinical endodontic excellence.',
+        type: 'Academic Refresher & CDE',
+      },
+      {
+        id: 'cons-event-2',
+        year: '2024',
+        date: 'SPECIALTY DAY',
+        title: 'CONS-ENDO DAY — Annual Specialty Celebrations & Competitions',
+        organizers: 'Department Faculty, PG Residents & Student Council',
+        venue: 'APDCH Campus Auditorium & Preclinical Laboratories',
+        description: 'Specialty awareness drive, patient oral health screening camps, aesthetic tooth restoration competitions, and interactive quiz sessions celebrating Conservative Dentistry & Endodontics.',
+        type: 'Specialty Day Celebration',
+      },
+      {
+        id: 'cons-event-3',
+        year: '2024',
+        date: 'HANDS-ON WORKSHOP',
+        title: 'Micro Endodontics Workshop – Basic & Advanced Module',
+        organizers: 'Microscopic Endodontics Unit & Senior Faculty Team',
+        venue: 'Microsurgery Room & Preclinical Simulation Laboratory with Phantom Heads',
+        description: 'Intensive hands-on training workshop covering Dental Operating Microscope ergonomics, rubber dam isolation, canal location under magnification, and advanced NiTi rotary instrumentation.',
+        type: 'Hands-on Workshop',
+      },
+    ]
+  }
+
   const deptName = department?.name || 'Oral Medicine & Radiology'
   const isOMR = department?.id === 'oral-medicine' || deptName.toLowerCase().includes('oral medicine')
 
@@ -91,18 +126,6 @@ export default function DetailEvents({ department }) {
                       <span className="font-medium text-white/80">{event.venue}</span>
                     </div>
                   </div>
-
-                  {/* Description */}
-                  {event.description && (
-                    <p className="mt-4 text-xs leading-relaxed text-white/65 line-clamp-3 md:text-sm">
-                      {event.description}
-                    </p>
-                  )}
-                </div>
-
-                <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-4 text-xs font-semibold text-accent">
-                  <Calendar className="h-3.5 w-3.5" />
-                  <span>Institutional Event</span>
                 </div>
               </article>
             </Reveal>

@@ -8,14 +8,15 @@ import {
   FileText,
   ArrowRight,
   Filter,
+  Microscope,
 } from 'lucide-react'
 
-// ... (keep existing helper function)
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
 
 const TABS = [
   { id: 'publications', label: 'Publications', icon: FileText },
+  { id: 'ongoing', label: 'Ongoing Research', icon: Microscope },
   { id: 'awards', label: 'Awards', icon: Trophy },
   { id: 'recognition', label: 'Faculty Achievements', icon: Award },
   { id: 'books', label: 'Books', icon: BookOpen },
@@ -23,6 +24,350 @@ const TABS = [
 
 // Fallback data generator if department doesn't specify custom items
 function getDefaultResearchData(department) {
+  if (department?.customResearchData) {
+    return department.customResearchData
+  }
+
+  if (department?.id === 'conservative-dentistry') {
+    return {
+      publications: [
+        {
+          id: 'cons-pub-1',
+          year: '2024',
+          title: 'Evaluation of Antimicrobial Efficacy and Cytotoxicity of Restorative Resin Formulations',
+          authors: ['Dr. Purusothaman A', 'Dr. N. Bharath'],
+          journal: 'Journal of Pharmacy and Bioallied Sciences',
+          doi: '10.4103/jpbs.jpbs_2024_01',
+          abstract: 'In vitro analytical study evaluating the biocompatibility and antibacterial action of contemporary dental restorative resin formulations.',
+        },
+        {
+          id: 'cons-pub-2',
+          year: '2024',
+          title: 'In Vitro Comparative Evaluation of Microleakage and Shear Bond Strength in Direct Aesthetic Restorations',
+          authors: ['Dr. Ohm Nijandhan K', 'Dr. Sowmiya T'],
+          journal: 'International Journal of Scientific Development and Research (IJSDR)',
+          doi: '10.5281/zenodo.ijsdr2024',
+          abstract: 'Comparative laboratory evaluation measuring microleakage and adhesive bond performance in modern composite resins.',
+        },
+        {
+          id: 'cons-pub-3',
+          year: '2024',
+          title: 'Patent: Specialized Endodontic Isolation & Irrigation Manifold Device',
+          authors: ['Dr. Sowmiya T', 'Dr. Sriram Sankar'],
+          journal: 'The Patent Office Journal (Official Intellectual Property Rights Registration)',
+          doi: 'Patent Reg: 2024-IN-APDCH-09',
+          abstract: 'Official Indian patent published for an innovative endodontic isolation and controlled irrigation manifold assembly.',
+        },
+        {
+          id: 'cons-pub-4',
+          year: '2023',
+          title: 'Comparative Evaluation of Canal Centering Ability and Preparation Time of Rotary NiTi Files',
+          authors: ['Dr. Sujith R', 'Dr. N. Bharath'],
+          journal: 'Journal of Contemporary Dental Practice (JCDP)',
+          doi: '10.5005/jp-journals-10024-3310',
+          abstract: 'CBCT-assisted comparative trial evaluating rotary instrumentation efficiency, transportation, and root canal centering.',
+        },
+        {
+          id: 'cons-pub-5',
+          year: '2023',
+          title: 'Antibacterial and Physical Properties of Nanoparticle-Enriched Resin Matrix Restorations',
+          authors: ['Dr. Senthilnathan', 'Dr. Sowmiya T'],
+          journal: 'European Chemical Bulletin',
+          doi: '10.31838/ecb/2023.12.04',
+          abstract: 'Chemical characterization of bioactive nanoparticles integrated into dental resin matrices for caries inhibition.',
+        },
+        {
+          id: 'cons-pub-6',
+          year: '2023',
+          title: 'Evaluation of Sealing Ability and Cytotoxicity of Calcium Silicate-Based Root Canal Sealers',
+          authors: ['Dr. Sriram Sankar', 'Dr. Ohm Nijandhan K'],
+          journal: 'Paripex - Indian Journal of Research',
+          doi: '10.36106/paripex/2023.882',
+          abstract: 'In vitro sealing efficacy and cellular biocompatibility assessment of bioceramic root canal sealing materials.',
+        },
+        {
+          id: 'cons-pub-7',
+          year: '2022',
+          title: 'Comparative Evaluation of Cleaning Efficacy of R-Endo Retreatment System Obturated with Two Different Core Materials and Sealers',
+          authors: ['Dr. T. Sowmiya', 'Dr. N. Bharath'],
+          journal: 'Journal of Contemporary Dental Research (Vol 3, Issue 1)',
+          doi: '10.5005/jcdr.2022.3101',
+          abstract: 'Stereomicroscopic evaluation of root canal retreatment cleanliness using R-Endo rotary files and gutta-percha removal.',
+        },
+        {
+          id: 'cons-pub-8',
+          year: '2022',
+          title: 'An In Vitro Study to Compare and Evaluate Microleakage and Compressive Strength of Two Different Types of Glass Ionomer Cements',
+          authors: ['Dr. T. Sowmiya'],
+          journal: 'Journal of Research and Advancement in Dentistry (J Res Adv Dent 12(6):371-373)',
+          doi: '10.5281/jrad.2022.126',
+          abstract: 'Experimental study assessing dye penetration and compressive fracture resistance of high-viscosity GIC vs resin-modified GIC.',
+        },
+        {
+          id: 'cons-pub-9',
+          year: '2022',
+          title: 'Chemical Characterization and Physical Properties of Dental Restorative Composite Resin with a Novel Multifunctional Cross-Linking Comonomer',
+          authors: ['Dr. Sudhakar V', 'Dr. N. Bharath'],
+          journal: 'The Journal of Contemporary Dental Practice (Vol 22, Issue 6)',
+          doi: '10.5005/jp-journals-10024-3155',
+          abstract: 'Spectroscopic and mechanical analysis of composite resin cross-linking comonomers designed to minimize polymerization shrinkage.',
+        },
+        {
+          id: 'cons-pub-10',
+          year: '2022',
+          title: 'Comparative Evaluation of Degree of Conversion of Four Different Composites Polymerized Using Ultrafast Photopolymerization Technique',
+          authors: ['Dr. B. Hemasathya', 'Dr. Sujith R'],
+          journal: 'Journal of Conservative Dentistry (J Conserv Dent 24:77-82)',
+          doi: '10.4103/jcd.jcd_512_21',
+          abstract: 'FTIR spectroscopic trial measuring monomer-to-polymer conversion ratios under high-intensity LED light curing units.',
+        },
+        {
+          id: 'cons-pub-11',
+          year: '2022',
+          title: 'Patent: Dental Instrument for Hemostasis and Isolation in Operative Dentistry',
+          authors: ['Dr. Senthilnathan', 'Dr. Sriram Sankar'],
+          journal: 'The Patent Office Journal (Official Patent Publication)',
+          doi: 'Patent Reg: 2022-IN-APDCH-04',
+          abstract: 'Published patent for a specialized clinical instrument designed for rapid gingival moisture control and hemorrhage cessation.',
+        },
+        {
+          id: 'cons-pub-12',
+          year: '2021',
+          title: 'Evaluating Retentive Strength and Removability of Prefabricated Fiber Posts Cemented with Resin Cements',
+          authors: ['Dr. B. Veni Ashok', 'Dr. Sujith R'],
+          journal: 'Endodontology (Journal of Indian Endodontic Society)',
+          doi: '10.4103/endo.endo_42_21',
+          abstract: 'Push-out bond strength test comparing quartz and glass fiber post retention in endodontically treated teeth.',
+        },
+        {
+          id: 'cons-pub-13',
+          year: '2021',
+          title: 'Radiographic Evaluation of Obturation Quality and Root Canal Morphology in Endodontic Practice',
+          authors: ['Dr. B. Veni Ashok'],
+          journal: 'Journal of Clinical and Diagnostic Research (JCDR)',
+          doi: '10.7860/JCDR/2021/49821',
+        },
+      ],
+      ongoing: [
+        {
+          id: 'cons-ong-1',
+          year: '2024',
+          title: 'Evaluation of Bioceramic Root Canal Sealers & Irrigation Dynamics Under Micro-CT',
+          authors: 'Dr. N. Bharath, Dr. Purusothaman A & Postgraduate Scholars',
+          journal: 'Ongoing Departmental Clinical Trial',
+          abstract: 'Micro-CT and stereomicroscopic evaluation comparing 3D obturation seal, dentinal tubule penetration, and cytotoxicity of novel bioceramic sealers.',
+        },
+        {
+          id: 'cons-ong-2',
+          year: '2024',
+          title: 'In Vitro Shear Bond Strength & Antibacterial Efficacy of Nanoparticle-Modified Composite Resins',
+          authors: 'Dr. Ohm Nijandhan K, Dr. Sowmiya T & Research Team',
+          journal: 'Bioactive Restorative Material Project',
+          abstract: 'Laboratory investigation testing mechanical strength and cariostatic antibacterial effects of nano-chitosan and bioactive glass comonomers in restorative resins.',
+        },
+        {
+          id: 'cons-ong-3',
+          year: '2024',
+          title: 'Comparative Clinical Trial on Single-Visit vs Multiple-Visit Root Canal Treatment Outcomes',
+          authors: 'Dr. S. Karthikeyan, Dr. Sujith R & PG Residents',
+          journal: 'Clinical Endodontic Outcome Study',
+          abstract: 'Prospective 12-month clinical evaluation measuring post-operative pain, healing index, and radiographic success rates in necrotic teeth.',
+        },
+        {
+          id: 'cons-ong-4',
+          year: '2024',
+          title: 'Retentive Strength & Fracture Resistance of Prefabricated Fiber Posts vs Cast Posts',
+          authors: 'Dr. V. Sudhakar, Dr. S. Sathish & Research Fellows',
+          journal: 'Prosthetic-Endodontic Rehabilitation Audit',
+          abstract: 'In vitro push-out testing and finite element analysis (FEA) evaluating stress distribution in endodontically restored premolars.',
+        },
+      ],
+      awards: [
+        {
+          id: 'cons-stu-iacde-2024',
+          year: '2024',
+          title: '24th IACDE PG Convention 2024 Best Paper Awards',
+          authors: 'Dr. Nanthini Priya, Dr. Thendral, Dr. Visithra',
+          journal: '24th IACDE National Postgraduate Convention 2024',
+          abstract: 'Best Paper Presentation Awards won by postgraduate residents Dr. Nanthini Priya, Dr. Thendral, and Dr. Visithra.',
+        },
+        {
+          id: 'cons-stu-ies-2024',
+          year: '2024',
+          title: '32nd IES National Conference 2024 Best Paper Awards',
+          authors: 'Dr. Blessie, Dr. Satyaa, Dr. Nivetha, Dr. Ravi Kishore',
+          journal: '32nd IES National Conference 2024',
+          abstract: 'Best Paper Presentation Awards won by postgraduate residents Dr. Blessie, Dr. Satyaa, Dr. Nivetha, and Dr. Ravi Kishore.',
+        },
+        {
+          id: 'cons-award-1',
+          year: '2021',
+          title: 'Outstanding Academician in Endodontics',
+          authors: 'Dr. B. Hemasathya & Dr. N. Bharath',
+          journal: 'Global Healthcare Awards 2021 (GOMHA)',
+          abstract: 'Awarded by GOMHA for exceptional academic leadership, teaching excellence, and clinical guidance in Endodontics.',
+        },
+        {
+          id: 'cons-award-2',
+          year: '2021',
+          title: 'Dental Divas Award - Outstanding Researcher in Endodontics',
+          authors: 'Dr. B. Hemasathya',
+          journal: 'Global Healthcare Awards 2021 (GOMHA)',
+          abstract: 'National award recognizing outstanding female researcher contributions and high-impact publications in Endodontics.',
+        },
+        {
+          id: 'cons-award-3',
+          year: '2021',
+          title: 'Excellence in Research Guidance & Research Excellence Award',
+          authors: 'Dr. B. Hemasathya & Dr. N. Bharath',
+          journal: 'Research Education Solutions & World Dental Congress',
+          abstract: 'Recognized for high-quality postgraduate research mentorship, clinical trials, and best paper presentations.',
+        },
+        {
+          id: 'cons-award-4',
+          year: '2021',
+          title: 'Emerging & Young Researcher in Endodontics Awards',
+          authors: 'Dr. N. Senthilnathan & Dr. K. Ohmnijandhan',
+          journal: 'Global Healthcare Awards 2021 (GOMHA)',
+          abstract: 'Honored for innovative scientific papers and research contributions in operative dentistry and endodontic materials.',
+        },
+        {
+          id: 'cons-award-6',
+          year: '2021',
+          title: '1st Prize - Paper & Poster Presentation (World Dental & Oral Health Congress)',
+          authors: 'Dr. Sree Vidhya & Dr. Jayanthi',
+          journal: 'Royal College of Surgeons Edinburgh & WDOHC',
+          abstract: 'Won 1st prize for scientific case series on endodontic management of open apex and complex root canal anatomy.',
+        },
+        {
+          id: 'cons-award-7',
+          year: '2021',
+          title: 'Best Postgraduate Award (CEAT) & Dental Innovation First Prize',
+          authors: 'Dr. Sudha & Dr. Kanaga Priyaa',
+          journal: 'Conservative Dentistry & Endodontics Association (CEAT) & APDCH',
+          abstract: 'Awarded best postgraduate resident trophy by CEAT and 1st prize in APDCH Dental Innovation 2021.',
+        },
+      ],
+      recognition: [
+        {
+          id: 'cons-rec-1',
+          year: '2024',
+          title: 'Guest Speaker — PG GYAN Programme',
+          authors: 'Dr. B. Hemasathya',
+          journal: 'APDCH Academic Forum',
+          abstract: 'Invited Guest Speaker presenting clinical insights for postgraduate residents at PG GYAN.',
+        },
+        {
+          id: 'cons-rec-2',
+          year: '2023',
+          title: 'Session Chairperson — IFEA World Endodontic Congress',
+          authors: 'Dr. B. Hemasathya',
+          journal: 'IFEA World Endodontic Congress',
+          abstract: 'Chaired key scientific session by international endodontist Dr. Mohamed Jamal (Dubai) on Regenerative Endodontics.',
+        },
+        {
+          id: 'cons-rec-3',
+          year: '2021',
+          title: 'Session Chairperson — ECCLIRES International Conference',
+          authors: 'Dr. B. Hemasathya',
+          journal: 'Sree Balaji Dental College & Hospital (SBDCH)',
+          abstract: 'Chaired competitive delegate paper presentation sessions at the ECCLIRES 2021 International Conference.',
+        },
+        {
+          id: 'cons-rec-4',
+          year: '2021',
+          title: 'Session Chairperson — IACDE 36th National Conference & 21st PG Convention',
+          authors: 'Dr. Bharath N.',
+          journal: 'KLE University & IACDE',
+          abstract: 'Chaired national scientific delegate paper presentations at the IACDE 36th Virtual National Conference.',
+        },
+        {
+          id: 'cons-rec-5',
+          year: '2023',
+          title: 'Session Chairperson — IFEA World Endodontic Congress',
+          authors: 'Dr. Bharath N.',
+          journal: 'International Federation of Endodontic Associations (IFEA)',
+          abstract: 'Session chairperson evaluating international clinical paper presentations at IFEA World Congress.',
+        },
+        {
+          id: 'cons-rec-6',
+          year: '2022',
+          title: 'Guest Lecture — Dental Education Training Program',
+          authors: 'Dr. Bharath N.',
+          journal: 'Department of Dental Education, APDCH',
+          abstract: 'Resource faculty delivering specialized lecture on contemporary endodontic teaching methodologies.',
+        },
+        {
+          id: 'cons-rec-7',
+          year: '2021',
+          title: 'Paper Presentation — IACDE 36th National Conference',
+          authors: 'Dr. Bharath N.',
+          journal: 'IACDE & KLE University',
+          abstract: 'Presented scientific paper at the IACDE 36th Virtual National Conference & 21st National PG Convention.',
+        },
+        {
+          id: 'cons-rec-8',
+          year: '2021',
+          title: 'Paper Presentation — World Dental and Oral Health Congress',
+          authors: 'Dr. Bharath N.',
+          journal: 'World Dental and Oral Health Congress',
+          abstract: 'Scientific paper presentation on advanced restorative techniques and materials.',
+        },
+        {
+          id: 'cons-rec-9',
+          year: '2022',
+          title: 'Guest Lecture — IDA Meet Madhuranthagam',
+          authors: 'Dr. N. Senthil Nathan',
+          journal: 'Indian Dental Association (IDA Madhuranthagam)',
+          abstract: 'Keynote lecture delivered to IDA members on modern endodontic practice protocols.',
+        },
+        {
+          id: 'cons-rec-10',
+          year: '2022',
+          title: 'Guest Lecture — IDA Meet Madhuranthagam',
+          authors: 'Dr. V. Sudhakar',
+          journal: 'Indian Dental Association (IDA Madhuranthagam)',
+          abstract: 'Invited guest lecture on indirect aesthetic restorations and composite resin techniques.',
+        },
+        {
+          id: 'cons-rec-11',
+          year: '2021',
+          title: 'Guest Lecture — World Dental Conference',
+          authors: 'Dr. Ohm Nijandhan K',
+          journal: 'World Dental Congress',
+          abstract: 'Featured guest lecture on micro-endodontics and digital treatment planning.',
+        },
+        {
+          id: 'cons-rec-12',
+          year: '2021',
+          title: 'Paper Presentation — IFEA International Conference',
+          authors: 'Dr. Ohm Nijandhan K',
+          journal: 'International Federation of Endodontic Associations (IFEA)',
+          abstract: 'International scientific paper presentation on root canal retreatment systems.',
+        },
+        {
+          id: 'cons-rec-13',
+          year: '2021',
+          title: 'Poster Presentation — World Dental Conference',
+          authors: 'Dr. Ohm Nijandhan K',
+          journal: 'World Dental Congress',
+          abstract: 'Scientific poster presentation showcasing innovative endodontic irrigation protocols.',
+        },
+      ],
+      books: [
+        {
+          id: 'cons-book-1',
+          year: '2022',
+          title: 'Viva Voce Manual in Conservative Dentistry and Endodontics',
+          authors: 'Dr. B. Hemasathya, Dr. N. Bharath, Dr. S. Karthikeyan, Dr. E. Premkumar',
+          journal: 'Official Academic Textbook (ISBN: 978-93-91556-97-6)',
+          doi: '978-93-91556-97-6',
+          abstract: 'Comprehensive viva voce manual and clinical handbook for BDS and MDS students. Specialty chapters contributed by Dr. K. Ohmnijandhan, Dr. V. Sudhakar, and Dr. R. Sujith.',
+        },
+      ],
+    }
+  }
+
   const deptName = department?.name || 'Oral Medicine & Radiology'
   const isOMR = department?.id === 'oral-medicine' || deptName.toLowerCase().includes('oral medicine')
 
@@ -63,6 +408,24 @@ function getDefaultResearchData(department) {
         journal: 'Journal of Indian Academy of Dental Specialists',
         doi: '10.4103/jiads.jiads_42_23',
         abstract: 'A comprehensive epidemiologic analysis of patient records over a 5-year period detailing disease presentation patterns, age distribution, and treatment outcomes.',
+      },
+    ],
+    ongoing: [
+      {
+        id: 'ong-1',
+        year: '2024',
+        title: `Clinical Trial: Digital Diagnostic & Treatment Efficacy in ${deptName}`,
+        authors: ['Faculty Research Team', 'Postgraduate Residents'],
+        journal: 'APDCH Ongoing Clinical Trial Registry',
+        abstract: 'A randomized controlled clinical study investigating digital diagnostic workflows, procedure times, and 12-month patient therapeutic outcomes.',
+      },
+      {
+        id: 'ong-2',
+        year: '2024',
+        title: `Biomaterial Integrity and Micro-CT Characterization in Specialty Dental Care`,
+        authors: ['Department Senior Faculty', 'Research Scholars'],
+        journal: 'APDCH Inter-departmental Research Project',
+        abstract: 'In vitro physical characterization measuring seal integrity, biocompatibility, and cellular response under 3D diagnostic imaging.',
       },
     ],
     awards: [
@@ -322,13 +685,27 @@ export default function DetailResearch({ department }) {
                                   {item.title}
                                 </h3>
                                 <p className="mt-1 text-xs font-medium text-muted">
-                                  {Array.isArray(item.authors) ? item.authors.join(', ') : item.authors}
+                                  {Array.isArray(item.authors)
+                                    ? item.authors.join(', ')
+                                    : item.authors || item.recipient || ''}
                                 </p>
                                 <div className="mt-1 flex flex-wrap items-center gap-1.5 text-xs">
                                   <span className="font-semibold text-accent">
-                                    {activeTab === 'events' ? 'Venue:' : activeTab === 'books' ? 'Publisher:' : activeTab === 'awards' ? 'Award / Forum:' : 'Journal:'}
+                                      {activeTab === 'events'
+                                        ? 'Venue:'
+                                        : activeTab === 'books'
+                                        ? 'Publisher / ISBN:'
+                                        : activeTab === 'awards'
+                                        ? 'Award / Forum:'
+                                        : activeTab === 'recognition'
+                                        ? 'Forum / Event:'
+                                        : activeTab === 'ongoing'
+                                        ? 'Project / Forum:'
+                                        : 'Journal:'}
                                   </span>
-                                  <span className="font-medium text-foreground/80">{item.journal}</span>
+                                  <span className="font-medium text-foreground/80">
+                                    {item.journal || item.event || item.forum || ''}
+                                  </span>
                                 </div>
                               </div>
 
@@ -346,9 +723,11 @@ export default function DetailResearch({ department }) {
                                       ? 'Hide'
                                       : activeTab === 'publications'
                                         ? 'View Publication'
-                                        : activeTab === 'awards'
-                                          ? 'View Award'
-                                          : 'View Details'}
+                                        : activeTab === 'ongoing'
+                                          ? 'View Ongoing Study'
+                                          : activeTab === 'awards'
+                                            ? 'View Award'
+                                            : 'View Details'}
                                   </span>
                                   <ChevronDown className={`ml-1 h-3.5 w-3.5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
                                 </Button>

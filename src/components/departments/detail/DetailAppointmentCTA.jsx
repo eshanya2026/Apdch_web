@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, CalendarDays, Phone } from 'lucide-react'
+import { Phone, Users, Mail } from 'lucide-react'
 import { Reveal } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
 import { INSTITUTION } from '@/lib/constants'
@@ -13,37 +13,39 @@ export default function DetailAppointmentCTA({ department }) {
       <div className="relative mx-auto max-w-4xl text-center">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">
-            Book a visit
+            Get In Touch
           </p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl">
+          <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
             Appointments for {department.name}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base text-white/75 md:text-lg">
-            Schedule a consultation with our {department.name} team, or speak with the hospital desk
-            for the next available clinic slot.
+            {department.ctaDescription ||
+              `Book an appointment or learn more about the department's clinical and academic services.`}
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/95">
+            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/95 font-bold shadow-brand-md px-6 py-6">
               <a href={`tel:${INSTITUTION.phone}`}>
                 <Phone className="h-4 w-4" />
-                Call to book
+                <span>Book Appointment</span>
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline">
+
+            <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-primary transition-colors font-bold px-6 py-6">
+              <Link to="/faculty">
+                <Users className="h-4 w-4" />
+                <span>View Faculty</span>
+              </Link>
+            </Button>
+
+            <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-primary transition-colors font-bold px-6 py-6">
               <a
                 href={`mailto:${INSTITUTION.email}?subject=${encodeURIComponent(
-                  `Appointment — ${department.name}`
+                  `Department Enquiry — ${department.name}`
                 )}`}
               >
-                <CalendarDays className="h-4 w-4" />
-                Email request
+                <Mail className="h-4 w-4" />
+                <span>Contact Department</span>
               </a>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/academics">
-                Explore academics
-                <ArrowRight className="h-4 w-4" />
-              </Link>
             </Button>
           </div>
         </Reveal>

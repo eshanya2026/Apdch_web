@@ -37,9 +37,9 @@ export const DEPARTMENTS = [
     category: 'restorative',
     shortName: 'CONS',
     overview:
-      'Tooth-preserving restorative care including operative dentistry, endodontics, and aesthetic reconstructions.',
+      'The department is dedicated to the diagnosis, prevention, and treatment of diseases affecting the dental pulp and restoration of damaged teeth through evidence-based clinical practice and academic excellence.',
     details:
-      'Conservative Dentistry & Endodontics teaches cavity design, adhesive dentistry, root canal therapy, and aesthetic build-ups. Emphasis remains on preserving natural tooth structure with modern materials and microscopic precision where indicated.',
+      'The Department of Conservative Dentistry & Endodontics provides undergraduate and postgraduate education while delivering comprehensive restorative and endodontic care. The department emphasizes conservative treatment approaches that preserve natural tooth structure and restore function and aesthetics.',
     image:
       'https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=900&q=80&auto=format&fit=crop',
     highlights: ['Operative dentistry', 'Endodontics', 'Aesthetic restorations'],
