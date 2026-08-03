@@ -14,7 +14,7 @@ export default function ResearchCTA() {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">
             Collaborate with us
           </p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl">
+          <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
             Propose a study or join a lab team
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base text-white/75 md:text-lg">

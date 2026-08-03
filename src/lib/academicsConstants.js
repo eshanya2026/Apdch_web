@@ -132,45 +132,121 @@ export const CLINICAL_TRAINING = [
 ]
 
 export const RESEARCH_ACADEMICS_SECTION = {
-  eyebrow: 'Scholarship',
-  title: 'Research',
+  eyebrow: 'Research & Academic Development',
+  title: 'Driving Innovation Through Research',
   description:
-    'Research activities at APDCH spanning student projects, faculty inquiry, scientific presentations, and scholarly publications.',
+    'Research is an integral part of academic learning at APDCH. Undergraduate and postgraduate students are encouraged to participate in scientific activities that promote critical thinking, evidence-based practice, and lifelong learning.',
 }
 
 export const RESEARCH_ACADEMICS = [
-  { title: 'Student Research', icon: 'GraduationCap' },
-  { title: 'Faculty Research', icon: 'Users' },
-  { title: 'Scientific Presentations', icon: 'Presentation' },
-  { title: 'Publications', icon: 'BookOpen' },
+  {
+    title: 'Dissertation',
+    description:
+      'Postgraduate students undertake research dissertations as part of the MDS programme under faculty guidance, contributing to academic and clinical advancement.',
+    icon: 'GraduationCap',
+  },
+  {
+    title: 'Scientific Publications',
+    description:
+      'Faculty members and postgraduate students actively publish research in national and international peer-reviewed journals.',
+    icon: 'BookOpen',
+  },
+  {
+    title: 'Scientific Presentations',
+    description:
+      'Students and faculty regularly participate in conferences, workshops, and scientific meetings by presenting research papers and posters.',
+    icon: 'Presentation',
+  },
+  {
+    title: 'Journal Clubs & Seminars',
+    description:
+      'Regular journal clubs, seminars, and case discussions encourage continuous learning and promote evidence-based clinical practice.',
+    icon: 'Users',
+  },
 ]
 
 export const LIBRARY = {
+  eyebrow: 'Learning Resources',
   title: 'Central Library',
-  description: 'Features available:',
+  description:
+    'The Central Library supports academic learning, teaching, and research by providing comprehensive print and digital resources for students, faculty, and researchers.',
+  resourcesTitle: 'Resources Available',
   features: [
     { title: 'Books & Reference Collection', icon: 'BookOpen' },
     { title: 'National & International Journals', icon: 'Newspaper' },
-    { title: 'Digital Resources', icon: 'Monitor' },
-    { title: 'Learning Management System (LMS)', icon: 'MonitorPlay' },
+    { title: 'Digital Library Resources', icon: 'Monitor' },
+    { title: 'Library Management System', icon: 'MonitorPlay' },
     { title: 'Reading Hall', icon: 'Armchair' },
-    { title: 'Research Support', icon: 'FlaskConical' },
-    { title: 'Library Orientation', icon: 'Compass' },
+    { title: 'Research Support Services', icon: 'FlaskConical' },
   ],
   image:
     'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1200&q=80&auto=format&fit=crop',
 }
 
+export const EXAMINATIONS_SECTION = {
+  eyebrow: 'Examination Pattern',
+  title: 'Examination Pattern',
+  description:
+    'The MDS programme includes theory examinations, clinical examinations, viva voce, and dissertation evaluation in accordance with the regulations of The Tamil Nadu Dr. M.G.R. Medical University and the Dental Council of India.',
+}
+
 export const EXAMINATIONS = [
-  { title: 'Internal Assessment', icon: 'ClipboardCheck' },
-  { title: 'University Theory Examination', icon: 'FileText' },
-  { title: 'Clinical Examination', icon: 'Stethoscope' },
-  { title: 'Viva Voce', icon: 'MessagesSquare' },
+  {
+    title: 'Theory Examination',
+    description:
+      'Comprehensive written examinations testing specialty knowledge as per university syllabus norms.',
+    icon: 'FileText',
+  },
+  {
+    title: 'Clinical Examination',
+    description:
+      'Practical evaluation of patient diagnosis, treatment planning, and specialized clinical procedures.',
+    icon: 'Stethoscope',
+  },
+  {
+    title: 'Viva Voce',
+    description:
+      'Oral examination conducted by external and internal examiners to assess subject mastery and reasoning.',
+    icon: 'MessagesSquare',
+  },
+  {
+    title: 'Dissertation Evaluation',
+    description:
+      'Assessment and evaluation of the research dissertation completed under faculty supervision.',
+    icon: 'FileCheck',
+  },
 ]
 
+export const STUDENT_SUPPORT_SECTION = {
+  eyebrow: 'Student Support',
+  title: 'Supporting Academic Success',
+  description:
+    'APDCH provides a supportive learning environment that encourages academic excellence, professional development, and student well-being.',
+}
+
 export const STUDENT_SUPPORT = [
-  { title: 'Academic Mentoring', icon: 'UserCheck' },
-  { title: 'Faculty Guidance', icon: 'Users' },
-  { title: 'Hostel Facilities', icon: 'Home' },
-  { title: 'Library Support', icon: 'BookOpen' },
+  {
+    title: 'Academic Mentoring',
+    description:
+      'Faculty members provide continuous academic guidance and mentorship throughout the programme.',
+    icon: 'UserCheck',
+  },
+  {
+    title: 'Faculty Guidance',
+    description:
+      'Individual mentoring and academic counselling help students achieve their educational goals.',
+    icon: 'Users',
+  },
+  {
+    title: 'Hostel Facilities',
+    description:
+      'Separate hostel facilities for boys and girls with essential amenities and a secure residential environment.',
+    icon: 'Home',
+  },
+  {
+    title: 'Library Support',
+    description:
+      'Access to extensive academic resources, journals, digital learning facilities, and study spaces.',
+    icon: 'BookOpen',
+  },
 ]

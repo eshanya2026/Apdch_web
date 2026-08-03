@@ -153,16 +153,11 @@ export default function Navbar() {
                   <div
                     className={cn(
                       'pointer-events-none absolute top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100',
-                      link.children.length > 4 ? 'right-0' : 'left-0'
+                      'left-0'
                     )}
                   >
                     <div
-                      className={cn(
-                        'overflow-hidden rounded-2xl border border-border/60 bg-white/95 shadow-[0_16px_40px_-20px_rgba(17,24,39,0.35)] backdrop-blur-xl',
-                        link.children.length > 4
-                          ? 'grid w-[42rem] grid-cols-2 gap-1 p-2.5'
-                          : 'min-w-[11rem] p-1.5'
-                      )}
+                      className="overflow-hidden rounded-2xl border border-border/60 bg-white/95 shadow-[0_16px_40px_-20px_rgba(17,24,39,0.35)] backdrop-blur-xl min-w-[18rem] p-2 flex flex-col space-y-0.5"
                     >
                       {link.children.map((child) => (
                         <NavLink

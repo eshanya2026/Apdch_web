@@ -1,21 +1,25 @@
 import {
-  GraduationCap,
+  Landmark,
   Stethoscope,
-  Building2,
   Users,
-  FlaskConical,
-  HeartHandshake,
+  Building2,
+  Award,
+  Sprout,
+  Globe,
+  MapPin,
 } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { WHY_CHOOSE_ADMISSIONS, WHY_CHOOSE_ADMISSIONS_SECTION } from '@/lib/admissionsConstants'
 
 const ICONS = {
-  GraduationCap,
+  Landmark,
   Stethoscope,
-  Building2,
   Users,
-  FlaskConical,
-  HeartHandshake,
+  Building2,
+  Award,
+  Sprout,
+  Globe,
+  MapPin,
 }
 
 export default function WhyChooseAPDCH() {
@@ -30,7 +34,7 @@ export default function WhyChooseAPDCH() {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {WHY_CHOOSE_ADMISSIONS.map((item, i) => {
             const Icon = ICONS[item.icon]
             return (

@@ -203,10 +203,10 @@ export default function Nirf() {
           <div className="absolute inset-0 cta-gradient" />
           <div className="relative z-10 mx-auto max-w-4xl text-center">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent backdrop-blur-md">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-white backdrop-blur-md">
                 Official Ministry Portal
               </span>
-              <h2 className="mt-4 font-display text-3xl font-extrabold text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
                 Official NIRF India Portal
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/80 md:text-lg max-w-2xl mx-auto">

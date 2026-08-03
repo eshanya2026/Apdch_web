@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Reveal } from '@/components/shared/Reveal'
-import { Users, GraduationCap, HeartHandshake, Sparkles, CheckCircle2, FileText, ArrowRight } from 'lucide-react'
+import { Users, GraduationCap, HeartHandshake, Sparkles, CheckCircle2, ArrowRight, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 
@@ -78,10 +79,10 @@ export default function HrPolicy() {
                   <Users className="h-4 w-4 text-primary" />
                   Staff Welfare & Institutional Care
                 </div>
-                <h1 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                <h1 className="mt-3 font-display text-4xl tracking-tight text-foreground md:text-5xl lg:text-[3.5rem]">
                   HR Policy
                 </h1>
-                <p className="mt-4 font-display text-xl font-bold text-primary md:text-2xl">
+                <p className="mt-4 font-display text-xl tracking-tight text-primary md:text-2xl font-medium">
                   Empowering People. Enabling Excellence.
                 </p>
                 <p className="mt-5 text-base leading-relaxed text-muted md:text-lg lg:text-xl max-w-3xl mx-auto">
@@ -98,7 +99,7 @@ export default function HrPolicy() {
                   <Reveal key={stat.label} delay={index * 0.08}>
                     <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/80 bg-white p-5 shadow-brand-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-brand-md md:p-6">
                       <div className="flex items-center justify-between">
-                        <span className="font-display text-2xl font-extrabold tracking-tight text-primary md:text-3xl">
+                        <span className="font-display text-2xl font-semibold tracking-tight text-primary md:text-3xl">
                           {stat.value}
                         </span>
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
@@ -127,8 +128,8 @@ export default function HrPolicy() {
                     <Sparkles className="h-3.5 w-3.5" />
                     Overview
                   </span>
-                  <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-4xl">
-                    Human Resource Policy
+                  <h2 className="mt-3 font-display text-4xl tracking-tight text-foreground md:text-5xl lg:text-[3.5rem]">
+                    Staff Welfare Measures
                   </h2>
                   <p className="mt-2 text-xs font-bold uppercase tracking-wider text-accent max-w-2xl mx-auto">
                     Supporting teaching and non-teaching staff through welfare, professional development, employee benefits, and institutional well-being.
@@ -154,7 +155,7 @@ export default function HrPolicy() {
                     </div>
                     <div>
                       <span className="text-xs font-extrabold uppercase tracking-wider text-accent">Teaching Staff Welfare</span>
-                      <h3 className="font-display text-2xl font-bold text-foreground md:text-3xl">Welfare & Professional Development</h3>
+                      <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">Welfare & Professional Development</h3>
                     </div>
                   </div>
                   <span className="self-start sm:self-auto rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-extrabold text-primary">
@@ -207,7 +208,7 @@ export default function HrPolicy() {
                     </div>
                     <div>
                       <span className="text-xs font-extrabold uppercase tracking-wider text-accent">Non-Teaching Staff Welfare</span>
-                      <h3 className="font-display text-2xl font-bold text-foreground md:text-3xl">Employee Support & Benefits</h3>
+                      <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">Employee Support & Benefits</h3>
                     </div>
                   </div>
                   <span className="self-start sm:self-auto rounded-full border border-accent/40 bg-accent/15 px-4 py-1 text-xs font-extrabold text-primary">
@@ -245,22 +246,30 @@ export default function HrPolicy() {
           <div className="absolute inset-0 cta-gradient" />
           <div className="relative z-10 mx-auto max-w-4xl text-center">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent backdrop-blur-md">
-                Learn More
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-white backdrop-blur-md">
+                Staff Support & Guidance
               </span>
-              <h2 className="mt-4 font-display text-3xl font-extrabold text-white sm:text-4xl md:text-5xl lg:text-6xl">
-                Explore the complete Human Resource Policy
+              <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
+                Have Questions About HR Policy & Welfare?
               </h2>
               <p className="mt-5 text-base leading-relaxed text-white/80 md:text-lg">
-                Explore the complete Human Resource Policy and staff welfare initiatives of APDCH.
+                Get in touch with our HR desk for staff welfare inquiries, faculty development initiatives, and employment guidelines.
               </p>
-              <div className="mt-9 flex justify-center">
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-white/95 font-bold shadow-brand-md px-8 py-6 text-base">
-                  <a href="/organogram.png" download="APDCH_HR_Policy.pdf">
-                    <FileText className="h-5 w-5" />
-                    <span>View HR Policy</span>
+                  <a href="mailto:admissions@apdch.edu.in?subject=HR%20Policy%20Enquiry%20APDCH">
+                    <Mail className="h-5 w-5 text-primary" />
+                    <span>Contact HR Desk</span>
                     <ArrowRight className="h-5 w-5" />
                   </a>
+                </Button>
+
+                <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-primary transition-colors font-bold px-8 py-6 text-base">
+                  <Link to="/faculty">
+                    <Users className="h-5 w-5" />
+                    <span>View Faculty Directory</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
             </Reveal>

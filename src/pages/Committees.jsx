@@ -149,7 +149,7 @@ export default function Committees() {
                   <ShieldCheck className="h-4 w-4 text-primary" />
                   Statutory & Non-Statutory Framework
                 </div>
-                <h1 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+                <h1 className="mt-3 font-display text-4xl tracking-tight text-foreground md:text-5xl lg:text-[3.5rem]">
                   Committees & Cells
                 </h1>
                 <p className="mt-6 text-base leading-relaxed text-muted md:text-lg lg:text-xl">
@@ -166,7 +166,7 @@ export default function Committees() {
                   <Reveal key={stat.label} delay={index * 0.08}>
                     <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/80 bg-white p-5 shadow-brand-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-brand-md md:p-6">
                       <div className="flex items-center justify-between">
-                        <span className="font-display text-3xl font-extrabold tracking-tight text-primary md:text-4xl">
+                        <span className="font-display text-3xl font-semibold tracking-tight text-primary md:text-4xl">
                           {stat.value}
                         </span>
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
@@ -226,8 +226,8 @@ export default function Committees() {
                     <Sparkles className="h-3.5 w-3.5" />
                     Overview
                   </span>
-                  <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-4xl">
-                    Institutional Committee Framework
+                  <h2 className="mt-3 font-display text-4xl tracking-tight text-foreground md:text-5xl lg:text-[3.5rem]">
+                    Statutory & Non-Statutory Committees
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">
                     APDCH has constituted various committees comprising faculty members, students, and non-teaching staff wherever applicable. Each committee functions within its defined scope to promote transparent administration, academic excellence, quality assurance, and continuous institutional improvement.
@@ -253,7 +253,7 @@ export default function Committees() {
                         </div>
                         <div>
                           <span className="text-xs font-extrabold uppercase tracking-wider text-accent">{group.subtitle}</span>
-                          <h3 className="font-display text-2xl font-bold text-foreground md:text-3xl">{group.title}</h3>
+                          <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">{group.title}</h3>
                         </div>
                       </div>
                       <span className={`self-start sm:self-auto rounded-full border px-3.5 py-1 text-xs font-extrabold ${group.badgeStyle}`}>
@@ -362,10 +362,10 @@ export default function Committees() {
           <div className="absolute inset-0 cta-gradient" />
           <div className="relative z-10 mx-auto max-w-5xl text-center">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent backdrop-blur-md">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-white backdrop-blur-md">
                 Inspection & Statutory Compliance
               </span>
-              <h2 className="mt-4 font-display text-3xl font-extrabold text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
                 Looking for Committee Documents?
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/80 md:text-lg max-w-2xl mx-auto">

@@ -5,12 +5,11 @@ import {
   MonitorPlay,
   Armchair,
   FlaskConical,
-  Compass,
 } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { LIBRARY } from '@/lib/academicsConstants'
 
-const ICONS = { BookOpen, Newspaper, Monitor, MonitorPlay, Armchair, FlaskConical, Compass }
+const ICONS = { BookOpen, Newspaper, Monitor, MonitorPlay, Armchair, FlaskConical }
 
 export default function Library() {
   return (
@@ -31,11 +30,16 @@ export default function Library() {
           <Reveal delay={0.1}>
             <SectionHeading
               align="left"
-              eyebrow="Knowledge hub"
+              eyebrow={LIBRARY.eyebrow}
               title={LIBRARY.title}
               description={LIBRARY.description}
             />
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {LIBRARY.resourcesTitle && (
+              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                {LIBRARY.resourcesTitle}
+              </p>
+            )}
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {LIBRARY.features.map((f) => {
                 const Icon = ICONS[f.icon]
                 return (

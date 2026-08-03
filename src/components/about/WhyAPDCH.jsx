@@ -14,7 +14,7 @@ export default function WhyAPDCH() {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {WHY_APDCH_ABOUT.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.06}>
               <article className="group h-full rounded-3xl border border-border/80 bg-white p-6 transition-all duration-400 hover:-translate-y-1 hover:border-primary/25 hover:shadow-brand-sm md:p-7">

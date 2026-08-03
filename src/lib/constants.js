@@ -51,8 +51,6 @@ export const SOCIAL_LINKS = [
 
 export const ABOUT_NAV_LINKS = [
   { label: 'About APDCH', href: '/about' },
-  { label: 'IQAC', href: '/iqac' },
-  { label: 'NIRF Ranking', href: '/nirf' },
   { label: 'Campus Life', href: '/about/campus-life' },
 ]
 

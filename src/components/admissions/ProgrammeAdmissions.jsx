@@ -38,46 +38,96 @@ function ProgrammeCard({ data, dark = false }) {
             <Clock className="h-3.5 w-3.5" />
             {data.duration}
           </span>
-          <span
-            className={cn(
-              'inline-flex items-center gap-1.5 rounded-full px-3 py-1',
-              dark ? 'bg-white/10 text-white/70' : 'bg-background text-muted'
-            )}
-          >
-            <Users className="h-3.5 w-3.5" />
-            {data.seats}
-          </span>
+          {data.seats && (
+            <span
+              className={cn(
+                'inline-flex items-center gap-1.5 rounded-full px-3 py-1',
+                dark ? 'bg-white/10 text-white/70' : 'bg-background text-muted'
+              )}
+            >
+              <Users className="h-3.5 w-3.5" />
+              {data.seats}
+            </span>
+          )}
         </div>
+
         <h3 className={cn('font-display text-3xl md:text-4xl', dark ? 'text-white' : 'text-foreground')}>
           {data.title}
         </h3>
+
         {data.description && (
-          <p className={cn('mt-4 text-sm leading-relaxed md:text-base', dark ? 'text-white/65' : 'text-muted')}>
+          <p className={cn('mt-4 text-sm leading-relaxed md:text-base', dark ? 'text-white/75' : 'text-muted')}>
             {data.description}
           </p>
         )}
-        {data.highlightsTitle && (
-          <p
-            className={cn(
-              'mt-6 text-xs font-semibold uppercase tracking-[0.18em]',
-              dark ? 'text-accent' : 'text-primary'
+
+        {/* Highlights */}
+        {data.highlights && data.highlights.length > 0 && (
+          <div className="mt-6">
+            {data.highlightsTitle && (
+              <p
+                className={cn(
+                  'text-xs font-semibold uppercase tracking-[0.18em]',
+                  dark ? 'text-accent' : 'text-primary'
+                )}
+              >
+                {data.highlightsTitle}
+              </p>
             )}
-          >
-            {data.highlightsTitle}
-          </p>
+            <ul className="mt-3 space-y-2.5">
+              {data.highlights.map((h) => (
+                <li
+                  key={h}
+                  className={cn('text-sm leading-relaxed', dark ? 'text-white/80' : 'text-foreground/80')}
+                >
+                  <span className={cn('mr-2 font-bold', dark ? 'text-accent' : 'text-primary')}>▸</span>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
-        <ul className={cn('space-y-2.5', data.highlightsTitle ? 'mt-4' : 'mt-6')}>
-          {data.highlights.map((h) => (
-            <li
-              key={h}
-              className={cn('text-sm', dark ? 'text-white/80' : 'text-foreground/80')}
-            >
-              <span className={cn('mr-2', dark ? 'text-accent' : 'text-primary')}>▸</span>
-              {h}
-            </li>
-          ))}
-        </ul>
-        {data.specialities && (
+
+        {/* Eligibility Criteria */}
+        {data.eligibility && data.eligibility.length > 0 && (
+          <div className="mt-6">
+            {data.eligibilityTitle && (
+              <p
+                className={cn(
+                  'text-xs font-semibold uppercase tracking-[0.18em]',
+                  dark ? 'text-accent' : 'text-primary'
+                )}
+              >
+                {data.eligibilityTitle}
+              </p>
+            )}
+            <ul className="mt-3 space-y-2">
+              {data.eligibility.map((item) => (
+                <li key={item} className={cn('text-sm leading-relaxed', dark ? 'text-white/80' : 'text-foreground/80')}>
+                  <span className={cn('mr-2 font-bold', dark ? 'text-accent' : 'text-primary')}>✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Admission Process Text */}
+        {data.admissionProcessText && (
+          <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+            {data.admissionProcessTitle && (
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1.5">
+                {data.admissionProcessTitle}
+              </p>
+            )}
+            <p className="text-xs leading-relaxed text-white/75">
+              {data.admissionProcessText}
+            </p>
+          </div>
+        )}
+
+        {/* Specialities */}
+        {data.specialities && data.specialities.length > 0 && (
           <div className="mt-6">
             {data.specialitiesTitle && (
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
@@ -88,7 +138,7 @@ function ProgrammeCard({ data, dark = false }) {
               {data.specialities.map((s) => (
                 <span
                   key={s}
-                  className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/70"
+                  className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80"
                 >
                   {s}
                 </span>
@@ -96,10 +146,11 @@ function ProgrammeCard({ data, dark = false }) {
             </div>
           </div>
         )}
+
         <div className="mt-auto pt-8">
           <Button asChild variant={dark ? 'outline' : 'soft'} size="sm">
             <a href="#apply">
-              Start application
+              Start Application
               <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </Button>

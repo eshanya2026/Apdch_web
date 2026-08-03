@@ -8,10 +8,10 @@ export const ADMISSIONS_HERO = {
 }
 
 export const ADMISSION_PROCESS_SECTION = {
-  eyebrow: 'Admission Process',
+  eyebrow: 'Admission Overview',
   title: 'Your Admission Journey',
   description:
-    'Our admission process is designed to be transparent and straightforward, guiding students from eligibility to enrollment.',
+    'All admissions under Government Quota and Management Quota are filled by the Selection Committee, Government of Tamil Nadu, through common counselling based on the percentile obtained in the NEET examination.',
 }
 
 export const ADMISSION_PROCESS = [
@@ -98,60 +98,58 @@ export const ADMISSION_CATEGORIES = [
 ]
 
 export const BDS_ADMISSION_SECTION = {
-  eyebrow: 'BDS Admission',
+  eyebrow: 'BDS Programme',
   title: 'Bachelor of Dental Surgery (BDS)',
   description:
-    'The Bachelor of Dental Surgery (BDS) program provides comprehensive education in oral healthcare through classroom learning, pre-clinical simulation, laboratory training, and supervised clinical practice. Students develop strong scientific knowledge, practical skills, and professional ethics required for successful dental practice.',
+    'Comprehensive dental education approved by the Dental Council of India (DCI) and affiliated with The Tamil Nadu Dr. M.G.R. Medical University.',
 }
 
 export const BDS_ADMISSION = {
   title: 'Bachelor of Dental Surgery (BDS)',
-  duration: '5 Years',
-  seats: '100 Students',
-  highlightsTitle: 'Program Highlights',
+  duration: '5 Years Full-Time',
+  highlightsTitle: 'Program Details & Eligibility',
   highlights: [
-    'Duration: 5 Years (Including 1-Year Compulsory Rotatory Internship)',
-    'Annual Intake: 100 Students',
-    'Admission through NEET-UG',
-    'Clinical exposure from the early stages of training',
-    'Experienced faculty and modern laboratories',
-    'Patient-centered learning environment',
+    'Course Duration: 5 Years (Including 1-Year Compulsory Rotatory Internship)',
+    'Eligibility: Higher Secondary (10+2) with Physics, Chemistry, Biology/Biotechnology & English',
+    'NEET Qualification: Mandatory qualification in NEET-UG examination',
+    'Counselling & Quota: All admissions under Government Quota and Management Quota are filled through common counselling by the Selection Committee, Government of Tamil Nadu',
+    'Approval & Affiliation: Approved by the Dental Council of India (DCI) and affiliated with The Tamil Nadu Dr. M.G.R. Medical University',
   ],
   image:
     'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1000&q=80&auto=format&fit=crop',
 }
 
 export const MDS_ADMISSION_SECTION = {
-  eyebrow: 'MDS Admission',
+  eyebrow: 'MDS Programme',
   title: 'Master of Dental Surgery (MDS)',
   description:
-    'The Master of Dental Surgery (MDS) program offers advanced specialty education with intensive clinical training, research opportunities, and academic excellence. Students gain specialized expertise while working alongside experienced faculty and treating a wide range of clinical cases.',
+    'The MDS programme is a three-year full-time postgraduate course affiliated with The Tamil Nadu Dr. M.G.R. Medical University and approved by the Dental Council of India. It provides specialized knowledge, clinical training, and research experience.',
 }
 
 export const MDS_ADMISSION = {
   title: 'Master of Dental Surgery (MDS)',
-  duration: '3 Years',
-  seats: 'Specialty-wise intake',
-  highlightsTitle: 'Program Highlights',
-  specialitiesTitle: 'Available MDS Specialties',
-  highlights: [
-    'Duration: 3 Years',
-    'Admission through NEET-MDS',
-    'Specialty-based postgraduate education',
-    'Advanced clinical exposure',
-    'Research-oriented curriculum',
-    'Individual mentorship by experienced faculty',
+  duration: '3 Years Full-Time',
+  description:
+    'The MDS programme is a three-year full-time postgraduate course affiliated with The Tamil Nadu Dr. M.G.R. Medical University and approved by the Dental Council of India. It provides specialized knowledge, clinical training, and research experience.',
+  eligibilityTitle: 'Eligibility Criteria',
+  eligibility: [
+    'BDS Degree from a DCI-recognized institution',
+    'Completion of one-year rotatory internship',
+    'Valid State Dental Council registration',
+    'Qualification in NEET-MDS',
   ],
+  admissionProcessTitle: 'Admission Process',
+  admissionProcessText:
+    'Admissions are made through centralized counselling based on NEET-MDS rank, conducted by the Medical Counselling Committee or the Tamil Nadu Selection Committee.',
+  specialitiesTitle: 'Specializations Offered',
   specialities: [
     'Conservative Dentistry & Endodontics',
     'Oral & Maxillofacial Surgery',
     'Orthodontics & Dentofacial Orthopaedics',
-    'Prosthodontics & Crown & Bridge',
+    'Prosthodontics and Crown & Bridge',
     'Periodontology',
-    'Oral Medicine & Radiology',
-    'Oral Pathology & Microbiology',
-    'Public Health Dentistry',
     'Pedodontics & Preventive Dentistry',
+    'Oral & Maxillofacial Pathology and Microbiology',
   ],
   image:
     'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1000&q=80&auto=format&fit=crop',
@@ -228,23 +226,25 @@ export const FEE_STRUCTURE_SECTION = {
   eyebrow: 'Fee Structure',
   title: 'Fee Structure',
   description:
-    'The fee structure is prescribed according to the regulations of the Government of Tamil Nadu, the Fee Fixation Committee, and the competent authorities.',
-  note:
-    'Tuition fees and other charges are subject to revision in accordance with government and regulatory authority guidelines.',
+    'The fee structure for BDS and MDS programmes is prescribed in accordance with the regulations of the Government of Tamil Nadu and the competent authorities. For the latest fee details, please refer to the official fee structure.',
 }
 
-export const FEE_STRUCTURE = [
+export const FEE_CARDS = [
   {
-    programme: 'BDS',
-    duration: '5 Years',
+    title: 'Bachelor of Dental Surgery (BDS)',
+    duration: '5 Years (Including 1-Year Compulsory Rotatory Internship)',
     admission: 'NEET-UG',
-    intake: '100 Seats',
+    badge: 'Undergraduate',
+    btnText: 'View Official Fee Structure',
+    href: '#apply',
   },
   {
-    programme: 'MDS',
+    title: 'Master of Dental Surgery (MDS)',
     duration: '3 Years',
     admission: 'NEET-MDS',
-    intake: 'As Per DCI Norms',
+    badge: 'Postgraduate',
+    btnText: 'View Official Fee Structure',
+    href: '#apply',
   },
 ]
 
@@ -257,40 +257,52 @@ export const WHY_CHOOSE_ADMISSIONS_SECTION = {
 
 export const WHY_CHOOSE_ADMISSIONS = [
   {
-    title: 'Experienced Faculty',
+    title: 'Reputed Institution',
     description:
-      'Learn from dedicated professors and clinicians with extensive academic and practical experience.',
-    icon: 'Users',
+      'Over 20+ years of excellence in dental education and healthcare.',
+    icon: 'Landmark',
   },
   {
-    title: 'Advanced Clinical Training',
+    title: 'Comprehensive Clinical Training',
     description:
-      'Gain real-world experience through comprehensive patient care across multiple dental specialties.',
+      'High patient inflow ensures real-time clinical exposure from the undergraduate level.',
     icon: 'Stethoscope',
+  },
+  {
+    title: 'Expert Faculty',
+    description:
+      'Qualified and experienced teaching staff across all dental specialties.',
+    icon: 'Users',
   },
   {
     title: 'Modern Infrastructure',
     description:
-      'Study in well-equipped laboratories, digital classrooms, simulation centres, and advanced clinical departments.',
+      'Digital X-rays, simulation laboratories, advanced dental chairs, and research facilities.',
     icon: 'Building2',
   },
   {
-    title: 'Research & Innovation',
+    title: 'Academic Excellence',
     description:
-      'Participate in scientific research, conferences, workshops, and evidence-based learning initiatives.',
-    icon: 'FlaskConical',
+      'Consistent university ranks and strong NEET performance among students.',
+    icon: 'Award',
   },
   {
-    title: 'Holistic Student Development',
+    title: 'Holistic Learning',
     description:
-      'Develop leadership, communication, ethics, and professional values through extracurricular and community engagement.',
-    icon: 'GraduationCap',
+      'Emphasis on ethics, discipline, personality development, and community service.',
+    icon: 'Sprout',
   },
   {
-    title: 'Community Outreach',
+    title: 'Strong Alumni Network',
     description:
-      'Serve society through dental health awareness camps and preventive oral healthcare programmes.',
-    icon: 'HeartHandshake',
+      'Graduates across India and abroad in clinical, academic, and research roles.',
+    icon: 'Globe',
+  },
+  {
+    title: 'Well-connected Location',
+    description:
+      'Located in Melmaruvathur with convenient connectivity to Chennai and Chengalpattu.',
+    icon: 'MapPin',
   },
 ]
 
