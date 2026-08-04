@@ -793,14 +793,13 @@ export default function DetailResearch({ department }) {
               <Button
                 type="button"
                 onClick={handleLoadMore}
-                size="sm"
-                variant="outline"
-                className="rounded-full px-6 shadow-sm transition-all hover:bg-primary hover:text-white"
+                size="lg"
+                className="rounded-full bg-primary px-8 py-3 text-sm font-bold text-white shadow-brand transition-all duration-300 hover:bg-primary-dark hover:shadow-brand-lg hover:-translate-y-0.5"
               >
                 <span>
                   {activeTab === 'recognition'
                     ? 'View All Faculty Achievements'
-                    : 'Load More'}
+                    : 'Load More Publications'}
                 </span>
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
