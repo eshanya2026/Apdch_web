@@ -1233,6 +1233,11 @@ export const DEPARTMENT_DETAILS = {
   },
   orthodontics: {
     tagline: 'Creating Healthy Smiles Through Precision Orthodontics and Dentofacial Care',
+    video: {
+      title: 'Orthodontics and Dentofacial Orthopedics',
+      youtubeId: 'PHFv7UIaH5E',
+      source: 'https://apdch.in/lms/orthodontics-and-dentofacial-orthopedics/',
+    },
     aboutTitle: 'About Orthodontics \u0026 Dentofacial Orthopaedics',
     aboutParagraphs: [
       'The Department of Orthodontics \u0026 Dentofacial Orthopaedics provides undergraduate and postgraduate education while delivering comprehensive orthodontic care for children, adolescents, and adults. The department focuses on the prevention, diagnosis, and correction of malocclusion and dentofacial deformities through contemporary orthodontic techniques and evidence-based practice.',
@@ -1906,9 +1911,9 @@ export const DEPARTMENT_DETAILS = {
     },
   },
   periodontics: {
-    tagline: 'Healthy foundations for every lasting restoration',
+    tagline: 'Preserving Healthy Gums. Restoring Smiles Through Advanced Periodontal and Implant Care.',
     overviewExtra:
-      'We treat periodontitis as a chronic disease needing lifelong partnership, not a one-time cleaning.',
+      'The Department of Periodontics & Implantology provides undergraduate and postgraduate education while offering comprehensive diagnosis, prevention, and treatment of periodontal diseases. The department specializes in periodontal therapy, implant dentistry, regenerative procedures, and maintenance of oral health through evidence-based clinical practice.',
     stats: [
       { label: 'Perio maintenance chairs', value: 'Dedicated' },
       { label: 'Surgical perio lists', value: 'Weekly' },

@@ -44,8 +44,8 @@
   --color-footer: var(--color-footer);
 
   --font-sans: "Lato", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Google Sans", "Lato", ui-sans-serif, system-ui, sans-serif;
-  --font-hero: "Google Sans", "Lato", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Lato", ui-sans-serif, system-ui, sans-serif;
+  --font-hero: "Outfit", "Lato", ui-sans-serif, system-ui, sans-serif;
 
   --animate-float: float 8s ease-in-out infinite;
   --animate-float-delayed: float 10s ease-in-out 1.5s infinite;

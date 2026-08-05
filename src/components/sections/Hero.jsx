@@ -12,7 +12,6 @@ export default function Hero() {
 
   // Background moves slower than scroll → parallax depth
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '35%'])
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1.12, 1.22])
 
   // Content drifts up + fades as you leave the hero
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 100])
@@ -27,7 +26,7 @@ export default function Hero() {
     >
       {/* Parallax background layer */}
       <motion.div
-        style={{ y: bgY, scale: bgScale }}
+        style={{ y: bgY }}
         className="absolute inset-x-0 -top-[12%] h-[125%] will-change-transform"
       >
         <img

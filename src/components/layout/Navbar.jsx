@@ -11,7 +11,8 @@ function hasDarkHero(pathname) {
   if (pathname === '/') return true
   if (pathname.startsWith('/departments/')) return true
   if (pathname.startsWith('/about')) return true
-  return ['/admissions', '/academics', '/hospital', '/research'].includes(
+  if (pathname.startsWith('/academics')) return true
+  return ['/admissions', '/hospital', '/research'].includes(
     pathname
   )
 }

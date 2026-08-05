@@ -11,7 +11,6 @@ export default function AboutHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
   const y = useTransform(scrollYProgress, [0, 1], [0, 120])
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
 
   return (
     <motion.section
@@ -20,7 +19,7 @@ export default function AboutHero() {
       style={{ clipPath }}
       className="relative flex min-h-[70svh] items-end overflow-hidden pb-20 pt-32 will-change-[clip-path] md:min-h-[78svh] md:items-center md:pb-28"
     >
-      <motion.div style={{ scale }} className="absolute inset-0">
+      <div className="absolute inset-0">
         <img
           src={ABOUT_HERO.image}
           alt="Adhiparasakthi Dental College and Hospital campus"
@@ -28,7 +27,7 @@ export default function AboutHero() {
         />
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 glow-radial-accent" />
-      </motion.div>
+      </div>
 
       {/* Newton's 3rd Law Interactive Floating Line Icons */}
       <FloatingHeroIcons />

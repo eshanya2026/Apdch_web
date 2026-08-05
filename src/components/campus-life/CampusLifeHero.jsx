@@ -10,7 +10,6 @@ export default function CampusLifeHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
   const y = useTransform(scrollYProgress, [0, 1], [0, 100])
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
 
   return (
     <motion.section
@@ -19,7 +18,7 @@ export default function CampusLifeHero() {
       style={{ clipPath }}
       className="relative flex min-h-[72svh] items-end overflow-hidden pb-20 pt-32 will-change-[clip-path] md:min-h-[80svh] md:items-center md:pb-28"
     >
-      <motion.div style={{ scale }} className="absolute inset-0">
+      <div className="absolute inset-0">
         <img
           src={CAMPUS_LIFE_HERO.image}
           alt="APDCH campus life"
@@ -27,7 +26,7 @@ export default function CampusLifeHero() {
         />
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent" />
-      </motion.div>
+      </div>
 
       {/* Newton's 3rd Law Interactive Floating Line Icons */}
       <FloatingHeroIcons />

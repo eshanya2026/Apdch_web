@@ -8,7 +8,6 @@ export default function AcademicsHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
   const y = useTransform(scrollYProgress, [0, 1], [0, 120])
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
 
   return (
     <motion.section
@@ -17,14 +16,14 @@ export default function AcademicsHero() {
       style={{ clipPath }}
       className="relative flex min-h-[72svh] items-end overflow-hidden pb-20 pt-32 md:min-h-[80svh] md:items-center md:pb-28 will-change-[clip-path]"
     >
-      <motion.div style={{ scale }} className="absolute inset-0">
+      <div className="absolute inset-0">
         <img
           src={ACADEMICS_HERO.image}
           alt="Academic learning at Adhiparasakthi Dental College"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 hero-overlay" />
-      </motion.div>
+      </div>
 
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute right-10 top-32 h-36 w-36 rounded-full border border-accent/25 bg-accent/10 animate-[float_9s_ease-in-out_infinite]" />

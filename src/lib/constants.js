@@ -54,6 +54,10 @@ export const ABOUT_NAV_LINKS = [
   { label: 'Campus Life', href: '/about/campus-life' },
 ]
 
+export const ACADEMICS_NAV_LINKS = [
+  { label: 'Overview', href: '/academics' },
+  { label: 'Learning Management System (LMS)', href: '/academics/lms' },
+]
 export const DEPARTMENTS_NAV_LINKS = [
   { label: 'Oral Medicine & Radiology', href: '/departments/oral-medicine' },
   { label: 'Conservative Dentistry & Endodontics', href: '/departments/conservative-dentistry' },
@@ -81,7 +85,7 @@ export const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
   { label: 'About', href: '/about', type: 'route', children: ABOUT_NAV_LINKS },
   { label: 'Admissions', href: '/admissions', type: 'route' },
-  { label: 'Academics', href: '/academics', type: 'route' },
+  { label: 'Academics', href: '/academics', type: 'route', children: ACADEMICS_NAV_LINKS },
   { label: 'Departments', href: '/departments', type: 'route', children: DEPARTMENTS_NAV_LINKS },
   { label: 'Faculty', href: '/faculty', type: 'route', children: FACULTY_NAV_LINKS },
   { label: 'Governance', href: '/governance', type: 'route', children: GOVERNANCE_NAV_LINKS },

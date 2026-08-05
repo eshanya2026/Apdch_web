@@ -6,7 +6,6 @@ export default function CustomCursor() {
   const ringRef = useRef(null)
   const pos = useRef({ x: -100, y: -100 })
   const visibleRef = useRef(false)
-  const hoveringRef = useRef(false)
   const rafRef = useRef(0)
 
   useEffect(() => {
@@ -43,22 +42,6 @@ export default function CustomCursor() {
       }
     }
 
-    const setHovering = (hovering) => {
-      if (hoveringRef.current === hovering) return
-      hoveringRef.current = hovering
-      if (ringRef.current) {
-        ringRef.current.style.width = hovering ? '36px' : '16px'
-        ringRef.current.style.height = hovering ? '36px' : '16px'
-      }
-    }
-
-    const isInteractive = (el) =>
-      Boolean(
-        el?.closest?.(
-          'a, button, [role="button"], input, textarea, select, label, .cursor-pointer'
-        )
-      )
-
     const onMove = (e) => {
       pos.current.x = e.clientX
       pos.current.y = e.clientY
@@ -68,16 +51,9 @@ export default function CustomCursor() {
 
     const onLeave = () => setDotVisible(false)
     const onEnter = () => setDotVisible(true)
-    const onOver = (e) => setHovering(isInteractive(e.target))
-    const onOut = (e) => {
-      if (!isInteractive(e.relatedTarget)) setHovering(false)
-    }
-
     window.addEventListener('mousemove', onMove, { passive: true })
     document.addEventListener('mouseleave', onLeave)
     document.addEventListener('mouseenter', onEnter)
-    document.addEventListener('mouseover', onOver)
-    document.addEventListener('mouseout', onOut)
 
     return () => {
       document.documentElement.classList.remove('cursor-none-site')
@@ -85,8 +61,6 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseleave', onLeave)
       document.removeEventListener('mouseenter', onEnter)
-      document.removeEventListener('mouseover', onOver)
-      document.removeEventListener('mouseout', onOut)
     }
   }, [enabled])
 
@@ -105,7 +79,7 @@ export default function CustomCursor() {
         style={{
           width: 16,
           height: 16,
-          transition: 'width 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out',
+          transition: 'opacity 0.15s ease-out',
         }}
       />
     </div>

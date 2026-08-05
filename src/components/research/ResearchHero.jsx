@@ -8,7 +8,6 @@ export default function ResearchHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
   const y = useTransform(scrollYProgress, [0, 1], [0, 110])
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
 
   return (
     <motion.section
@@ -17,7 +16,7 @@ export default function ResearchHero() {
       style={{ clipPath }}
       className="relative flex min-h-[70svh] items-end overflow-hidden pb-20 pt-32 md:min-h-[78svh] md:items-center md:pb-28 will-change-[clip-path]"
     >
-      <motion.div style={{ scale }} className="absolute inset-0">
+      <div className="absolute inset-0">
         <img
           src={RESEARCH_HERO.image}
           alt="Research at APDCH"
@@ -25,7 +24,7 @@ export default function ResearchHero() {
         />
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
-      </motion.div>
+      </div>
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <motion.p

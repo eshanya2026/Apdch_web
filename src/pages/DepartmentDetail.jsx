@@ -13,6 +13,7 @@ import DetailFaculty from '@/components/departments/detail/DetailFaculty'
 import DetailPatientCare from '@/components/departments/detail/DetailPatientCare'
 import DetailEvents from '@/components/departments/detail/DetailEvents'
 import DetailGallery from '@/components/departments/detail/DetailGallery'
+import DetailVideo from '@/components/departments/detail/DetailVideo'
 import DetailFAQs from '@/components/departments/detail/DetailFAQs'
 import DetailAppointmentCTA from '@/components/departments/detail/DetailAppointmentCTA'
 import { Button } from '@/components/ui/button'
@@ -47,6 +48,7 @@ export default function DepartmentDetail() {
       <main>
         <DetailHero department={department} />
         <DetailOverview department={department} />
+        <DetailVideo department={department} />
         <DetailServices department={department} />
         <DetailTechnology department={department} />
         <DetailFaculty department={department} />

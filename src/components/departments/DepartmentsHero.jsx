@@ -6,7 +6,6 @@ export default function DepartmentsHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
   const y = useTransform(scrollYProgress, [0, 1], [0, 100])
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
 
   return (
     <motion.section
@@ -15,14 +14,14 @@ export default function DepartmentsHero() {
       style={{ clipPath }}
       className="relative flex min-h-[60svh] items-end overflow-hidden pb-16 pt-32 md:min-h-[68svh] md:items-center md:pb-24 will-change-[clip-path]"
     >
-      <motion.div style={{ scale }} className="absolute inset-0">
+      <div className="absolute inset-0">
         <img
           src={DEPARTMENTS_HERO.image}
           alt="Clinical departments at APDCH"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 hero-overlay" />
-      </motion.div>
+      </div>
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <motion.p

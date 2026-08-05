@@ -9,7 +9,6 @@ export default function HospitalHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
   const y = useTransform(scrollYProgress, [0, 1], [0, 100])
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
 
   return (
     <motion.section
@@ -18,7 +17,7 @@ export default function HospitalHero() {
       style={{ clipPath }}
       className="relative flex min-h-[88svh] items-end overflow-hidden pb-20 pt-32 will-change-[clip-path] md:min-h-[92svh] md:items-center md:pb-28"
     >
-      <motion.div style={{ scale }} className="absolute inset-0">
+      <div className="absolute inset-0">
         <img
           src={HOSPITAL_HERO.image}
           alt="APDCH Dental Hospital"
@@ -26,7 +25,7 @@ export default function HospitalHero() {
         />
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
-      </motion.div>
+      </div>
 
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute right-[10%] top-32 h-44 w-44 rounded-full border border-white/15 animate-[float_10s_ease-in-out_infinite]" />
