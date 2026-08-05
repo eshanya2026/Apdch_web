@@ -55,7 +55,7 @@ export const ABOUT_NAV_LINKS = [
 ]
 
 export const ACADEMICS_NAV_LINKS = [
-  { label: 'Overview', href: '/academics' },
+  { label: 'Academic Programs', href: '/academics' },
   { label: 'Learning Management System (LMS)', href: '/academics/lms' },
 ]
 export const DEPARTMENTS_NAV_LINKS = [

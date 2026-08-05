@@ -5,6 +5,7 @@ import { INSTITUTION, SOCIAL_LINKS } from '@/lib/constants'
 // Official Footer Quick Links
 const QUICK_LINKS = [
   { label: 'Academics', href: '/academics' },
+  { label: 'LMS', href: '/academics/lms' },
   { label: 'Admissions', href: '/admissions' },
   { label: 'NIRF', href: '/nirf' },
   { label: 'Code of Conduct', href: 'https://apdch.in/wp-content/uploads/2022/10/Code-of-Conduct.pdf', external: true },

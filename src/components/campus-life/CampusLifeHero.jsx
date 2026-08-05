@@ -3,7 +3,6 @@ import { ArrowRight, Building2 } from 'lucide-react'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { Button } from '@/components/ui/button'
 import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
-import AboutHeroNav from '@/components/about/AboutHeroNav'
 import { CAMPUS_LIFE_HERO } from '@/lib/campusLifeConstants'
 
 export default function CampusLifeHero() {
@@ -32,7 +31,6 @@ export default function CampusLifeHero() {
       <FloatingHeroIcons />
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
-        <AboutHeroNav />
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}

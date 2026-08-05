@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -58,33 +57,6 @@ export default function Faculty({ activeTab = 'faculty' }) {
                   : 'Clinicians and teachers shaping dental education at Adhiparasakthi Dental College and Hospital.'}
               </p>
 
-              {/* Sub Category Tabs */}
-              <div className="mt-8 flex justify-center">
-                <div className="inline-flex rounded-full bg-surface-soft p-1.5 ring-1 ring-border/60">
-                  <Link
-                    to="/faculty"
-                    className={cn(
-                      'rounded-full px-5 py-2 text-xs md:text-sm font-bold transition-all duration-300',
-                      !isPgTab
-                        ? 'bg-[#521822] text-white shadow-brand-sm'
-                        : 'text-foreground/70 hover:text-foreground'
-                    )}
-                  >
-                    Faculty Details
-                  </Link>
-                  <Link
-                    to="/faculty/pg-students"
-                    className={cn(
-                      'rounded-full px-5 py-2 text-xs md:text-sm font-bold transition-all duration-300',
-                      isPgTab
-                        ? 'bg-[#521822] text-white shadow-brand-sm'
-                        : 'text-foreground/70 hover:text-foreground'
-                    )}
-                  >
-                    PG Students Details
-                  </Link>
-                </div>
-              </div>
             </motion.div>
 
             <div className="mt-12 md:mt-14">

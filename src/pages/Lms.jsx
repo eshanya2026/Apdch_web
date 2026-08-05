@@ -126,11 +126,11 @@ export default function Lms() {
         </section>
 
         {/* ─── Department LMS Portals ─── */}
-        <section id="department-portals" className="relative scroll-mt-24 overflow-hidden bg-[linear-gradient(to_bottom,#ffffff_0%,#FDF8F9_50%,#ffffff_100%)] px-5 py-24 md:px-8 md:py-32">
+        <section id="department-portals" className="relative scroll-mt-24 overflow-x-clip bg-[linear-gradient(to_bottom,#ffffff_0%,#FDF8F9_50%,#ffffff_100%)] px-5 py-24 md:px-8 md:py-32">
           <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
           <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-            <Reveal>
-              <div className="lg:sticky lg:top-32 lg:self-start">
+            <Reveal className="lg:sticky lg:top-32 lg:self-start">
+              <div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-primary shadow-brand-xs">
                   <span className="h-2 w-2 rounded-full bg-primary" />
                   Department Learning

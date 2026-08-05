@@ -28,7 +28,7 @@ export default function StudentExperience() {
               />
               <div className="mt-8">
                 <Button asChild>
-                  <Link to="/about">
+                  <Link to="/about/campus-life">
                     Explore Campus Life
                     <ArrowRight className="h-4 w-4" />
                   </Link>
