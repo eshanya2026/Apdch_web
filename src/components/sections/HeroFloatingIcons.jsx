@@ -120,7 +120,7 @@ export default function HeroFloatingIcons() {
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-[5] overflow-hidden"
+      className="pointer-events-none absolute inset-0 z-[5] hidden overflow-hidden sm:block"
       aria-hidden
     >
       {icons.map((item) => (

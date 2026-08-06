@@ -6,7 +6,7 @@ import { STUDENT_LIFE_HOME } from '@/lib/homeConstants'
 
 export default function StudentExperience() {
   return (
-    <section id="experience" className="bg-primary px-5 py-24 md:px-8 md:py-32">
+    <section id="experience" className="bg-primary px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-10 overflow-hidden rounded-[1.75rem] border border-border/80 bg-white shadow-brand-card lg:grid-cols-2">
           <Reveal>

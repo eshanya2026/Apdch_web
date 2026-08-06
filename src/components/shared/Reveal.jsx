@@ -64,7 +64,7 @@ export function SectionHeading({ eyebrow, title, description, align = 'center', 
         </p>
       )}
       <h2
-        className={`font-display text-4xl leading-tight tracking-tight md:text-5xl lg:text-[3.35rem] ${
+        className={`font-display text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-[3.35rem] ${
           light ? 'text-white' : 'text-foreground'
         }`}
       >

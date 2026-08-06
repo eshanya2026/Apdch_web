@@ -59,8 +59,8 @@ export default function PgStudentGrid({ students, activeFilter }) {
             <div className="space-y-12">
               {departmentGroup.years.map((yearGroup) => (
                 <section key={yearGroup.year}>
-                  <div className="mb-6 flex items-center gap-4">
-                    <h3 className="whitespace-nowrap rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-primary">
+                  <div className="mb-6 flex flex-wrap items-center gap-3 sm:gap-4">
+                    <h3 className="rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-primary">
                       {yearGroup.year}
                     </h3>
                     <span className="h-px flex-1 bg-border" />

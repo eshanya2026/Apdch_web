@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   BookOpen,
@@ -368,6 +368,30 @@ function getDefaultResearchData(department) {
     }
   }
 
+  if (!department?.useGeneratedResearchData) {
+    return {
+      publications: department?.publications ?? [],
+      ongoing: (department?.research ?? []).map((item, index) => ({
+        id: item.id ?? `research-${index + 1}`,
+        year: item.year ?? 'Current',
+        title: item.title,
+        authors: item.authors ?? 'Department Research Team',
+        journal: item.journal ?? 'Department Research Project',
+        abstract: item.abstract ?? item.description,
+      })),
+      awards: department?.awards ?? [],
+      recognition: (department?.achievements ?? []).map((item, index) => ({
+        id: item.id ?? `achievement-${index + 1}`,
+        year: item.year ?? 'Current',
+        title: item.title,
+        authors: item.authors ?? department.name,
+        journal: item.journal ?? 'Department Achievement',
+        abstract: item.abstract ?? item.description,
+      })),
+      books: department?.books ?? [],
+    }
+  }
+
   const deptName = department?.name || 'Oral Medicine & Radiology'
   const isOMR = department?.id === 'oral-medicine' || deptName.toLowerCase().includes('oral medicine')
 
@@ -525,7 +549,20 @@ export default function DetailResearch({ department }) {
   const [expandedId, setExpandedId] = useState(null)
 
   const data = useMemo(() => getDefaultResearchData(department), [department])
+  const availableTabs = useMemo(
+    () => TABS.filter((tab) => (data[tab.id] ?? []).length > 0),
+    [data]
+  )
   const categoryItems = useMemo(() => data[activeTab] || [], [data, activeTab])
+
+  useEffect(() => {
+    if (availableTabs.length > 0 && !availableTabs.some((tab) => tab.id === activeTab)) {
+      setActiveTab(availableTabs[0].id)
+      setSelectedYear('All')
+      setVisibleCount(6)
+      setExpandedId(null)
+    }
+  }, [activeTab, availableTabs])
 
   // Extract unique years for year filters
   const availableYears = useMemo(() => {
@@ -564,6 +601,8 @@ export default function DetailResearch({ department }) {
 
   const sortedYears = Object.keys(groupedByYear).sort((a, b) => Number(b) - Number(a))
 
+  if (availableTabs.length === 0) return null
+
   return (
     <section id="research-academic-excellence" className="bg-background px-5 py-28 md:px-8 md:py-36">
       <div className="mx-auto max-w-5xl">
@@ -579,7 +618,7 @@ export default function DetailResearch({ department }) {
         {/* Category Filter Tabs with Sliding Indicator */}
         <Reveal delay={0.08}>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-2 md:gap-3 rounded-full bg-slate-100/90 p-1.5 border border-slate-200/80 max-w-max mx-auto shadow-inner">
-            {TABS.map((tab) => {
+            {availableTabs.map((tab) => {
               const Icon = tab.icon
               const isActive = activeTab === tab.id
 
@@ -782,6 +821,14 @@ export default function DetailResearch({ department }) {
                   </div>
                 </div>
               ))}
+              {displayedItems.length === 0 && (
+                <div className="rounded-2xl border border-border/70 bg-white p-7 text-center shadow-brand-xs">
+                  <p className="font-display text-lg font-semibold text-foreground">No verified entries published</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    The existing APDCH department source does not currently provide records for this category.
+                  </p>
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

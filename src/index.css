@@ -101,6 +101,8 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -119,6 +121,21 @@
 
   p {
     font-family: var(--font-sans);
+  }
+
+  img,
+  video,
+  iframe {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  a,
+  button {
+    overflow-wrap: anywhere;
   }
 
   ::selection {
@@ -355,5 +372,12 @@
 
   .hover\:shadow-brand-card:hover {
     box-shadow: 0 16px 40px -32px color-mix(in srgb, var(--apdch-500) 25%, transparent);
+  }
+}
+
+@media (max-width: 374px) {
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.12 !important;
   }
 }

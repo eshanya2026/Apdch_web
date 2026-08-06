@@ -77,7 +77,14 @@ function getDefaultEvents(department) {
 
 export default function DetailEvents({ department }) {
   const [selectedYear, setSelectedYear] = useState('All')
-  const events = department?.events?.length ? department.events : getDefaultEvents(department)
+  const events = useMemo(
+    () => department?.events?.length
+      ? department.events
+      : department?.useDefaultEvents
+        ? getDefaultEvents(department)
+        : [],
+    [department]
+  )
 
   // Extract available unique years
   const availableYears = useMemo(() => {
@@ -91,6 +98,8 @@ export default function DetailEvents({ department }) {
     if (selectedYear === 'All') return events
     return events.filter((e) => (e.year || '2024') === selectedYear)
   }, [events, selectedYear])
+
+  if (events.length === 0) return null
 
   return (
     <section id="department-events" className="relative overflow-hidden bg-foreground py-28 text-white md:py-36">

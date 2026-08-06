@@ -20,7 +20,7 @@ const ICONS = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-background px-5 py-24 md:px-8 md:py-32">
+    <section className="bg-background px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading

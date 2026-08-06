@@ -126,7 +126,7 @@ export default function Lms() {
         </section>
 
         {/* ─── Department LMS Portals ─── */}
-        <section id="department-portals" className="relative scroll-mt-24 overflow-x-clip bg-[linear-gradient(to_bottom,#ffffff_0%,#FDF8F9_50%,#ffffff_100%)] px-5 py-24 md:px-8 md:py-32">
+        <section id="department-portals" className="relative scroll-mt-24 overflow-x-clip bg-[linear-gradient(to_bottom,#ffffff_0%,#FDF8F9_50%,#ffffff_100%)] px-5 py-14 md:px-8 md:py-20">
           <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
           <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
             <Reveal className="lg:sticky lg:top-32 lg:self-start">
@@ -177,7 +177,7 @@ export default function Lms() {
         </section>
 
         {/* ─── CTA ─── */}
-        <section className="px-5 py-24 md:px-8 md:py-32">
+        <section className="px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-7xl">
             <Reveal>
               <div className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/5 via-surface to-accent/5 p-10 text-center shadow-brand-card md:p-16">

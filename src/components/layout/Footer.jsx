@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.7fr_1.1fr] lg:gap-10">
           {/* Logo & Contact */}
           <div>
-            <Link to="/" className="inline-flex items-center gap-3">
+            <Link to="/" className="inline-flex min-w-0 items-center gap-3">
               <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[3.6px] bg-white p-1.5">
                 <img
                   src="/f0229f1b-ddbb-46f5-ad40-c13d2676e8b2.png"
@@ -68,9 +68,9 @@ export default function Footer() {
                   className="h-full w-full object-contain"
                 />
               </span>
-              <span>
-                <span className="block font-display text-2xl leading-none">Adhiparasakthi</span>
-                <span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
+              <span className="min-w-0">
+                <span className="block font-display text-xl leading-none sm:text-2xl">Adhiparasakthi</span>
+                <span className="mt-1 block text-[9px] font-medium uppercase tracking-[0.12em] text-white/50 sm:text-[10px] sm:tracking-[0.2em]">
                   Dental College and Hospital
                 </span>
               </span>

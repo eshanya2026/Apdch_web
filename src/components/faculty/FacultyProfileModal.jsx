@@ -28,7 +28,7 @@ export default function FacultyProfileModal({ member, onClose }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 grid max-h-[90vh] w-full max-w-3xl overflow-hidden rounded-[1.75rem] border border-border/80 bg-white shadow-[0_40px_100px_-40px_rgba(17,24,39,0.4)] md:grid-cols-[0.9fr_1.15fr]"
+            className="relative z-10 grid max-h-[calc(100svh-2rem)] w-full max-w-3xl overflow-y-auto rounded-[1.75rem] border border-border/80 bg-white shadow-[0_40px_100px_-40px_rgba(17,24,39,0.4)] md:max-h-[90vh] md:grid-cols-[0.9fr_1.15fr] md:overflow-hidden"
           >
             <div className="relative min-h-[220px] md:min-h-full">
               <img
@@ -47,7 +47,7 @@ export default function FacultyProfileModal({ member, onClose }) {
               </button>
             </div>
 
-            <div className="relative overflow-y-auto p-6 md:p-8">
+            <div className="relative p-5 sm:p-6 md:overflow-y-auto md:p-8">
               <button
                 type="button"
                 onClick={onClose}

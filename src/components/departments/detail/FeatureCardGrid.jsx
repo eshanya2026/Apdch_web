@@ -13,6 +13,8 @@ import {
   Layers,
   Sliders,
   Truck,
+  Clock3,
+  Stethoscope,
 } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
@@ -173,7 +175,67 @@ export function FeatureCardGrid({
   )
 }
 
+function PeriodonticsServices({ department }) {
+  return (
+    <section className="relative overflow-hidden bg-[#faf7f7] px-5 py-20 md:px-8 md:py-28">
+      <div className="pointer-events-none absolute -right-28 -top-28 h-80 w-80 rounded-full bg-primary/[0.06] blur-3xl" />
+      <div className="relative mx-auto max-w-7xl">
+        <Reveal>
+          <div className="grid gap-7 border-b border-primary/15 pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">Services Offered</p>
+              <h2 className="mt-3 max-w-3xl font-display text-3xl font-semibold leading-tight text-foreground sm:text-4xl md:text-5xl">Periodontal Treatment Services</h2>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-muted">{department.servicesDescription}</p>
+            </div>
+            <div className="flex w-fit items-center gap-4 rounded-2xl bg-primary px-5 py-4 text-white shadow-brand-md">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15"><Clock3 className="h-5 w-5" /></span>
+              <span>
+                <span className="block text-[9px] font-bold uppercase tracking-[0.2em] text-white/65">OPD Hours</span>
+                <span className="mt-1 block text-base font-semibold">8:30 AM–3:30 PM</span>
+              </span>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 columns-1 gap-5 lg:columns-2">
+          {department.services.map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.06} className="mb-5 w-full break-inside-avoid">
+              <article className="overflow-hidden rounded-[1.5rem] border border-primary/10 bg-white shadow-[0_12px_35px_rgba(52,32,37,0.07)]">
+                <div className="flex items-center gap-4 border-b border-primary/10 px-5 py-5 md:px-6">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/[0.08] text-primary"><Stethoscope className="h-5 w-5" /></span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-primary/60">Treatment Group {String(index + 1).padStart(2, '0')}</p>
+                    <h3 className="mt-1 text-base font-bold text-foreground md:text-lg">{item.title.replace(/^\d+\.\s*/, '')}</h3>
+                  </div>
+                  <span className="font-display text-3xl font-light text-primary/20">{String(index + 1).padStart(2, '0')}</span>
+                </div>
+                <ul className="grid gap-2.5 p-5 md:p-6">
+                  {item.list.map((entry) => {
+                    const label = typeof entry === 'string' ? entry : entry.label
+                    const displayLabel = label.replace(/^\d+\.\s*/, '')
+                    const highlighted = typeof entry === 'object' && entry.highlight
+                    return (
+                      <li key={label} className={cn('flex items-start gap-3 rounded-xl px-3 py-2.5 text-sm leading-5', highlighted ? 'bg-primary text-white shadow-sm' : 'bg-[#faf8f8] text-foreground/75')}>
+                        <span className={cn('mt-2 h-1.5 w-1.5 shrink-0 rounded-full', highlighted ? 'bg-white' : 'bg-primary')} />
+                        <span>{displayLabel}</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function DetailServices({ department }) {
+  if (department.servicesVariant === 'periodontics-opd') {
+    return <PeriodonticsServices department={department} />
+  }
+
   const section = department.servicesSection ?? {}
   return (
     <FeatureCardGrid

@@ -4,7 +4,7 @@ import { CLINICAL_HOME } from '@/lib/homeConstants'
 
 export default function ClinicalTrainingHome() {
   return (
-    <section id="clinical" className="relative overflow-hidden bg-foreground px-5 py-24 md:px-8 md:py-32">
+    <section id="clinical" className="relative overflow-hidden bg-foreground px-5 py-16 md:px-8 md:py-24">
       <div className="pointer-events-none absolute inset-0 glow-radial-tr" />
       <div className="relative mx-auto max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">

@@ -6,7 +6,7 @@ import { PROGRAMS_HOME } from '@/lib/homeConstants'
 
 export default function AcademicPrograms() {
   return (
-    <section id="programs" className="mesh-bg px-5 py-24 md:px-8 md:py-32">
+    <section id="programs" className="mesh-bg px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading

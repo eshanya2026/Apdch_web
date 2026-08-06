@@ -16,7 +16,7 @@ export default function DetailAppointmentCTA({ department }) {
             Get In Touch
           </p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
-            Appointments for {department.name}
+            {department.ctaTitle ?? `Appointments for ${department.name}`}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base text-white/75 md:text-lg">
             {department.ctaDescription ||
@@ -33,7 +33,7 @@ export default function DetailAppointmentCTA({ department }) {
             <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-primary transition-colors font-bold px-6 py-6">
               <Link to="/faculty">
                 <Users className="h-4 w-4" />
-                <span>View Faculty</span>
+                <span>Meet Our Faculty</span>
               </Link>
             </Button>
 

@@ -54,7 +54,7 @@ export default function GroupedDownloadGrid({ items, getGroup, format = 'pptx' }
                     </span>
                   </span>
 
-                  <span className="mt-6 flex w-full items-center justify-between border-t border-border/70 pt-4">
+                  <span className="mt-6 flex w-full flex-wrap items-center justify-between gap-3 border-t border-border/70 pt-4">
                     <span className="text-xs font-semibold text-muted">
                       {fileType}{fileSize ? ` · ${fileSize}` : ''}
                     </span>

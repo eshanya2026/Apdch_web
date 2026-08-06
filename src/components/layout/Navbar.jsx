@@ -99,7 +99,7 @@ export default function Navbar() {
           opacity: visible ? 1 : 0,
         }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-auto mx-auto w-[calc(100%-1.5rem)] max-w-7xl sm:w-[calc(100%-2rem)] md:w-[calc(100%-3rem)]"
+        className="pointer-events-auto mx-auto w-[calc(100%-1.5rem)] max-w-[1500px] sm:w-[calc(100%-2rem)]"
       >
         <div
           className={cn(

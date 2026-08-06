@@ -7,7 +7,7 @@ import { CTA_HOME } from '@/lib/homeConstants'
 
 export default function FinalCTA() {
   return (
-    <section id="cta" className="relative overflow-hidden px-5 py-24 md:px-8 md:py-28">
+    <section id="cta" className="relative overflow-hidden px-5 py-16 md:px-8 md:py-20">
       <div className="absolute inset-0 cta-gradient" />
       <div className="absolute inset-0 glow-cta-overlay" />
 

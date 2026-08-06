@@ -17,7 +17,7 @@ export default function DetailPatientCare({ department }) {
                 eyebrow="Patient Care"
                 title={department.patientCareTitle ?? 'Patient Care'}
                 description={
-                  careItems?.length
+                  careItems?.length || department.patientCareBodyOnly
                     ? undefined
                     : department.patientCare ||
                       'Human-centred pathways that protect dignity at every step.'

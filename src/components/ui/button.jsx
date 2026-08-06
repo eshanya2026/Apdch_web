@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 const buttonVariants = cva(
   [
     'group/btn relative inline-flex items-center justify-center gap-2 overflow-hidden',
-    'whitespace-nowrap rounded-xl text-sm font-medium cursor-pointer',
+    'max-w-full whitespace-normal text-center rounded-xl text-sm font-medium cursor-pointer',
     'transition-[transform,box-shadow,background-position,background-color,filter,border-color,color] duration-300 ease-out',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40',
     'disabled:pointer-events-none disabled:opacity-50',
@@ -43,9 +43,9 @@ const buttonVariants = cva(
         ].join(' '),
       },
       size: {
-        default: 'h-11 px-5 py-2 hover:[&_svg]:translate-x-[4px]',
-        sm: 'h-9 rounded-lg px-3.5 text-xs hover:[&_svg]:translate-x-[4px]',
-        lg: 'h-12 px-7 text-base rounded-2xl hover:[&_svg]:translate-x-[4px]',
+        default: 'min-h-11 px-5 py-2 hover:[&_svg]:translate-x-[4px]',
+        sm: 'min-h-9 rounded-lg px-3.5 py-2 text-xs hover:[&_svg]:translate-x-[4px]',
+        lg: 'min-h-12 px-5 py-3 text-sm sm:px-7 sm:text-base rounded-2xl hover:[&_svg]:translate-x-[4px]',
         icon: 'h-11 w-11',
       },
     },

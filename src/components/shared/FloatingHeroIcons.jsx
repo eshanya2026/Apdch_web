@@ -140,7 +140,7 @@ export default function FloatingHeroIcons() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none absolute inset-0 hidden overflow-hidden sm:block"
       aria-hidden="true"
     >
       {HERO_ICONS.map((item, index) => (

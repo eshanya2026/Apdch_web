@@ -56,7 +56,7 @@ const ACCREDITATIONS = [
 
 export default function TrustedRecognized() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background via-slate-50/50 to-background py-20 md:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background via-slate-50/50 to-background py-14 md:py-20">
       {/* Glow Orbs */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-96 w-[800px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
 

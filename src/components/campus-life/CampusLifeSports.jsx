@@ -47,6 +47,8 @@ export default function CampusLifeSports() {
                 <Reveal key={sport.title} delay={i * 0.05} className="h-full w-full">
                   <button
                     type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setHovered((current) => (current === i ? null : i))}
                     onMouseEnter={() => setHovered(i)}
                     onMouseLeave={() => setHovered(null)}
                     onFocus={() => setHovered(i)}

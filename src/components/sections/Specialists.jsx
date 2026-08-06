@@ -6,7 +6,7 @@ import { HOME_SPECIALISTS, SPECIALISTS_HOME } from '@/lib/homeConstants'
 
 export default function Specialists() {
   return (
-    <section className="bg-background px-5 py-24 md:px-8 md:py-32 overflow-hidden">
+    <section className="bg-background px-5 py-16 md:px-8 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <Reveal>

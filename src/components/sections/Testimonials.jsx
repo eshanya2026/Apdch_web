@@ -60,7 +60,7 @@ export default function Testimonials() {
   }, [isPaused, count])
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background via-surface-soft/40 to-background px-5 py-20 md:px-8 md:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background via-surface-soft/40 to-background px-5 py-14 md:px-8 md:py-20">
       {/* Decorative ambient background glows */}
       <div className="pointer-events-none absolute -left-20 top-1/3 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-1/4 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
