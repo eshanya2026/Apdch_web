@@ -9,6 +9,9 @@ import {
   ArrowRight,
   Filter,
   Microscope,
+  UserCheck,
+  Copyright,
+  Archive,
 } from 'lucide-react'
 
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
@@ -17,7 +20,10 @@ import { Button } from '@/components/ui/button'
 const TABS = [
   { id: 'publications', label: 'Publications', icon: FileText },
   { id: 'ongoing', label: 'Ongoing Research', icon: Microscope },
+  { id: 'reviewer', label: 'Reviewer', icon: UserCheck },
+  { id: 'intellectualProperty', label: 'Patents & Copyrights', icon: Copyright },
   { id: 'awards', label: 'Awards', icon: Trophy },
+  { id: 'studentAchievements', label: 'UG/PG Achievements', icon: Award },
   { id: 'recognition', label: 'Faculty Achievements', icon: Award },
   { id: 'books', label: 'Books', icon: BookOpen },
 ]
@@ -379,7 +385,10 @@ function getDefaultResearchData(department) {
         journal: item.journal ?? 'Department Research Project',
         abstract: item.abstract ?? item.description,
       })),
+      reviewer: department?.reviewers ?? [],
+      intellectualProperty: department?.intellectualProperty ?? [],
       awards: department?.awards ?? [],
+      studentAchievements: department?.studentAchievements ?? [],
       recognition: (department?.achievements ?? []).map((item, index) => ({
         id: item.id ?? `achievement-${index + 1}`,
         year: item.year ?? 'Current',
@@ -544,45 +553,63 @@ function getDefaultResearchData(department) {
 
 export default function DetailResearch({ department }) {
   const [activeTab, setActiveTab] = useState('publications')
-  const [selectedYear, setSelectedYear] = useState('All')
+  const [selectedYear, setSelectedYear] = useState('')
   const [visibleCount, setVisibleCount] = useState(6)
   const [expandedId, setExpandedId] = useState(null)
 
   const data = useMemo(() => getDefaultResearchData(department), [department])
   const availableTabs = useMemo(
-    () => TABS.filter((tab) => (data[tab.id] ?? []).length > 0),
-    [data]
+    () => TABS
+      .filter((tab) => (data[tab.id] ?? []).length > 0)
+      .map((tab) => ({
+        ...tab,
+        label: department.researchTabLabels?.[tab.id] ?? tab.label,
+      })),
+    [data, department.researchTabLabels]
   )
   const categoryItems = useMemo(() => data[activeTab] || [], [data, activeTab])
 
   useEffect(() => {
     if (availableTabs.length > 0 && !availableTabs.some((tab) => tab.id === activeTab)) {
       setActiveTab(availableTabs[0].id)
-      setSelectedYear('All')
+      setSelectedYear('')
       setVisibleCount(6)
       setExpandedId(null)
     }
   }, [activeTab, availableTabs])
 
-  // Extract unique years for year filters
+  // Keep the newest three years visible and move earlier records to the archive.
   const availableYears = useMemo(() => {
     const yearsSet = new Set(categoryItems.map((item) => item.year || '2024'))
-    const yearsArr = Array.from(yearsSet).sort((a, b) => Number(b) - Number(a))
-    return ['All', ...yearsArr]
+    return Array.from(yearsSet).sort((a, b) => {
+      const yearA = Number.parseInt(String(a).match(/\d{4}/)?.[0] || '0', 10)
+      const yearB = Number.parseInt(String(b).match(/\d{4}/)?.[0] || '0', 10)
+      return yearB - yearA
+    })
   }, [categoryItems])
+  const latestYears = availableYears.slice(0, 3)
+  const archivedYears = availableYears.slice(3)
+  const activeYear = selectedYear || latestYears[0]
+
+  useEffect(() => {
+    if (selectedYear && !availableYears.includes(selectedYear)) {
+      setSelectedYear('')
+      setVisibleCount(6)
+      setExpandedId(null)
+    }
+  }, [availableYears, selectedYear])
 
   // Filter items by year
   const filteredItems = useMemo(() => {
-    if (selectedYear === 'All') return categoryItems
-    return categoryItems.filter((item) => (item.year || '2024') === selectedYear)
-  }, [categoryItems, selectedYear])
+    return categoryItems.filter((item) => (item.year || '2024') === activeYear)
+  }, [activeYear, categoryItems])
 
   const displayedItems = filteredItems.slice(0, visibleCount)
   const hasMore = visibleCount < filteredItems.length
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId)
-    setSelectedYear('All')
+    setSelectedYear('')
     setVisibleCount(6)
     setExpandedId(null)
   }
@@ -604,7 +631,7 @@ export default function DetailResearch({ department }) {
   if (availableTabs.length === 0) return null
 
   return (
-    <section id="research-academic-excellence" className="bg-background px-5 py-28 md:px-8 md:py-36">
+    <section id="research-academic-excellence" className="bg-background px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-5xl">
         {/* Section Heading */}
         <Reveal>
@@ -653,8 +680,8 @@ export default function DetailResearch({ department }) {
               <Filter className="h-3.5 w-3.5 text-primary/80" />
               Filter by year:
             </span>
-            {availableYears.map((year) => {
-              const isSelected = selectedYear === year
+            {latestYears.map((year) => {
+              const isSelected = activeYear === year
               return (
                 <button
                   key={year}
@@ -674,6 +701,34 @@ export default function DetailResearch({ department }) {
                 </button>
               )
             })}
+            {archivedYears.length > 0 && (
+              <label className={`relative inline-flex items-center rounded-full border transition-colors ${
+                archivedYears.includes(activeYear)
+                  ? 'border-primary bg-primary text-white shadow-xs'
+                  : 'border-border/60 bg-white text-muted hover:border-primary/20 hover:text-foreground'
+              }`}>
+                <Archive className="pointer-events-none absolute left-3 h-3.5 w-3.5" />
+                <select
+                  aria-label="View archived academic year"
+                  value={archivedYears.includes(activeYear) ? activeYear : ''}
+                  onChange={(event) => {
+                    if (!event.target.value) return
+                    setSelectedYear(event.target.value)
+                    setVisibleCount(6)
+                    setExpandedId(null)
+                  }}
+                  className="cursor-pointer appearance-none bg-transparent py-1 pl-8 pr-7 text-xs font-semibold outline-none"
+                >
+                  <option value="" disabled className="text-foreground">View Archive</option>
+                  {archivedYears.map((year) => (
+                    <option key={year} value={year} className="text-foreground">
+                      {year}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="pointer-events-none absolute right-2.5 h-3.5 w-3.5" />
+              </label>
+            )}
           </div>
         </Reveal>
 
@@ -681,7 +736,7 @@ export default function DetailResearch({ department }) {
         <div className="mt-12 pl-1 sm:pl-4 md:pl-6">
           <AnimatePresence mode="wait">
             <motion.div
-              key={`${activeTab}-${selectedYear}`}
+              key={`${activeTab}-${activeYear}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -736,10 +791,16 @@ export default function DetailResearch({ department }) {
                                         ? 'Publisher / ISBN:'
                                         : activeTab === 'awards'
                                         ? 'Award / Forum:'
+                                        : activeTab === 'studentAchievements'
+                                        ? 'Conference / Organizer:'
                                         : activeTab === 'recognition'
                                         ? 'Forum / Event:'
                                         : activeTab === 'ongoing'
                                         ? 'Project / Forum:'
+                                        : activeTab === 'reviewer'
+                                        ? 'Journal / Publisher:'
+                                        : activeTab === 'intellectualProperty'
+                                        ? 'Record Type:'
                                         : 'Journal:'}
                                   </span>
                                   <span className="font-medium text-foreground/80">
@@ -764,8 +825,16 @@ export default function DetailResearch({ department }) {
                                         ? 'View Publication'
                                         : activeTab === 'ongoing'
                                           ? 'View Ongoing Study'
+                                          : activeTab === 'reviewer'
+                                            ? 'View Reviewer Role'
+                                            : activeTab === 'intellectualProperty'
+                                              ? department.researchTabLabels?.intellectualProperty === 'Copyrights'
+                                                ? 'View Copyright'
+                                                : 'View IP Record'
                                           : activeTab === 'awards'
                                             ? 'View Award'
+                                            : activeTab === 'studentAchievements'
+                                              ? 'View Achievement'
                                             : 'View Details'}
                                   </span>
                                   <ChevronDown className={`ml-1 h-3.5 w-3.5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />

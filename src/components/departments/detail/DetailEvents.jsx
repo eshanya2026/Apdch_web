@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { MapPin, Users, Sparkles } from 'lucide-react'
+import { Archive, MapPin, Users, Sparkles } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 
 function getDefaultEvents(department) {
@@ -76,7 +76,7 @@ function getDefaultEvents(department) {
 }
 
 export default function DetailEvents({ department }) {
-  const [selectedYear, setSelectedYear] = useState('All')
+  const [selectedYear, setSelectedYear] = useState('')
   const events = useMemo(
     () => department?.events?.length
       ? department.events
@@ -86,23 +86,24 @@ export default function DetailEvents({ department }) {
     [department]
   )
 
-  // Extract available unique years
-  const availableYears = useMemo(() => {
+  // Keep the latest three years prominent and move older records to the archive.
+  const eventYears = useMemo(() => {
     const yearsSet = new Set(events.map((e) => e.year || '2024'))
-    const yearsArr = Array.from(yearsSet).sort((a, b) => Number(b) - Number(a))
-    return ['All', ...yearsArr]
+    return Array.from(yearsSet).sort((a, b) => Number(b) - Number(a))
   }, [events])
+  const latestYears = eventYears.slice(0, 3)
+  const archivedYears = eventYears.slice(3)
+  const activeYear = selectedYear || latestYears[0]
 
   // Filter events by selected year
   const filteredEvents = useMemo(() => {
-    if (selectedYear === 'All') return events
-    return events.filter((e) => (e.year || '2024') === selectedYear)
-  }, [events, selectedYear])
+    return events.filter((event) => (event.year || '2024') === activeYear)
+  }, [activeYear, events])
 
   if (events.length === 0) return null
 
   return (
-    <section id="department-events" className="relative overflow-hidden bg-foreground py-28 text-white md:py-36">
+    <section id="department-events" className="relative overflow-hidden bg-foreground py-16 text-white md:py-24">
       {/* Ambient background glows */}
       <div className="pointer-events-none absolute inset-0 glow-radial-t opacity-60" />
       <div className="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
@@ -118,18 +119,18 @@ export default function DetailEvents({ department }) {
           />
         </Reveal>
 
-        {/* Year Filter Buttons */}
-        {availableYears.length > 2 && (
+        {/* Recent years and archived event filters */}
+        {eventYears.length > 1 && (
           <Reveal delay={0.1}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
               <span className="mr-2 text-xs font-semibold uppercase tracking-wider text-white/50">Filter by year:</span>
-              {availableYears.map((year) => (
+              {latestYears.map((year) => (
                 <button
                   key={year}
                   type="button"
                   onClick={() => setSelectedYear(year)}
                   className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-200 ${
-                    selectedYear === year
+                    activeYear === year
                       ? 'bg-accent text-white shadow-md'
                       : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'
                   }`}
@@ -137,6 +138,29 @@ export default function DetailEvents({ department }) {
                   {year}
                 </button>
               ))}
+              {archivedYears.length > 0 && (
+                <label className={`relative inline-flex items-center rounded-full transition-colors ${
+                  archivedYears.includes(activeYear)
+                    ? 'bg-accent text-white shadow-md'
+                    : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'
+                }`}>
+                  <Archive className="pointer-events-none absolute left-3 h-3.5 w-3.5" />
+                  <select
+                    aria-label="View archived event year"
+                    value={archivedYears.includes(activeYear) ? activeYear : ''}
+                    onChange={(event) => event.target.value && setSelectedYear(event.target.value)}
+                    className="cursor-pointer appearance-none bg-transparent py-1.5 pl-8 pr-7 text-xs font-semibold outline-none"
+                  >
+                    <option value="" disabled className="text-foreground">View Archive</option>
+                    {archivedYears.map((year) => (
+                      <option key={year} value={year} className="text-foreground">
+                        {year}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="pointer-events-none absolute right-3 text-[9px]">▼</span>
+                </label>
+              )}
             </div>
           </Reveal>
         )}
@@ -173,6 +197,19 @@ export default function DetailEvents({ department }) {
                       <span className="font-medium text-white/80">{event.venue}</span>
                     </div>
                   </div>
+                  {event.description && (
+                    <p className="mt-4 text-xs leading-5 text-white/65">{event.description}</p>
+                  )}
+                  {event.list?.length > 0 && (
+                    <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
+                      {event.list.map((item, itemIndex) => (
+                        <li key={`${item}-${itemIndex}`} className="flex items-start gap-2 text-xs leading-5 text-white/80">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </article>
             </Reveal>

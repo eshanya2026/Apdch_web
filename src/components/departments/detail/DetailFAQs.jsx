@@ -8,7 +8,7 @@ import {
 
 export default function DetailFAQs({ department }) {
   return (
-    <section className="bg-background px-5 py-24 md:px-8 md:py-28">
+    <section className="bg-background px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-3xl">
         <Reveal>
           <SectionHeading

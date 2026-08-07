@@ -68,6 +68,7 @@ function getEquipmentIcon(item, index) {
 
 /** Reusable premium feature card grid */
 export function FeatureCardGrid({
+  id,
   eyebrow,
   title,
   description,
@@ -79,8 +80,9 @@ export function FeatureCardGrid({
 }) {
   return (
     <section
+      id={id}
       className={cn(
-        'px-5 py-28 md:px-8 md:py-36',
+        'px-5 py-16 md:px-8 md:py-24',
         dark ? 'relative overflow-hidden bg-foreground' : 'bg-background'
       )}
     >
@@ -153,6 +155,18 @@ export function FeatureCardGrid({
                       ))}
                     </ul>
                   )}
+                  {item.actionLabel && item.actionHref && (
+                    <Link
+                      to={item.actionHref}
+                      className={cn(
+                        'mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors',
+                        dark ? 'text-accent hover:text-white' : 'text-primary hover:text-primary/75'
+                      )}
+                    >
+                      {item.actionLabel}
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  )}
                 </article>
               </Reveal>
             )
@@ -177,7 +191,7 @@ export function FeatureCardGrid({
 
 function PeriodonticsServices({ department }) {
   return (
-    <section className="relative overflow-hidden bg-[#faf7f7] px-5 py-20 md:px-8 md:py-28">
+    <section className="relative overflow-hidden bg-[#faf7f7] px-5 py-16 md:px-8 md:py-24">
       <div className="pointer-events-none absolute -right-28 -top-28 h-80 w-80 rounded-full bg-primary/[0.06] blur-3xl" />
       <div className="relative mx-auto max-w-7xl">
         <Reveal>
@@ -239,6 +253,7 @@ export function DetailServices({ department }) {
   const section = department.servicesSection ?? {}
   return (
     <FeatureCardGrid
+      id="department-services"
       eyebrow={department.servicesEyebrow ?? section.eyebrow ?? 'Services Offered'}
       title={department.servicesTitle ?? section.title ?? 'Services Offered'}
       description={
@@ -271,14 +286,23 @@ export function DetailTechnology({ department }) {
 }
 
 export function DetailInfrastructure({ department }) {
-  if (!department.infrastructure?.length) return null
+  const items = department.advancedServices?.length
+    ? department.advancedServices
+    : department.infrastructure
+
+  if (!items?.length) return null
+
   return (
     <FeatureCardGrid
-      eyebrow={department.infrastructureEyebrow ?? 'Facilities & Equipment'}
-      title={department.infrastructureTitle ?? 'Facilities & Equipment'}
-      description="Purpose-built clinical and academic spaces supporting daily care and training."
-      items={department.infrastructure}
-      columns={3}
+      eyebrow={department.advancedServicesEyebrow ?? department.infrastructureEyebrow ?? 'Facilities & Equipment'}
+      title={department.advancedServicesTitle ?? department.infrastructureTitle ?? 'Facilities & Equipment'}
+      description={
+        department.advancedServicesDescription ??
+        department.infrastructureDescription ??
+        'Purpose-built clinical and academic spaces supporting daily care and training.'
+      }
+      items={items}
+      columns={department.infrastructureColumns ?? 3}
     />
   )
 }
@@ -343,7 +367,7 @@ export function DetailAchievements({ department }) {
   }
 
   return (
-    <section className="bg-background px-5 py-24 md:px-8 md:py-32">
+    <section className="bg-background px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <SectionHeading

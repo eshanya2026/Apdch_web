@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Building2, Users } from 'lucide-react'
+import { Building2, Users } from 'lucide-react'
 import { Reveal } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
 
@@ -25,7 +25,7 @@ export default function DetailFaculty({ department }) {
   const faculty = department.faculty ?? []
 
   return (
-    <section className="relative overflow-hidden bg-[#fdfcfc] px-5 py-20 md:px-8 md:py-28">
+    <section id="department-faculty" className="relative overflow-hidden bg-[#fdfcfc] px-5 py-16 md:px-8 md:py-20">
       <div className="pointer-events-none absolute -bottom-52 -left-40 h-[34rem] w-[44rem] rounded-[50%] bg-primary/[0.045]" />
       <div className="pointer-events-none absolute right-10 top-7 hidden grid-cols-6 gap-3 opacity-30 lg:grid">
         {Array.from({ length: 30 }, (_, i) => <span key={i} className="h-1.5 w-1.5 rounded-full bg-primary/40" />)}
@@ -54,11 +54,11 @@ export default function DetailFaculty({ department }) {
         </Reveal>
 
         {faculty.length > 0 && (
-          <div className="mt-12 grid auto-rows-fr gap-5 md:grid-cols-2">
+          <div className={`mt-12 grid auto-rows-fr gap-5 ${faculty.length === 1 ? 'mx-auto max-w-3xl grid-cols-1' : 'md:grid-cols-2'}`}>
             {faculty.map((member, i) => (
               <Reveal key={member.name} delay={i * 0.05} className="h-full w-full">
-                <article className="group relative grid h-full min-h-[12rem] overflow-hidden rounded-[1.35rem] border border-primary/10 bg-white shadow-[0_10px_28px_rgba(52,32,37,0.09)] transition-colors duration-300 hover:border-primary/30 sm:h-[13.5rem] sm:grid-cols-[38%_1fr]">
-                  <div className="relative min-h-64 overflow-hidden bg-slate-100 sm:h-[13.5rem] sm:min-h-0">
+                <article className="group relative grid h-full min-h-[12rem] overflow-hidden rounded-[1.35rem] border border-primary/10 bg-white shadow-[0_10px_28px_rgba(52,32,37,0.09)] transition-colors duration-300 hover:border-primary/30 sm:min-h-[13.5rem] sm:grid-cols-[38%_1fr]">
+                  <div className="relative min-h-64 overflow-hidden bg-slate-100 sm:h-full sm:min-h-[13.5rem]">
                     {/* <span className="absolute -left-12 -top-16 z-10 h-[150%] w-24 rotate-[14deg] bg-primary/75" /> */}
                     <img src={member.image} alt={member.name} className="h-full w-full object-cover object-top" />
                   </div>
@@ -76,15 +76,17 @@ export default function DetailFaculty({ department }) {
                         )}
                       </div>
                       <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-primary md:text-xs">{member.role}</p>
+                      {member.credentials && (
+                        <p className="mt-1 text-xs font-medium leading-5 text-foreground/75">{member.credentials}</p>
+                      )}
                       <span className="my-3 block h-px w-full bg-primary/15" />
                       <p className="flex items-start gap-2 text-xs leading-5 text-muted md:text-sm">
                         <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        <span className="line-clamp-2">{department.name}</span>
+                        <span>{member.experience ?? department.name}</span>
                       </p>
-                      <Link to="/faculty" className="mt-4 inline-flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.14em] text-primary md:text-[10px]">
-                        View Profile
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                      {member.credentials && member.focus && (
+                        <p className="mt-2 text-xs leading-5 text-muted">{member.focus}</p>
+                      )}
                     </div>
                   </div>
                 </article>
@@ -93,8 +95,8 @@ export default function DetailFaculty({ department }) {
           </div>
         )}
 
-        <Reveal delay={0.15}>
-          <div className="mt-9 flex justify-center">
+        <Reveal delay={0.15} className={faculty.length === 1 ? 'mx-auto max-w-3xl' : undefined}>
+          <div className="mt-5 flex justify-center md:mt-6">
             <Button asChild size="lg" className="rounded-full px-7 shadow-brand-sm">
               <Link to="/faculty">
                 <Users className="h-4 w-4" />

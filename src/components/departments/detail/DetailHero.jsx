@@ -1,12 +1,21 @@
 import { motion, useTransform } from 'framer-motion'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
-import { CalendarDays, BookOpen } from 'lucide-react'
+import { CalendarDays, BookOpen, Mail, Stethoscope, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function DetailHero({ department }) {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
   const y = useTransform(scrollYProgress, [0, 1], [0, 100])
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
+  const heroIcons = {
+    appointment: CalendarDays,
+    contact: Mail,
+    faculty: Users,
+    services: Stethoscope,
+    publications: BookOpen,
+  }
+  const PrimaryIcon = heroIcons[department.heroPrimaryIcon] ?? CalendarDays
+  const SecondaryIcon = heroIcons[department.heroSecondaryIcon] ?? BookOpen
 
   return (
     <motion.section
@@ -32,11 +41,16 @@ export default function DetailHero({ department }) {
           {department.name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-white/75 md:text-xl">{department.tagline}</p>
+        {department.heroDescription && (
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-white/65 md:text-base md:leading-7">
+            {department.heroDescription}
+          </p>
+        )}
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button asChild size="lg">
-            <a href="#appointment">
-              <CalendarDays className="h-4 w-4" />
-              Book Appointment
+            <a href={department.heroPrimaryHref ?? '#appointment'}>
+              <PrimaryIcon className="h-4 w-4" />
+              {department.heroPrimaryLabel ?? 'Book Appointment'}
             </a>
           </Button>
           <Button
@@ -45,9 +59,9 @@ export default function DetailHero({ department }) {
             size="lg"
             className="border-white/25 bg-white/10 text-white hover:bg-white/20 hover:text-white backdrop-blur-md transition-all"
           >
-            <a href="#research-academic-excellence">
-              <BookOpen className="h-4 w-4" />
-              Publications
+            <a href={department.heroSecondaryHref ?? '#research-academic-excellence'}>
+              <SecondaryIcon className="h-4 w-4" />
+              {department.heroSecondaryLabel ?? 'Publications'}
             </a>
           </Button>
         </div>

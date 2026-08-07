@@ -4,7 +4,7 @@ export default function DetailVideo({ department }) {
   if (!department.video?.youtubeId) return null
 
   return (
-    <section className="mesh-bg px-5 py-24 md:px-8 md:py-32">
+    <section className="mesh-bg px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <SectionHeading
