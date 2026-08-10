@@ -81,6 +81,12 @@ export const GOVERNANCE_NAV_LINKS = [
   { label: 'HR Policy', href: '/governance/hr-policy' },
 ]
 
+export const RESEARCH_NAV_LINKS = [
+  { label: 'Journal', href: 'https://review.jow.medknow.com/IJCDR', external: true },
+  { label: 'Newsletter', href: '/research/newsletter' },
+  { label: 'Magazine', href: '/research/magazine' },
+]
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
   { label: 'About', href: '/about', type: 'route', children: ABOUT_NAV_LINKS },
@@ -89,7 +95,7 @@ export const NAV_LINKS = [
   { label: 'Departments', href: '/departments', type: 'route', children: DEPARTMENTS_NAV_LINKS },
   { label: 'Faculty', href: '/faculty', type: 'route', children: FACULTY_NAV_LINKS },
   { label: 'Governance', href: '/governance', type: 'route', children: GOVERNANCE_NAV_LINKS },
-  { label: 'Research', href: '/research', type: 'route' },
+  { label: 'Research', href: '/research', type: 'route', children: RESEARCH_NAV_LINKS },
   { label: 'Hospital', href: '/hospital', type: 'route' },
 ]
 

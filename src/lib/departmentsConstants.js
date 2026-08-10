@@ -27,8 +27,7 @@ export const DEPARTMENTS = [
       'Department dedicated to the diagnosis, prevention, and non-surgical management of oral diseases using advanced clinical and radiological techniques.',
     details:
       'The Department of Oral Medicine & Radiology integrates clinical examination, advanced imaging interpretation, and laboratory correlation to uncover complex diagnoses. Students learn to recognise red-flag lesions, manage medically compromised patients, and collaborate with medical specialities for holistic care.',
-    image:
-      'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80&auto=format&fit=crop',
+    image: '/oral medicine.png',
     highlights: ['Mucosal disease clinics', 'Orofacial pain', 'Medically complex patients'],
   },
   {
@@ -40,8 +39,7 @@ export const DEPARTMENTS = [
       'The department is dedicated to the diagnosis, prevention, and treatment of diseases affecting the dental pulp and restoration of damaged teeth through evidence-based clinical practice and academic excellence.',
     details:
       'The Department of Conservative Dentistry & Endodontics provides undergraduate and postgraduate education while delivering comprehensive restorative and endodontic care. The department emphasizes conservative treatment approaches that preserve natural tooth structure and restore function and aesthetics.',
-    image:
-      'https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=900&q=80&auto=format&fit=crop',
+    image: '/conservative dentisty.png',
     highlights: ['Operative dentistry', 'Endodontics', 'Aesthetic restorations'],
   },
   {
@@ -53,8 +51,7 @@ export const DEPARTMENTS = [
       'Surgical care spanning extractions, trauma, impacted third molars, and complex maxillofacial procedures under expert supervision.',
     details:
       'Oral & Maxillofacial Surgery trains clinicians in sterile technique, local anaesthesia mastery, minor oral surgery, and exposure to trauma and orthognathic pathways. Residents and undergraduates participate in theatre lists, emergency call, and postoperative management within the teaching hospital.',
-    image:
-      'https://images.unsplash.com/photo-1551076805-e1869033fa8e?w=900&q=80&auto=format&fit=crop',
+    image: '/oral maxi.png',
     highlights: ['Minor oral surgery', 'Trauma exposure', 'Theatre training'],
   },
   {
@@ -66,8 +63,7 @@ export const DEPARTMENTS = [
       'Alignment and growth guidance using evidence-based appliances, wires, and interdisciplinary smile planning.',
     details:
       'Orthodontics & Dentofacial Orthopaedics at APDCH combines cephalometrics, digital study models, and biomechanics to craft personalised treatment. Learners follow cases from diagnosis to retention while collaborating with surgery and prosthodontics for interdisciplinary rehabilitation.',
-    image:
-      'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=900&q=80&auto=format&fit=crop',
+    image: '/Orthodontics & Dentofacial.png',
     highlights: ['Growth modification', 'Fixed appliances', 'Smile design'],
   },
   {
@@ -79,8 +75,7 @@ export const DEPARTMENTS = [
       'Restoring form and function with crowns, bridges, dentures, and implant-supported prostheses crafted with precision.',
     details:
       'Prosthodontics & Crown & Bridge blends aesthetics and biomechanics. Students progress from complete dentures to fixed prostheses and exposure to digital workflows, always guided by occlusion principles and patient-centred outcomes.',
-    image:
-      'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=900&q=80&auto=format&fit=crop',
+    image: '/Prosthodontics & Crown & Bridge.png',
     highlights: ['Fixed & removable', 'Implant prosthetics', 'Occlusion'],
   },
   {
@@ -92,8 +87,7 @@ export const DEPARTMENTS = [
       'Prevention and treatment of gum disease, regenerative therapy, and foundation work for lasting restorations and implants.',
     details:
       'Periodontics & Implantology emphasises periodontal charting, non-surgical therapy, flap procedures, and regenerative approaches. Students gain competence in soft-tissue health that underpins every successful restorative and implant outcome.',
-    image:
-      'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=900&q=80&auto=format&fit=crop',
+    image: '/Periodontics & Implantology.png',
     highlights: ['Scaling & root planing', 'Flap surgery', 'Regeneration'],
   },
   {

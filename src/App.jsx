@@ -16,7 +16,9 @@ import OralPathologyLms from '@/pages/OralPathologyLms'
 import DepartmentDetail from '@/pages/DepartmentDetail'
 import Hospital from '@/pages/Hospital'
 import Faculty from '@/pages/Faculty'
-import Research from '@/pages/Research'
+import Journal from '@/pages/Journal'
+import Newsletter from '@/pages/Newsletter'
+import Magazine from '@/pages/Magazine'
 import CampusLife from '@/pages/CampusLife'
 import Governance from '@/pages/Governance'
 import Committees from '@/pages/Committees'
@@ -62,7 +64,10 @@ export default function App() {
         <Route path="/hospital" element={<Hospital />} />
         <Route path="/faculty" element={<Faculty activeTab="faculty" />} />
         <Route path="/faculty/pg-students" element={<Faculty activeTab="pg-students" />} />
-        <Route path="/research" element={<Research />} />
+        <Route path="/research" element={<Navigate to="/research/journal" replace />} />
+        <Route path="/research/journal" element={<Journal />} />
+        <Route path="/research/newsletter" element={<Newsletter />} />
+        <Route path="/research/magazine" element={<Magazine />} />
       </Routes>
     </BrowserRouter>
   )

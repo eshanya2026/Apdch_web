@@ -12,7 +12,8 @@ function hasDarkHero(pathname) {
   if (pathname.startsWith('/departments/')) return true
   if (pathname.startsWith('/about')) return true
   if (pathname.startsWith('/academics')) return true
-  return ['/admissions', '/hospital', '/research'].includes(
+  if (pathname.startsWith('/research')) return true
+  return ['/admissions', '/hospital'].includes(
     pathname
   )
 }
@@ -160,23 +161,33 @@ export default function Navbar() {
                     <div
                       className="overflow-hidden rounded-2xl border border-border/60 bg-white/95 shadow-[0_16px_40px_-20px_rgba(17,24,39,0.35)] backdrop-blur-xl min-w-[18rem] p-2 flex flex-col space-y-0.5"
                     >
-                      {link.children.map((child) => (
-                        <NavLink
-                          key={child.href}
-                          to={child.href}
-                          end={child.href === link.href}
-                          className={({ isActive }) =>
-                            cn(
-                              'block rounded-xl px-3 py-2 text-[13px] font-medium transition-colors',
-                              isActive
-                                ? 'bg-primary/10 text-primary'
-                                : 'text-foreground/75 hover:bg-black/5 hover:text-primary'
-                            )
-                          }
-                        >
-                          {child.label}
-                        </NavLink>
-                      ))}
+                      {link.children.map((child) =>
+                        child.external ? (
+                          <a
+                            key={child.href}
+                            href={child.href}
+                            className="block rounded-xl px-3 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:bg-black/5 hover:text-primary"
+                          >
+                            {child.label}
+                          </a>
+                        ) : (
+                          <NavLink
+                            key={child.href}
+                            to={child.href}
+                            end={child.href === link.href}
+                            className={({ isActive }) =>
+                              cn(
+                                'block rounded-xl px-3 py-2 text-[13px] font-medium transition-colors',
+                                isActive
+                                  ? 'bg-primary/10 text-primary'
+                                  : 'text-foreground/75 hover:bg-black/5 hover:text-primary'
+                              )
+                            }
+                          >
+                            {child.label}
+                          </NavLink>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
@@ -272,24 +283,35 @@ export default function Navbar() {
                             className="overflow-hidden"
                           >
                             <div className="flex flex-col gap-0.5 pb-1 pl-3 pt-1">
-                              {link.children.map((child) => (
-                                <NavLink
-                                  key={child.href}
-                                  to={child.href}
-                                  end={child.href === link.href}
-                                  onClick={() => setOpen(false)}
-                                  className={({ isActive }) =>
-                                    cn(
-                                      'rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
-                                      isActive
-                                        ? 'bg-primary/10 text-primary'
-                                        : 'text-muted hover:bg-surface-soft hover:text-foreground'
-                                    )
-                                  }
-                                >
-                                  {child.label}
-                                </NavLink>
-                              ))}
+                              {link.children.map((child) =>
+                                child.external ? (
+                                  <a
+                                    key={child.href}
+                                    href={child.href}
+                                    onClick={() => setOpen(false)}
+                                    className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted transition-colors hover:bg-surface-soft hover:text-foreground"
+                                  >
+                                    {child.label}
+                                  </a>
+                                ) : (
+                                  <NavLink
+                                    key={child.href}
+                                    to={child.href}
+                                    end={child.href === link.href}
+                                    onClick={() => setOpen(false)}
+                                    className={({ isActive }) =>
+                                      cn(
+                                        'rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
+                                        isActive
+                                          ? 'bg-primary/10 text-primary'
+                                          : 'text-muted hover:bg-surface-soft hover:text-foreground'
+                                      )
+                                    }
+                                  >
+                                    {child.label}
+                                  </NavLink>
+                                )
+                              )}
                             </div>
                           </motion.div>
                         )}
