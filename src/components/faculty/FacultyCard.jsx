@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Mail } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-export default function FacultyCard({ member, index, onOpen }) {
+export default function FacultyCard({ member, index }) {
   const isHod = member.role?.includes('HOD')
   const isProf = member.role?.includes('Professor') && !isHod
   const isReader = member.role?.includes('Reader')
@@ -14,7 +14,7 @@ export default function FacultyCard({ member, index, onOpen }) {
       transition={{ duration: 0.3, delay: Math.min(index * 0.025, 0.15), ease: 'easeOut' }}
       className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border/70 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/20 hover:shadow-brand-sm"
     >
-      <button type="button" onClick={() => onOpen(member)} className="flex h-full flex-col text-left">
+      <div className="flex h-full flex-col text-left">
         <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200/60">
           <img
             src={member.image}
@@ -57,7 +57,7 @@ export default function FacultyCard({ member, index, onOpen }) {
             </div>
           </div>
         </div>
-      </button>
+      </div>
     </motion.article>
   )
 }

@@ -87,6 +87,11 @@ export const RESEARCH_NAV_LINKS = [
   { label: 'Magazine', href: '/research/magazine' },
 ]
 
+export const HOSPITAL_NAV_LINKS = [
+  { label: 'Hospital Services', href: '/hospital' },
+  { label: 'Monthly OPD Details – 2026', href: '/hospital/opd-details-2026' },
+]
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/', type: 'route' },
   { label: 'About', href: '/about', type: 'route', children: ABOUT_NAV_LINKS },
@@ -96,7 +101,8 @@ export const NAV_LINKS = [
   { label: 'Faculty', href: '/faculty', type: 'route', children: FACULTY_NAV_LINKS },
   { label: 'Governance', href: '/governance', type: 'route', children: GOVERNANCE_NAV_LINKS },
   { label: 'Research', href: '/research', type: 'route', children: RESEARCH_NAV_LINKS },
-  { label: 'Hospital', href: '/hospital', type: 'route' },
+  { label: 'Hospital', href: '/hospital', type: 'route', children: HOSPITAL_NAV_LINKS },
+  { label: 'Contact Us', href: '/contact', type: 'route' },
 ]
 
 export const HERO_STATS = [

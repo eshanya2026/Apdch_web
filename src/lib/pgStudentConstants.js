@@ -1,5 +1,4 @@
 export const PG_STUDENTS_FILTERS = [
-  { id: 'all', label: 'All Specialties' },
   { id: 'conservative-dentistry', label: 'Conservative Dentistry & Endodontics' },
   { id: 'oral-surgery', label: 'Oral & Maxillofacial Surgery' },
   { id: 'orthodontics', label: 'Orthodontics & Dentofacial Orthopaedics' },

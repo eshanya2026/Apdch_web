@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import FacultyCard from '@/components/faculty/FacultyCard'
 
-export default function FacultyGrid({ members, activeFilter, onOpen }) {
+export default function FacultyGrid({ members, activeFilter }) {
   if (members.length === 0) {
     return (
       <div className="rounded-[1.5rem] border border-dashed border-border bg-white px-6 py-16 text-center">
@@ -22,7 +22,7 @@ export default function FacultyGrid({ members, activeFilter, onOpen }) {
         className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {members.map((member, index) => (
-          <FacultyCard key={member.id} member={member} index={index} onOpen={onOpen} />
+          <FacultyCard key={member.id} member={member} index={index} />
         ))}
       </motion.div>
     </AnimatePresence>

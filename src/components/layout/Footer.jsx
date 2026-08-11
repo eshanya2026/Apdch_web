@@ -11,6 +11,7 @@ const QUICK_LINKS = [
   { label: 'Code of Conduct', href: 'https://apdch.in/wp-content/uploads/2022/10/Code-of-Conduct.pdf', external: true },
   { label: 'IQAC', href: '/iqac' },
   { label: 'HR Policy', href: '/governance/hr-policy' },
+  { label: 'Careers', href: '/careers' },
 ]
 
 function SocialIcon({ name, className }) {

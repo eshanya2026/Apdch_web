@@ -36,7 +36,7 @@ function getDepartmentDetails(link) {
 }
 
 export default function DentalSpecialities() {
-  const [activeIndex, setActiveIndex] = useState(3)
+  const [activeIndex, setActiveIndex] = useState(null)
 
   return (
     <section id="specialities" className="relative overflow-hidden bg-[#f3f5f6] px-5 py-20 md:px-8 md:py-28">
@@ -75,7 +75,9 @@ export default function DentalSpecialities() {
                 <Link
                   to={dept.href}
                   onMouseEnter={() => setActiveIndex(i)}
+                  onMouseLeave={() => setActiveIndex(null)}
                   onFocus={() => setActiveIndex(i)}
+                  onBlur={() => setActiveIndex(null)}
                   onPointerDown={() => setActiveIndex(i)}
                   className={`group relative flex min-h-[12.5rem] h-full flex-col overflow-hidden rounded-[1.2rem] border p-5 transition-[transform,box-shadow,border-color,color] duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 ${isActive
                     ? 'border-primary/30 text-white shadow-brand-md -translate-y-1'

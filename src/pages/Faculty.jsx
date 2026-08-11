@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import FacultyToolbar from '@/components/faculty/FacultyToolbar'
 import FacultyGrid from '@/components/faculty/FacultyGrid'
-import FacultyProfileModal from '@/components/faculty/FacultyProfileModal'
 import PgStudentGrid from '@/components/faculty/PgStudentGrid'
 import { FACULTY } from '@/lib/facultyConstants'
 import { PG_STUDENTS, PG_STUDENTS_FILTERS } from '@/lib/pgStudentConstants'
@@ -12,24 +11,15 @@ import { cn } from '@/lib/utils'
 
 export default function Faculty({ activeTab = 'faculty' }) {
   const [activeFilter, setActiveFilter] = useState('oral-medicine')
-  const [pgFilter, setPgFilter] = useState('all')
-  const [selected, setSelected] = useState(null)
+  const [pgFilter, setPgFilter] = useState('conservative-dentistry')
 
   const filteredFaculty = useMemo(() => {
     return FACULTY.filter((member) => member.departmentId === activeFilter)
   }, [activeFilter])
 
   const filteredPgStudents = useMemo(() => {
-    if (pgFilter === 'all') return PG_STUDENTS
     return PG_STUDENTS.filter((student) => student.departmentId === pgFilter)
   }, [pgFilter])
-
-  useEffect(() => {
-    document.body.style.overflow = selected ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [selected])
 
   const isPgTab = activeTab === 'pg-students'
 
@@ -108,7 +98,7 @@ export default function Faculty({ activeTab = 'faculty' }) {
         <section className="px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-7xl">
             {!isPgTab ? (
-              <FacultyGrid members={filteredFaculty} activeFilter={activeFilter} onOpen={setSelected} />
+              <FacultyGrid members={filteredFaculty} activeFilter={activeFilter} />
             ) : (
               <PgStudentGrid students={filteredPgStudents} activeFilter={pgFilter} />
             )}
@@ -116,7 +106,6 @@ export default function Faculty({ activeTab = 'faculty' }) {
         </section>
       </main>
       <Footer />
-      <FacultyProfileModal member={selected} onClose={() => setSelected(null)} />
     </>
   )
 }
