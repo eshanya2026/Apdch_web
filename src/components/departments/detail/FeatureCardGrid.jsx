@@ -250,6 +250,8 @@ export function DetailServices({ department }) {
     return <PeriodonticsServices department={department} />
   }
 
+  if (!department?.services?.length) return null
+
   const section = department.servicesSection ?? {}
   return (
     <FeatureCardGrid
@@ -268,6 +270,8 @@ export function DetailServices({ department }) {
 }
 
 export function DetailTechnology({ department }) {
+  if (!department?.technology?.length) return null
+
   const section = department.technologySection ?? {}
   return (
     <FeatureCardGrid
@@ -312,6 +316,8 @@ export { default as DetailResearch } from './DetailResearch'
 export function DetailAchievements({ department }) {
   const section = department.achievementsSection ?? {}
   const items = department.achievements ?? []
+
+  if (!items.length) return null
 
   // Format custom department achievements or use timeline format
   const timelineData = [

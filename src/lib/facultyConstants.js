@@ -98,7 +98,7 @@ export const FACULTY = [
   {
     id: 'james-antony',
     name: 'Dr. M. James Antony Bhagat',
-    role: 'Professor',
+    role: 'Reader',
     departmentId: 'oral-surgery',
     department: 'Oral & Maxilofacial Surgery',
     qualification: 'MDS (Oral & Maxillofacial Surgery)',
@@ -294,7 +294,7 @@ export const FACULTY = [
   {
     id: 'santhosh-kumar-v',
     name: 'Dr. V. Santhosh Kumar',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'orthodontics',
     department: 'Orthodontics & Dentofacial Orthopaedics',
     qualification: 'MDS (Orthodontics & Dentofacial Orthopedics)',
@@ -308,7 +308,7 @@ export const FACULTY = [
   {
     id: 'sruthi-j',
     name: 'Dr. J. Sruthi',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'orthodontics',
     department: 'Orthodontics & Dentofacial Orthopaedics',
     qualification: 'MDS (Orthodontics & Dentofacial Orthopedics)',
@@ -519,7 +519,7 @@ export const FACULTY = [
   {
     id: 'sakshi-madhok',
     name: 'Dr. Sakshi Madhok',
-    role: 'Professor & HOD',
+    role: 'Reader',
     departmentId: 'prosthodontics',
     department: 'Prosthodontics and crown Bridge',
     qualification: 'MDS (Prosthodontics and Crown & Bridge)',
@@ -785,7 +785,7 @@ export const FACULTY = [
   {
     id: 'bharath',
     name: 'Dr. N. Bharath',
-    role: 'Professor & HOD',
+    role: 'Professor',
     departmentId: 'conservative-dentistry',
     department: 'Conservative Dentistry - Endodontics',
     qualification: 'MDS (Conservative Dentistry & Endodontics)',
@@ -799,7 +799,7 @@ export const FACULTY = [
   {
     id: 'karthikeyan-s',
     name: 'Dr. S. Karthikeyan',
-    role: 'Professor',
+    role: 'Reader',
     departmentId: 'conservative-dentistry',
     department: 'Conservative Dentistry - Endodontics',
     qualification: 'MDS (Conservative Dentistry & Endodontics)',
@@ -841,7 +841,7 @@ export const FACULTY = [
   {
     id: 'sudhakar-v',
     name: 'Dr. V. Sudhakar',
-    role: 'Reader',
+    role: 'Lecturer',
     departmentId: 'conservative-dentistry',
     department: 'Conservative Dentistry - Endodontics',
     qualification: 'MDS (Conservative Dentistry & Endodontics)',
@@ -855,7 +855,7 @@ export const FACULTY = [
   {
     id: 'purushothaman-s',
     name: 'Dr. A. Purusothaman',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'conservative-dentistry',
     department: 'Conservative Dentistry - Endodontics',
     qualification: 'MDS (Conservative Dentistry & Endodontics)',
@@ -869,7 +869,7 @@ export const FACULTY = [
   {
     id: 'saranya-s',
     name: 'Dr. Saranya Sivaraj',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'conservative-dentistry',
     department: 'Conservative Dentistry - Endodontics',
     qualification: 'MDS (Conservative Dentistry & Endodontics)',
@@ -883,7 +883,7 @@ export const FACULTY = [
   {
     id: 'visithra-v',
     name: 'Dr. V. Visithra',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'conservative-dentistry',
     department: 'Conservative Dentistry - Endodontics',
     qualification: 'MDS (Conservative Dentistry & Endodontics)',
@@ -953,7 +953,7 @@ export const FACULTY = [
   {
     id: 'sujitha-m',
     name: 'Dr. M. Sujitha',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'conservative-dentistry',
     department: 'Conservative Dentistry - Endodontics',
     qualification: 'MDS (Conservative Dentistry & Endodontics)',

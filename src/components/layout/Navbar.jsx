@@ -166,6 +166,8 @@ export default function Navbar() {
                           <a
                             key={child.href}
                             href={child.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="block rounded-xl px-3 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:bg-black/5 hover:text-primary"
                           >
                             {child.label}
@@ -288,6 +290,8 @@ export default function Navbar() {
                                   <a
                                     key={child.href}
                                     href={child.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     onClick={() => setOpen(false)}
                                     className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted transition-colors hover:bg-surface-soft hover:text-foreground"
                                   >

@@ -2,87 +2,10 @@ import { useMemo, useState } from 'react'
 import { Archive, MapPin, Users, Sparkles } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 
-function getDefaultEvents(department) {
-  if (department?.id === 'conservative-dentistry') {
-    return [
-      {
-        id: 'cons-event-1',
-        year: '2024',
-        date: 'ANNUAL CDE',
-        title: 'RACE 2024 — Rapid Academic & Clinical Enhancement Program',
-        organizers: 'Department of Conservative Dentistry & Endodontics, APDCH',
-        venue: 'APDCH Main Auditorium & Clinical Lecture Hall',
-        description: 'Annual flagship academic refresher and continuing dental education program focusing on modern operative dentistry, pulp preservation, and clinical endodontic excellence.',
-        type: 'Academic Refresher & CDE',
-      },
-      {
-        id: 'cons-event-2',
-        year: '2024',
-        date: 'SPECIALTY DAY',
-        title: 'CONS-ENDO DAY — Annual Specialty Celebrations & Competitions',
-        organizers: 'Department Faculty, PG Residents & Student Council',
-        venue: 'APDCH Campus Auditorium & Preclinical Laboratories',
-        description: 'Specialty awareness drive, patient oral health screening camps, aesthetic tooth restoration competitions, and interactive quiz sessions celebrating Conservative Dentistry & Endodontics.',
-        type: 'Specialty Day Celebration',
-      },
-      {
-        id: 'cons-event-3',
-        year: '2024',
-        date: 'HANDS-ON WORKSHOP',
-        title: 'Micro Endodontics Workshop – Basic & Advanced Module',
-        organizers: 'Microscopic Endodontics Unit & Senior Faculty Team',
-        venue: 'Microsurgery Room & Preclinical Simulation Laboratory with Phantom Heads',
-        description: 'Intensive hands-on training workshop covering Dental Operating Microscope ergonomics, rubber dam isolation, canal location under magnification, and advanced NiTi rotary instrumentation.',
-        type: 'Hands-on Workshop',
-      },
-    ]
-  }
-
-  const deptName = department?.name || 'Oral Medicine & Radiology'
-  const isOMR = department?.id === 'oral-medicine' || deptName.toLowerCase().includes('oral medicine')
-
-  return [
-    {
-      id: 'event-1',
-      year: '2024',
-      date: 'OCTOBER 2024',
-      title: `National Workshop on 3D CBCT Imaging & AI-Driven Diagnostics in ${deptName}`,
-      organizers: isOMR ? 'Dr. M. Deivanayagi (Organizing Chair) & Dr. Elamparithi' : 'Department Organizing Committee',
-      venue: 'APDCH Auditorium & Digital Simulation Lab',
-      description: 'A national workshop featuring live clinical CBCT demonstrations, 3D volumetric rendering workflows, interactive case discussions, and hands-on software training.',
-      type: 'National Workshop',
-    },
-    {
-      id: 'event-2',
-      year: '2023',
-      date: 'JULY 2023',
-      title: 'Continuing Dental Education (CDE) Program on TMJ Disorders & Orofacial Pain',
-      organizers: 'Department Faculty & Alumni Association',
-      venue: 'APDCH Main Conference Center',
-      description: 'Full-day state-accredited CDE symposium covering non-surgical TMJ protocols, diagnostic splint therapy, and multidisciplinary pain management.',
-      type: 'CDE Symposium',
-    },
-    {
-      id: 'event-3',
-      year: '2023',
-      date: 'MARCH 2023',
-      title: 'Hands-on Clinical Seminar: Early Screening of Potentially Malignant Oral Disorders',
-      organizers: 'Department Clinical Faculty',
-      venue: 'Oral Medicine Outpatient Clinic',
-      description: 'Interactive clinical training seminar focusing on chairside diagnostic aids, biopsy techniques, and early lesion detection.',
-      type: 'Clinical Seminar',
-    },
-  ]
-}
-
 export default function DetailEvents({ department }) {
   const [selectedYear, setSelectedYear] = useState('')
   const events = useMemo(
-    () => department?.events?.length
-      ? department.events
-      : department?.useDefaultEvents
-        ? getDefaultEvents(department)
-        : [],
+    () => department?.events ?? [],
     [department]
   )
 

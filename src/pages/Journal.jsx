@@ -39,6 +39,17 @@ export default function Journal() {
             <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">
               A dedicated space for scholarly publications, journal issues, academic contributions, and author information.
             </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="https://review.jow.medknow.com/IJCDR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-slate-900 transition-transform hover:scale-105"
+              >
+                Open Official Journal Portal
+                <BookOpen className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </section>
 

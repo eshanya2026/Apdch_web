@@ -7,6 +7,8 @@ import {
 } from '@/components/ui/accordion'
 
 export default function DetailFAQs({ department }) {
+  if (!department?.faqs?.length) return null
+
   return (
     <section className="bg-background px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-3xl">

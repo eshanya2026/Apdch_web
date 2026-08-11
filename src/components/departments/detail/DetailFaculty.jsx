@@ -24,6 +24,8 @@ function ToothMark({ className = 'h-7 w-7' }) {
 export default function DetailFaculty({ department }) {
   const faculty = department.faculty ?? []
 
+  if (!faculty.length) return null
+
   return (
     <section id="department-faculty" className="relative overflow-hidden bg-[#fdfcfc] px-5 py-16 md:px-8 md:py-20">
       <div className="pointer-events-none absolute -bottom-52 -left-40 h-[34rem] w-[44rem] rounded-[50%] bg-primary/[0.045]" />
