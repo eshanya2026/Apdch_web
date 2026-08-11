@@ -378,7 +378,7 @@ export const FACULTY = [
   {
     id: 'ebenezer-m',
     name: 'Dr. M. Ebenezer',
-    role: 'Professor',
+    role: 'Reader',
     departmentId: 'periodontics',
     department: 'Periodontics & Implantology',
     qualification: 'MDS (Periodontology)',
@@ -420,7 +420,7 @@ export const FACULTY = [
   {
     id: 'indhu-k',
     name: 'Dr. K. Indhu',
-    role: 'Reader',
+    role: 'Senior Lecturer',
     departmentId: 'periodontics',
     department: 'Periodontics & Implantology',
     qualification: 'MDS (Periodontology)',
@@ -448,7 +448,7 @@ export const FACULTY = [
   {
     id: 'balaji-r',
     name: 'Dr. R. Balaji',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'periodontics',
     department: 'Periodontics & Implantology',
     qualification: 'MDS (Periodontology)',
@@ -462,7 +462,7 @@ export const FACULTY = [
   {
     id: 'lakshmi-priyanka-s',
     name: 'Dr. S. Lakshmi Priyanka',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'periodontics',
     department: 'Periodontics & Implantology',
     qualification: 'MDS (Periodontology)',
@@ -490,7 +490,7 @@ export const FACULTY = [
   {
     id: 'kowsalya-n',
     name: 'Dr. N. Kowsalya',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'periodontics',
     department: 'Periodontics & Implantology',
     qualification: 'MDS (Periodontology)',
@@ -715,7 +715,7 @@ export const FACULTY = [
   {
     id: 'selvabalaji-a',
     name: 'Dr. A. Selvabalaji',
-    role: 'Professor',
+    role: 'Reader',
     departmentId: 'pedodontics',
     department: 'Pedodontics & Preventive Dentistry',
     qualification: 'MDS (Pedodontics & Preventive Dentistry)',
@@ -743,7 +743,7 @@ export const FACULTY = [
   {
     id: 'ramanandvignesh-p',
     name: 'Dr. P. Ramanandvignesh',
-    role: 'Senior Lecturer',
+    role: 'Lecturer',
     departmentId: 'pedodontics',
     department: 'Pedodontics & Preventive Dentistry',
     qualification: 'MDS (Pedodontics & Preventive Dentistry)',
@@ -781,6 +781,20 @@ export const FACULTY = [
     office: 'Pediatric Wing, Room C-06',
     bio: 'Specializes in pediatric dental care, preventive dentistry, behavior management, and pulp therapy.',
     image: '/nisha.png',
+  },
+  {
+    id: 'shrimahalakshmi-d',
+    name: 'Dr. Shrimahalakshmi .D',
+    role: 'Senior Lecturer',
+    departmentId: 'pedodontics',
+    department: 'Pedodontics & Preventive Dentistry',
+    qualification: 'MDS (Pedodontics & Preventive Dentistry)',
+    experience: '',
+    research: 'Paediatric dentistry and preventive oral healthcare.',
+    email: '',
+    office: 'Department of Pedodontics & Preventive Dentistry',
+    bio: 'Contributes to pediatric dental care, preventive dentistry, clinical teaching, and student training.',
+    image: '/shrimaha.png',
   },
   {
     id: 'bharath',
