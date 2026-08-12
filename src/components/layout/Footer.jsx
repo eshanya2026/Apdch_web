@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { Mail, MapPin, Phone, Clock, ArrowUpRight, Navigation } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
+import { Mail, MapPin, Phone, Clock, ArrowUpRight, Navigation, Compass } from 'lucide-react'
 import { INSTITUTION, SOCIAL_LINKS } from '@/lib/constants'
 
 // Official Footer Quick Links
@@ -54,7 +54,9 @@ function SocialIcon({ name, className }) {
   }
 }
 
-export default function Footer() {
+export default function Footer({ hideMap = false }) {
+  const location = useLocation()
+  const shouldHideMap = hideMap || location.pathname === '/contact'
   return (
     <footer className="border-t border-white/10 bg-footer text-white">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
@@ -151,52 +153,97 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Google Map */}
+          {/* Google Map / Location Info */}
           <div>
             <h4 className="text-sm font-semibold tracking-wide text-white">Location</h4>
             <p className="mt-4 text-sm font-medium leading-snug text-white">
               Adhiparasakthi Dental College &amp; Hospital
             </p>
             <p className="mt-1 text-sm text-white/60">Melmaruvathur, Tamil Nadu 603319</p>
-            <div className="relative mt-4 w-full overflow-hidden rounded-2xl border border-white/15 bg-white/[0.03] shadow-lg">
-              <div className="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-white/20 bg-footer/90 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-md shadow-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-                </span>
-                APDCH Campus
+
+            {shouldHideMap ? (
+              <div className="mt-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 shadow-lg">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
+                  <Compass className="h-4 w-4" />
+                  <span>Campus Access</span>
+                </div>
+                <ul className="mt-3 space-y-2 text-xs leading-relaxed text-white/70">
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <span>Direct GST Road / NH 45 connectivity</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <span>Melmaruvathur Railway Station (5 mins)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <span>24/7 Dental Emergency &amp; Trauma Care</span>
+                  </li>
+                </ul>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <a
+                    href={INSTITUTION.mapDirectionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:bg-primary/90"
+                  >
+                    <Navigation className="h-3.5 w-3.5" />
+                    <span>Get Directions</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 opacity-70" />
+                  </a>
+                  <a
+                    href={INSTITUTION.mapViewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3.5 py-2 text-xs font-semibold text-white transition-all hover:bg-white/20"
+                  >
+                    <MapPin className="h-3.5 w-3.5" />
+                    <span>View Map</span>
+                  </a>
+                </div>
               </div>
-              <iframe
-                title="APDCH campus location map"
-                src={INSTITUTION.mapEmbedUrl}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-[230px] w-full border-0 transition-opacity duration-300 hover:opacity-95"
-                allowFullScreen
-              />
-              <div className="grid grid-cols-2 border-t border-white/15">
-                <a
-                  href={INSTITUTION.mapDirectionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-1.5 border-r border-white/15 bg-white/[0.04] px-2.5 py-3 text-xs font-semibold text-white transition-all duration-300 hover:bg-primary hover:text-white"
-                >
-                  <Navigation className="h-3.5 w-3.5 shrink-0 text-white/80 transition-transform group-hover:scale-110 group-hover:text-white" />
-                  <span>Get Directions</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
-                </a>
-                <a
-                  href={INSTITUTION.mapViewUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-1.5 bg-white/[0.04] px-2.5 py-3 text-xs font-semibold text-white transition-all duration-300 hover:bg-white/[0.12]"
-                >
-                  <MapPin className="h-3.5 w-3.5 shrink-0 text-white/80 transition-transform group-hover:scale-110 group-hover:text-white" />
-                  <span>Google Maps</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
-                </a>
+            ) : (
+              <div className="relative mt-4 w-full overflow-hidden rounded-2xl border border-white/15 bg-white/[0.03] shadow-lg">
+                <div className="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-white/20 bg-footer/90 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-md shadow-sm">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                  </span>
+                  APDCH Campus
+                </div>
+                <iframe
+                  title="APDCH campus location map"
+                  src={INSTITUTION.mapEmbedUrl}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-[230px] w-full border-0 transition-opacity duration-300 hover:opacity-95"
+                  allowFullScreen
+                />
+                <div className="grid grid-cols-2 border-t border-white/15">
+                  <a
+                    href={INSTITUTION.mapDirectionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center gap-1.5 border-r border-white/15 bg-white/[0.04] px-2.5 py-3 text-xs font-semibold text-white transition-all duration-300 hover:bg-primary hover:text-white"
+                  >
+                    <Navigation className="h-3.5 w-3.5 shrink-0 text-white/80 transition-transform group-hover:scale-110 group-hover:text-white" />
+                    <span>Get Directions</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                  </a>
+                  <a
+                    href={INSTITUTION.mapViewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center gap-1.5 bg-white/[0.04] px-2.5 py-3 text-xs font-semibold text-white transition-all duration-300 hover:bg-white/[0.12]"
+                  >
+                    <MapPin className="h-3.5 w-3.5 shrink-0 text-white/80 transition-transform group-hover:scale-110 group-hover:text-white" />
+                    <span>Google Maps</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                  </a>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 

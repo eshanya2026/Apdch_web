@@ -72,7 +72,7 @@ export default function Hero() {
             className="mt-9 flex flex-wrap items-center justify-center gap-3"
           >
             <Button asChild size="lg">
-              <Link to="/admissions">
+              <Link to="/contact">
                 Apply for Admission
                 <ArrowRight className="h-4 w-4" />
               </Link>

@@ -14,7 +14,6 @@ import PedodonticsLms from '@/pages/PedodonticsLms'
 import PublicHealthDentistryLms from '@/pages/PublicHealthDentistryLms'
 import OralPathologyLms from '@/pages/OralPathologyLms'
 import DepartmentDetail from '@/pages/DepartmentDetail'
-import Hospital from '@/pages/Hospital'
 import OpdDetails2026 from '@/pages/OpdDetails2026'
 import Careers from '@/pages/Careers'
 import Contact from '@/pages/Contact'
@@ -64,7 +63,7 @@ export default function App() {
         <Route path="/academics/lms/oral-pathology-microbiology" element={<OralPathologyLms />} />
         <Route path="/departments" element={<Navigate to="/departments/oral-medicine" replace />} />
         <Route path="/departments/:departmentId" element={<DepartmentDetail />} />
-        <Route path="/hospital" element={<Hospital />} />
+        <Route path="/hospital" element={<Navigate to="/hospital/opd-details-2026" replace />} />
         <Route path="/hospital/opd-details-2026" element={<OpdDetails2026 />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />

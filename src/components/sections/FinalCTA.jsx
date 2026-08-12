@@ -21,7 +21,7 @@ export default function FinalCTA() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/95">
-              <Link to="/admissions">
+              <Link to="/contact">
                 <GraduationCap className="h-4 w-4" />
                 Apply Now
                 <ArrowRight className="h-4 w-4" />

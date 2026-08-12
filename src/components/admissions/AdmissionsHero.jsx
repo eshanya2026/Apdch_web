@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion, useTransform } from 'framer-motion'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { ArrowRight, Download, Phone } from 'lucide-react'
@@ -25,36 +26,22 @@ export default function AdmissionsHero() {
         <div className="absolute inset-0 hero-overlay" />
       </div>
 
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute right-16 top-28 h-40 w-40 rounded-full border border-accent/25 bg-accent/10 animate-[float_9s_ease-in-out_infinite]" />
-        <div className="absolute bottom-32 left-10 h-52 w-52 rounded-full bg-secondary/20 blur-3xl animate-[float_8s_ease-in-out_1s_infinite]" />
-      </div>
-
-      <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-accent"
-        >
+      <motion.div
+        style={{ y, opacity }}
+        className="relative mx-auto w-full max-w-7xl px-5 text-white md:px-8"
+      >
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">
           {ADMISSIONS_HERO.eyebrow}
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 28, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.85, delay: 0.08 }}
-          className="hero-heading-gradient max-w-4xl font-display text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-[4rem]"
-        >
+        </p>
+        <h1 className="mt-4 max-w-3xl font-display text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
           {ADMISSIONS_HERO.title}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg"
+        </h1>
+        <p
+          className="mt-6 max-w-2xl text-base text-white/80 md:text-lg"
+          style={{ textShadow: '0 2px 12px rgba(0,0,0,0.55)' }}
         >
           {ADMISSIONS_HERO.description}
-        </motion.p>
+        </p>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,10 +49,10 @@ export default function AdmissionsHero() {
           className="mt-9 flex flex-wrap gap-3"
         >
           <Button asChild size="lg">
-            <a href="#apply">
+            <Link to="/contact">
               Apply Now
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </Button>
           <Button asChild size="lg" variant="outline">
             <a href="#brochure">
@@ -74,10 +61,10 @@ export default function AdmissionsHero() {
             </a>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <a href="#apply">
+            <Link to="/contact">
               <Phone className="h-4 w-4" />
               Contact Admissions
-            </a>
+            </Link>
           </Button>
         </motion.div>
       </motion.div>

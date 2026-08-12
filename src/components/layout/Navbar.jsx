@@ -221,7 +221,7 @@ export default function Navbar() {
               <span className="hidden xl:inline">{INSTITUTION.phone}</span>
             </a>
             <Button asChild size="sm" className="rounded-full">
-              <Link to="/admissions">Apply Now</Link>
+              <Link to="/contact">Apply Now</Link>
             </Button>
           </div>
 
@@ -349,7 +349,7 @@ export default function Navbar() {
                   {INSTITUTION.phone}
                 </a>
                 <Button asChild className="mt-2 w-full rounded-full">
-                  <Link to="/admissions" onClick={() => setOpen(false)}>
+                  <Link to="/contact" onClick={() => setOpen(false)}>
                     Apply Now
                   </Link>
                 </Button>

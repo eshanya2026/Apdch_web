@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ArrowRight, Phone, Mail, Sparkles, GraduationCap, Award } from 'lucide-react'
 import { Reveal } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
@@ -61,11 +62,11 @@ export default function ApplyNow() {
                 size="lg"
                 className="group bg-white text-primary hover:bg-white/95 font-extrabold px-8 py-6 text-base rounded-full shadow-brand-lg transition-all duration-300 hover:scale-105"
               >
-                <a href="#bds" className="inline-flex items-center gap-2">
+                <Link to="/contact" className="inline-flex items-center gap-2">
                   <GraduationCap className="h-5 w-5 text-primary" />
                   <span>Apply for BDS</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+                </Link>
               </Button>
 
               <Button
@@ -73,11 +74,11 @@ export default function ApplyNow() {
                 size="lg"
                 className="group bg-white/10 text-white border border-white/25 hover:bg-white/20 font-extrabold px-8 py-6 text-base rounded-full backdrop-blur-md transition-all duration-300 hover:scale-105"
               >
-                <a href="#mds" className="inline-flex items-center gap-2">
+                <Link to="/contact" className="inline-flex items-center gap-2">
                   <Award className="h-5 w-5 text-accent" />
                   <span>Apply for MDS</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
