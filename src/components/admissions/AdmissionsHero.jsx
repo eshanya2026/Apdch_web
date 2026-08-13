@@ -4,6 +4,7 @@ import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { ArrowRight, Download, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ADMISSIONS_HERO } from '@/lib/admissionsConstants'
+import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
 
 export default function AdmissionsHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
@@ -25,6 +26,9 @@ export default function AdmissionsHero() {
         />
         <div className="absolute inset-0 hero-overlay" />
       </div>
+
+      {/* Newton's 3rd Law Interactive Floating Line Icons */}
+      <FloatingHeroIcons />
 
       <motion.div
         style={{ y, opacity }}

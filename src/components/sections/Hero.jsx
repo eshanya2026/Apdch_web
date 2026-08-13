@@ -4,7 +4,7 @@ import { ArrowRight, GraduationCap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedCounter } from '@/components/shared/Reveal'
 import { HERO, HERO_STATS } from '@/lib/homeConstants'
-import HeroFloatingIcons from '@/components/sections/HeroFloatingIcons'
+import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 
 export default function Hero() {
@@ -38,7 +38,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/70" />
       </motion.div>
 
-      <HeroFloatingIcons />
+      {/* Newton's 3rd Law Interactive Floating Line Icons */}
+      <FloatingHeroIcons />
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}

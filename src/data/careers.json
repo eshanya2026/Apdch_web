@@ -1,0 +1,48 @@
+{
+  "positions": [
+    "Professor / Head of Department",
+    "Associate Professor / Reader",
+    "Senior Lecturer / Assistant Professor",
+    "Tutor / Clinical Demonstrator",
+    "Consultant Dental Surgeon",
+    "Senior Resident / Junior Resident",
+    "Research Associate / Fellow",
+    "Clinical & Nursing Staff",
+    "Dental Technician / Lab Specialist",
+    "Administrative & IT Staff",
+    "Other Position"
+  ],
+  "departments": [
+    "Conservative Dentistry & Endodontics",
+    "Oral & Maxillofacial Surgery",
+    "Orthodontics & Dentofacial Orthopaedics",
+    "Periodontics & Implantology",
+    "Prosthodontics & Crown & Bridge",
+    "Pedodontics & Preventive Dentistry",
+    "Oral Medicine & Radiology",
+    "Oral Pathology & Microbiology",
+    "Public Health Dentistry",
+    "Department of Implantology",
+    "Basic Medical Sciences (Anatomy / Physiology / Biochemistry / etc.)",
+    "Hospital Administration & Support",
+    "Central Library & IT Services"
+  ],
+  "qualifications": [
+    "MDS (Master of Dental Surgery)",
+    "BDS (Bachelor of Dental Surgery)",
+    "PhD in Dental / Allied Sciences",
+    "MBBS / MD / MS (Medical Faculty)",
+    "Fellowship in Oral Implantology",
+    "DCI Recognized Specialty Diploma",
+    "Postgraduate / Master’s Degree (Non-Clinical)",
+    "Bachelor’s Degree (Administration / Nursing / Technical)",
+    "Other Professional Qualification"
+  ],
+  "experienceLevels": [
+    "Fresh Graduate / 0 – 1 Year",
+    "1 to 3 Years",
+    "3 to 5 Years",
+    "5 to 10 Years",
+    "10+ Years (Senior Faculty / Professor)"
+  ]
+}

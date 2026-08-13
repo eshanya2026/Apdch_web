@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   BookOpen,
   Newspaper,
@@ -5,8 +6,10 @@ import {
   MonitorPlay,
   Armchair,
   FlaskConical,
+  ArrowRight,
 } from 'lucide-react'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
+import { Button } from '@/components/ui/button'
 import { LIBRARY } from '@/lib/academicsConstants'
 
 const ICONS = { BookOpen, Newspaper, Monitor, MonitorPlay, Armchair, FlaskConical }
@@ -41,7 +44,7 @@ export default function Library() {
             )}
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {LIBRARY.features.map((f) => {
-                const Icon = ICONS[f.icon]
+                const Icon = ICONS[f.icon] || BookOpen
                 return (
                   <div
                     key={f.title}
@@ -56,6 +59,15 @@ export default function Library() {
                   </div>
                 )
               })}
+            </div>
+
+            <div className="mt-8">
+              <Button asChild size="lg" className="rounded-full bg-primary text-white shadow-brand-button hover:bg-primary/90">
+                <Link to="/academics/library">
+                  Explore Central Library
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </Reveal>
         </div>

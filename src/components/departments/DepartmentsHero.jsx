@@ -1,6 +1,7 @@
 import { motion, useTransform } from 'framer-motion'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { DEPARTMENTS_HERO } from '@/lib/departmentsConstants'
+import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
 
 export default function DepartmentsHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
@@ -22,6 +23,9 @@ export default function DepartmentsHero() {
         />
         <div className="absolute inset-0 hero-overlay" />
       </div>
+
+      {/* Newton's 3rd Law Interactive Floating Line Icons */}
+      <FloatingHeroIcons />
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <motion.p

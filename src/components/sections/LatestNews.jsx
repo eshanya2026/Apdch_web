@@ -49,7 +49,7 @@ export default function LatestNews() {
         <Reveal delay={0.2}>
           <div className="mt-10 flex justify-center">
             <Button asChild variant="soft">
-              <Link to="/#news">
+              <Link to="/news-events">
                 View All Events
                 <ArrowRight className="h-4 w-4" />
               </Link>

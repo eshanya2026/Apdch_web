@@ -5,9 +5,10 @@ export const INSTITUTION = {
   brand: 'Adhiparasakthi',
   tagline: 'Educating Future Dentists. Advancing Oral Healthcare. Serving Society.',
   description:
-    'Adhiparasakthi Dental College and Hospital — a center for quality education, advanced clinical training, and community-focused healthcare.',
+    'APDCH was started in 2005 as a Constituent of the Adhiparasakthi Charitable, Medical, Educational and Cultural Trust (ACMEC), which was established in 1978 by Arul.Thiru. Padmashri Bangaru Adigalar.',
   email: 'admissions@apdch.edu.in',
   phone: '04427528082',
+  cisPortal: 'https://cis.apdch.edu.in/',
   emergency: '+1 (888) 555-0911',
   address: 'Melmaruvathur, Tamil Nadu 603319',
   hoursLabel: 'Working Hours',
@@ -57,6 +58,7 @@ export const ABOUT_NAV_LINKS = [
 export const ACADEMICS_NAV_LINKS = [
   { label: 'Academic Programs', href: '/academics' },
   { label: 'Learning Management System (LMS)', href: '/academics/lms' },
+  { label: 'Central Library', href: '/academics/library' },
 ]
 export const DEPARTMENTS_NAV_LINKS = [
   { label: 'Oral Medicine & Radiology', href: '/departments/oral-medicine' },
@@ -98,9 +100,6 @@ export const NAV_LINKS = [
   { label: 'Academics', href: '/academics', type: 'route', children: ACADEMICS_NAV_LINKS },
   { label: 'Departments', href: '/departments', type: 'route', children: DEPARTMENTS_NAV_LINKS },
   { label: 'Faculty', href: '/faculty', type: 'route', children: FACULTY_NAV_LINKS },
-  { label: 'Governance', href: '/governance', type: 'route', children: GOVERNANCE_NAV_LINKS },
-  { label: 'Research', href: '/research', type: 'route', children: RESEARCH_NAV_LINKS },
-  { label: 'Hospital', href: '/hospital/opd-details-2026', type: 'route', children: HOSPITAL_NAV_LINKS },
   { label: 'Contact Us', href: '/contact', type: 'route' },
 ]
 

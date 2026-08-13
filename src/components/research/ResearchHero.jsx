@@ -3,6 +3,7 @@ import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { RESEARCH_HERO } from '@/lib/researchConstants'
+import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
 
 export default function ResearchHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
@@ -25,6 +26,9 @@ export default function ResearchHero() {
         <div className="absolute inset-0 hero-overlay" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
       </div>
+
+      {/* Newton's 3rd Law Interactive Floating Line Icons */}
+      <FloatingHeroIcons />
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <motion.p

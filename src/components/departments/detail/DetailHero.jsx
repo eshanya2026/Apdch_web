@@ -2,6 +2,7 @@ import { motion, useTransform } from 'framer-motion'
 import { useHeroOvalClip } from '@/hooks/useHeroOvalClip'
 import { CalendarDays, BookOpen, Mail, Stethoscope, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
 
 export default function DetailHero({ department }) {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
@@ -32,6 +33,9 @@ export default function DetailHero({ department }) {
         />
         <div className="absolute inset-0 hero-overlay" />
       </div>
+
+      {/* Newton's 3rd Law Interactive Floating Line Icons */}
+      <FloatingHeroIcons />
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-accent">

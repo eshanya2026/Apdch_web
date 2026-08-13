@@ -3,6 +3,7 @@ import Home from '@/pages/Home'
 import About from '@/pages/About'
 import Admissions from '@/pages/Admissions'
 import Academics from '@/pages/Academics'
+import CentralLibrary from '@/pages/CentralLibrary'
 import Lms from '@/pages/Lms'
 import OrthodonticsLms from '@/pages/OrthodonticsLms'
 import OralMedicineLms from '@/pages/OralMedicineLms'
@@ -27,6 +28,8 @@ import Committees from '@/pages/Committees'
 import HrPolicy from '@/pages/HrPolicy'
 import Nirf from '@/pages/Nirf'
 import Iqac from '@/pages/Iqac'
+import NewsEvents from '@/pages/NewsEvents'
+import NewsEventDetail from '@/pages/NewsEventDetail'
 import ScrollToTop from '@/components/shared/ScrollToTop'
 import CustomCursor from '@/components/shared/CustomCursor'
 
@@ -51,6 +54,8 @@ export default function App() {
         <Route path="/about/campus-life" element={<CampusLife />} />
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/academics" element={<Academics />} />
+        <Route path="/academics/library" element={<CentralLibrary />} />
+        <Route path="/library" element={<Navigate to="/academics/library" replace />} />
         <Route path="/academics/lms" element={<Lms />} />
         <Route path="/academics/lms/orthodontics" element={<OrthodonticsLms />} />
         <Route path="/academics/lms/oral-medicine-radiology" element={<OralMedicineLms />} />
@@ -65,6 +70,10 @@ export default function App() {
         <Route path="/departments/:departmentId" element={<DepartmentDetail />} />
         <Route path="/hospital" element={<Navigate to="/hospital/opd-details-2026" replace />} />
         <Route path="/hospital/opd-details-2026" element={<OpdDetails2026 />} />
+        <Route path="/news-events" element={<NewsEvents />} />
+        <Route path="/news-events/:eventId" element={<NewsEventDetail />} />
+        <Route path="/news" element={<Navigate to="/news-events" replace />} />
+        <Route path="/events" element={<Navigate to="/news-events" replace />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faculty" element={<Faculty activeTab="faculty" />} />

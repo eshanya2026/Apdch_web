@@ -4,6 +4,7 @@ import { CalendarDays, Phone, Siren } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { HOSPITAL_HERO } from '@/lib/hospitalConstants'
 import { INSTITUTION } from '@/lib/constants'
+import FloatingHeroIcons from '@/components/shared/FloatingHeroIcons'
 
 export default function HospitalHero() {
   const { ref, clipPath, scrollYProgress } = useHeroOvalClip()
@@ -27,10 +28,8 @@ export default function HospitalHero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
       </div>
 
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute right-[10%] top-32 h-44 w-44 rounded-full border border-white/15 animate-[float_10s_ease-in-out_infinite]" />
-        <div className="absolute bottom-24 left-[6%] h-64 w-64 rounded-full bg-primary/25 blur-3xl animate-[float_8s_ease-in-out_1s_infinite]" />
-      </div>
+      {/* Newton's 3rd Law Interactive Floating Line Icons */}
+      <FloatingHeroIcons />
 
       <motion.div style={{ y, opacity }} className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <motion.p

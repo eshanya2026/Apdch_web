@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone, ChevronDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Menu, X, Phone, ChevronDown, LogIn, ExternalLink } from 'lucide-react'
 import { INSTITUTION, NAV_LINKS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
@@ -181,7 +180,7 @@ export default function Navbar() {
                               cn(
                                 'block rounded-xl px-3 py-2 text-[13px] font-medium transition-colors',
                                 isActive
-                                  ? 'bg-primary/10 text-primary'
+                                   ? 'bg-primary/10 text-primary'
                                   : 'text-foreground/75 hover:bg-black/5 hover:text-primary'
                               )
                             }
@@ -211,6 +210,22 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-2 xl:gap-3 lg:flex">
             <a
+              href={INSTITUTION.cisPortal}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                'inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide transition-all duration-200',
+                solid
+                  ? 'border border-primary/20 bg-primary/5 text-primary hover:bg-primary hover:text-white'
+                  : 'border border-white/25 bg-white/10 text-white hover:bg-white hover:text-primary'
+              )}
+              title="Campus Information System (CIS Login)"
+            >
+              <LogIn className="h-3.5 w-3.5" />
+              <span>CIS Portal</span>
+            </a>
+
+            <a
               href={`tel:${INSTITUTION.phone}`}
               className={cn(
                 'inline-flex items-center gap-1.5 text-sm font-medium',
@@ -220,9 +235,6 @@ export default function Navbar() {
               <Phone className="h-3.5 w-3.5" />
               <span className="hidden xl:inline">{INSTITUTION.phone}</span>
             </a>
-            <Button asChild size="sm" className="rounded-full">
-              <Link to="/contact">Apply Now</Link>
-            </Button>
           </div>
 
           <button
@@ -342,17 +354,25 @@ export default function Navbar() {
                   )
                 )}
                 <a
+                  href={INSTITUTION.cisPortal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="mt-1 inline-flex items-center justify-between rounded-xl border border-primary/15 bg-primary/5 px-3.5 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+                >
+                  <span className="flex items-center gap-2">
+                    <LogIn className="h-4 w-4" />
+                    <span>CIS Portal (Staff / Student Login)</span>
+                  </span>
+                  <ExternalLink className="h-3.5 w-3.5 opacity-70" />
+                </a>
+                <a
                   href={`tel:${INSTITUTION.phone}`}
                   className="mt-1 inline-flex items-center gap-2 rounded-xl px-3 py-3 text-base font-medium text-muted"
                 >
                   <Phone className="h-4 w-4" />
                   {INSTITUTION.phone}
                 </a>
-                <Button asChild className="mt-2 w-full rounded-full">
-                  <Link to="/contact" onClick={() => setOpen(false)}>
-                    Apply Now
-                  </Link>
-                </Button>
               </div>
             </motion.div>
           )}
