@@ -2155,6 +2155,7 @@ export const DEPARTMENT_DETAILS = {
       'Protect your periodontal health and restore your smile with comprehensive gum care and advanced implant treatment.',
   },
   pedodontics: {
+    image: '/pedodontrics.png',
     tagline: 'Creating Healthy Smiles for Children Through Compassionate Dental Care and Preventive Dentistry.',
     aboutEyebrow: 'About the Department',
     aboutTitle: 'About Pedodontics & Preventive Dentistry',
@@ -2426,61 +2427,6 @@ export const DEPARTMENT_DETAILS = {
     ctaTitle: 'Appointments for Pedodontics & Preventive Dentistry',
     ctaDescription:
       'Provide your child with specialized dental care focused on healthy growth, prevention, and confident smiles.',
-  },
-  prosthodontics: {
-    tagline: 'Restoring dignity, function, and natural beauty',
-    overviewExtra:
-      'From complete dentures to implant prosthetics, every restoration is planned around occlusion, phonetics, and the patient’s face.',
-    stats: [
-      { label: 'Lab collaboration', value: 'On campus' },
-      { label: 'Digital exposure', value: 'CAD/CAM' },
-      { label: 'Full mouth rehab', value: 'Case-based' },
-    ],
-    services: [
-      { title: 'Complete & partial dentures', description: 'Removable prostheses crafted for comfort and speech.' },
-      { title: 'Crowns & bridges', description: 'Fixed restorations balancing strength and aesthetics.' },
-      { title: 'Implant prosthetics', description: 'Restorative phases for implant-supported solutions.' },
-      { title: 'Maxillofacial prosthetics exposure', description: 'Selective rehabilitation support for acquired defects.' },
-    ],
-    technology: [
-      { title: 'Articulators & facebows', description: 'Occlusal registration systems for accurate transfer.' },
-      { title: 'CAD/CAM workflows', description: 'Digital design exposure for modern prosthesis fabrication.' },
-      { title: 'Shade matching lab', description: 'Colour communication protocols with ceramic teams.' },
-    ],
-    faculty: [
-      { name: 'Dr. Sakshi Madhok', role: 'Professor & HOD', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/sakshi .jpg', isHod: true },
-      { name: 'Dr. V. R. Arunkumar', role: 'Professor', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/Dr-V-R-Arunkumar-MDS-2.png' },
-      { name: 'Dr. J. Muthuvignesh', role: 'Professor', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/Dr J Muthuvignesh.png' },
-      { name: 'Dr. A. Kirubakaran', role: 'Reader', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/kirubakaran.png' },
-      { name: 'Dr. V. C. Karthik', role: 'Reader', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/cv karthik.png' },
-      { name: 'Dr. Sonia Abraham', role: 'Reader', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/sonia.png' },
-      { name: 'Dr. R. Arthi', role: 'Senior Lecturer', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/arthi.png' },
-      { name: 'Dr. B. Pavithra', role: 'Senior Lecturer', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/pavithra.png' },
-      { name: 'Dr. M. Rashmi', role: 'Senior Lecturer', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/rashmi.png' },
-      { name: 'Dr. V. Kalvikarasi', role: 'Senior Lecturer', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/kalvikarasai.png' },
-      { name: 'Dr. T. Suryanarayanan', role: 'Senior Lecturer', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/surya.png' },
-      { name: 'Dr. R. Shanmugam', role: 'Senior Lecturer', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/shanmugam.png' },
-      { name: 'Dr. S. Vinoth Kumar', role: 'Senior Lecturer', focus: 'Full mouth rehabilitation & Crown & Bridge', image: '/vasanth.png' },
-    ],
-    infrastructure: [
-      { title: 'Prostho clinic', description: 'Chairs equipped for lengthy try-in and adjustment visits.' },
-      { title: 'Dental laboratory link', description: 'Rapid feedback loop with technicians on campus.' },
-      { title: 'Impression & cast bay', description: 'Controlled area for material handling and pouring.' },
-    ],
-    research: [
-      { title: 'Denture satisfaction indices', description: 'Patient comfort and chewing efficiency studies.' },
-      { title: 'Material wear tests', description: 'Comparative evaluations of restorative materials.' },
-    ],
-    patientCare:
-      'Try-ins are never rushed. We listen for whistled “s” sounds, sore spots, and social confidence — then refine until the prosthesis feels like part of life again.',
-    achievements: [
-      { title: 'Complex rehab portfolios', description: 'Documented full-mouth cases used in postgraduate teaching.' },
-      { title: 'Lab-clinic synergy awards', description: 'Internal quality recognition for turnaround and fit.' },
-    ],
-    faqs: [
-      { question: 'How many visits does a complete denture need?', answer: 'Typically several: impressions, jaw relation, try-in, delivery, and adjustment visits.' },
-      { question: 'Do you offer implant-supported options?', answer: 'Yes, for suitable candidates following surgical and restorative assessment.' },
-    ],
   },
   'conservative-dentistry': {
     tagline: 'Preserving Natural Teeth Through Excellence in Restorative Dentistry and Endodontic Care',
@@ -2777,6 +2723,7 @@ export const DEPARTMENT_DETAILS = {
     ],
   },
   'oral-pathology': {
+    image: '/oral pathology.png',
     tagline: 'Advancing Diagnosis Through Pathology, Research & Academic Excellence',
     heroPrimaryLabel: 'Explore Services',
     heroPrimaryHref: '#department-services',
@@ -3002,6 +2949,7 @@ export const DEPARTMENT_DETAILS = {
     ctaContactFirst: true,
   },
   'public-health-dentistry': {
+    image: '/public.png',
     tagline: 'Promoting Oral Health Through Prevention, Education & Community Care',
     heroSecondaryLabel: 'Contact Department',
     heroSecondaryHref: '#appointment',
@@ -3506,6 +3454,7 @@ export const DEPARTMENT_DETAILS = {
     ctaHideFaculty: true,
   },
   'prosthodontics': {
+    image: '/Prosthodontics & Crown & Bridge.png',
     tagline: 'Restoring Function, Comfort, and Confidence Through Advanced Prosthodontic Care',
     details:
       'The Department of Prosthodontics & Crown & Bridge provides undergraduate and postgraduate education while offering comprehensive prosthodontic treatment for the replacement and rehabilitation of missing teeth and oral structures.',

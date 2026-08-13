@@ -78,7 +78,7 @@ const COLUMN_4_GROUPS = [
     links: [
       { label: 'Newsletter', href: '/research/newsletter' },
       { label: 'Magazine', href: '/research/magazine' },
-      { label: 'IJCDR Research Journal', href: 'https://review.jow.medknow.com/IJCDR', external: true },
+      { label: 'Journal', href: 'https://review.jow.medknow.com/IJCDR', external: true },
     ],
   },
   {

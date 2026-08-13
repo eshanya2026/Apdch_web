@@ -99,8 +99,7 @@ export const DEPARTMENTS = [
       'Gentle, age-appropriate dentistry for children — from preventive care to behaviour guidance and interceptive treatment.',
     details:
       'Pedodontics & Preventive Dentistry cultivates empathy alongside technical skill. Clinics focus on prevention, pulp therapy, space maintenance, and creating positive dental experiences that protect lifelong oral health habits.',
-    image:
-      'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=900&q=80&auto=format&fit=crop',
+    image: '/pedodontrics.png',
     highlights: ['Child behaviour guidance', 'Preventive care', 'Interceptive ortho'],
   },
   {
@@ -112,8 +111,7 @@ export const DEPARTMENTS = [
       'Community strategies, school programmes, and epidemiology that expand access to oral healthcare.',
     details:
       'Public Health Dentistry equips graduates to think beyond the individual chair — surveying populations, designing camps, and advocating preventive policy. Field work complements classroom epidemiology and health education training.',
-    image:
-      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=900&q=80&auto=format&fit=crop',
+    image: '/public.png',
     highlights: ['Community camps', 'School programmes', 'Epidemiology'],
   },
   {
@@ -125,8 +123,7 @@ export const DEPARTMENTS = [
       'Laboratory excellence interpreting biopsies and linking microscopic findings to clinical decisions.',
     details:
       'Oral & Maxillofacial Pathology bridges the chairside lesion and the laboratory slide. Students engage with histopathology rounds, specimen processing insights, and differential diagnosis skills essential for oncology and mucosal disease pathways.',
-    image:
-      'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=900&q=80&auto=format&fit=crop',
+    image: '/oral pathology.png',
     highlights: ['Histopathology', 'Biopsy correlation', 'Tumour boards'],
   },
   {
