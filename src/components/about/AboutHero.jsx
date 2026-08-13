@@ -21,7 +21,7 @@ export default function AboutHero() {
       <div className="absolute inset-0">
         <img
           src={ABOUT_HERO.image}
-          alt="Adhiparasakthi Dental College and Hospital campus"
+          alt="Adhiparasakthi Dental College and Hospitals campus"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 hero-overlay" />

@@ -25,7 +25,7 @@ export default function OpdDetails2026() {
                 Monthly OPD Details – 2026
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-                View monthly outpatient department (OPD) reports of Adhiparasakthi Dental College &amp; Hospital.
+                View monthly outpatient department (OPD) reports of Adhiparasakthi Dental College &amp; Hospitals.
               </p>
             </div>
           </Reveal>

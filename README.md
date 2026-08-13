@@ -1,6 +1,6 @@
-# Adhiparasakthi Dental College and Hospital
+# Adhiparasakthi Dental College and Hospitals
 
-Premium homepage for Adhiparasakthi Dental College and Hospital (APDCH).
+Premium homepage for Adhiparasakthi Dental College and Hospitals (APDCH).
 
 ## Stack
 

@@ -2,7 +2,7 @@ export const DEPARTMENTS_HERO = {
   eyebrow: 'Clinical departments',
   title: 'Specialities that shape exceptional dentists',
   description:
-    'Nine clinical departments plus a dedicated Department of Implantology delivering patient care, specialty teaching, and research across Adhiparasakthi Dental College and Hospital.',
+    'Nine clinical departments plus a dedicated Department of Implantology delivering patient care, specialty teaching, and research across Adhiparasakthi Dental College and Hospitals.',
   image:
     'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=2000&q=80&auto=format&fit=crop',
 }

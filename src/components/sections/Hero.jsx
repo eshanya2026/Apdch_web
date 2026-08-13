@@ -31,7 +31,7 @@ export default function Hero() {
       >
         <img
           src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=2000&q=80&auto=format&fit=crop"
-          alt="Adhiparasakthi Dental College and Hospital"
+          alt="Adhiparasakthi Dental College and Hospitals"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 hero-overlay" />

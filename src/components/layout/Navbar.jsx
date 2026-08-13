@@ -113,7 +113,7 @@ export default function Navbar() {
             <span className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-1 shadow-sm ring-1 ring-black/5 transition-transform group-hover:scale-[1.03] sm:h-[3.25rem] sm:w-[3.25rem] md:h-14 md:w-14 md:p-1.5">
               <img
                 src="/f0229f1b-ddbb-46f5-ad40-c13d2676e8b2.png"
-                alt="Adhiparasakthi Dental College and Hospital"
+                alt="Adhiparasakthi Dental College and Hospitals"
                 className="h-full w-full object-contain"
               />
             </span>
@@ -132,7 +132,7 @@ export default function Navbar() {
                   solid ? 'text-muted' : 'text-white/70'
                 )}
               >
-                Dental College & Hospital
+                Dental College & Hospitals
               </span>
             </span>
           </Link>

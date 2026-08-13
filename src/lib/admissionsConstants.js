@@ -2,7 +2,7 @@ export const ADMISSIONS_HERO = {
   eyebrow: 'Admissions 2026–27',
   title: 'Begin Your Journey at APDCH',
   description:
-    'Build a rewarding career in dentistry at Adhiparasakthi Dental College & Hospital. With nationally recognized academic programs, experienced faculty, advanced clinical facilities, and a strong commitment to patient-centered learning, APDCH prepares future dental professionals to excel in every stage of their careers.',
+    'Build a rewarding career in dentistry at Adhiparasakthi Dental College & Hospitals. With nationally recognized academic programs, experienced faculty, advanced clinical facilities, and a strong commitment to patient-centered learning, APDCH prepares future dental professionals to excel in every stage of their careers.',
   image:
     'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=2000&q=80&auto=format&fit=crop',
 }

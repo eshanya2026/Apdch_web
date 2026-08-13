@@ -1,7 +1,7 @@
 export const INSTITUTION = {
-  name: 'Adhiparasakthi Dental College and Hospital',
+  name: 'Adhiparasakthi Dental College and Hospitals',
   shortName: 'APDCH',
-  hospital: 'Adhiparasakthi Dental College and Hospital',
+  hospital: 'Adhiparasakthi Dental College and Hospitals',
   brand: 'Adhiparasakthi',
   tagline: 'Educating Future Dentists. Advancing Oral Healthcare. Serving Society.',
   description:
@@ -16,11 +16,11 @@ export const INSTITUTION = {
   hoursTime: '8:00 AM – 5:00 PM',
   hours: 'Monday – Saturday · 8:00 AM – 5:00 PM',
   mapEmbedUrl:
-    'https://maps.google.com/maps?q=Adhiparasakthi+Dental+College+and+Hospital,+Melmaruvathur&z=15&output=embed',
+    'https://maps.google.com/maps?q=Adhiparasakthi+Dental+College+and+Hospitals,+Melmaruvathur&z=15&output=embed',
   mapDirectionsUrl:
-    'https://www.google.com/maps/dir/?api=1&destination=Adhiparasakthi+Dental+College+and+Hospital,+Melmaruvathur,+Tamil+Nadu+603319',
+    'https://www.google.com/maps/dir/?api=1&destination=Adhiparasakthi+Dental+College+and+Hospitals,+Melmaruvathur,+Tamil+Nadu+603319',
   mapViewUrl:
-    'https://www.google.com/maps/search/?api=1&query=Adhiparasakthi+Dental+College+and+Hospital,+Melmaruvathur,+Tamil+Nadu+603319',
+    'https://www.google.com/maps/search/?api=1&query=Adhiparasakthi+Dental+College+and+Hospitals,+Melmaruvathur,+Tamil+Nadu+603319',
 }
 
 export const SOCIAL_LINKS = [

@@ -67,7 +67,7 @@ export function ChairmanMessage() {
           <SectionHeading
             eyebrow="Leadership"
             title="Correspondent’s Message"
-            description="A word from the guiding leadership of Adhiparasakthi Dental College and Hospital."
+            description="A word from the guiding leadership of Adhiparasakthi Dental College and Hospitals."
           />
         </Reveal>
         <div className="mt-12">

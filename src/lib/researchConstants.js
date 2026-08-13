@@ -2,7 +2,7 @@ export const RESEARCH_HERO = {
   eyebrow: 'Scholarship at APDCH',
   title: 'Inquiry that improves the chairside',
   description:
-    'From biomaterials to community epidemiology, research at Adhiparasakthi Dental College and Hospital turns questions into protocols that serve patients and students alike.',
+    'From biomaterials to community epidemiology, research at Adhiparasakthi Dental College and Hospitals turns questions into protocols that serve patients and students alike.',
   image:
     'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=2000&q=80&auto=format&fit=crop',
 }

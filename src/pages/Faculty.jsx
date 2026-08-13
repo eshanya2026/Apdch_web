@@ -43,8 +43,8 @@ export default function Faculty({ activeTab = 'faculty' }) {
               </h1>
               <p className="mt-4 text-base text-muted md:text-lg">
                 {isPgTab
-                  ? 'Postgraduate scholars and MDS research residents pursuing specialized clinical training at Adhiparasakthi Dental College & Hospital.'
-                  : 'Clinicians and teachers shaping dental education at Adhiparasakthi Dental College and Hospital.'}
+                  ? 'Postgraduate scholars and MDS research residents pursuing specialized clinical training at Adhiparasakthi Dental College & Hospitals.'
+                  : 'Clinicians and teachers shaping dental education at Adhiparasakthi Dental College and Hospitals.'}
               </p>
 
             </motion.div>

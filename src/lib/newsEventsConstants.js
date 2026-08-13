@@ -2,7 +2,7 @@ export const NEWS_HERO = {
   eyebrow: 'CAMPUS HAPPENINGS · INSTITUTIONAL CHRONICLE',
   title: 'News & Events',
   description:
-    'Official updates, academic conferences, CDE workshops, outreach camps, cultural celebrations, and institutional milestones from Adhiparasakthi Dental College and Hospital.',
+    'Official updates, academic conferences, CDE workshops, outreach camps, cultural celebrations, and institutional milestones from Adhiparasakthi Dental College and Hospitals.',
 }
 
 export const NEWS_CATEGORIES = [

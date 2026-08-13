@@ -2,7 +2,7 @@ export const ABOUT_HERO = {
   eyebrow: 'About APDCH',
   title: 'A Legacy of Excellence in Dental Education',
   description:
-    'Since 2005, Adhiparasakthi Dental College & Hospital has been committed to nurturing skilled dental professionals through quality education, advanced clinical training, research, and compassionate patient care.',
+    'Since 2005, Adhiparasakthi Dental College & Hospitals has been committed to nurturing skilled dental professionals through quality education, advanced clinical training, research, and compassionate patient care.',
   image:
     'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=2000&q=80&auto=format&fit=crop',
 }
@@ -59,7 +59,7 @@ export const CHAIRMAN = {
   role: 'Correspondent',
   image: '/17704cf8-fa0a-4a80-8a34-def76ca97f34.png',
   message: [
-    'At Adhiparasakthi Dental College & Hospital, we are committed to nurturing skilled, ethical, and compassionate dental professionals. Through quality education, advanced clinical training, experienced faculty, and a culture of innovation, we prepare students to excel in an ever-evolving healthcare landscape. We warmly welcome every aspiring student to be part of our journey towards excellence in dental education and patient care.',
+    'At Adhiparasakthi Dental College & Hospitals, we are committed to nurturing skilled, ethical, and compassionate dental professionals. Through quality education, advanced clinical training, experienced faculty, and a culture of innovation, we prepare students to excel in an ever-evolving healthcare landscape. We warmly welcome every aspiring student to be part of our journey towards excellence in dental education and patient care.',
   ],
   signOff: '— Dr. T. Ramesh, M.D.\nCorrespondent',
 }
@@ -70,7 +70,7 @@ export const PRINCIPAL = {
   image: '/71cb32bc-6336-4802-bf07-dedfcd2efd72.png',
   blendWhiteBg: true,
   message: [
-    'Welcome to Adhiparasakthi Dental College & Hospital, where academic excellence meets compassionate patient care. We are committed to providing quality dental education through experienced faculty, advanced clinical training, and modern infrastructure. Our goal is to empower every student with the knowledge, skills, and confidence to build a successful career in dentistry and make a meaningful contribution to society.',
+    'Welcome to Adhiparasakthi Dental College & Hospitals, where academic excellence meets compassionate patient care. We are committed to providing quality dental education through experienced faculty, advanced clinical training, and modern infrastructure. Our goal is to empower every student with the knowledge, skills, and confidence to build a successful career in dentistry and make a meaningful contribution to society.',
   ],
   signOff: '— Dr. S. Shamala\nPrincipal & HOD, Department of Oral & Maxillofacial Pathology',
 }

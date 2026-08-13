@@ -192,7 +192,7 @@ export default function Footer({ hideMap = false }) {
               <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[4px] bg-white p-1.5 shadow-sm">
                 <img
                   src="/f0229f1b-ddbb-46f5-ad40-c13d2676e8b2.png"
-                  alt="Adhiparasakthi Dental College and Hospital"
+                  alt="Adhiparasakthi Dental College and Hospitals"
                   className="h-full w-full object-contain"
                 />
               </span>
@@ -201,7 +201,7 @@ export default function Footer({ hideMap = false }) {
                   Adhiparasakthi
                 </span>
                 <span className="block text-[10px] font-medium uppercase tracking-[0.18em] text-white/60 sm:text-xs">
-                  Dental College &amp; Hospital
+                  Dental College &amp; Hospitals
                 </span>
               </span>
             </Link>

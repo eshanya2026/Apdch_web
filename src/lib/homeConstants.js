@@ -17,7 +17,7 @@ export const ABOUT_HOME = {
   eyebrow: 'About APDCH',
   title: 'Where Learning Meets Clinical Excellence',
   description:
-    'Founded with the vision of nurturing competent and compassionate dental professionals, Adhiparasakthi Dental College & Hospital has become a center for quality education, advanced clinical training, and community-focused healthcare. Students benefit from experienced faculty, modern infrastructure, and a learning environment that encourages innovation, research, and lifelong professional growth.',
+    'Founded with the vision of nurturing competent and compassionate dental professionals, Adhiparasakthi Dental College & Hospitals has become a center for quality education, advanced clinical training, and community-focused healthcare. Students benefit from experienced faculty, modern infrastructure, and a learning environment that encourages innovation, research, and lifelong professional growth.',
   image:
     'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80&auto=format&fit=crop',
 }

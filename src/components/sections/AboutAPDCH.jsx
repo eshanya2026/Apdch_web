@@ -13,7 +13,7 @@ export default function AboutAPDCH() {
             <div className="group overflow-hidden rounded-[1.75rem] shadow-brand-lg">
               <img
                 src={ABOUT_HOME.image}
-                alt="About Adhiparasakthi Dental College and Hospital"
+                alt="About Adhiparasakthi Dental College and Hospitals"
                 className="aspect-4/3 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
             </div>

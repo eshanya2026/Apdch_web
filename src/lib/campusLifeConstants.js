@@ -93,7 +93,7 @@ export const STUDENT_CLUBS = [
   {
     title: 'Clinical Exposure',
     description:
-      'Hands-on patient care and chairside experience under expert faculty in our teaching hospital.',
+      'Hands-on patient care and chairside experience under expert faculty in our teaching hospitals.',
     icon: 'Stethoscope',
     color: 'from-primary to-primary-dark',
   },

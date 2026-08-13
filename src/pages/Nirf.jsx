@@ -98,7 +98,7 @@ export default function Nirf() {
                   National Institutional Ranking Framework
                 </p>
                 <p className="mt-5 text-base leading-relaxed text-muted md:text-lg lg:text-xl max-w-3xl mx-auto">
-                  Demonstrating institutional excellence, academic rigor, research impact, and healthcare infrastructure at Adhiparasakthi Dental College & Hospital as evaluated under NIRF guidelines.
+                  Demonstrating institutional excellence, academic rigor, research impact, and healthcare infrastructure at Adhiparasakthi Dental College & Hospitals as evaluated under NIRF guidelines.
                 </p>
               </Reveal>
             </div>
