@@ -32,12 +32,14 @@ import NewsEvents from '@/pages/NewsEvents'
 import NewsEventDetail from '@/pages/NewsEventDetail'
 import ScrollToTop from '@/components/shared/ScrollToTop'
 import CustomCursor from '@/components/shared/CustomCursor'
+import FloatingWhatsApp from '@/components/shared/FloatingWhatsApp'
 
 export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <CustomCursor />
+      <FloatingWhatsApp />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

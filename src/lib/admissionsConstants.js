@@ -115,8 +115,7 @@ export const BDS_ADMISSION = {
     'Counselling & Quota: All admissions under Government Quota and Management Quota are filled through common counselling by the Selection Committee, Government of Tamil Nadu',
     'Approval & Affiliation: Approved by the Dental Council of India (DCI) and affiliated with The Tamil Nadu Dr. M.G.R. Medical University',
   ],
-  image:
-    'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1000&q=80&auto=format&fit=crop',
+  image: '/bds.png',
 }
 
 export const MDS_ADMISSION_SECTION = {
@@ -151,8 +150,7 @@ export const MDS_ADMISSION = {
     'Pedodontics & Preventive Dentistry',
     'Oral & Maxillofacial Pathology and Microbiology',
   ],
-  image:
-    'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1000&q=80&auto=format&fit=crop',
+  image: '/mds.png',
 }
 
 export const NEET_INFO_SECTION = {

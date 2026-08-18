@@ -90,7 +90,7 @@ const COLUMN_4_GROUPS = [
   {
     title: 'Quick Access',
     links: [
-      { label: 'CIS Portal', href: 'https://cis.apdch.edu.in/', external: true },
+      { label: 'CIS Portal', href: 'https://cis.apdch.edu.in/index.php', external: true },
       { label: 'News & Events', href: '/news-events' },
       { label: 'Careers', href: '/careers' },
       { label: 'Contact Us', href: '/contact' },
@@ -131,6 +131,12 @@ function SocialIcon({ name, className }) {
       return (
         <svg {...props}>
           <path d="M6.9 8.7H3.6V20h3.3V8.7zM5.3 4A1.9 1.9 0 1 0 5.3 7.8 1.9 1.9 0 0 0 5.3 4zM20.4 13.2c0-3-1.6-4.9-4.4-4.9-2 0-2.9 1.1-3.4 1.9V8.7H9.4c0 .8 0 11.3 0 11.3h3.3v-6.3c0-.3 0-.7.1-1 .3-.7.9-1.5 2-1.5 1.4 0 2 1.1 2 2.6V20h3.3v-6.8z" />
+        </svg>
+      )
+    case 'whatsapp':
+      return (
+        <svg {...props}>
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.29 3.8.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.12-.22-.19-.47-.31z" />
         </svg>
       )
     default:
@@ -183,10 +189,10 @@ export default function Footer({ hideMap = false }) {
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
         
         {/* ==================================================
-            TOP SECTION: APDCH Info, Contact & Location Map
+            TOP SECTION: APDCH Info, Contact, WhatsApp & Location Map
             ================================================== */}
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-14 pb-14 border-b border-white/10">
-          {/* Left: APDCH Brand, Contact Details & Social Icons */}
+          {/* Left: APDCH Brand, Contact Details, WhatsApp QR & Social Icons */}
           <div>
             <Link to="/" className="inline-flex min-w-0 items-center gap-3.5">
               <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[4px] bg-white p-1.5 shadow-sm">

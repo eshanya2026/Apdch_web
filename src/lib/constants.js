@@ -8,7 +8,9 @@ export const INSTITUTION = {
     'APDCH was started in 2005 as a Constituent of the Adhiparasakthi Charitable, Medical, Educational and Cultural Trust (ACMEC), which was established in 1978 by Arul.Thiru. Padmashri Bangaru Adigalar.',
   email: 'admissions@apdch.edu.in',
   phone: '04427528082',
-  cisPortal: 'https://cis.apdch.edu.in/',
+  whatsapp: 'https://wa.me/917824069595?text=Hi',
+  whatsappNumber: '+91 78240 69595',
+  cisPortal: 'https://cis.apdch.edu.in/index.php',
   emergency: '+1 (888) 555-0911',
   address: 'Melmaruvathur, Tamil Nadu 603319',
   hoursLabel: 'Working Hours',
@@ -35,6 +37,12 @@ export const SOCIAL_LINKS = [
     href: 'https://www.instagram.com/ap.dentals/',
     icon: 'instagram',
     hoverClass: 'hover:bg-[#E4405F] hover:text-white',
+  },
+  {
+    label: 'WhatsApp',
+    href: 'https://wa.me/917824069595?text=Hi',
+    icon: 'whatsapp',
+    hoverClass: 'hover:bg-[#25D366] hover:text-white',
   },
   {
     label: 'YouTube',

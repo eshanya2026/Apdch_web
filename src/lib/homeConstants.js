@@ -69,8 +69,7 @@ export const PROGRAMS_HOME = [
       'Develop a strong foundation in dental sciences through classroom learning, pre-clinical training, and supervised patient care.',
     cta: 'Explore BDS',
     href: '/academics#programs',
-    image:
-      'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=900&q=80&auto=format&fit=crop',
+    image: '/bds.png',
   },
   {
     title: 'Master of Dental Surgery (MDS)',
@@ -79,8 +78,7 @@ export const PROGRAMS_HOME = [
       'Advance your expertise through specialized education, research opportunities, and advanced clinical practice.',
     cta: 'Explore MDS',
     href: '/academics#programs',
-    image:
-      'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80&auto=format&fit=crop',
+    image: '/mds.png',
   },
 ]
 
