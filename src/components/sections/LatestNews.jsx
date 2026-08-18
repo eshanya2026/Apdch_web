@@ -19,29 +19,39 @@ export default function LatestNews() {
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {HOME_LATEST_EVENTS.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.08}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/80 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-brand">
-                <div className="relative aspect-16/10 overflow-hidden">
+              <Link
+                to={item.id ? `/news-events/${item.id}` : '/news-events'}
+                className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/80 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-brand text-left"
+              >
+                <div className="relative aspect-16/10 overflow-hidden bg-muted/20">
                   <img
                     src={item.image}
                     alt={item.title}
+                    onError={(e) => {
+                      if (item.fallbackImage && e.currentTarget.src !== item.fallbackImage) {
+                        e.currentTarget.src = item.fallbackImage
+                      }
+                    }}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary shadow-sm backdrop-blur">
                     {item.category}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <time className="text-xs font-medium text-muted">{item.date}</time>
-                  <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-foreground group-hover:text-primary">
+                  <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary">
                     {item.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{item.excerpt}</p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted line-clamp-3">
+                    {item.excerpt}
+                  </p>
                   <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary">
                     Read story
-                    <ArrowUpRight className="h-4 w-4" />
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </div>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>

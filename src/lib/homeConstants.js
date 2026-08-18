@@ -259,40 +259,48 @@ export const NEWS_HOME = {
 
 export const HOME_LATEST_EVENTS = [
   {
-    title: '🎓 Graduation Ceremony 2026',
+    id: 'pedofeast-2026',
+    title: 'PEDOFEAST 2026',
     excerpt:
-      'A proud milestone as our graduating batch takes the next step into professional dental practice.',
-    date: 'August 2026',
-    category: 'Ceremony',
-    image:
-      'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80&auto=format&fit=crop',
-  },
-  {
-    title: '🦷 Free Dental Health Camp',
-    excerpt:
-      'Faculty and students deliver preventive care, screening, and oral health guidance to the community.',
-    date: 'July 2026',
-    category: 'Outreach',
-    image:
-      'https://images.unsplash.com/photo-1606811971618-448e147cc86b?w=800&q=80&auto=format&fit=crop',
-  },
-  {
-    title: "🎉 Fresher's Day Celebration",
-    excerpt:
-      'A lively welcome event for first-year students featuring cultural performances and campus orientation.',
-    date: 'June 2026',
-    category: 'Campus Life',
-    image:
-      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80&auto=format&fit=crop',
-  },
-  {
-    title: '📚 CDE Workshop on Digital Dentistry',
-    excerpt:
-      'An expert-led workshop on modern digital workflows, CAD/CAM, and technology-enabled clinical practice.',
-    date: 'May 2026',
-    category: 'Workshop',
-    image:
+      'Department of Pediatric and Preventive Dentistry hosted PEDOFEAST 2026, featuring clinical discussions, student competitions, and child dental health workshops.',
+    date: '26th June 2026',
+    category: 'Academic & CDE',
+    image: 'https://apdch.in/wp-content/uploads/2026/07/Picture10-4.jpg',
+    fallbackImage:
       'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    id: 'fire-safety-training-june-2026',
+    title: 'Fire Safety Awareness & Emergency Response Training',
+    excerpt:
+      'Comprehensive institutional safety training and hands-on emergency response demonstration conducted for all teaching and non-teaching faculty members.',
+    date: '24th June 2026',
+    category: 'Campus Events',
+    image: 'https://apdch.in/wp-content/uploads/2026/07/Picture1-3.jpg',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    id: 'international-yoga-day-2026',
+    title: 'International Yoga Day 2026',
+    excerpt:
+      'Students, faculty, and administrative staff participated in International Yoga Day wellness sessions promoting mental clarity, ergonomics, and healthy lifestyle in dental practice.',
+    date: '20th June 2026',
+    category: 'Celebrations',
+    image: 'https://apdch.in/wp-content/uploads/2026/07/Picture1-3.jpg',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    id: 'financial-management-healthcare-2026',
+    title: 'Financial Management for Healthcare Professionals',
+    excerpt:
+      'Specialized guest lecture by Mr. Devaraj K, Branch Manager, Axis Bank Limited, Melmaruvathur, on financial literacy, banking, and wealth management for dental professionals.',
+    date: '3rd June 2026',
+    category: 'Academic & CDE',
+    image: 'https://apdch.in/wp-content/uploads/2026/07/Picture1-2.jpg',
+    fallbackImage:
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&auto=format&fit=crop',
   },
 ]
 
