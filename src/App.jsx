@@ -17,6 +17,9 @@ import OralPathologyLms from '@/pages/OralPathologyLms'
 import DepartmentDetail from '@/pages/DepartmentDetail'
 import OpdDetails2026 from '@/pages/OpdDetails2026'
 import Careers from '@/pages/Careers'
+import JobDetail from '@/pages/JobDetail'
+import JobApply from '@/pages/JobApply'
+import CareerCms from '@/pages/CareerCms'
 import Contact from '@/pages/Contact'
 import Faculty from '@/pages/Faculty'
 import Journal from '@/pages/Journal'
@@ -77,6 +80,11 @@ export default function App() {
         <Route path="/news" element={<Navigate to="/news-events" replace />} />
         <Route path="/events" element={<Navigate to="/news-events" replace />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/careers/apply" element={<JobApply />} />
+        <Route path="/careers/:jobId" element={<JobDetail />} />
+        <Route path="/careers/:jobId/apply" element={<JobApply />} />
+        <Route path="/careers/admin" element={<CareerCms />} />
+        <Route path="/admin/careers" element={<CareerCms />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faculty" element={<Faculty activeTab="faculty" />} />
         <Route path="/faculty/pg-students" element={<Faculty activeTab="pg-students" />} />
