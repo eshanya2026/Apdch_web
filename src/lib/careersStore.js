@@ -16,7 +16,7 @@ export const INITIAL_JOB_POSTINGS = [
     experience: '5 to 10 Years',
     qualification: 'MDS (Master of Dental Surgery)',
     vacancies: 2,
-    location: 'Melmaruvathur Campus, APDCH',
+    location: 'Melmaruvathur, APDCH',
     salary: '',
     deadline: '2026-09-30',
     status: 'active', // 'active' | 'draft' | 'closed'
@@ -49,7 +49,7 @@ export const INITIAL_JOB_POSTINGS = [
     experience: '1 to 3 Years',
     qualification: 'MDS (Master of Dental Surgery)',
     vacancies: 1,
-    location: 'Melmaruvathur Campus, APDCH',
+    location: 'Melmaruvathur, APDCH',
     salary: '',
     deadline: '2026-09-25',
     status: 'active',
@@ -80,7 +80,7 @@ export const INITIAL_JOB_POSTINGS = [
     experience: '1 to 3 Years',
     qualification: 'MDS (Master of Dental Surgery)',
     vacancies: 2,
-    location: 'APDCH Hospital OPD & Trauma Center',
+    location: 'Melmaruvathur, APDCH',
     salary: '',
     deadline: '2026-10-05',
     status: 'active',
@@ -110,7 +110,7 @@ export const INITIAL_JOB_POSTINGS = [
     experience: 'Fresh Graduate / 0 – 1 Year',
     qualification: 'BDS (Bachelor of Dental Surgery)',
     vacancies: 3,
-    location: 'Phantom Head & Pre-Clinical Lab, APDCH',
+    location: 'Melmaruvathur, APDCH',
     salary: '',
     deadline: '2026-09-20',
     status: 'active',
@@ -139,7 +139,7 @@ export const INITIAL_JOB_POSTINGS = [
     experience: '3 to 5 Years',
     qualification: 'Bachelor’s Degree (Administration / Nursing / Technical)',
     vacancies: 2,
-    location: 'Central OPD & Day Care Center, APDCH',
+    location: 'Melmaruvathur, APDCH',
     salary: '',
     deadline: '2026-09-30',
     status: 'active',
@@ -168,7 +168,7 @@ export const INITIAL_JOB_POSTINGS = [
     experience: '1 to 3 Years',
     qualification: 'PhD in Dental / Allied Sciences',
     vacancies: 1,
-    location: 'APDCH Central Multidisciplinary Research Lab',
+    location: 'Melmaruvathur, APDCH',
     salary: '',
     deadline: '2026-10-15',
     status: 'active',
@@ -217,7 +217,15 @@ export function getJobPostingById(id) {
 
 export function getActiveJobPostings() {
   const jobs = getJobPostings()
-  return jobs.filter((j) => j.status === 'active')
+  const today = new Date().setHours(0, 0, 0, 0)
+  return jobs.filter((j) => {
+    if (j.status !== 'active') return false
+    if (j.deadline) {
+      const deadDate = new Date(j.deadline).getTime()
+      if (deadDate < today) return false
+    }
+    return true
+  })
 }
 
 export function saveJobPosting(jobData) {
@@ -316,9 +324,14 @@ export function saveApplication(appData) {
   const now = new Date()
   const formattedDate = `${now.toISOString().split('T')[0]} ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
 
+  // Generate unique clean Application Reference Number e.g. APDCH-2026-8942
+  const randNum = Math.floor(1000 + Math.random() * 9000)
+  const defaultRefNo = `APDCH-${now.getFullYear()}-${randNum}`
+
   const newApp = {
     ...appData,
     id: `app-${Date.now()}`,
+    appRefNo: appData.appRefNo || defaultRefNo,
     status: 'new',
     appliedDate: formattedDate,
     hrNotes: 'Application submitted via Online Portal.',
@@ -337,6 +350,22 @@ export function updateApplicationStatus(id, newStatus, hrNotes = null) {
         ...app,
         status: newStatus,
         ...(hrNotes !== null ? { hrNotes } : {}),
+      }
+    }
+    return app
+  })
+  localStorage.setItem(APPLICATIONS_STORAGE_KEY, JSON.stringify(updated))
+  return updated
+}
+
+export function updateInterviewSchedule(id, interviewDetails) {
+  const apps = getApplications()
+  const updated = apps.map((app) => {
+    if (app.id === id) {
+      return {
+        ...app,
+        status: 'interviewed',
+        interviewDetails,
       }
     }
     return app
@@ -388,4 +417,43 @@ export function resetCareersToDefaults() {
   localStorage.setItem(JOBS_STORAGE_KEY, JSON.stringify(INITIAL_JOB_POSTINGS))
   localStorage.setItem(APPLICATIONS_STORAGE_KEY, JSON.stringify(INITIAL_APPLICATIONS))
   return { jobs: INITIAL_JOB_POSTINGS, applications: INITIAL_APPLICATIONS }
+}
+
+// ============================================================================
+// CMS PORTAL SETTINGS SERVICE
+// ============================================================================
+
+const CMS_SETTINGS_STORAGE_KEY = 'apdch_cms_settings_v1'
+
+export const DEFAULT_CMS_SETTINGS = {
+  hrEmail: 'hr@apdch.edu.in',
+  hrPhone: '+91 44 2752 9200',
+  officeAddress: 'Melmaruvathur Campus, Chengalpattu District, Tamil Nadu 603319',
+  autoReceiptEmail: true,
+  maxResumeSizeMb: 10,
+  defaultJobValidityDays: 30,
+  adminUsername: 'HR Admin',
+  adminEmail: 'hr@apdch.edu.in',
+  adminPassword: '••••••••',
+}
+
+export function getCmsSettings() {
+  try {
+    const data = localStorage.getItem(CMS_SETTINGS_STORAGE_KEY)
+    if (!data) {
+      localStorage.setItem(CMS_SETTINGS_STORAGE_KEY, JSON.stringify(DEFAULT_CMS_SETTINGS))
+      return DEFAULT_CMS_SETTINGS
+    }
+    return JSON.parse(data)
+  } catch (error) {
+    console.error('Failed to load CMS settings:', error)
+    return DEFAULT_CMS_SETTINGS
+  }
+}
+
+export function saveCmsSettings(newSettings) {
+  const current = getCmsSettings()
+  const updated = { ...current, ...newSettings }
+  localStorage.setItem(CMS_SETTINGS_STORAGE_KEY, JSON.stringify(updated))
+  return updated
 }

@@ -80,10 +80,10 @@ export default function App() {
         <Route path="/news" element={<Navigate to="/news-events" replace />} />
         <Route path="/events" element={<Navigate to="/news-events" replace />} />
         <Route path="/careers" element={<Careers />} />
-        <Route path="/careers/apply" element={<JobApply />} />
-        <Route path="/careers/:jobId" element={<JobDetail />} />
-        <Route path="/careers/:jobId/apply" element={<JobApply />} />
         <Route path="/careers/admin" element={<CareerCms />} />
+        <Route path="/careers/apply" element={<JobApply />} />
+        <Route path="/careers/:jobId/apply" element={<JobApply />} />
+        <Route path="/careers/:jobId" element={<JobDetail />} />
         <Route path="/admin/careers" element={<CareerCms />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faculty" element={<Faculty activeTab="faculty" />} />

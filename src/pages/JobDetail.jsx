@@ -129,7 +129,7 @@ export default function JobDetail() {
                     </span>
                     <span className="flex items-center gap-1.5">
                       <MapPin className="h-4 w-4 text-primary" />
-                      {job.location || 'Melmaruvathur Campus, APDCH'}
+                      Melmaruvathur, APDCH
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Calendar className="h-4 w-4 text-primary" />
@@ -148,14 +148,6 @@ export default function JobDetail() {
                     <Share2 className="h-4 w-4 text-primary" />
                     <span>{copied ? 'Link Copied!' : 'Share Opening'}</span>
                   </button>
-
-                  <Button
-                    onClick={() => navigate(`/careers/${job.id}/apply`)}
-                    className="h-11 gap-2 rounded-xl bg-primary px-6 text-xs font-bold text-white shadow-brand-button hover:bg-primary/90"
-                  >
-                    <span>Apply Now</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
                 </div>
               </div>
             </Reveal>
@@ -232,17 +224,6 @@ export default function JobDetail() {
                     </p>
                   </div>
                 )}
-
-                {/* Bottom Back Navigation */}
-                <div className="pt-2">
-                  <Link
-                    to="/careers"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-primary/80 transition-colors bg-white px-5 py-3 rounded-2xl border border-primary/15 shadow-sm"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                    <span>Back to All Openings</span>
-                  </Link>
-                </div>
               </div>
 
               {/* Right Sidebar: Quick Summary & Action Box */}

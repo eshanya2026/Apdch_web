@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowUpRight } from 'lucide-react'
+import { useLocation } from 'react-router-dom'
 import { INSTITUTION } from '@/lib/constants'
 
 function WhatsAppIcon({ className = 'h-6 w-6' }) {
@@ -19,9 +20,7 @@ function WhatsAppIcon({ className = 'h-6 w-6' }) {
 export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false)
   const popupRef = useRef(null)
-
-  // Official APDCH WhatsApp Business Link
-  const whatsappUrl = INSTITUTION.whatsapp || 'https://wa.me/917824069595?text=Hi'
+  const location = useLocation()
 
   // Close on outside click
   useEffect(() => {
@@ -37,6 +36,11 @@ export default function FloatingWhatsApp() {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [isOpen])
+
+  // Hide WhatsApp Floating Widget on CMS Admin Portal
+  if (location.pathname.includes('/admin')) {
+    return null
+  }
 
   return (
     <div ref={popupRef} className="fixed bottom-6 right-6 z-50 select-none">

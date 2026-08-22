@@ -53,6 +53,7 @@ export default function JobApply() {
   const [resumeDataUrl, setResumeDataUrl] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submittedApp, setSubmittedApp] = useState(null)
   const [dragActive, setDragActive] = useState(false)
   const [declarationConfirmed, setDeclarationConfirmed] = useState(false)
 
@@ -93,13 +94,6 @@ export default function JobApply() {
     reader.readAsDataURL(file)
   }
 
-  const handleFileChange = (e) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      processFile(file)
-    }
-  }
-
   const handleDrag = (e) => {
     e.preventDefault()
     e.stopPropagation()
@@ -114,9 +108,14 @@ export default function JobApply() {
     e.preventDefault()
     e.stopPropagation()
     setDragActive(false)
-    const file = e.dataTransfer.files?.[0]
-    if (file) {
-      processFile(file)
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      processFile(e.dataTransfer.files[0])
+    }
+  }
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      processFile(e.target.files[0])
     }
   }
 
@@ -133,7 +132,7 @@ export default function JobApply() {
     setIsSubmitting(true)
 
     // Save to persistent CMS store for HR inbox
-    saveApplication({
+    const newApp = saveApplication({
       jobId: formData.jobId || targetJob?.id || 'general-application',
       jobTitle: formData.position || 'General Faculty Application',
       department: formData.department || targetJob?.department || 'General',
@@ -147,15 +146,17 @@ export default function JobApply() {
       resumeName: resumeFile ? resumeFile.name : 'Resume_Applicant.pdf',
       resumeDataUrl: resumeDataUrl || null,
     })
+    setSubmittedApp(newApp)
 
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSubmitted(true)
       const subject = encodeURIComponent(
-        `Job Application: ${formData.position || 'General Position'} - ${formData.fullName}`
+        `Job Application [Ref: ${newApp.appRefNo}]: ${formData.position || 'General Position'} - ${formData.fullName}`
       )
       const body = encodeURIComponent(
-        `APPLICANT DETAILS:\n` +
+        `APPLICATION REFERENCE NUMBER: ${newApp.appRefNo}\n\n` +
+          `APPLICANT DETAILS:\n` +
           `Name: ${formData.fullName}\n` +
           `Email: ${formData.email}\n` +
           `Phone: ${formData.phone}\n` +
@@ -185,6 +186,7 @@ export default function JobApply() {
       jobId: targetJob?.id || '',
     })
     setResumeFile(null)
+    setSubmittedApp(null)
     setDeclarationConfirmed(false)
     setIsSubmitted(false)
   }
@@ -258,30 +260,57 @@ export default function JobApply() {
                   </div>
 
                   <h2 className="mt-4 font-display text-2xl font-bold text-foreground sm:text-3xl">
-                    Candidate Details
+                    {targetJob ? targetJob.title : 'APDCH Employment Application'}
                   </h2>
-                  <p className="mt-1.5 text-xs text-muted sm:text-sm leading-relaxed">
-                    Our Selection Committee and HR Office will evaluate your resume and reach out to shortlisted candidates.
-                  </p>
                 </div>
 
                 {/* Form Body */}
-                <div className="p-7 sm:p-10">
-                  {isSubmitted ? (
-                    <div className="py-8 text-center space-y-4">
-                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                {targetJob && targetJob.deadline && new Date(targetJob.deadline) < new Date().setHours(0,0,0,0) ? (
+                  <div className="p-8 sm:p-12 text-center space-y-4">
+                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 border border-rose-200">
+                      <Clock className="h-7 w-7" />
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-foreground">Application Deadline Closed</h3>
+                    <p className="text-xs text-muted max-w-md mx-auto leading-relaxed">
+                      The application deadline for <strong>{targetJob.title}</strong> ({targetJob.deadline}) has passed. Submissions for this position are currently closed.
+                    </p>
+                    <Button asChild className="rounded-2xl bg-primary text-white text-xs font-bold px-6 py-2.5">
+                      <Link to="/careers">Explore Active Vacancies</Link>
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="p-7 sm:p-10">
+                    {isSubmitted ? (
+                    <div className="py-8 text-center space-y-5">
+                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 ring-8 ring-emerald-50 shadow-sm">
                         <CheckCircle2 className="h-9 w-9" />
                       </div>
+
                       <h3 className="font-display text-2xl font-bold text-foreground">
                         Application Submitted Successfully!
                       </h3>
+
+                      {/* Application Reference Number Card */}
+                      <div className="mx-auto my-3 max-w-md rounded-3xl border border-emerald-200/90 bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/50 p-5 text-center shadow-sm">
+                        <span className="block text-[11px] font-extrabold uppercase tracking-wider text-emerald-800">
+                          Application Reference Number
+                        </span>
+                        <span className="block mt-1 font-mono text-2xl sm:text-3xl font-black text-emerald-950 tracking-wider">
+                          {submittedApp?.appRefNo || 'APDCH-2026-8942'}
+                        </span>
+                        <p className="mt-2 text-[11px] font-medium text-muted leading-relaxed">
+                          Please note down or take a screenshot of this reference number for future communication with APDCH HR Office.
+                        </p>
+                      </div>
+
                       <p className="mx-auto max-w-md text-xs leading-relaxed text-muted sm:text-sm">
-                        Thank you, <strong className="text-foreground">{formData.fullName}</strong>. We have received your application for <strong className="text-primary font-bold">{formData.position || 'the target position'}</strong>.
+                        Thank you, <strong className="text-foreground">{formData.fullName}</strong>. We have received your application for <strong className="text-primary font-bold">{formData.position || 'the position'}</strong>.
                       </p>
+
                       <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
                         <Button
                           onClick={() => navigate('/careers')}
-                          className="rounded-full bg-primary text-white font-bold text-xs hover:bg-primary/90 px-6 py-2.5"
+                          className="rounded-full bg-primary text-white font-bold text-xs hover:bg-primary/90 px-6 py-2.5 shadow-brand-button"
                         >
                           View More Vacancies
                         </Button>
@@ -576,7 +605,8 @@ export default function JobApply() {
                       </div>
                     </form>
                   )}
-                </div>
+                  </div>
+                )}
               </div>
             </Reveal>
           </div>
