@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   BookOpen,
@@ -70,9 +70,21 @@ const ICONS = {
 const HIGHLIGHT_ICONS = [Building2, Users, Layers, Laptop]
 
 export default function CentralLibrary() {
-  const [showFullStats, setShowFullStats] = useState(false)
   const [activeTab, setActiveTab] = useState('e-journals')
   const [showAllRules, setShowAllRules] = useState(false)
+  const rulesSectionRef = useRef(null)
+  const detailedRulesRef = useRef(null)
+
+  const toggleDetailedRules = () => {
+    const willOpen = !showAllRules
+    setShowAllRules(willOpen)
+
+    if (willOpen) {
+      window.setTimeout(() => {
+        detailedRulesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 120)
+    }
+  }
 
   return (
     <>
@@ -87,7 +99,7 @@ export default function CentralLibrary() {
           <div className="pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl" />
 
           {/* Newton's 3rd Law Interactive Floating Line Icons */}
-          <FloatingHeroIcons />
+          <FloatingHeroIcons lowerBottomIcons />
 
           <Reveal className="w-full">
             <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center text-center">
@@ -267,98 +279,60 @@ export default function CentralLibrary() {
           </div>
         </section>
 
-        {/* 3. Library Collection (Modern Cards + Complete ILMS Toggle) */}
-        <section id="collection" className="bg-[#f5eef0]/60 px-5 py-16 md:px-8 md:py-24">
+        {/* 3. Library Collection Editorial Index */}
+        <section id="collection" className="relative overflow-hidden bg-[#f5eef0]/60 px-5 py-16 md:px-8 md:py-24">
           <div className="mx-auto max-w-6xl">
             <Reveal>
-              <SectionHeading
-                eyebrow="Library Collection"
-                title="Explore Our Collection"
-                description="Comprehensive academic volumes, national &amp; international journal subscriptions, and digital resources maintained under the Dewey Decimal Classification (DDC) system."
-              />
+              <div className="overflow-hidden rounded-[2rem] border border-primary/10 bg-white shadow-[0_22px_65px_-48px_rgba(82,24,34,.55)]">
+                <div className="grid lg:grid-cols-[.72fr_1.28fr]">
+                  <div className="flex flex-col justify-between border-b border-border/70 bg-[#fbf7f8] p-7 md:p-10 lg:border-b-0 lg:border-r">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Library Collection</p>
+                      <h2 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-5xl">Explore Our Collection</h2>
+                      <p className="mt-5 max-w-md text-sm leading-relaxed text-muted md:text-base">Comprehensive academic volumes, national &amp; international journal subscriptions, and digital resources maintained under the Dewey Decimal Classification system.</p>
+                    </div>
+                    <div className="mt-10 flex items-center gap-4 border-t border-border/70 pt-6">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white"><Search className="h-5 w-5" /></span>
+                      <div><p className="text-xs font-bold uppercase tracking-wider text-primary">Collection discovery</p><p className="mt-1 text-sm text-muted">Searchable through WEBOPAC</p></div>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2">
+                    {LIBRARY_COLLECTION.map((item, index) => {
+                      const Icon = ICONS[item.icon] || BookOpen
+                      return (
+                        <div key={item.label} className="group flex min-h-36 items-center gap-4 border-b border-border/70 p-5 transition-colors hover:bg-primary/[0.035] sm:border-r sm:p-6 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-child(even)]:border-r-0">
+                          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon className="h-5 w-5" /></span>
+                          <div className="min-w-0"><p className="font-display text-3xl font-semibold tracking-tight text-foreground">{item.value}</p><p className="mt-1 text-xs font-bold uppercase tracking-wider text-muted">{item.label}</p></div>
+                          <span className="ml-auto self-start font-display text-xs text-primary/25">{String(index + 1).padStart(2, '0')}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </div>
             </Reveal>
 
-            {/* 8 Modern Collection Cards */}
-            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-6">
-              {LIBRARY_COLLECTION.map((item, index) => {
-                const Icon = ICONS[item.icon] || BookOpen
-                return (
-                  <Reveal key={item.label} delay={index * 0.04}>
-                    <div className="group relative flex flex-col justify-between rounded-3xl border border-primary/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-brand-sm">
-                      <div className="flex items-center justify-between">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <span className="rounded-full bg-primary/5 px-2.5 py-0.5 text-[11px] font-bold text-primary">
-                          APDCH
-                        </span>
-                      </div>
-                      <div className="mt-6">
-                        <span className="font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                          {item.value}
-                        </span>
-                        <h3 className="mt-1 text-sm font-semibold text-muted">
-                          {item.label}
-                        </h3>
-                      </div>
-                    </div>
-                  </Reveal>
-                )
-              })}
-            </div>
-
-            {/* Expandable Complete Statistics */}
-            <div className="mt-10 text-center">
-              <button
-                type="button"
-                onClick={() => setShowFullStats(!showFullStats)}
-                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-bold text-primary shadow-sm transition-all hover:border-primary/40 hover:bg-primary/5"
-              >
-                <span>{showFullStats ? 'Hide Detailed Statistics' : 'View Complete Library Statistics →'}</span>
-                {showFullStats ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-              </button>
-
-              {showFullStats && (
-                <div className="mt-8 rounded-3xl border border-primary/15 bg-white p-6 text-left shadow-brand-md md:p-8 animate-in fade-in slide-in-from-top-4 duration-300">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-                    <Sparkles className="h-4 w-4" />
-                    <span>Official ILMS Data</span>
+            <Reveal>
+              <div className="relative mt-5 overflow-hidden rounded-[2rem] bg-[#351018] p-7 text-white md:p-10">
+                <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full border border-white/10" />
+                <div className="relative grid gap-8 lg:grid-cols-[.62fr_1.38fr] lg:items-start">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#d98a9a]">Library systems</p>
+                    <h3 className="mt-3 font-display text-3xl leading-tight">Integrated Library Management</h3>
+                    <p className="mt-4 text-sm leading-relaxed text-white/60">A complete snapshot of catalogue standards, circulation technology, and supporting resources.</p>
                   </div>
-                  <h4 className="mt-2 font-display text-xl font-bold text-foreground md:text-2xl">
-                    Integrated Library Management System (ILMS)
-                  </h4>
-                  <p className="mt-1 text-xs text-muted sm:text-sm">
-                    Verified catalog and institutional library management statistics.
-                  </p>
-
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid gap-x-7 sm:grid-cols-2">
                     {COMPLETE_ILMS_STATS.map((item) => (
-                      <div
-                        key={item.metric}
-                        className={`flex flex-col justify-between rounded-2xl border p-5 transition-all ${
-                          item.isNumber
-                            ? 'border-primary/15 bg-gradient-to-br from-[#faf7f8] to-primary/[0.03]'
-                            : 'border-primary/10 bg-[#faf7f8]'
-                        }`}
-                      >
-                        <p className="text-xs font-bold uppercase tracking-wider text-primary">
-                          {item.metric}
-                        </p>
-                        <p
-                          className={`mt-2 font-semibold text-foreground ${
-                            item.isNumber
-                              ? 'font-display text-2xl font-bold text-primary sm:text-3xl'
-                              : 'text-sm leading-snug'
-                          }`}
-                        >
-                          {item.detail}
-                        </p>
+                      <div key={item.metric} className="flex min-h-20 items-center justify-between gap-4 border-b border-white/12 py-4">
+                        <p className="text-[10px] font-bold uppercase leading-relaxed tracking-[0.14em] text-white/45">{item.metric}</p>
+                        <p className={`text-right font-semibold ${item.isNumber ? 'font-display text-2xl text-[#e5a9b5]' : 'max-w-[62%] text-xs leading-relaxed text-white/85'}`}>{item.detail}</p>
                       </div>
                     ))}
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -568,58 +542,80 @@ export default function CentralLibrary() {
           </div>
         </section>
 
-        {/* 8. Library Rules & Regulations (Accordion Approach) */}
-        <section id="rules" className="bg-[#f5eef0]/60 px-5 py-16 md:px-8 md:py-24">
-          <div className="mx-auto max-w-5xl">
+        {/* 8. Library Rules & Regulations */}
+        <section ref={rulesSectionRef} id="rules" className="relative scroll-mt-28 overflow-hidden bg-[#f5eef0]/60 px-5 py-16 md:px-8 md:py-24">
+          <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
+          <div className="mx-auto max-w-6xl">
             <Reveal>
-              <SectionHeading
-                eyebrow="Conduct &amp; Regulations"
-                title="Library Rules &amp; Regulations"
-                description="Essential general principles for maintaining an orderly and scholarly learning atmosphere."
-              />
+              <div className="overflow-hidden rounded-[2rem] border border-primary/10 bg-white shadow-[0_24px_70px_-50px_rgba(82,24,34,.55)]">
+                <div className="grid lg:grid-cols-[.72fr_1.28fr]">
+                  <div className="relative flex flex-col justify-between overflow-hidden bg-[#351018] p-7 text-white md:p-10 lg:min-h-[570px]">
+                    <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border border-white/10" />
+                    <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-primary/35 blur-3xl" />
+                    <div className="relative">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-white/80">
+                        <BookOpenCheck className="h-4 w-4 text-[#e5a9b5]" /> Conduct &amp; Regulations
+                      </span>
+                      <h2 className="mt-7 font-display text-3xl leading-tight md:text-4xl lg:text-5xl">Library Rules &amp; Regulations</h2>
+                      <p className="mt-5 max-w-md text-sm leading-relaxed text-white/65 md:text-base">Simple standards that protect library resources and preserve a focused, respectful learning environment for everyone.</p>
+                    </div>
+                    <div className="relative mt-10 border-t border-white/15 pt-6">
+                      <div className="flex items-center gap-4">
+                        <span className="font-display text-5xl text-[#d98a9a]">08</span>
+                        <div>
+                          <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/50">Essential Rules</p>
+                          <p className="mt-1 text-sm text-white/75">For every library visitor</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-5 sm:p-7 md:p-10">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">At a glance</p>
+                    <div className="mt-5 divide-y divide-border/70 border-y border-border/70">
+                      {PRIMARY_LIBRARY_RULES.map((rule, idx) => (
+                        <div key={rule} className="group flex items-center gap-4 py-4 md:gap-5">
+                          <span className="font-display text-sm tabular-nums text-primary/45">{String(idx + 1).padStart(2, '0')}</span>
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/8 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                            <Check className="h-4 w-4" />
+                          </span>
+                          <p className="text-sm font-medium leading-relaxed text-foreground/85">{rule}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Reveal>
 
-            {/* 8 Priority Rules */}
-            <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {PRIMARY_LIBRARY_RULES.map((rule, idx) => (
-                <Reveal key={rule} delay={idx * 0.03}>
-                  <div className="flex items-start gap-3 rounded-2xl border border-primary/10 bg-white p-4 shadow-sm">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-xs font-semibold leading-relaxed text-foreground sm:text-sm">
-                      {rule}
-                    </span>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            {/* Accordion: View All Library Rules */}
             <div className="mt-8 text-center">
               <button
                 type="button"
-                onClick={() => setShowAllRules(!showAllRules)}
-                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-bold text-primary shadow-sm transition-all hover:border-primary/40 hover:bg-primary/5"
+                onClick={toggleDetailedRules}
+                aria-expanded={showAllRules}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white shadow-brand-button transition-colors hover:bg-primary/90"
               >
-                <span>{showAllRules ? 'Hide All Library Rules ↑' : 'View All Library Rules ↓'}</span>
+                <span>{showAllRules ? 'Hide Detailed Regulations' : 'View Detailed Regulations'}</span>
                 {showAllRules ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </button>
 
               {showAllRules && (
-                <div className="mt-8 grid gap-4 text-left md:grid-cols-2 animate-in fade-in slide-in-from-top-4 duration-300">
-                  {EXPANDED_LIBRARY_RULES.map((group) => (
-                    <div key={group.title} className="rounded-3xl border border-primary/15 bg-white p-6 shadow-sm">
-                      <h4 className="font-display text-base font-bold text-primary">
-                        {group.title}
-                      </h4>
-                      <ul className="mt-3 space-y-2 text-xs leading-relaxed text-muted sm:text-sm">
+                <div ref={detailedRulesRef} className="mt-8 grid scroll-mt-32 gap-4 text-left md:grid-cols-2 animate-in fade-in slide-in-from-top-4 duration-300">
+                  {EXPANDED_LIBRARY_RULES.map((group, groupIndex) => (
+                    <article key={group.title} className="overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-[0_16px_45px_-38px_rgba(82,24,34,.55)] md:p-7">
+                      <div className="flex items-center gap-4 border-b border-border/70 pb-4">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 font-display text-sm text-primary">{String(groupIndex + 1).padStart(2, '0')}</span>
+                        <h3 className="font-display text-lg font-semibold text-foreground">{group.title}</h3>
+                      </div>
+                      <ul className="mt-5 space-y-3 text-xs leading-relaxed text-muted sm:text-sm">
                         {group.rules.map((r, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="text-primary font-bold">•</span>
+                          <li key={i} className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary/70" />
                             <span>{r}</span>
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </article>
                   ))}
                 </div>
               )}

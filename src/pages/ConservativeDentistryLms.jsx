@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import { Reveal, SectionHeading } from '@/components/shared/Reveal'
 import { Button } from '@/components/ui/button'
 import GroupedDownloadGrid from '@/components/lms/GroupedDownloadGrid'
+import VideoCarouselGrid from '@/components/lms/VideoCarouselGrid'
 
 const TOPICS = [
   'Diagnosis and treatment planning',
@@ -105,7 +106,7 @@ export default function ConservativeDentistryLms() {
           </div>
         </section>
 
-        <section className="px-5 py-24 md:px-8 md:py-32">
+        <section className="px-5 py-10 md:px-8 md:py-14">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
             <Reveal>
               <div>
@@ -147,7 +148,7 @@ export default function ConservativeDentistryLms() {
           </div>
         </section>
 
-        <section className="bg-surface px-5 py-24 md:px-8 md:py-32">
+        <section id="presentations-section" className="bg-surface px-5 py-10 md:px-8 md:py-14 scroll-mt-28">
           <div className="mx-auto max-w-7xl">
             <Reveal>
               <SectionHeading
@@ -160,7 +161,7 @@ export default function ConservativeDentistryLms() {
           </div>
         </section>
 
-        <section className="mesh-bg px-5 py-24 md:px-8 md:py-32">
+        <section id="videos-section" className="mesh-bg px-5 py-10 md:px-8 md:py-14 scroll-mt-28">
           <div className="mx-auto max-w-7xl">
             <Reveal>
               <SectionHeading
@@ -169,29 +170,7 @@ export default function ConservativeDentistryLms() {
                 description="Select a lesson and learn directly on the APDCH website."
               />
             </Reveal>
-            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {VIDEO_IDS.map((videoId, i) => (
-                <Reveal key={videoId} delay={(i % 6) * 0.04}>
-                  <article className="overflow-hidden rounded-[1.5rem] border border-border/80 bg-white shadow-brand-xs transition-shadow hover:shadow-brand-md">
-                    <div className="aspect-video bg-foreground">
-                      <iframe
-                        src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-                        title={`Conservative Dentistry and Endodontics learning video ${i + 1}`}
-                        className="h-full w-full"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                      />
-                    </div>
-                    <div className="flex items-center gap-3 p-5">
-                      <PlayCircle className="h-5 w-5 shrink-0 text-primary" />
-                      <h3 className="font-bold text-foreground">Conservative Dentistry Lesson {i + 1}</h3>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
+            <VideoCarouselGrid videoIds={VIDEO_IDS} titlePrefix="Conservative Dentistry Lesson" />
           </div>
         </section>
 

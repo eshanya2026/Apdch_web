@@ -123,7 +123,7 @@ function FloatingIconItem({ item, index, mousePos }) {
   )
 }
 
-export default function FloatingHeroIcons() {
+export default function FloatingHeroIcons({ lowerBottomIcons = false }) {
   const containerRef = useRef(null)
   const [mousePos, setMousePos] = useState({ x: null, y: null })
 
@@ -143,14 +143,18 @@ export default function FloatingHeroIcons() {
       className="pointer-events-none absolute inset-0 hidden overflow-hidden sm:block"
       aria-hidden="true"
     >
-      {HERO_ICONS.map((item, index) => (
-        <FloatingIconItem
-          key={item.label}
-          item={item}
-          index={index}
-          mousePos={mousePos}
-        />
-      ))}
+      {HERO_ICONS.map((item, index) => {
+        const shouldLower = lowerBottomIcons && ['Excellence', 'Diagnostics'].includes(item.label)
+
+        return (
+          <FloatingIconItem
+            key={item.label}
+            item={shouldLower ? { ...item, defaultTop: '91%' } : item}
+            index={index}
+            mousePos={mousePos}
+          />
+        )
+      })}
     </div>
   )
 }
