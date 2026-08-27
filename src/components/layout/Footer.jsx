@@ -57,9 +57,10 @@ const COLUMN_3_GROUPS = [
     title: 'Governance',
     links: [
       { label: 'Committees & Cells', href: '/governance/committees' },
+      { label: 'Code of Conduct', href: '/code-of-conduct' },
       { label: 'IQAC', href: '/iqac' },
       { label: 'NIRF', href: '/nirf' },
-      { label: 'Policies', href: '/governance/hr-policy' },
+      { label: 'HR Policy & Staff Welfare', href: '/hr-policy' },
     ],
   },
   {

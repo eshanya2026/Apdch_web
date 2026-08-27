@@ -47,6 +47,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/governance" element={<Governance />} />
+        <Route path="/code-of-conduct" element={<Governance />} />
+        <Route path="/governance/code-of-conduct" element={<Governance />} />
         <Route path="/governance/committees" element={<Committees />} />
         <Route path="/committees" element={<Committees />} />
         <Route path="/governance/hr-policy" element={<HrPolicy />} />

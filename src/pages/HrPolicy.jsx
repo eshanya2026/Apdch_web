@@ -2,9 +2,26 @@ import { Link } from 'react-router-dom'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Reveal } from '@/components/shared/Reveal'
-import { Users, GraduationCap, HeartHandshake, Sparkles, CheckCircle2, ArrowRight, Mail } from 'lucide-react'
+import { Users, GraduationCap, HeartHandshake, Sparkles, CheckCircle2, ArrowRight, FileText, Eye, Download, Briefcase, PhoneCall } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
+
+const APPRAISAL_DOCUMENTS = [
+  {
+    title: 'Performance Appraisal System',
+    description: 'Institutional Performance Appraisal System & Evaluation Guidelines for Teaching and Non-Teaching Staff.',
+    badge: 'Official Policy',
+    pdfUrl: 'https://apdch.in/wp-content/uploads/2022/09/Performance-Appraisal.pdf',
+    fileName: 'Performance-Appraisal.pdf',
+  },
+  {
+    title: 'Staff Self-Appraisal Form',
+    description: 'Annual Staff Self-Appraisal & Career Advancement Assessment Form for Faculty Members.',
+    badge: 'Self-Evaluation Form',
+    pdfUrl: 'https://apdch.in/wp-content/uploads/2022/09/Staf-Self-Appraisal.pdf',
+    fileName: 'Staf-Self-Appraisal.pdf',
+  },
+]
 
 const TEACHING_STAFF_WELFARE_GROUPS = [
   {
@@ -239,9 +256,85 @@ export default function HrPolicy() {
           </div>
         </section>
 
+        {/* 5. Performance Appraisal & Evaluation Section */}
+        <section className="px-5 py-12 md:px-8 md:py-16">
+          <div className="mx-auto max-w-7xl">
+            <Reveal>
+              <div className="overflow-hidden rounded-[2rem] border border-primary/20 bg-white p-7 shadow-brand-card md:p-10">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-brand-xs">
+                      <FileText className="h-7 w-7" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-extrabold uppercase tracking-wider text-accent">Performance Evaluation</span>
+                      <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">Performance Appraisal Documents</h3>
+                    </div>
+                  </div>
+                  <span className="self-start sm:self-auto rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-extrabold text-primary">
+                    2 Downloadable Forms
+                  </span>
+                </div>
 
+                <p className="mt-6 text-sm font-medium leading-relaxed text-muted md:text-base">
+                  Access the official APDCH performance appraisal guidelines and staff self-evaluation documents below:
+                </p>
 
-        {/* 6. High-Impact CTA Banner */}
+                <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                  {APPRAISAL_DOCUMENTS.map((doc) => (
+                    <motion.div
+                      key={doc.title}
+                      whileHover={{ scale: 1.01, y: -2 }}
+                      className="group flex flex-col justify-between rounded-2xl border border-border/80 bg-background p-6 shadow-brand-xs transition-all duration-300 hover:border-primary/40 hover:bg-primary/5 hover:shadow-brand-md"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                            <FileText className="h-5 w-5" />
+                          </span>
+                          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold text-primary">
+                            {doc.badge}
+                          </span>
+                        </div>
+                        <h4 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                          {doc.title}
+                        </h4>
+                        <p className="text-xs text-muted leading-relaxed font-medium">
+                          {doc.description}
+                        </p>
+                      </div>
+
+                      <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-4">
+                        <span className="text-xs font-semibold text-muted">PDF Document</span>
+                        <div className="flex items-center gap-2">
+                          <a
+                            href={doc.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-xl border border-border/80 bg-surface px-3.5 py-1.5 text-xs font-bold text-foreground hover:border-primary/30 hover:bg-primary/5 hover:text-primary transition-colors"
+                          >
+                            <Eye className="h-4 w-4" />
+                            <span>View</span>
+                          </a>
+                          <a
+                            href={doc.pdfUrl}
+                            download={doc.fileName}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-3.5 py-1.5 text-xs font-bold text-white shadow-xs hover:bg-primary/90 transition-colors"
+                          >
+                            <Download className="h-4 w-4" />
+                            <span>Download</span>
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
         <section className="relative overflow-hidden px-5 py-20 md:px-8 md:py-28">
           <div className="absolute inset-0 cta-gradient" />
           <div className="relative z-10 mx-auto max-w-4xl text-center">
@@ -257,17 +350,17 @@ export default function HrPolicy() {
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
                 <Button asChild size="lg" className="bg-white text-primary hover:bg-white/95 font-bold shadow-brand-md px-8 py-6 text-base">
-                  <a href="mailto:admissions@apdch.edu.in?subject=HR%20Policy%20Enquiry%20APDCH">
-                    <Mail className="h-5 w-5 text-primary" />
-                    <span>Contact HR Desk</span>
+                  <Link to="/careers">
+                    <Briefcase className="h-5 w-5 text-primary" />
+                    <span>Explore Career Openings</span>
                     <ArrowRight className="h-5 w-5" />
-                  </a>
+                  </Link>
                 </Button>
 
                 <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white hover:text-primary transition-colors font-bold px-8 py-6 text-base">
-                  <Link to="/faculty">
-                    <Users className="h-5 w-5" />
-                    <span>View Faculty Directory</span>
+                  <Link to="/contact">
+                    <PhoneCall className="h-5 w-5" />
+                    <span>Contact Us Form</span>
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
