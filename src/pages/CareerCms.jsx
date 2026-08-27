@@ -328,7 +328,7 @@ export default function CareerCms() {
         return
       }
     }
-    updateApplicationStatus(appId, newStatus)
+    const result = updateApplicationStatus(appId, newStatus)
     loadData()
     setRecentlyUpdatedAppIds((prev) => [...new Set([...prev, appId])])
 
@@ -336,7 +336,19 @@ export default function CareerCms() {
       setSelectedApplication((prev) => ({ ...prev, status: newStatus }))
     }
     const statusLabel = APP_STATUS_BADGES[newStatus]?.label || newStatus
-    showToast(`Status updated to "${statusLabel}". Saved successfully.`)
+    const meta = result?.meta || {}
+
+    if (meta.vacancyChanged) {
+      if (meta.jobClosed) {
+        showToast(`Candidate Selected! Job vacancy count reached 0. Position is now marked CLOSED.`)
+      } else if (newStatus === 'selected') {
+        showToast(`Candidate Selected! Vacancies automatically updated to ${meta.remainingVacancies}.`)
+      } else {
+        showToast(`Status updated to "${statusLabel}". Vacancies restored to ${meta.remainingVacancies}.`)
+      }
+    } else {
+      showToast(`Status updated to "${statusLabel}". Saved successfully.`)
+    }
   }
 
   const handleSaveAppNotes = (appId, notes) => {

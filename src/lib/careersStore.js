@@ -344,7 +344,13 @@ export function saveApplication(appData) {
 
 export function updateApplicationStatus(id, newStatus, hrNotes = null) {
   const apps = getApplications()
-  const updated = apps.map((app) => {
+  const targetApp = apps.find((a) => a.id === id)
+  if (!targetApp) return { apps, meta: {} }
+
+  const oldStatus = targetApp.status
+  let statusMeta = { vacancyChanged: false, remainingVacancies: null, jobClosed: false }
+
+  const updatedApps = apps.map((app) => {
     if (app.id === id) {
       return {
         ...app,
@@ -354,8 +360,46 @@ export function updateApplicationStatus(id, newStatus, hrNotes = null) {
     }
     return app
   })
-  localStorage.setItem(APPLICATIONS_STORAGE_KEY, JSON.stringify(updated))
-  return updated
+
+  localStorage.setItem(APPLICATIONS_STORAGE_KEY, JSON.stringify(updatedApps))
+
+  // Automatic Vacancy Count Deduction / Restoration on Candidate Selection
+  if (oldStatus !== newStatus && (newStatus === 'selected' || oldStatus === 'selected')) {
+    const jobs = getJobPostings()
+    const targetJobIndex = jobs.findIndex(
+      (j) => j.id === targetApp.jobId || j.title === targetApp.jobTitle || j.title === targetApp.positionApplied
+    )
+
+    if (targetJobIndex !== -1) {
+      const targetJob = jobs[targetJobIndex]
+      const updatedJobs = [...jobs]
+
+      if (newStatus === 'selected' && oldStatus !== 'selected') {
+        const newVacancies = Math.max(0, (targetJob.vacancies || 1) - 1)
+        const isClosed = newVacancies === 0
+        updatedJobs[targetJobIndex] = {
+          ...targetJob,
+          vacancies: newVacancies,
+          status: isClosed ? 'closed' : targetJob.status,
+          updatedDate: new Date().toISOString().split('T')[0],
+        }
+        statusMeta = { vacancyChanged: true, remainingVacancies: newVacancies, jobClosed: isClosed }
+      } else if (oldStatus === 'selected' && newStatus !== 'selected') {
+        const newVacancies = (targetJob.vacancies || 0) + 1
+        updatedJobs[targetJobIndex] = {
+          ...targetJob,
+          vacancies: newVacancies,
+          status: targetJob.status === 'closed' ? 'active' : targetJob.status,
+          updatedDate: new Date().toISOString().split('T')[0],
+        }
+        statusMeta = { vacancyChanged: true, remainingVacancies: newVacancies, jobClosed: false }
+      }
+
+      localStorage.setItem(JOBS_STORAGE_KEY, JSON.stringify(updatedJobs))
+    }
+  }
+
+  return { apps: updatedApps, meta: statusMeta }
 }
 
 export function updateInterviewSchedule(id, interviewDetails) {
