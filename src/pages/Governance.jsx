@@ -3,8 +3,6 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import GovernanceHero from '@/components/governance/GovernanceHero'
 import CommitteesSection from '@/components/governance/CommitteesSection'
-import InstitutionalPolicies from '@/components/governance/InstitutionalPolicies'
-import DownloadsSection from '@/components/governance/DownloadsSection'
 import GovernanceCTA from '@/components/governance/GovernanceCTA'
 
 export default function Governance() {
@@ -27,12 +25,6 @@ export default function Governance() {
 
         {/* Committees & Cells Section */}
         <CommitteesSection />
-
-        {/* Institutional Policies & Code of Conduct */}
-        <InstitutionalPolicies />
-
-        {/* Downloads & Reports Section */}
-        <DownloadsSection />
 
         {/* Governance CTA */}
         <GovernanceCTA />

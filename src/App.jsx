@@ -28,6 +28,7 @@ import Magazine from '@/pages/Magazine'
 import CampusLife from '@/pages/CampusLife'
 import Governance from '@/pages/Governance'
 import Committees from '@/pages/Committees'
+import CodeOfConduct from '@/pages/CodeOfConduct'
 import HrPolicy from '@/pages/HrPolicy'
 import Nirf from '@/pages/Nirf'
 import Iqac from '@/pages/Iqac'
@@ -47,8 +48,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/governance" element={<Governance />} />
-        <Route path="/code-of-conduct" element={<Governance />} />
-        <Route path="/governance/code-of-conduct" element={<Governance />} />
+        <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+        <Route path="/governance/code-of-conduct" element={<CodeOfConduct />} />
         <Route path="/governance/committees" element={<Committees />} />
         <Route path="/committees" element={<Committees />} />
         <Route path="/governance/hr-policy" element={<HrPolicy />} />
